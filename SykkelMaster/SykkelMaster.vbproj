@@ -51,6 +51,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -70,11 +71,41 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="bruker.Designer.vb">
+      <DependentUpon>bruker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="bruker.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="hoved.Designer.vb">
+      <DependentUpon>hoved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="hoved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="innlevering.Designer.vb">
+      <DependentUpon>innlevering.vb</DependentUpon>
+    </Compile>
+    <Compile Include="innlevering.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kunde.Designer.vb">
+      <DependentUpon>kunde.vb</DependentUpon>
+    </Compile>
+    <Compile Include="kunde.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lokasjon.Designer.vb">
+      <DependentUpon>lokasjon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lokasjon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="start.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="start.Designer.vb">
+      <DependentUpon>start.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -92,13 +123,49 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="sykkel.Designer.vb">
+      <DependentUpon>sykkel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sykkel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utleie.Designer.vb">
+      <DependentUpon>utleie.vb</DependentUpon>
+    </Compile>
+    <Compile Include="utleie.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="bruker.resx">
+      <DependentUpon>bruker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hoved.resx">
+      <DependentUpon>hoved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="innlevering.resx">
+      <DependentUpon>innlevering.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kunde.resx">
+      <DependentUpon>kunde.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lokasjon.resx">
+      <DependentUpon>lokasjon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="start.resx">
+      <DependentUpon>start.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sykkel.resx">
+      <DependentUpon>sykkel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utleie.resx">
+      <DependentUpon>utleie.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
