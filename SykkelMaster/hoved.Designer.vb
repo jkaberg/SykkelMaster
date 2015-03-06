@@ -38,36 +38,40 @@ Partial Class hoved
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(261, 184)
+        Me.Button1.Location = New System.Drawing.Point(196, 150)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(143, 49)
+        Me.Button1.Size = New System.Drawing.Size(107, 40)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Kunder"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(261, 74)
+        Me.Button2.Location = New System.Drawing.Point(196, 60)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(143, 49)
+        Me.Button2.Size = New System.Drawing.Size(107, 40)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Utleie"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(13, 184)
+        Me.Button3.Location = New System.Drawing.Point(10, 150)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(143, 49)
+        Me.Button3.Size = New System.Drawing.Size(107, 40)
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "Lokasjoner"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(12, 129)
+        Me.Button4.Location = New System.Drawing.Point(9, 105)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(143, 49)
+        Me.Button4.Size = New System.Drawing.Size(107, 40)
         Me.Button4.TabIndex = 3
         Me.Button4.Text = "Sykkler"
         Me.Button4.UseVisualStyleBackColor = True
@@ -75,9 +79,11 @@ Partial Class hoved
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
-        Me.GroupBox2.Location = New System.Drawing.Point(261, 12)
+        Me.GroupBox2.Location = New System.Drawing.Point(196, 10)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(143, 56)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(107, 46)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lokasjon"
@@ -85,16 +91,18 @@ Partial Class hoved
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(7, 22)
+        Me.ComboBox1.Location = New System.Drawing.Point(5, 18)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(92, 21)
         Me.ComboBox1.TabIndex = 0
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(261, 129)
+        Me.Button5.Location = New System.Drawing.Point(196, 105)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(143, 49)
+        Me.Button5.Size = New System.Drawing.Size(107, 40)
         Me.Button5.TabIndex = 5
         Me.Button5.Text = "Brukere"
         Me.Button5.UseVisualStyleBackColor = True
@@ -102,9 +110,11 @@ Partial Class hoved
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 10)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(242, 56)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(182, 46)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Informasjon"
@@ -112,26 +122,28 @@ Partial Class hoved
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 22)
+        Me.Label1.Location = New System.Drawing.Point(5, 18)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(168, 17)
+        Me.Label1.Size = New System.Drawing.Size(68, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Velkommen, Joel Kåberg!"
+        Me.Label1.Text = "Velkommen, "
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(12, 74)
+        Me.Button6.Location = New System.Drawing.Point(9, 60)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(143, 49)
+        Me.Button6.Size = New System.Drawing.Size(107, 40)
         Me.Button6.TabIndex = 7
         Me.Button6.Text = "Innlevering"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'hoved
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(412, 248)
+        Me.ClientSize = New System.Drawing.Size(309, 202)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Button5)
@@ -141,6 +153,7 @@ Partial Class hoved
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "hoved"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sykkelmaster"

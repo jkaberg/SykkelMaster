@@ -46,7 +46,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -59,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
+    <Import Include="MySql.Data" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
@@ -77,6 +80,7 @@
     <Compile Include="bruker.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="databas\db.vb" />
     <Compile Include="hoved.Designer.vb">
       <DependentUpon>hoved.vb</DependentUpon>
     </Compile>
@@ -89,10 +93,10 @@
     <Compile Include="innlevering.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kunde.Designer.vb">
-      <DependentUpon>kunde.vb</DependentUpon>
+    <Compile Include="kunder.Designer.vb">
+      <DependentUpon>kunder.vb</DependentUpon>
     </Compile>
-    <Compile Include="kunde.vb">
+    <Compile Include="kunder.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="lokasjon.Designer.vb">
@@ -101,6 +105,9 @@
     <Compile Include="lokasjon.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="person\ansatt.vb" />
+    <Compile Include="person\kunde.vb" />
+    <Compile Include="person\person.vb" />
     <Compile Include="start.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +136,10 @@
     <Compile Include="sykkel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sykkel\sykkel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sykkel\utstyr.vb" />
     <Compile Include="utleie.Designer.vb">
       <DependentUpon>utleie.vb</DependentUpon>
     </Compile>
@@ -146,8 +157,8 @@
     <EmbeddedResource Include="innlevering.resx">
       <DependentUpon>innlevering.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kunde.resx">
-      <DependentUpon>kunde.vb</DependentUpon>
+    <EmbeddedResource Include="kunder.resx">
+      <DependentUpon>kunder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="lokasjon.resx">
       <DependentUpon>lokasjon.vb</DependentUpon>
@@ -180,6 +191,7 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
