@@ -74,39 +74,39 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bruker.Designer.vb">
+    <Compile Include="sider\bruker.Designer.vb">
       <DependentUpon>bruker.vb</DependentUpon>
     </Compile>
-    <Compile Include="bruker.vb">
+    <Compile Include="sider\bruker.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="databas\db.vb" />
-    <Compile Include="hoved.Designer.vb">
+    <Compile Include="verktoy\db.vb" />
+    <Compile Include="sider\hoved.Designer.vb">
       <DependentUpon>hoved.vb</DependentUpon>
     </Compile>
-    <Compile Include="hoved.vb">
+    <Compile Include="sider\hoved.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="innlevering.Designer.vb">
+    <Compile Include="sider\innlevering.Designer.vb">
       <DependentUpon>innlevering.vb</DependentUpon>
     </Compile>
-    <Compile Include="innlevering.vb">
+    <Compile Include="sider\innlevering.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kunder.Designer.vb">
+    <Compile Include="sider\kunder.Designer.vb">
       <DependentUpon>kunder.vb</DependentUpon>
     </Compile>
-    <Compile Include="kunder.vb">
+    <Compile Include="sider\kunder.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="lokasjon.Designer.vb">
+    <Compile Include="sider\lokasjon.Designer.vb">
       <DependentUpon>lokasjon.vb</DependentUpon>
     </Compile>
-    <Compile Include="lokasjon.vb">
+    <Compile Include="sider\lokasjon.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="person\ansatt.vb" />
-    <Compile Include="person\person.vb" />
+    <Compile Include="klasser\person\ansatt.vb" />
+    <Compile Include="klasser\person\person.vb" />
     <Compile Include="start.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -129,35 +129,35 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="sykkeledit.Designer.vb">
+    <Compile Include="sider\sykkeledit.Designer.vb">
       <DependentUpon>sykkeledit.vb</DependentUpon>
     </Compile>
-    <Compile Include="sykkeledit.vb">
+    <Compile Include="sider\sykkeledit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sykkel\sykkel.vb" />
-    <Compile Include="sykkel\utstyr.vb" />
-    <Compile Include="utleie.Designer.vb">
+    <Compile Include="klasser\sykkel\sykkel.vb" />
+    <Compile Include="klasser\sykkel\utstyr.vb" />
+    <Compile Include="sider\utleie.Designer.vb">
       <DependentUpon>utleie.vb</DependentUpon>
     </Compile>
-    <Compile Include="utleie.vb">
+    <Compile Include="sider\utleie.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="bruker.resx">
+    <EmbeddedResource Include="sider\bruker.resx">
       <DependentUpon>bruker.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="hoved.resx">
+    <EmbeddedResource Include="sider\hoved.resx">
       <DependentUpon>hoved.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="innlevering.resx">
+    <EmbeddedResource Include="sider\innlevering.resx">
       <DependentUpon>innlevering.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kunder.resx">
+    <EmbeddedResource Include="sider\kunder.resx">
       <DependentUpon>kunder.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="lokasjon.resx">
+    <EmbeddedResource Include="sider\lokasjon.resx">
       <DependentUpon>lokasjon.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="start.resx">
@@ -169,10 +169,10 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="sykkeledit.resx">
+    <EmbeddedResource Include="sider\sykkeledit.resx">
       <DependentUpon>sykkeledit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="utleie.resx">
+    <EmbeddedResource Include="sider\utleie.resx">
       <DependentUpon>utleie.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

@@ -26,7 +26,7 @@
 
     Private Sub hoved_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Vis navnet på den ansatte som logger inn i Label1 (eksempel: Velkommen, Joel Kåberg)
-        Label1.Text += start.bruker.pFnavn + " " + start.bruker.pEnavn
+        Label1.Text += start.bruker.pFnavn & " " & start.bruker.pEnavn
 
         'Hent ut å vis frem alle lokasjoner (virksomheter) i ComboBox1
         Dim payload As New DataTable
@@ -35,5 +35,22 @@
         ComboBox1.DataSource = payload
         'Vi velger ut navn kolonnen som den vi har lyst til å vis frem
         ComboBox1.DisplayMember = "navn"
+
+        ' Behørigheters nivåer (integer):
+        ' Daglig leder: 10
+        ' Selger: 5
+        ' Lagermedarbeider: 3
+        ' Sjekk hvilken behørighet logget inn bruker har å enabled knapper utifra d
+        Select Case start.bruker.pStilling
+            Case Is >= 10
+                Button1.Enabled = True
+                Button2.Enabled = True
+                Button3.Enabled = True
+                Button5.Enabled = True
+            Case Is >= 5
+                Button1.Enabled = True
+                Button2.Enabled = True
+
+        End Select
     End Sub
 End Class

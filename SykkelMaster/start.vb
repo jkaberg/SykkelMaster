@@ -23,17 +23,22 @@ Public Class start
 
             'Lag objektet ansatt med dataen fra objektet d
             bruker = New ansatt(d("person_id"),
-                                     d("fornavn"),
-                                     d("etternavn"),
-                                     d("post_nr"),
-                                     d("telefon"),
-                                     d("adresse"),
-                                     d("post_sted"),
-                                     d("mail"),
-                                     d("stilling"),
-                                     d("provisjon"))
+                                d("fornavn"),
+                                d("etternavn"),
+                                d("post_nr"),
+                                d("telefon"),
+                                d("adresse"),
+                                d("post_sted"),
+                                d("mail"),
+                                d("stilling"),
+                                d("provisjon"))
             Return True
         End If
         Return False
     End Function
+
+    Private Sub start_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBox1.Text = "d@"
+        TextBox2.Text = "d"
+    End Sub
 End Class
