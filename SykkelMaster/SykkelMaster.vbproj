@@ -46,7 +46,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -106,7 +106,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="person\ansatt.vb" />
-    <Compile Include="person\kunde.vb" />
     <Compile Include="person\person.vb" />
     <Compile Include="start.vb">
       <SubType>Form</SubType>
@@ -130,15 +129,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="sykkel.Designer.vb">
-      <DependentUpon>sykkel.vb</DependentUpon>
+    <Compile Include="sykkeledit.Designer.vb">
+      <DependentUpon>sykkeledit.vb</DependentUpon>
     </Compile>
-    <Compile Include="sykkel.vb">
+    <Compile Include="sykkeledit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sykkel\sykkel.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="sykkel\sykkel.vb" />
     <Compile Include="sykkel\utstyr.vb" />
     <Compile Include="utleie.Designer.vb">
       <DependentUpon>utleie.vb</DependentUpon>
@@ -172,8 +169,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="sykkel.resx">
-      <DependentUpon>sykkel.vb</DependentUpon>
+    <EmbeddedResource Include="sykkeledit.resx">
+      <DependentUpon>sykkeledit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="utleie.resx">
       <DependentUpon>utleie.vb</DependentUpon>

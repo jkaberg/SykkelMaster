@@ -13,7 +13,7 @@
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        sykkel.Show()
+        sykkelEdit.Show()
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -25,6 +25,15 @@
     End Sub
 
     Private Sub hoved_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Label1.Text &= start.bruker
+        'Vis navnet på den ansatte som logger inn i Label1 (eksempel: Velkommen, Joel Kåberg)
+        Label1.Text += start.bruker.pFnavn + " " + start.bruker.pEnavn
+
+        'Hent ut å vis frem alle lokasjoner (virksomheter) i ComboBox1
+        Dim payload As New DataTable
+        payload = db.query("SELECT * FROM virksomhet")
+
+        ComboBox1.DataSource = payload
+        'Vi velger ut navn kolonnen som den vi har lyst til å vis frem
+        ComboBox1.DisplayMember = "navn"
     End Sub
 End Class

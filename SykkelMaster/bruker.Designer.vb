@@ -25,6 +25,7 @@ Partial Class bruker
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -43,7 +44,6 @@ Partial Class bruker
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -65,6 +65,7 @@ Partial Class bruker
         Me.DataGridView1.Location = New System.Drawing.Point(6, 18)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.RowTemplate.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(444, 326)
         Me.DataGridView1.TabIndex = 18
         '
@@ -95,6 +96,14 @@ Partial Class bruker
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger kunde"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(80, 214)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(166, 24)
+        Me.ComboBox1.TabIndex = 38
         '
         'Label9
         '
@@ -243,14 +252,6 @@ Partial Class bruker
         Me.Label1.Size = New System.Drawing.Size(60, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Fornavn"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(80, 214)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(166, 24)
-        Me.ComboBox1.TabIndex = 38
         '
         'bruker
         '

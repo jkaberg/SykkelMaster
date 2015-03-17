@@ -251,7 +251,7 @@ Partial Class kunder
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Navn/telefonnr"
         '
-        'kunde
+        'kunder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -259,7 +259,7 @@ Partial Class kunder
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "kunde"
+        Me.Name = "kunder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Kunde"
         Me.GroupBox1.ResumeLayout(False)

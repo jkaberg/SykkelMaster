@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class sykkel
+Partial Class sykkelEdit
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,6 +23,9 @@ Partial Class sykkel
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBox6 = New System.Windows.Forms.ComboBox()
@@ -41,9 +44,6 @@ Partial Class sykkel
         Me.ComboBox5 = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +74,33 @@ Partial Class sykkel
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(9, 338)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(296, 30)
+        Me.Button5.TabIndex = 34
+        Me.Button5.Text = "Slett"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(9, 302)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(296, 30)
+        Me.Button3.TabIndex = 33
+        Me.Button3.Text = "Oppdater"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(9, 266)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(296, 30)
+        Me.Button4.TabIndex = 32
+        Me.Button4.Text = "Legg til"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'TextBox2
         '
@@ -236,34 +263,7 @@ Partial Class sykkel
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Lokasjon"
         '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(9, 338)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(296, 30)
-        Me.Button5.TabIndex = 34
-        Me.Button5.Text = "Slett"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(9, 302)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(296, 30)
-        Me.Button3.TabIndex = 33
-        Me.Button3.Text = "Oppdater"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(9, 266)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(296, 30)
-        Me.Button4.TabIndex = 32
-        Me.Button4.Text = "Legg til"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'sykkel
+        'sykkelEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -271,7 +271,7 @@ Partial Class sykkel
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "sykkel"
+        Me.Name = "sykkelEdit"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sykkel"
         Me.GroupBox1.ResumeLayout(False)

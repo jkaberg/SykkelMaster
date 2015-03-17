@@ -16,6 +16,7 @@ Public Class db
         Finally
             conn.Dispose()
         End Try
+        Console.WriteLine(data)
         Return data
     End Function
 End Class

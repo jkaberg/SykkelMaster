@@ -3,14 +3,16 @@
     Private stilling As String ' Daglig leder
     Private provisjon As Integer ' 10 | (%) - burde kanskje vurdere Double med 2 decimaler
 
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal stilling As String, ByVal provisjon As Integer)
-        MyBase.New(id, fnavn, enavn, pnr, tnr, gate, sted)
-        Me.stilling = stilling
-        Me.provisjon = provisjon
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String, ByVal stilling As String, ByVal provisjon As Integer)
+        MyBase.New(id, fnavn, enavn, pnr, tnr, gate, sted, epost)
+        pStilling = stilling
+        pProvisjon = provisjon
     End Sub
 
-    Sub New()
-        'MyBase.New()
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
+        MyBase.New(id, fnavn, enavn, pnr, tnr, gate, sted, epost)
+        pStilling = ""
+        pProvisjon = ""
     End Sub
 
     Public Property pStilling() As String

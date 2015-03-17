@@ -10,9 +10,9 @@ C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.
 C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.start.resources
 C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.hoved.resources
 C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.utleie.resources
-C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.kunde.resources
 C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.lokasjon.resources
-C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.sykkel.resources
 C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.bruker.resources
 C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.innlevering.resources
 C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.vbprojResolveAssemblyReference.cache
+C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.kunder.resources
+C:\Users\Joel\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.sykkelEdit.resources

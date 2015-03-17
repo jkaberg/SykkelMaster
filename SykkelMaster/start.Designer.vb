@@ -64,6 +64,7 @@ Partial Class start
         '
         Me.TextBox2.Location = New System.Drawing.Point(94, 48)
         Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox2.Size = New System.Drawing.Size(142, 22)
         Me.TextBox2.TabIndex = 3
         '

@@ -4,7 +4,7 @@
     Private gate As String 'Olav Tryggvasonsgate 10
     Private sted As String 'Trondheim
 
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String)
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
         If sjekkepost(epost) And sjekktlf(tnr) Then
             Me.id = id
             Me.fornavn = fnavn
@@ -13,6 +13,7 @@
             Me.telefonnr = tnr
             Me.gate = gate
             Me.sted = sted
+            Me.epost = epost
         End If
     End Sub
 
@@ -79,6 +80,14 @@
         End Set
     End Property
 
+    Public Property pEpost() As String
+        Get
+            Return epost
+        End Get
+        Set(ByVal value As String)
+            epost = value
+        End Set
+    End Property
 
     Private Function sjekktlf(ByVal tlf As Integer)
         If Not tlf.ToString.Length = 8 Then
