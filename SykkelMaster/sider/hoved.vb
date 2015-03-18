@@ -42,12 +42,12 @@
         ' Lagermedarbeider: 3
         ' Sjekk hvilken behørighet logget inn bruker har å enabled knapper utifra d
         Select Case start.bruker.pStilling
-            Case Is >= 10
+            Case Is >= 3
                 Button1.Enabled = True
                 Button2.Enabled = True
                 Button3.Enabled = True
                 Button5.Enabled = True
-            Case Is >= 5
+            Case Is >= 2
                 Button1.Enabled = True
                 Button2.Enabled = True
 
