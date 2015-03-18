@@ -11,15 +11,17 @@
         gridIndex = brukerGridView.CurrentRow.Index
 
         'Sett in dataen fra Grid Viewn i Textboksene
-        txtNavn.Text = brukerGridView.Item((1), gridIndex).Value 'Førnavn
-        txtEtternavn.Text = brukerGridView.Item((2), gridIndex).Value 'Etternavn
-        txtTelefon.Text = brukerGridView.Item((3), gridIndex).Value 'Telefon
-        txtAdresse.Text = brukerGridView.Item((5), gridIndex).Value 'Adresse
-        txtMail.Text = brukerGridView.Item((4), gridIndex).Value 'Mail
-        txtPostnr.Text = brukerGridView.Item((6), gridIndex).Value 'Postnr
+        With Me.brukerGridView
+            txtNavn.Text = .Rows(gridIndex).Cells("fornavn").Value
+            txtEtternavn.Text = .Rows(gridIndex).Cells("etternavn").Value
+            txtTelefon.Text = .Rows(gridIndex).Cells("telefon").Value
+            txtAdresse.Text = .Rows(gridIndex).Cells("adresse").Value
+            txtMail.Text = .Rows(gridIndex).Cells("mail").Value
+            txtPostnr.Text = .Rows(gridIndex).Cells("post_nr").Value
 
-        'Sett provisjonen via sub
-        provisjonLabel(brukerGridView.Item((9), gridIndex).Value)
+            'Sett provisjonen
+            provisjonLabel(.Rows(gridIndex).Cells("provisjon").Value)
+        End With
     End Sub
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
@@ -30,10 +32,12 @@
     End Sub
 
     Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll
+        'Oppdater provisjons label med scrollbar veriden
         provisjonLabel(HScrollBar1.Value)
     End Sub
 
     Private Sub provisjonLabel(ByVal p As Integer)
+        'Oppdater provisjons label med scrollbar veriden
         If Not HScrollBar1.Value = p Then
             HScrollBar1.Value = p
         End If
@@ -64,20 +68,24 @@
             .Columns("stilling").HeaderText = "Stilling"
             .Columns("provisjon").HeaderText = "Provisjon"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
-            '
-            For i As Integer = 0 To brukerGridView.RowCount - 1
-                Dim j As String = brukerGridView.Item((9), i).Value
-
-                Select Case j
-                    Case Is = 3
-                        .Rows(i).Cells("stilling").Value = "Lagerarbeider"
-                    Case Is = 5
-                        .Rows(i).Cells("stilling").Value = "Selger"
-                    Case Is = 10
-                        .Rows(i).Cells("stilling").Value = "Daglig Leder"
-                End Select
-            Next
         End With
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        'Legg til bruker
+        'db.query("INSERT INTO personer (fornavn, etternavn, telefon, mail, adresse, post_nr, stilling, provisjon) VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtPostnr.Text & "', '" & stilling() & "', '" & HScrollBar1.Value & "')")
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim bruker As String = Me.brukerGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(gridIndex).Cells("etternavn").Value
+        'Slett bruker
+        Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNoCancel, "caption")
+            Case MsgBoxResult.Yes
+                db.query("DELETE FROM person WHERE id = '" & Me.brukerGridView.Rows(gridIndex).Cells("id").Value & "'")
+        End Select
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'Oppdater bruker
+    End Sub
 End Class
