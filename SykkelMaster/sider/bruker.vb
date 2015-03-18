@@ -46,7 +46,17 @@
 
     Private Sub oppdaterGridView()
         Dim payload As New DataTable
-        payload = db.query("SELECT * FROM person JOIN ansatt ON person.person_id = ansatt.person_id")
+        Dim sql As String = "SELECT " &
+                            "person.id, person.fornavn, person.etternavn, person.telefon, person.mail, person.adresse, person.post_nr, " &
+                            "ansatt.provisjon, " &
+                            "sted.post_sted, " &
+                            "stilling.stilling " &
+                            "FROM person JOIN ansatt " &
+                            "ON person.id = ansatt.person_id " &
+                            "JOIN sted ON sted.post_nr = person.post_nr JOIN stilling " &
+                            "ON ansatt.stilling = stilling.id"
+        'payload = db.query("SELECT * FROM person JOIN ansatt ON person.id = ansatt.person_id")
+        payload = db.query(sql)
         brukerGridView.DataSource = payload
 
         ' Sett gridIndex sånn at vi finner frem i djungelen av data fra databasen
@@ -54,10 +64,7 @@
 
         With Me.brukerGridView
             'Vis ikke enkelte kolonner 
-            .Columns("person_id").Visible = False
-            .Columns("person_id1").Visible = False
-            .Columns("passord").Visible = False
-            .Columns("virksomhet_id").Visible = False
+            .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
             .Columns("fornavn").HeaderText = "Førnavn"
             .Columns("etternavn").HeaderText = "Etternavn"
@@ -66,9 +73,17 @@
             .Columns("adresse").HeaderText = "Adresse"
             .Columns("post_nr").HeaderText = "Postnr"
             .Columns("stilling").HeaderText = "Stilling"
+            .Columns("post_sted").HeaderText = "Post sted"
             .Columns("provisjon").HeaderText = "Provisjon"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
+
+        txtNavn.Text = ""
+        txtEtternavn.Text = ""
+        txtTelefon.Text = ""
+        txtAdresse.Text = ""
+        txtMail.Text = ""
+        txtPostnr.Text = ""
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -79,10 +94,13 @@
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Dim bruker As String = Me.brukerGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(gridIndex).Cells("etternavn").Value
         'Slett bruker
-        Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNoCancel, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
-                db.query("DELETE FROM person WHERE id = '" & Me.brukerGridView.Rows(gridIndex).Cells("id").Value & "'")
+                db.query("DELETE FROM ansatt WHERE person_id = '" & Me.brukerGridView.Rows(gridIndex).Cells("id").Value & "'")
         End Select
+
+        'Ettersom vi slettet ansatte så må vi oppdatere gridView
+        oppdaterGridView()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
