@@ -110,8 +110,9 @@ Partial Class bruker
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(78, 248)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(0, 17)
+        Me.Label10.Size = New System.Drawing.Size(28, 17)
         Me.Label10.TabIndex = 4
+        Me.Label10.Text = "0%"
         '
         'HScrollBar1
         '

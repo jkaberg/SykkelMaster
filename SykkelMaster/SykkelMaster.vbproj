@@ -143,6 +143,7 @@
     <Compile Include="sider\utleie.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="verktoy\util.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="sider\bruker.resx">
