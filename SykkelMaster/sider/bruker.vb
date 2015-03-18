@@ -64,7 +64,7 @@
             .Columns("stilling").HeaderText = "Stilling"
             .Columns("provisjon").HeaderText = "Provisjon"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
-
+            '
             For i As Integer = 0 To brukerGridView.RowCount - 1
                 Dim j As String = brukerGridView.Item((9), i).Value
 
