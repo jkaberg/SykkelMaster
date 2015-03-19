@@ -1,5 +1,9 @@
 ﻿Imports SykkelMaster.db
 Imports SykkelMaster.ansatt
+Imports MySql.Data.MySqlClient
+Imports System.Net.Mail
+Imports System.Configuration
+
 Public Class start
     Public bruker As ansatt
 
@@ -68,17 +72,47 @@ Public Class start
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
+        'Setter en variabel passord lik funksjonen som lager tilfeldig passord, slik at den ikke blir kjørt flere ganger.
+        Dim passord = RandomPassordGenerator()
+
+        Dim payload As New DataTable
+        Dim sql As String = "SELECT " &
+                            "person.mail, " &
+                            "FROM person JOIN ansatt " &
+                            "ON person.mail = '" & TextBox3.Text & "'"
+        payload = db.query(sql)
+
+        If payload.Rows.Count = 1 Then
+            db.query("UPDATE ansatt JOIN person ON ansatt.person_id = person.id AND person.mail = '" & TextBox3.Text & "' set ansatt.passord ='" & passord & "'")
+
+            ' MYSQL SETNING: UPDATE ansatt JOIN person ON ansatt.person_id = person.id And person.mail ='jens.ronneberg@gmail.com' set ansatt.passord ='jens';
+        Else
+            MsgBox("E-post eksiterer ikke.")
+        End If
 
     End Sub
 
 
 
-    Private Sub Send_Nytt_Passord()
+    Private Sub Send_Nytt_Passord(ByVal epost As String)
 
         'Setter en variabel passord lik funksjonen som lager tilfeldig passord, slik at den ikke blir kjørt flere ganger.
         Dim passord = RandomPassordGenerator()
 
+        Dim payload As New DataTable
+        Dim sql As String = "SELECT " &
+                            "person.mail, " &
+                            "FROM person JOIN ansatt " &
+                            "ON person.mail = '" & epost & "'"
+        payload = db.query(sql)
 
+        If payload.Rows.Count = 1 Then
+            db.query("UPDATE ansatt JOIN person ON ansatt.person_id = person.id AND person.mail ='" & epost & "'" & "set ansatt.passord ='" & passord & "'")
+                     
+            ' MYSQL SETNING: UPDATE ansatt JOIN person ON ansatt.person_id = person.id And person.mail ='jens.ronneberg@gmail.com' set ansatt.passord ='jens';
+        Else
+            MsgBox("E-post eksiterer ikke.")
+        End If
 
 
     End Sub
