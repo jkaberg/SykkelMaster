@@ -56,9 +56,9 @@ Partial Class innlevering
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 149)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(232, 193)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
@@ -67,7 +67,7 @@ Partial Class innlevering
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(64, 65)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(151, 76)
@@ -87,7 +87,7 @@ Partial Class innlevering
         '
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Location = New System.Drawing.Point(64, 41)
-        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(151, 21)
         Me.ComboBox3.TabIndex = 25
@@ -106,7 +106,7 @@ Partial Class innlevering
         '
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(64, 17)
-        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(151, 21)
         Me.ComboBox2.TabIndex = 23
@@ -114,7 +114,7 @@ Partial Class innlevering
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(7, 145)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(207, 40)
         Me.Button1.TabIndex = 22
@@ -135,9 +135,9 @@ Partial Class innlevering
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Location = New System.Drawing.Point(246, 10)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(427, 332)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
@@ -147,7 +147,7 @@ Partial Class innlevering
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(4, 17)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(418, 306)
@@ -163,9 +163,9 @@ Partial Class innlevering
         Me.GroupBox3.Controls.Add(Me.ComboBox1)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Location = New System.Drawing.Point(9, 10)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Size = New System.Drawing.Size(232, 134)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
@@ -174,7 +174,7 @@ Partial Class innlevering
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(10, 88)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(88, 40)
         Me.Button2.TabIndex = 14
@@ -183,8 +183,9 @@ Partial Class innlevering
         '
         'TextBox2
         '
+        Me.TextBox2.Enabled = False
         Me.TextBox2.Location = New System.Drawing.Point(65, 65)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(151, 20)
         Me.TextBox2.TabIndex = 20
@@ -212,7 +213,7 @@ Partial Class innlevering
         'TextBox3
         '
         Me.TextBox3.Location = New System.Drawing.Point(65, 17)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(151, 20)
         Me.TextBox3.TabIndex = 14
@@ -221,7 +222,7 @@ Partial Class innlevering
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(65, 41)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(151, 21)
         Me.ComboBox1.TabIndex = 16
@@ -245,7 +246,7 @@ Partial Class innlevering
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "innlevering"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Innlevering"
