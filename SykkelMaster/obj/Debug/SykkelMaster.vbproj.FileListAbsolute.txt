@@ -34,3 +34,7 @@ C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.
 C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.sykkelEdit.resources
 C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.utleie.resources
 C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.vbproj.GenerateResource.Cache
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.exe.config
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.exe
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.xml
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.pdb
