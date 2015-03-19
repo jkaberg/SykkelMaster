@@ -55,60 +55,68 @@ Partial Class innlevering
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 183)
+        Me.GroupBox2.Location = New System.Drawing.Point(9, 149)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(309, 238)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(232, 193)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Innlevering"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(85, 80)
+        Me.TextBox1.Location = New System.Drawing.Point(64, 65)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(200, 92)
+        Me.TextBox1.Size = New System.Drawing.Size(151, 76)
         Me.TextBox1.TabIndex = 27
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 88)
+        Me.Label1.Location = New System.Drawing.Point(4, 72)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(41, 17)
+        Me.Label1.Size = New System.Drawing.Size(34, 13)
         Me.Label1.TabIndex = 26
         Me.Label1.Text = "Avvik"
         '
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(85, 50)
+        Me.ComboBox3.Location = New System.Drawing.Point(64, 41)
+        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(200, 24)
+        Me.ComboBox3.Size = New System.Drawing.Size(151, 21)
         Me.ComboBox3.TabIndex = 25
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 53)
+        Me.Label8.Location = New System.Drawing.Point(4, 43)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(37, 17)
+        Me.Label8.Size = New System.Drawing.Size(29, 13)
         Me.Label8.TabIndex = 24
         Me.Label8.Text = "Sted"
         '
         'ComboBox2
         '
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(85, 21)
+        Me.ComboBox2.Location = New System.Drawing.Point(64, 17)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(200, 24)
+        Me.ComboBox2.Size = New System.Drawing.Size(151, 21)
         Me.ComboBox2.TabIndex = 23
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(9, 178)
+        Me.Button1.Location = New System.Drawing.Point(7, 145)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(276, 49)
+        Me.Button1.Size = New System.Drawing.Size(207, 40)
         Me.Button1.TabIndex = 22
         Me.Button1.Text = "Avslutt leie"
         Me.Button1.UseVisualStyleBackColor = True
@@ -116,18 +124,21 @@ Partial Class innlevering
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 24)
+        Me.Label7.Location = New System.Drawing.Point(4, 20)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(73, 17)
+        Me.Label7.Size = New System.Drawing.Size(56, 13)
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Leieavtale"
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(328, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(246, 10)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(569, 409)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(427, 332)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Avtale oversikt"
@@ -135,10 +146,11 @@ Partial Class innlevering
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 21)
+        Me.DataGridView1.Location = New System.Drawing.Point(4, 17)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(557, 377)
+        Me.DataGridView1.Size = New System.Drawing.Size(418, 306)
         Me.DataGridView1.TabIndex = 0
         '
         'GroupBox3
@@ -150,80 +162,90 @@ Partial Class innlevering
         Me.GroupBox3.Controls.Add(Me.TextBox3)
         Me.GroupBox3.Controls.Add(Me.ComboBox1)
         Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox3.Location = New System.Drawing.Point(9, 10)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(309, 165)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Size = New System.Drawing.Size(232, 134)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Kunde"
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(14, 108)
+        Me.Button2.Location = New System.Drawing.Point(10, 88)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(117, 49)
+        Me.Button2.Size = New System.Drawing.Size(88, 40)
         Me.Button2.TabIndex = 14
         Me.Button2.Text = "Rediger kunde"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(87, 80)
+        Me.TextBox2.Location = New System.Drawing.Point(65, 65)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(200, 22)
+        Me.TextBox2.Size = New System.Drawing.Size(151, 20)
         Me.TextBox2.TabIndex = 20
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(11, 80)
+        Me.Label6.Location = New System.Drawing.Point(8, 65)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(69, 17)
+        Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Telefonnr"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(11, 53)
+        Me.Label2.Location = New System.Drawing.Point(8, 43)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(41, 17)
+        Me.Label2.Size = New System.Drawing.Size(33, 13)
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "Navn"
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(87, 21)
+        Me.TextBox3.Location = New System.Drawing.Point(65, 17)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(200, 22)
+        Me.TextBox3.Size = New System.Drawing.Size(151, 20)
         Me.TextBox3.TabIndex = 14
         '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(87, 50)
+        Me.ComboBox1.Location = New System.Drawing.Point(65, 41)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(200, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(151, 21)
         Me.ComboBox1.TabIndex = 16
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(11, 24)
+        Me.Label5.Location = New System.Drawing.Point(8, 20)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(32, 17)
+        Me.Label5.Size = New System.Drawing.Size(26, 13)
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Søk"
         '
         'innlevering
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(906, 427)
+        Me.ClientSize = New System.Drawing.Size(680, 347)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "innlevering"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Innlevering"

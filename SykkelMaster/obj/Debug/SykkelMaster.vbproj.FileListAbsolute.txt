@@ -20,3 +20,35 @@ C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.
 C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.exe
 C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.xml
 C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.pdb
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.exe
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.pdb
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.xml
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.vbprojResolveAssemblyReference.cache
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.bruker.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.hoved.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.innlevering.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.kunder.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.lokasjon.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.start.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.Resources.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.sykkelEdit.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.utleie.resources
+C:\Users\Baws\Documents\GitHub\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.vbproj.GenerateResource.Cache
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.exe.config
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.exe
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.xml
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.pdb
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.exe
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.pdb
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\bin\Debug\SykkelMaster.xml
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.vbprojResolveAssemblyReference.cache
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.bruker.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.hoved.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.innlevering.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.kunder.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.lokasjon.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.start.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.Resources.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.sykkelEdit.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.utleie.resources
+C:\Users\Granli\Desktop\Objekt Orientert Programering\Sykkelmaster_github\SykkelMaster\SykkelMaster\obj\Debug\SykkelMaster.vbproj.GenerateResource.Cache
