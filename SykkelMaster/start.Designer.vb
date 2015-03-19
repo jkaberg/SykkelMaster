@@ -24,8 +24,8 @@ Partial Class start
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtPassord = New System.Windows.Forms.TextBox()
+        Me.txtEpost = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -40,8 +40,8 @@ Partial Class start
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.txtPassord)
+        Me.GroupBox1.Controls.Add(Me.txtEpost)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 11)
@@ -65,20 +65,20 @@ Partial Class start
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(70, 39)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox2.Size = New System.Drawing.Size(108, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.txtPassord.Location = New System.Drawing.Point(70, 39)
+        Me.txtPassord.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPassord.Name = "TextBox2"
+        Me.txtPassord.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtPassord.Size = New System.Drawing.Size(108, 20)
+        Me.txtPassord.TabIndex = 3
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(70, 15)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(108, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.txtEpost.Location = New System.Drawing.Point(70, 15)
+        Me.txtEpost.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtEpost.Name = "TextBox1"
+        Me.txtEpost.Size = New System.Drawing.Size(108, 20)
+        Me.txtEpost.TabIndex = 2
         '
         'Label2
         '
@@ -175,8 +175,8 @@ Partial Class start
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPassord As System.Windows.Forms.TextBox
+    Friend WithEvents txtEpost As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
