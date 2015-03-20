@@ -2,6 +2,8 @@
 Imports SykkelMaster.ansatt
 Imports System.Net.Mail
 Imports System.Configuration
+Imports MySql.Data.MySqlClient
+
 
 Public Class start
     Public bruker As ansatt
@@ -21,11 +23,65 @@ Public Class start
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If settPassord(TextBox3.Text) Then
-            MsgBox("Passord sendt til " & TextBox3.Text)
+        'If settPassord(TextBox3.Text) Then
+        '    MsgBox("Passord sendt til " & TextBox3.Text)
+        'Else
+        '    MsgBox("Feil e-post.", MsgBoxStyle.Critical)
+        'End If
+
+        Dim passord As String = RandomPassordGenerator()
+
+        Dim connection As New MySqlConnection("Server=tihlde.org;Uid=sykkelmaster2015;Pwd=974ha67N82FP5sLA;Database=sykkelmaster2015")
+        Dim command As New MySqlCommand
+        Dim update As New MySqlCommand
+
+        connection.Open()
+        Dim datareader As MySqlDataReader
+
+        command.Connection = connection
+        update.Connection = connection
+
+        command.CommandText = "Select mail from person where mail='" & TextBox3.Text & "'"
+        update.CommandText = "UPDATE ansatt " &
+                            "JOIN person ON ansatt.person_id = person.id " &
+                            "SET ansatt.passord = '" & passord & "' " &
+                            "WHERE person.mail = '" & TextBox3.Text & "'"
+
+        update.ExecuteNonQuery()
+
+        datareader = command.ExecuteReader
+
+        If datareader.HasRows Then
+            Dim epostmelding As New MailMessage()
+
+            Try
+                epostmelding.From = New MailAddress("Granlieirik3@gmail.com")
+                epostmelding.To.Add(TextBox3.Text)
+                epostmelding.Subject = "Sykkelmaster Nytt Passord"
+                epostmelding.Body = "Ditt nye autogenererte passord er: " & passord
+
+                Dim smtp As New SmtpClient("smtp.gmail.com")
+                smtp.Port = 587
+                smtp.EnableSsl = True
+                smtp.Credentials = New System.Net.NetworkCredential("granlieirik3@gmail.com", "eirik12345")
+                smtp.Send(epostmelding)
+                MsgBox("Ditt nye passord er sendt til din epost")
+
+
+            Catch ex As Exception
+                MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
+            End Try
+
         Else
-            MsgBox("Feil e-post.", MsgBoxStyle.Critical)
+            MsgBox("ikke registrert epost")
         End If
+
+
+
+
+
+
+
     End Sub
 
     Private Function sjekkLogin(ByVal epost As String, ByVal passord As String)
@@ -73,19 +129,24 @@ Public Class start
                             "WHERE person.mail = '" & epost & "'"
         payload = db.query(sql)
 
-        If Not payload.Rows.Count = 1 Then
-            Return False
-            If Not sendMail(epost) Then
-                Return False
-            End If
-        End If
+        Dim sql2 As String = "SELECT mail from person WHERE mail='" & TextBox3.Text & "'"
+        payload = db.query(sql2)
 
+        MsgBox(payload.Rows.Count)
+        If payload.Rows.Count = 0 Then
+
+            sendMail(epost, passord)
+
+        Else
+            Return False
+        End If
         Return True
     End Function
 
-    Private Function sendMail(ByVal epost As String)
-        Return False
-    End Function
+    Private Sub sendMail(ByVal epost As String, ByVal passord As String)
+
+
+    End Sub
 
 
     Function RandomPassordGenerator() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
@@ -107,5 +168,10 @@ Public Class start
         'Returnerer det nye genererte tilfeldige passord
         Return passord
     End Function
+
+
+
+
+
 
 End Class
