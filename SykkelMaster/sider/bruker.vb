@@ -22,6 +22,7 @@
             'Sett provisjonen
             provisjonLabel(.Rows(gridIndex).Cells("provisjon").Value)
         End With
+        stilling()
     End Sub
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
@@ -42,6 +43,24 @@
             HScrollBar1.Value = p
         End If
         Label10.Text = p & "%"
+    End Sub
+
+    Private Sub stilling()
+        Dim payload As New DataTable
+        Dim sql As String = "SELECT id, stilling FROM stilling"
+        payload = db.query(sql)
+
+        With cbxStilling
+            .DisplayMember = "stilling"
+            .ValueMember = "id"
+            .DataSource = payload
+        End With
+
+        For i As Integer = 0 To payload.Rows.Count - 1
+            If payload.Rows(i)(cbxStilling.DisplayMember).ToString() = Me.brukerGridView.Rows(gridIndex).Cells("stilling").Value Then
+                Me.cbxStilling.SelectedIndex = i
+            End If
+        Next
     End Sub
 
     Private Sub oppdaterGridView()

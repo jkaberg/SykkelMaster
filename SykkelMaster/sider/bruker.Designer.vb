@@ -28,7 +28,7 @@ Partial Class bruker
         Me.Label10 = New System.Windows.Forms.Label()
         Me.HScrollBar1 = New System.Windows.Forms.HScrollBar()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbxStilling = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -79,7 +79,7 @@ Partial Class bruker
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.HScrollBar1)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.cbxStilling)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Button5)
         Me.GroupBox1.Controls.Add(Me.Button3)
@@ -134,11 +134,11 @@ Partial Class bruker
         '
         'ComboBox1
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(80, 214)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(166, 24)
-        Me.ComboBox1.TabIndex = 38
+        Me.cbxStilling.FormattingEnabled = True
+        Me.cbxStilling.Location = New System.Drawing.Point(80, 214)
+        Me.cbxStilling.Name = "ComboBox1"
+        Me.cbxStilling.Size = New System.Drawing.Size(166, 24)
+        Me.cbxStilling.TabIndex = 38
         '
         'Label9
         '
@@ -329,7 +329,7 @@ Partial Class bruker
     Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxStilling As System.Windows.Forms.ComboBox
     Friend WithEvents HScrollBar1 As System.Windows.Forms.HScrollBar
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
