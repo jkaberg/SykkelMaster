@@ -43,7 +43,9 @@ Public Class innlevering
         Dim rad As DataRow
         Dim sqlOrdreCombo As String = "SELECT * FROM salg_leie, person WHERE salg_leie.person_id_kunde = person.id AND person.id = '" & ComboBox1.SelectedItem() & "'"
         Dim ordrenr As Integer
+
         payload = db.query(sqlOrdreCombo)
+        DataGridView1.DataSource = payload 'Ordrene til kunden som er valgt blir lagt ut i DataGrid
 
         ComboBox2.Items.Clear()
         For Each rad In payload.Rows
@@ -51,6 +53,7 @@ Public Class innlevering
             ordrenr = rad("ordre_nr")
             ComboBox2.Items.Add(ordrenr)
         Next
+        'Hver ordre blir listet opp i ComboBox for å lett kan velge hvilken ordre som leien skal bli avsluttet.
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
