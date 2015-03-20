@@ -32,9 +32,18 @@
         Dim payload As New DataTable
         payload = db.query("SELECT * FROM virksomhet")
 
-        ComboBox1.DataSource = payload
-        'Vi velger ut navn kolonnen som den vi har lyst til å vis frem
-        ComboBox1.DisplayMember = "navn"
+        With cbxPlassering
+            .DisplayMember = "navn"
+            '.ValueMember = "id"
+            .DataSource = payload
+        End With
+
+        'Dim table As DataTable = DirectCast(Me.cbxPlassering.DataSource, DataTable)
+        'For i As Integer = 0 To payload.Rows.Count - 1
+        '    If payload.Rows(i)(cbxPlassering.DisplayMember).ToString() = table.Rows(gridIndex).Cells("stilling").Value Then
+        '        Me.cbxPlassering.SelectedIndex = i
+        '    End If
+        'Next
 
         ' Rettighetsnivå (integer):
         ' Daglig leder: 10

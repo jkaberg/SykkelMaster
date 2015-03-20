@@ -27,7 +27,7 @@ Partial Class hoved
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbxPlassering = New System.Windows.Forms.ComboBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -81,7 +81,7 @@ Partial Class hoved
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+        Me.GroupBox2.Controls.Add(Me.cbxPlassering)
         Me.GroupBox2.Location = New System.Drawing.Point(196, 10)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox2.Name = "GroupBox2"
@@ -93,12 +93,12 @@ Partial Class hoved
         '
         'ComboBox1
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(5, 18)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(92, 21)
-        Me.ComboBox1.TabIndex = 0
+        Me.cbxPlassering.FormattingEnabled = True
+        Me.cbxPlassering.Location = New System.Drawing.Point(5, 18)
+        Me.cbxPlassering.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbxPlassering.Name = "ComboBox1"
+        Me.cbxPlassering.Size = New System.Drawing.Size(92, 21)
+        Me.cbxPlassering.TabIndex = 0
         '
         'Button5
         '
@@ -172,7 +172,7 @@ Partial Class hoved
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxPlassering As System.Windows.Forms.ComboBox
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
