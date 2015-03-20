@@ -29,6 +29,9 @@ Public Class start
         '    MsgBox("Feil e-post.", MsgBoxStyle.Critical)
         'End If
 
+
+
+        'Veldig forenklet måte å gjøre dette på, må fikse en generell funksjon som en kan sende spørringer og executereader i med connection.
         Dim passord As String = RandomPassordGenerator()
 
         Dim connection As New MySqlConnection("Server=tihlde.org;Uid=sykkelmaster2015;Pwd=974ha67N82FP5sLA;Database=sykkelmaster2015")
