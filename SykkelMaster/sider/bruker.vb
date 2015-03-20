@@ -27,9 +27,14 @@
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
         Dim payload As New DataTable
-        payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & brukerGridView.Item((6), gridIndex).Value & "'")
+        payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & txtPostnr.Text & "'")
 
-        TextBox8.Text = payload.Rows(0).Item(0)
+        If payload.Rows.Count = 1 Then
+            TextBox8.Text = payload.Rows(0).Item(0)
+        Else
+            TextBox8.Text = ""
+        End If
+
     End Sub
 
     Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll
