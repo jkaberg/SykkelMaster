@@ -7,19 +7,7 @@
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
-        'Sett nåvarende DataGrid index sånn at vi finner rett rad i DataTablen
-        gridIndex = brukerGridView.CurrentRow.Index
-
-        'Setter inn datane fra Grid Viewn i Textboksene
-        With Me.brukerGridView
-            txtNavn.Text = .Rows(gridIndex).Cells("fornavn").Value
-            txtEtternavn.Text = .Rows(gridIndex).Cells("etternavn").Value
-            txttelefon.Text = .Rows(gridIndex).Cells("telefon").Value
-            txtAdresse.Text = .Rows(gridIndex).Cells("adresse").Value
-            txtMail.Text = .Rows(gridIndex).Cells("mail").Value
-            txtPostnr.Text = .Rows(gridIndex).Cells("post_nr").Value
-
-        End With
+        oppdaterTxtbox()
     End Sub
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
@@ -60,6 +48,21 @@
         End With
     End Sub
 
+    Private Sub oppdaterTxtbox()
+        gridIndex = brukerGridView.CurrentRow.Index
+
+        'Setter inn datane fra Grid Viewn i Textboksene
+        With Me.brukerGridView
+            txtNavn.Text = .Rows(gridIndex).Cells("fornavn").Value
+            txtEtternavn.Text = .Rows(gridIndex).Cells("etternavn").Value
+            txttelefon.Text = .Rows(gridIndex).Cells("telefon").Value
+            txtAdresse.Text = .Rows(gridIndex).Cells("adresse").Value
+            txtMail.Text = .Rows(gridIndex).Cells("mail").Value
+            txtPostnr.Text = .Rows(gridIndex).Cells("post_nr").Value
+
+        End With
+    End Sub
+
     Private Sub sokKunde_TextChanged(sender As Object, e As EventArgs) Handles sokKunde.TextChanged
         oppdaterGridView(sokKunde.Text)
     End Sub
@@ -72,23 +75,39 @@
         payload = db.query(sql)
         brukerGridView.DataSource = payload
         oppdaterGridView()
+        oppdaterTxtbox()
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere person i databasen
+        Dim payload As New DataTable
+        Dim sql As String = "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txttelefon.Text & ", mail = '" & txtMail.Text & "', post_nr = " & txtPostnr.Text & " WHERE id =" & Me.brukerGridView.Rows(gridIndex).Cells("id").Value
 
+        Dim bruker As String = Me.brukerGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(gridIndex).Cells("etternavn").Value
+        'Slett bruker
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                payload = db.query(sql)
+                oppdaterGridView()
+                oppdaterTxtbox()
+        End Select
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en person i databasen
         Dim payload As New DataTable
-        Dim sql As String
-        sql = "DELETE FROM sykkelmaster2015.person WHERE person.id = " & Me.brukerGridView.Rows(gridIndex).Cells("id").Value
-        Try
-            payload = db.query(sql)
-        Catch
-            MsgBox("Du kan ikke slett ansatt")
-        End Try
+        Dim sql As String = "DELETE FROM sykkelmaster2015.person WHERE person.id = " & Me.brukerGridView.Rows(gridIndex).Cells("id").Value
+
+        Dim bruker As String = Me.brukerGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(gridIndex).Cells("etternavn").Value
+        'Slett bruker
+        Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                Try
+                    payload = db.query(sql)
+                Catch
+                    MsgBox("Du kan ikke slett ansatt")
+                End Try
+        End Select
 
         oppdaterGridView()
     End Sub
