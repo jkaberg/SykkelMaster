@@ -155,6 +155,7 @@ Partial Class kunder
         '
         Me.txtPostnr.Location = New System.Drawing.Point(90, 198)
         Me.txtPostnr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtPostnr.MaxLength = 4
         Me.txtPostnr.Name = "txtPostnr"
         Me.txtPostnr.Size = New System.Drawing.Size(186, 26)
         Me.txtPostnr.TabIndex = 9
@@ -189,6 +190,7 @@ Partial Class kunder
         '
         Me.txttelefon.Location = New System.Drawing.Point(90, 92)
         Me.txttelefon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txttelefon.MaxLength = 8
         Me.txttelefon.Name = "txttelefon"
         Me.txttelefon.Size = New System.Drawing.Size(186, 26)
         Me.txttelefon.TabIndex = 4
@@ -243,6 +245,8 @@ Partial Class kunder
         '
         'brukerGridView
         '
+        Me.brukerGridView.AllowUserToAddRows = False
+        Me.brukerGridView.AllowUserToDeleteRows = False
         Me.brukerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.brukerGridView.Location = New System.Drawing.Point(12, 58)
         Me.brukerGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)

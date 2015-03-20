@@ -27,14 +27,19 @@
         Dim payload As New DataTable
         payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & txtPostnr.Text & "'")
 
-        txtPoststed.Text = payload.Rows(0).Item(0)
+        If payload.Rows.Count = 1 Then
+            txtPoststed.Text = payload.Rows(0).Item(0)
+        Else
+            txtPoststed.Text = ""
+        End If
     End Sub
 
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
+        'Søke på kundens fornavn, etternavn og telefonnr i databasen
         Dim payload As New DataTable
         Dim sql As String
         If Not sok = Nothing Then
-            sql = "SELECT * FROM person WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%'"
+            sql = "SELECT * FROM person WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%' OR etternavn LIKE '%" & sok & "%'"
         Else
             sql = "SELECT * FROM person"
         End If
@@ -60,6 +65,7 @@
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
+        'Legge til en ny person i databasen
         Dim payload As New DataTable
         Dim sql As String
         sql = "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) VALUES('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', " & txttelefon.Text & ", '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtPostnr.Text & "')"
@@ -69,10 +75,21 @@
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
+        'Oppdatere person i databasen
 
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
+        'Slette en person i databasen
+        Dim payload As New DataTable
+        Dim sql As String
+        sql = "DELETE FROM sykkelmaster2015.person WHERE person.id = " & Me.brukerGridView.Rows(gridIndex).Cells("id").Value
+        Try
+            payload = db.query(sql)
+        Catch
+            MsgBox("Du kan ikke slett ansatt")
+        End Try
 
+        oppdaterGridView()
     End Sub
 End Class
