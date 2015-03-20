@@ -62,4 +62,13 @@
 
         End Select
     End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        EndrePassord.Show()
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Me.Close()
+        start.Show()
+    End Sub
 End Class
