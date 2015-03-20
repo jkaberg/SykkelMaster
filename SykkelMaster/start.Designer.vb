@@ -45,9 +45,9 @@ Partial Class start
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 11)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(182, 106)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -56,27 +56,27 @@ Partial Class start
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(8, 62)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(170, 37)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Log inn"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'txtPassord
         '
         Me.txtPassord.Location = New System.Drawing.Point(70, 39)
-        Me.txtPassord.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.txtPassord.Name = "TextBox2"
+        Me.txtPassord.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtPassord.Name = "txtPassord"
         Me.txtPassord.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassord.Size = New System.Drawing.Size(108, 20)
         Me.txtPassord.TabIndex = 3
         '
-        'TextBox1
+        'txtEpost
         '
         Me.txtEpost.Location = New System.Drawing.Point(70, 15)
-        Me.txtEpost.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.txtEpost.Name = "TextBox1"
+        Me.txtEpost.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtEpost.Name = "txtEpost"
         Me.txtEpost.Size = New System.Drawing.Size(108, 20)
         Me.txtEpost.TabIndex = 2
         '
@@ -107,9 +107,9 @@ Partial Class start
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Location = New System.Drawing.Point(10, 122)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(182, 117)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
@@ -118,17 +118,17 @@ Partial Class start
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(8, 73)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(170, 37)
         Me.Button2.TabIndex = 5
-        Me.Button2.Text = "Send passord"
+        Me.Button2.Text = "zd"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'TextBox3
         '
         Me.TextBox3.Location = New System.Drawing.Point(70, 50)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(108, 20)
         Me.TextBox3.TabIndex = 4
@@ -161,7 +161,7 @@ Partial Class start
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.Name = "start"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
