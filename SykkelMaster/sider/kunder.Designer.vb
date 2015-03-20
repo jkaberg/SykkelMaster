@@ -251,6 +251,7 @@ Partial Class kunder
         Me.brukerGridView.Location = New System.Drawing.Point(12, 58)
         Me.brukerGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.brukerGridView.Name = "brukerGridView"
+        Me.brukerGridView.ReadOnly = True
         Me.brukerGridView.RowTemplate.Height = 24
         Me.brukerGridView.Size = New System.Drawing.Size(898, 338)
         Me.brukerGridView.TabIndex = 18
