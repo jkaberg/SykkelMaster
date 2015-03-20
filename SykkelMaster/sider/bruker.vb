@@ -34,7 +34,6 @@
         Else
             TextBox8.Text = ""
         End If
-
     End Sub
 
     Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll

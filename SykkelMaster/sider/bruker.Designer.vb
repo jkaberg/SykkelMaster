@@ -132,11 +132,11 @@ Partial Class bruker
         Me.Label6.TabIndex = 4
         Me.Label6.Text = "Provisjon"
         '
-        'ComboBox1
+        'cbxStilling
         '
         Me.cbxStilling.FormattingEnabled = True
         Me.cbxStilling.Location = New System.Drawing.Point(80, 214)
-        Me.cbxStilling.Name = "ComboBox1"
+        Me.cbxStilling.Name = "cbxStilling"
         Me.cbxStilling.Size = New System.Drawing.Size(166, 24)
         Me.cbxStilling.TabIndex = 38
         '
@@ -180,6 +180,7 @@ Partial Class bruker
         '
         Me.TextBox8.Enabled = False
         Me.TextBox8.Location = New System.Drawing.Point(80, 186)
+        Me.TextBox8.MaxLength = 4
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(166, 22)
         Me.TextBox8.TabIndex = 32
@@ -254,6 +255,7 @@ Partial Class bruker
         'txtTelefon
         '
         Me.txtTelefon.Location = New System.Drawing.Point(80, 74)
+        Me.txtTelefon.MaxLength = 8
         Me.txtTelefon.Name = "txtTelefon"
         Me.txtTelefon.Size = New System.Drawing.Size(166, 22)
         Me.txtTelefon.TabIndex = 4
