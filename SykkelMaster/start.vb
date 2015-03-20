@@ -23,68 +23,8 @@ Public Class start
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'If settPassord(TextBox3.Text) Then
-        '    MsgBox("Passord sendt til " & TextBox3.Text)
-        'Else
-        '    MsgBox("Feil e-post.", MsgBoxStyle.Critical)
-        'End If
-
-
-
-        'Veldig forenklet måte å gjøre dette på, må fikse en generell funksjon som en kan sende spørringer og executereader i med connection.
-        Dim passord As String = RandomPassordGenerator()
-
-        Dim connection As New MySqlConnection("Server=tihlde.org;Uid=sykkelmaster2015;Pwd=974ha67N82FP5sLA;Database=sykkelmaster2015")
-        Dim command As New MySqlCommand
-        Dim update As New MySqlCommand
-
-        connection.Open()
-        Dim datareader As MySqlDataReader
-
-        command.Connection = connection
-        update.Connection = connection
-
-        command.CommandText = "Select mail from person where mail='" & TextBox3.Text & "'"
-        update.CommandText = "UPDATE ansatt " &
-                            "JOIN person ON ansatt.person_id = person.id " &
-                            "SET ansatt.passord = '" & passord & "' " &
-                            "WHERE person.mail = '" & TextBox3.Text & "'"
-
-        update.ExecuteNonQuery()
-
-        datareader = command.ExecuteReader
-
-        If datareader.HasRows Then
-            Dim epostmelding As New MailMessage()
-
-            Try
-                epostmelding.From = New MailAddress("Granlieirik3@gmail.com")
-                epostmelding.To.Add(TextBox3.Text)
-                epostmelding.Subject = "Sykkelmaster Nytt Passord"
-                epostmelding.Body = "Ditt nye autogenererte passord er: " & passord
-
-                Dim smtp As New SmtpClient("smtp.gmail.com")
-                smtp.Port = 587
-                smtp.EnableSsl = True
-                smtp.Credentials = New System.Net.NetworkCredential("granlieirik3@gmail.com", "eirik12345")
-                smtp.Send(epostmelding)
-                MsgBox("Ditt nye passord er sendt til din epost")
-
-
-            Catch ex As Exception
-                MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
-            End Try
-
-        Else
-            MsgBox("ikke registrert epost")
-        End If
-
-
-
-
-
-
-
+        settPassord(byttEpost.Text)
+        byttEpost.Text = ""
     End Sub
 
     Private Function sjekkLogin(ByVal epost As String, ByVal passord As String)
@@ -132,14 +72,8 @@ Public Class start
                             "WHERE person.mail = '" & epost & "'"
         payload = db.query(sql)
 
-        Dim sql2 As String = "SELECT mail from person WHERE mail='" & TextBox3.Text & "'"
-        payload = db.query(sql2)
-
-        MsgBox(payload.Rows.Count)
         If payload.Rows.Count = 0 Then
-
             sendMail(epost, passord)
-
         Else
             Return False
         End If
@@ -147,7 +81,31 @@ Public Class start
     End Function
 
     Private Sub sendMail(ByVal epost As String, ByVal passord As String)
+        Dim payload As New DataTable
+        Dim sql As String = "SELECT mail from person WHERE mail='" & byttEpost.Text & "'"
 
+        payload = db.query(sql)
+        If payload.Rows.Count = 1 Then
+            Dim epostmelding As New MailMessage()
+            Try
+                epostmelding.From = New MailAddress("Granlieirik3@gmail.com")
+                epostmelding.To.Add(byttEpost.Text)
+                epostmelding.Subject = "Sykkelmaster Nytt Passord"
+                epostmelding.Body = "Hei, her er ditt nye passord til Sykkelmaster: " & passord
+
+                Dim smtp As New SmtpClient("smtp.gmail.com")
+                smtp.Port = 587
+                smtp.EnableSsl = True
+                smtp.Credentials = New System.Net.NetworkCredential("granlieirik3@gmail.com", "eirik12345")
+                smtp.Send(epostmelding)
+                MsgBox("Ditt nye passord er sendt til din epost")
+
+            Catch ex As Exception
+                MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Ikke registrert epost")
+        End If
 
     End Sub
 

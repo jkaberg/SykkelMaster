@@ -30,7 +30,7 @@ Partial Class start
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.byttEpost = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -60,7 +60,7 @@ Partial Class start
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(170, 37)
         Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Log inn"
+        Me.Button1.Text = "Logg inn"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'txtPassord
@@ -103,7 +103,7 @@ Partial Class start
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Button2)
-        Me.GroupBox2.Controls.Add(Me.TextBox3)
+        Me.GroupBox2.Controls.Add(Me.byttEpost)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Location = New System.Drawing.Point(10, 122)
@@ -122,16 +122,16 @@ Partial Class start
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(170, 37)
         Me.Button2.TabIndex = 5
-        Me.Button2.Text = "zd"
+        Me.Button2.Text = "Send Nytt Passord"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'TextBox3
+        'byttEpost
         '
-        Me.TextBox3.Location = New System.Drawing.Point(70, 50)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(108, 20)
-        Me.TextBox3.TabIndex = 4
+        Me.byttEpost.Location = New System.Drawing.Point(70, 50)
+        Me.byttEpost.Margin = New System.Windows.Forms.Padding(2)
+        Me.byttEpost.Name = "byttEpost"
+        Me.byttEpost.Size = New System.Drawing.Size(108, 20)
+        Me.byttEpost.TabIndex = 4
         '
         'Label3
         '
@@ -181,7 +181,7 @@ Partial Class start
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents byttEpost As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
 

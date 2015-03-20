@@ -5,6 +5,27 @@
         Return ep.Success
     End Function
 
+
+    Function validerNummer(ByVal nummer As String, ByVal lengde As Integer) As Boolean
+        If nummer.Length = lengde And IsNumeric(CInt(nummer)) Then
+            Return True
+        End If
+        Return False
+    End Function
+
+
+    Function validerStreng(ByVal Streng As String) As Boolean
+        For i = 0 To Streng.Length - 1
+            If Not Char.IsLetter(Streng.Chars(i)) Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
+
+
+
+
     Function RandomPassordGenerator() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
 
         'Lager variabel for alle mulige tegn som kan brukes i tilfeldig passord
