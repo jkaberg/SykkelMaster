@@ -10,7 +10,7 @@
         'Sett nuvarende DataGrid index sånn at vi finner rett rad i DataTablen
         gridIndex = brukerGridView.CurrentRow.Index
 
-        'Sett in dataen fra Grid Viewn i Textboksene
+        'Setter inn dataen fra Grid Viewn i Textboksene
         With Me.brukerGridView
             txtNavn.Text = .Rows(gridIndex).Cells("fornavn").Value
             txtEtternavn.Text = .Rows(gridIndex).Cells("etternavn").Value
@@ -38,12 +38,12 @@
     End Sub
 
     Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll
-        'Oppdater provisjons label med scrollbar veriden
+        'Oppdater provisjonslabel med scrollbar veriden
         provisjonLabel(HScrollBar1.Value)
     End Sub
 
     Private Sub provisjonLabel(ByVal p As Integer)
-        'Oppdater provisjons label med scrollbar veriden
+        'Oppdater provisjonslabel med scrollbar veriden
         If Not HScrollBar1.Value = p Then
             HScrollBar1.Value = p
         End If
@@ -90,7 +90,7 @@
             'Vis ikke enkelte kolonner 
             .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
-            .Columns("fornavn").HeaderText = "Førnavn"
+            .Columns("fornavn").HeaderText = "Fornavn"
             .Columns("etternavn").HeaderText = "Etternavn"
             .Columns("telefon").HeaderText = "Telefon"
             .Columns("mail").HeaderText = "E-post"

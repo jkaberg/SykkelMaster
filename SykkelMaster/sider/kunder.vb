@@ -45,7 +45,7 @@
             'Kolonne vises ikke 
             .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
-            .Columns("fornavn").HeaderText = "Førnavn"
+            .Columns("fornavn").HeaderText = "Fornavn"
             .Columns("etternavn").HeaderText = "Etternavn"
             .Columns("telefon").HeaderText = "Telefon"
             .Columns("mail").HeaderText = "E-post"

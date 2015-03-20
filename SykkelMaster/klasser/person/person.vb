@@ -1,5 +1,5 @@
 ﻿Public Class person
-    Private fornavn, etternavn, epost As String ' Ole | Nordmann | ole.nordmann@epost.com
+    Private fornavn, etternavn, epost As String ' Ola | Nordmann | ola.nordmann@epost.com
     Private id, postnr, telefonnr As Integer ' 1 | 7070 | 12345678
     Private gate As String 'Olav Tryggvasonsgate 10
     Private sted As String 'Trondheim

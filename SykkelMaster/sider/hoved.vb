@@ -36,11 +36,11 @@
         'Vi velger ut navn kolonnen som den vi har lyst til å vis frem
         ComboBox1.DisplayMember = "navn"
 
-        ' Behørigheters nivåer (integer):
+        ' Rettighetsnivå (integer):
         ' Daglig leder: 10
         ' Selger: 5
         ' Lagermedarbeider: 3
-        ' Sjekk hvilken behørighet logget inn bruker har å enabled knapper utifra d
+        ' Sjekk hvilke tillatelser innloggetburker har ved å enable knapper
         Select Case start.bruker.pStilling
             Case Is >= 3
                 Button1.Enabled = True
