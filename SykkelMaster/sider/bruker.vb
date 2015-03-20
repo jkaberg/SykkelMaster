@@ -2,7 +2,7 @@
     Private gridIndex As Integer
 
     Private Sub bruker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Last inn daten fra databasen til GridView
+        'Laster inn daten fra databasen til GridView
         oppdaterGridView()
     End Sub
 

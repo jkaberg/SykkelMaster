@@ -23,13 +23,13 @@ Partial Class kunder
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnSlett = New System.Windows.Forms.Button()
+        Me.btnOppdater = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtPoststed = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtMail = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnLeggTil = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtPostnr = New System.Windows.Forms.TextBox()
         Me.txtAdresse = New System.Windows.Forms.TextBox()
@@ -51,13 +51,13 @@ Partial Class kunder
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button5)
-        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.btnSlett)
+        Me.GroupBox1.Controls.Add(Me.btnOppdater)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtPoststed)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.txtMail)
-        Me.GroupBox1.Controls.Add(Me.Button4)
+        Me.GroupBox1.Controls.Add(Me.btnLeggTil)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.txtPostnr)
         Me.GroupBox1.Controls.Add(Me.txtAdresse)
@@ -77,25 +77,25 @@ Partial Class kunder
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger kunde"
         '
-        'Button5
+        'btnSlett
         '
-        Me.Button5.Location = New System.Drawing.Point(7, 358)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(270, 38)
-        Me.Button5.TabIndex = 30
-        Me.Button5.Text = "Slett"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnSlett.Location = New System.Drawing.Point(7, 358)
+        Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnSlett.Name = "btnSlett"
+        Me.btnSlett.Size = New System.Drawing.Size(270, 38)
+        Me.btnSlett.TabIndex = 30
+        Me.btnSlett.Text = "Slett"
+        Me.btnSlett.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnOppdater
         '
-        Me.Button3.Location = New System.Drawing.Point(7, 312)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(270, 38)
-        Me.Button3.TabIndex = 29
-        Me.Button3.Text = "Oppdater"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnOppdater.Location = New System.Drawing.Point(7, 312)
+        Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnOppdater.Name = "btnOppdater"
+        Me.btnOppdater.Size = New System.Drawing.Size(270, 38)
+        Me.btnOppdater.TabIndex = 29
+        Me.btnOppdater.Text = "Oppdater"
+        Me.btnOppdater.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -108,6 +108,7 @@ Partial Class kunder
         '
         'txtPoststed
         '
+        Me.txtPoststed.Enabled = False
         Me.txtPoststed.Location = New System.Drawing.Point(90, 232)
         Me.txtPoststed.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtPoststed.Name = "txtPoststed"
@@ -131,15 +132,15 @@ Partial Class kunder
         Me.txtMail.Size = New System.Drawing.Size(186, 26)
         Me.txtMail.TabIndex = 25
         '
-        'Button4
+        'btnLeggTil
         '
-        Me.Button4.Location = New System.Drawing.Point(7, 268)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(270, 38)
-        Me.Button4.TabIndex = 22
-        Me.Button4.Text = "Legg til"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnLeggTil.Location = New System.Drawing.Point(7, 268)
+        Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnLeggTil.Name = "btnLeggTil"
+        Me.btnLeggTil.Size = New System.Drawing.Size(270, 38)
+        Me.btnLeggTil.TabIndex = 22
+        Me.btnLeggTil.Text = "Legg til"
+        Me.btnLeggTil.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -235,7 +236,7 @@ Partial Class kunder
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(503, 406)
+        Me.GroupBox2.Size = New System.Drawing.Size(918, 406)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -247,7 +248,7 @@ Partial Class kunder
         Me.brukerGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.brukerGridView.Name = "brukerGridView"
         Me.brukerGridView.RowTemplate.Height = 24
-        Me.brukerGridView.Size = New System.Drawing.Size(486, 338)
+        Me.brukerGridView.Size = New System.Drawing.Size(898, 338)
         Me.brukerGridView.TabIndex = 18
         '
         'sokKunde
@@ -271,7 +272,7 @@ Partial Class kunder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(831, 429)
+        Me.ClientSize = New System.Drawing.Size(1345, 429)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -298,15 +299,15 @@ Partial Class kunder
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtPostnr As System.Windows.Forms.TextBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents btnLeggTil As System.Windows.Forms.Button
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents brukerGridView As System.Windows.Forms.DataGridView
     Friend WithEvents sokKunde As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtMail As System.Windows.Forms.TextBox
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents btnSlett As System.Windows.Forms.Button
+    Friend WithEvents btnOppdater As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtPoststed As System.Windows.Forms.TextBox
 End Class
