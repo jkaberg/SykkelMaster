@@ -4,6 +4,21 @@
     Private Sub sykkelEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
         oppdaterGridView()
+
+        Dim payload As New DataTable
+
+        payload = db.query("SELECT * FROM virksomhet")
+        With cbxSted
+            .DisplayMember = "navn"
+            .DataSource = payload
+        End With
+
+        payload = db.query("SELECT * FROM sykkeltype")
+        With cbxType
+            .DisplayMember = "sykkeltype"
+            .DataSource = payload
+        End With
+
     End Sub
 
     Private Sub SykkelGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles SykkelGridView.CellClick
@@ -49,23 +64,6 @@
     End Sub
 
 
-
-
-
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxType.SelectedIndexChanged
-
-        Select Case ComboBoxType.SelectedValue.ToString
-            Case "Mountainbike"
-                ComboBoxHjul.Enabled = True
-                ComboBoxRamme.Enabled = True
-            Case "Bysykkel"
-                ComboBoxHjul.Enabled = False
-                ComboBoxRamme.Enabled = True
-            Case "Barnsykkel"
-                ComboBoxHjul.Enabled = True
-                ComboBoxRamme.Enabled = False
-        End Select
-    End Sub
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
         oppdaterGridView(txtSok.Text)

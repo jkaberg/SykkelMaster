@@ -28,22 +28,22 @@ Partial Class sykkelEdit
         Me.btnLeggTil = New System.Windows.Forms.Button()
         Me.txtAvvik = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.ComboBoxStatus = New System.Windows.Forms.ComboBox()
+        Me.cbxStatus = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBoxHjul = New System.Windows.Forms.ComboBox()
+        Me.cbxHjul = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBoxRamme = New System.Windows.Forms.ComboBox()
+        Me.cbxRamme = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtRammenr = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBoxSted = New System.Windows.Forms.ComboBox()
+        Me.cbxSted = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ComboBoxType = New System.Windows.Forms.ComboBox()
+        Me.cbxType = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtSok = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBoxLokasjon = New System.Windows.Forms.ComboBox()
+        Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
         Me.SykkelGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -58,17 +58,17 @@ Partial Class sykkelEdit
         Me.GroupBox1.Controls.Add(Me.btnLeggTil)
         Me.GroupBox1.Controls.Add(Me.txtAvvik)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.ComboBoxStatus)
+        Me.GroupBox1.Controls.Add(Me.cbxStatus)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.ComboBoxHjul)
+        Me.GroupBox1.Controls.Add(Me.cbxHjul)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.ComboBoxRamme)
+        Me.GroupBox1.Controls.Add(Me.cbxRamme)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtRammenr)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.ComboBoxSted)
+        Me.GroupBox1.Controls.Add(Me.cbxSted)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.ComboBoxType)
+        Me.GroupBox1.Controls.Add(Me.cbxType)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(15, 16)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -127,15 +127,15 @@ Partial Class sykkelEdit
         Me.Label8.TabIndex = 30
         Me.Label8.Text = "Avviksmld"
         '
-        'ComboBoxStatus
+        'cbxStatus
         '
-        Me.ComboBoxStatus.FormattingEnabled = True
-        Me.ComboBoxStatus.Items.AddRange(New Object() {"Tilgjengelig", "Reperasjon", "Utilgjengelig"})
-        Me.ComboBoxStatus.Location = New System.Drawing.Point(92, 176)
-        Me.ComboBoxStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ComboBoxStatus.Name = "ComboBoxStatus"
-        Me.ComboBoxStatus.Size = New System.Drawing.Size(250, 28)
-        Me.ComboBoxStatus.TabIndex = 29
+        Me.cbxStatus.FormattingEnabled = True
+        Me.cbxStatus.Items.AddRange(New Object() {"Tilgjengelig", "Reperasjon", "Utilgjengelig"})
+        Me.cbxStatus.Location = New System.Drawing.Point(92, 176)
+        Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxStatus.Name = "cbxStatus"
+        Me.cbxStatus.Size = New System.Drawing.Size(250, 28)
+        Me.cbxStatus.TabIndex = 29
         '
         'Label7
         '
@@ -146,15 +146,15 @@ Partial Class sykkelEdit
         Me.Label7.TabIndex = 28
         Me.Label7.Text = "Status"
         '
-        'ComboBoxHjul
+        'cbxHjul
         '
-        Me.ComboBoxHjul.FormattingEnabled = True
-        Me.ComboBoxHjul.Items.AddRange(New Object() {"12", "14", "16", "18", "20", "24"})
-        Me.ComboBoxHjul.Location = New System.Drawing.Point(92, 138)
-        Me.ComboBoxHjul.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ComboBoxHjul.Name = "ComboBoxHjul"
-        Me.ComboBoxHjul.Size = New System.Drawing.Size(77, 28)
-        Me.ComboBoxHjul.TabIndex = 9
+        Me.cbxHjul.FormattingEnabled = True
+        Me.cbxHjul.Items.AddRange(New Object() {"12", "14", "16", "18", "20", "24"})
+        Me.cbxHjul.Location = New System.Drawing.Point(92, 138)
+        Me.cbxHjul.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxHjul.Name = "cbxHjul"
+        Me.cbxHjul.Size = New System.Drawing.Size(77, 28)
+        Me.cbxHjul.TabIndex = 9
         '
         'Label5
         '
@@ -165,15 +165,15 @@ Partial Class sykkelEdit
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Hjulstr"
         '
-        'ComboBoxRamme
+        'cbxRamme
         '
-        Me.ComboBoxRamme.FormattingEnabled = True
-        Me.ComboBoxRamme.Items.AddRange(New Object() {"13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"})
-        Me.ComboBoxRamme.Location = New System.Drawing.Point(264, 138)
-        Me.ComboBoxRamme.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ComboBoxRamme.Name = "ComboBoxRamme"
-        Me.ComboBoxRamme.Size = New System.Drawing.Size(78, 28)
-        Me.ComboBoxRamme.TabIndex = 7
+        Me.cbxRamme.FormattingEnabled = True
+        Me.cbxRamme.Items.AddRange(New Object() {"13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"})
+        Me.cbxRamme.Location = New System.Drawing.Point(264, 138)
+        Me.cbxRamme.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxRamme.Name = "cbxRamme"
+        Me.cbxRamme.Size = New System.Drawing.Size(78, 28)
+        Me.cbxRamme.TabIndex = 7
         '
         'Label4
         '
@@ -202,14 +202,14 @@ Partial Class sykkelEdit
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Rammenr"
         '
-        'ComboBoxSted
+        'cbxSted
         '
-        Me.ComboBoxSted.FormattingEnabled = True
-        Me.ComboBoxSted.Location = New System.Drawing.Point(92, 28)
-        Me.ComboBoxSted.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ComboBoxSted.Name = "ComboBoxSted"
-        Me.ComboBoxSted.Size = New System.Drawing.Size(250, 28)
-        Me.ComboBoxSted.TabIndex = 3
+        Me.cbxSted.FormattingEnabled = True
+        Me.cbxSted.Location = New System.Drawing.Point(92, 28)
+        Me.cbxSted.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxSted.Name = "cbxSted"
+        Me.cbxSted.Size = New System.Drawing.Size(250, 28)
+        Me.cbxSted.TabIndex = 3
         '
         'Label2
         '
@@ -220,15 +220,15 @@ Partial Class sykkelEdit
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Sted"
         '
-        'ComboBoxType
+        'cbxType
         '
-        Me.ComboBoxType.FormattingEnabled = True
-        Me.ComboBoxType.Items.AddRange(New Object() {"Mountainbike", "Bysykkel", "Hybridsykkel", "Barnsykkel"})
-        Me.ComboBoxType.Location = New System.Drawing.Point(92, 65)
-        Me.ComboBoxType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ComboBoxType.Name = "ComboBoxType"
-        Me.ComboBoxType.Size = New System.Drawing.Size(250, 28)
-        Me.ComboBoxType.TabIndex = 1
+        Me.cbxType.FormattingEnabled = True
+        Me.cbxType.Items.AddRange(New Object() {"Mountainbike", "Bysykkel", "Hybridsykkel", "Barnsykkel"})
+        Me.cbxType.Location = New System.Drawing.Point(92, 65)
+        Me.cbxType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxType.Name = "cbxType"
+        Me.cbxType.Size = New System.Drawing.Size(250, 28)
+        Me.cbxType.TabIndex = 1
         '
         'Label1
         '
@@ -243,7 +243,7 @@ Partial Class sykkelEdit
         '
         Me.GroupBox2.Controls.Add(Me.txtSok)
         Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Controls.Add(Me.ComboBoxLokasjon)
+        Me.GroupBox2.Controls.Add(Me.cbxLokasjon)
         Me.GroupBox2.Controls.Add(Me.SykkelGridView)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Location = New System.Drawing.Point(378, 16)
@@ -271,14 +271,14 @@ Partial Class sykkelEdit
         Me.Label9.TabIndex = 19
         Me.Label9.Text = "Rammenr:"
         '
-        'ComboBoxLokasjon
+        'cbxLokasjon
         '
-        Me.ComboBoxLokasjon.FormattingEnabled = True
-        Me.ComboBoxLokasjon.Location = New System.Drawing.Point(87, 20)
-        Me.ComboBoxLokasjon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ComboBoxLokasjon.Name = "ComboBoxLokasjon"
-        Me.ComboBoxLokasjon.Size = New System.Drawing.Size(147, 28)
-        Me.ComboBoxLokasjon.TabIndex = 5
+        Me.cbxLokasjon.FormattingEnabled = True
+        Me.cbxLokasjon.Location = New System.Drawing.Point(87, 20)
+        Me.cbxLokasjon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxLokasjon.Name = "cbxLokasjon"
+        Me.cbxLokasjon.Size = New System.Drawing.Size(147, 28)
+        Me.cbxLokasjon.TabIndex = 5
         '
         'SykkelGridView
         '
@@ -321,22 +321,22 @@ Partial Class sykkelEdit
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents ComboBoxSted As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxSted As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents ComboBoxType As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxType As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents ComboBoxHjul As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxHjul As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents ComboBoxRamme As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxRamme As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtRammenr As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents ComboBoxLokasjon As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxLokasjon As System.Windows.Forms.ComboBox
     Friend WithEvents SykkelGridView As System.Windows.Forms.DataGridView
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtAvvik As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ComboBoxStatus As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxStatus As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents btnSlett As System.Windows.Forms.Button
     Friend WithEvents btnOppdater As System.Windows.Forms.Button
