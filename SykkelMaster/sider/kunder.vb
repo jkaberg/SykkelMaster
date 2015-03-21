@@ -49,7 +49,7 @@
     End Sub
 
     Private Sub oppdaterTxtbox()
-        gridIndex = brukerGridView.CurrentRow.Index
+        gridIndex = brukerGridView.CurrentRow.Index()
 
         'Setter inn datane fra Grid Viewn i Textboksene
         With Me.brukerGridView
@@ -110,5 +110,10 @@
         End Select
 
         oppdaterGridView()
+    End Sub
+
+    Private Sub btnTom_Click(sender As Object, e As EventArgs) Handles btnTom.Click
+
+        gridIndex = 0
     End Sub
 End Class
