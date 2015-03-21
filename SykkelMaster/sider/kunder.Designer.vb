@@ -42,12 +42,12 @@ Partial Class kunder
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.brukerGridView = New System.Windows.Forms.DataGridView()
+        Me.kundeGridView = New System.Windows.Forms.DataGridView()
         Me.sokKunde = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.brukerGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.kundeGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -243,7 +243,7 @@ Partial Class kunder
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.brukerGridView)
+        Me.GroupBox2.Controls.Add(Me.kundeGridView)
         Me.GroupBox2.Controls.Add(Me.sokKunde)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Location = New System.Drawing.Point(320, 16)
@@ -255,18 +255,18 @@ Partial Class kunder
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
         '
-        'brukerGridView
+        'kundeGridView
         '
-        Me.brukerGridView.AllowUserToAddRows = False
-        Me.brukerGridView.AllowUserToDeleteRows = False
-        Me.brukerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.brukerGridView.Location = New System.Drawing.Point(12, 58)
-        Me.brukerGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.brukerGridView.Name = "brukerGridView"
-        Me.brukerGridView.ReadOnly = True
-        Me.brukerGridView.RowTemplate.Height = 24
-        Me.brukerGridView.Size = New System.Drawing.Size(898, 376)
-        Me.brukerGridView.TabIndex = 18
+        Me.kundeGridView.AllowUserToAddRows = False
+        Me.kundeGridView.AllowUserToDeleteRows = False
+        Me.kundeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.kundeGridView.Location = New System.Drawing.Point(12, 58)
+        Me.kundeGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.kundeGridView.Name = "kundeGridView"
+        Me.kundeGridView.ReadOnly = True
+        Me.kundeGridView.RowTemplate.Height = 24
+        Me.kundeGridView.Size = New System.Drawing.Size(898, 376)
+        Me.kundeGridView.TabIndex = 18
         '
         'sokKunde
         '
@@ -301,7 +301,7 @@ Partial Class kunder
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.brukerGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.kundeGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -318,7 +318,7 @@ Partial Class kunder
     Friend WithEvents txtPostnr As System.Windows.Forms.TextBox
     Friend WithEvents btnLeggTil As System.Windows.Forms.Button
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents brukerGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents kundeGridView As System.Windows.Forms.DataGridView
     Friend WithEvents sokKunde As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
