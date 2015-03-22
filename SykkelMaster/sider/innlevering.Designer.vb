@@ -25,7 +25,7 @@ Partial Class innlevering
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.lokasjoner = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cbxLeieAvtaler = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -50,7 +50,7 @@ Partial Class innlevering
         '
         Me.GroupBox2.Controls.Add(Me.TextBox1)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.ComboBox3)
+        Me.GroupBox2.Controls.Add(Me.lokasjoner)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.cbxLeieAvtaler)
         Me.GroupBox2.Controls.Add(Me.Button1)
@@ -84,12 +84,12 @@ Partial Class innlevering
         '
         'ComboBox3
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(85, 50)
-        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(200, 24)
-        Me.ComboBox3.TabIndex = 25
+        Me.lokasjoner.FormattingEnabled = True
+        Me.lokasjoner.Location = New System.Drawing.Point(85, 50)
+        Me.lokasjoner.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lokasjoner.Name = "ComboBox3"
+        Me.lokasjoner.Size = New System.Drawing.Size(200, 24)
+        Me.lokasjoner.TabIndex = 25
         '
         'Label8
         '
@@ -257,7 +257,7 @@ Partial Class innlevering
 
     End Sub
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents lokasjoner As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents cbxLeieAvtaler As System.Windows.Forms.ComboBox
     Friend WithEvents Button1 As System.Windows.Forms.Button

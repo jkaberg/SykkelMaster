@@ -1,5 +1,7 @@
 ﻿Public Class hoved
 
+    Public lokasjoner As DataTable
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         kunder.Show()
     End Sub
@@ -29,13 +31,13 @@
         Label1.Text += start.bruker.pFnavn & " " & start.bruker.pEnavn
 
         'Hent ut å vis frem alle lokasjoner (virksomheter) i ComboBox1
-        Dim payload As New DataTable
-        payload = db.query("SELECT * FROM virksomhet")
+        lokasjoner = New DataTable
+        lokasjoner = db.query("SELECT * FROM virksomhet")
 
         With cbxPlassering
             .DisplayMember = "navn"
-            '.ValueMember = "id"
-            .DataSource = payload
+            .ValueMember = "id"
+            .DataSource = lokasjoner
         End With
 
         'Dim table As DataTable = DirectCast(Me.cbxPlassering.DataSource, DataTable)

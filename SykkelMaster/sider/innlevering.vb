@@ -4,6 +4,12 @@ Public Class innlevering
 
     Private Sub innlevering_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         sokLeieAvtale()
+
+        With lokasjoner
+            .DisplayMember = "navn"
+            .ValueMember = "id"
+            .DataSource = hoved.lokasjoner
+        End With
     End Sub
 
     Private Sub txtSokKunde_TextChanged(sender As Object, e As EventArgs) Handles txtSokKunde.TextChanged
@@ -15,13 +21,16 @@ Public Class innlevering
     End Sub
 
     Private Sub cbxKunde_DataSourceChanged(sender As Object, e As EventArgs) Handles cbxKunde.DataSourceChanged
-        sokLeieAvtale(cbxKunde.SelectedValue())
+        If txtSokKunde.Text <> "" Then
+            sokLeieAvtale(cbxKunde.SelectedValue())
+        End If
+
     End Sub
 
     Private Sub sokKunde()
         Dim payload As New DataTable
-        Dim sql As String = "SELECT id, fornavn, etternavn, telefon FROM person WHERE fornavn " &
-                            "LIKE '" & txtSokKunde.Text & "%' " &
+        Dim sql As String = "SELECT id, fornavn, etternavn, telefon FROM person " &
+                            "WHERE fornavn LIKE '" & txtSokKunde.Text & "%' " &
                             "OR etternavn LIKE '" & txtSokKunde.Text & "%' " &
                             "OR telefon LIKE '" & txtSokKunde.Text & "%' "
 
@@ -36,17 +45,18 @@ Public Class innlevering
         End With
     End Sub
 
-    Private Sub sokLeieAvtale(Optional ByVal id As Integer = Nothing)
+    Private Sub sokLeieAvtale(Optional ByVal telefon As Integer = Nothing)
         txtTelefon.Text = cbxKunde.SelectedValue
         Dim payload As New DataTable
         Dim sql As String
 
-        If id Then
-            sql = "SELECT salg_leie.*, " &
-                  "person.id, person.fornavn, person.etternavn, person.telefon, person.adresse, person.post_nr " &
-                  "FROM salg_leie, person " &
-                  "WHERE salg_leie.person_id_kunde = person.id " &
-                  "AND person.telefon = '" & id & "'"
+        If telefon Then
+            sql = "SELECT salg_leie.*, person.id, person.fornavn, person.etternavn, person.telefon, person.adresse, person.post_nr, " &
+                  "sted.post_sted " &
+                  "FROM salg_leie JOIN person " &
+                  "ON person.id = salg_leie.person_id_kunde " &
+                  "JOIN sted ON sted.post_nr = person.post_nr " &
+                  "WHERE person.telefon = '" & telefon & "'"
         Else
             sql = "SELECT salg_leie.*, " &
                   "person.id, person.fornavn, person.etternavn, person.telefon, person.adresse, person.post_nr " &
@@ -82,6 +92,8 @@ Public Class innlevering
             .Columns("telefon").HeaderText = "Telefon"
             .Columns("adresse").HeaderText = "Adresse"
             .Columns("post_nr").HeaderText = "Post nummer"
+            '.Columns("post_sted").HeaderText = "Post sted"
+            .Columns("sum").HeaderText = "Betalt sum"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
