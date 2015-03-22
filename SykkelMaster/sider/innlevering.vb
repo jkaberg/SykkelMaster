@@ -58,7 +58,7 @@ Public Class innlevering
         End If
 
         payload = db.query(sql)
-        DataGridView1.DataSource = payload 'Ordrene til kunden som er valgt blir lagt ut i DataGrid
+        oversiktGrid.DataSource = payload 'Ordrene til kunden som er valgt blir lagt ut i DataGrid
 
         With cbxLeieAvtaler
             .DisplayMember = "ordre_nr"
@@ -66,7 +66,7 @@ Public Class innlevering
             .DataSource = payload
         End With
 
-        With Me.DataGridView1
+        With Me.oversiktGrid
             'Vis ikke enkelte kolonner 
             .Columns("person_id_selger").Visible = False
             .Columns("id").Visible = False

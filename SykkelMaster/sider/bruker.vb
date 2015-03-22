@@ -117,7 +117,7 @@
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Dim bruker As String = Me.brukerGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(gridIndex).Cells("etternavn").Value
         'Slett bruker
-        Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 db.query("DELETE FROM ansatt WHERE person_id = '" & Me.brukerGridView.Rows(gridIndex).Cells("id").Value & "'")
         End Select
