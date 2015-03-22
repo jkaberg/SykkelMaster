@@ -1,4 +1,5 @@
 ﻿Imports SykkelMaster.db
+Imports SykkelMaster.util
 Imports SykkelMaster.ansatt
 Imports System.Net.Mail
 Imports System.Configuration
@@ -63,7 +64,7 @@ Public Class start
 
     Private Function settPassord(ByVal epost As String)
         'Setter en variabel passord lik funksjonen som lager tilfeldig passord, slik at den ikke blir kjørt flere ganger.
-        Dim passord As String = RandomPassordGenerator()
+        Dim passord As String = util.tilfeldigStreng()
 
         Dim payload As New DataTable
         Dim sql As String = "UPDATE ansatt " &
@@ -106,33 +107,5 @@ Public Class start
         Else
             MsgBox("Ikke registrert epost")
         End If
-
     End Sub
-
-
-    Function RandomPassordGenerator() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
-        'Lager variabel random som ny random funksjon 
-        Dim random As New Random
-        'Lager variabel for alle mulige tegn som kan brukes i tilfeldig passord
-        Dim tegnsett As String = "0123456789abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        'Lager variabel passord som en tom streng, før den blir lagt til i while løkken som genererer tilfeldige tall.
-        Dim passord As String = ""
-        'Stringposisjon holder styr på hvor random befinner seg
-        Dim stringposisjon As Integer = 0
-
-        'Løkken som genererer tall helt til telleren har 8 characters, og deretter legger til characters i Passord variabelen.
-        For t As Integer = 0 To 7
-            stringposisjon = random.Next(8, tegnsett.Length)
-            passord &= tegnsett(stringposisjon)
-        Next
-
-        'Returnerer det nye genererte tilfeldige passord
-        Return passord
-    End Function
-
-
-
-
-
-
 End Class
