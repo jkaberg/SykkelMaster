@@ -25,9 +25,9 @@ Partial Class EndrePassord
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.eposttxt = New System.Windows.Forms.TextBox()
+        Me.nåværendePassordtxt = New System.Windows.Forms.TextBox()
+        Me.nyttPassordtxt = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
@@ -36,63 +36,56 @@ Partial Class EndrePassord
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 18)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(5, 15)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 17)
+        Me.Label1.Size = New System.Drawing.Size(37, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "E-post"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(7, 45)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(5, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(139, 17)
+        Me.Label2.Size = New System.Drawing.Size(105, 13)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Nåværende Passord"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 73)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(5, 59)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 17)
+        Me.Label3.Size = New System.Drawing.Size(67, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Nytt Passord"
         '
-        'TextBox1
+        'eposttxt
         '
-        Me.TextBox1.Location = New System.Drawing.Point(162, 14)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(200, 22)
-        Me.TextBox1.TabIndex = 3
+        Me.eposttxt.Location = New System.Drawing.Point(122, 11)
+        Me.eposttxt.Name = "eposttxt"
+        Me.eposttxt.Size = New System.Drawing.Size(151, 20)
+        Me.eposttxt.TabIndex = 3
         '
-        'TextBox2
+        'nåværendePassordtxt
         '
-        Me.TextBox2.Location = New System.Drawing.Point(162, 41)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(200, 22)
-        Me.TextBox2.TabIndex = 4
+        Me.nåværendePassordtxt.Location = New System.Drawing.Point(122, 33)
+        Me.nåværendePassordtxt.Name = "nåværendePassordtxt"
+        Me.nåværendePassordtxt.Size = New System.Drawing.Size(151, 20)
+        Me.nåværendePassordtxt.TabIndex = 4
         '
-        'TextBox3
+        'nyttPassordtxt
         '
-        Me.TextBox3.Location = New System.Drawing.Point(162, 69)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(200, 22)
-        Me.TextBox3.TabIndex = 5
+        Me.nyttPassordtxt.Location = New System.Drawing.Point(122, 56)
+        Me.nyttPassordtxt.Name = "nyttPassordtxt"
+        Me.nyttPassordtxt.Size = New System.Drawing.Size(151, 20)
+        Me.nyttPassordtxt.TabIndex = 5
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(10, 99)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Location = New System.Drawing.Point(8, 80)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(352, 28)
+        Me.Button1.Size = New System.Drawing.Size(264, 23)
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Bytt Passord"
         Me.Button1.UseVisualStyleBackColor = True
@@ -103,24 +96,25 @@ Partial Class EndrePassord
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Controls.Add(Me.nyttPassordtxt)
+        Me.GroupBox1.Controls.Add(Me.eposttxt)
+        Me.GroupBox1.Controls.Add(Me.nåværendePassordtxt)
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 10)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(373, 136)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(280, 110)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Endre passord"
         '
         'EndrePassord
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(389, 153)
+        Me.ClientSize = New System.Drawing.Size(292, 124)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "EndrePassord"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -133,9 +127,9 @@ Partial Class EndrePassord
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents eposttxt As System.Windows.Forms.TextBox
+    Friend WithEvents nåværendePassordtxt As System.Windows.Forms.TextBox
+    Friend WithEvents nyttPassordtxt As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
 End Class
