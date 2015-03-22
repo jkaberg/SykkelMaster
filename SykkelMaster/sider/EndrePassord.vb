@@ -47,6 +47,16 @@ Public Class EndrePassord
                             "WHERE passord = '" & current & "' " &
                             "AND Mail = '" & mail & "'"
 
+        'SELECT person.mail, ansatt.passord
+        'FROM person
+        'INNER JOIN ansatt
+        'ON ansatt.person_id=person.id;
+
+        'Prøvde å fikse bedre join så man kun får ut passord og epost, ikke alt annet drit.. men funka dårlig når jeg kjørte koden
+
+
+
+
         payload = db.query(sql)
 
         If payload.Rows.Count = 1 Then
