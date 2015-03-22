@@ -80,10 +80,10 @@
     <Compile Include="sider\bruker.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sider\EndrePassord.Designer.vb">
-      <DependentUpon>EndrePassord.vb</DependentUpon>
+    <Compile Include="sider\endrepassord.Designer.vb">
+      <DependentUpon>endrepassord.vb</DependentUpon>
     </Compile>
-    <Compile Include="sider\EndrePassord.vb">
+    <Compile Include="sider\endrepassord.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="verktoy\db.vb" />
@@ -155,8 +155,8 @@
     <EmbeddedResource Include="sider\bruker.resx">
       <DependentUpon>bruker.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sider\EndrePassord.resx">
-      <DependentUpon>EndrePassord.vb</DependentUpon>
+    <EmbeddedResource Include="sider\endrepassord.resx">
+      <DependentUpon>endrepassord.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\hoved.resx">
       <DependentUpon>hoved.vb</DependentUpon>
