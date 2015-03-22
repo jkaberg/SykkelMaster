@@ -1,28 +1,31 @@
-﻿Public Class EndrePassord
+﻿Imports SykkelMaster.db
+Imports SykkelMaster.util
+Imports SykkelMaster.ansatt
+Imports System.Net.Mail
+Imports System.Configuration
+Imports MySql.Data.MySqlClient
+
+Public Class EndrePassord
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Dim payload As New DataTable
-        Dim sql As String = "SELECT mail from person WHERE mail='" & eposttxt.Text & "'"
 
-        payload = db.query(sql)
-
-        If nyttPassordtxt.Text.Length > 30 Or nåværendePassordtxt.Text.Length > 30 Then
-            MsgBox("Passord må inneholde mindre enn 30 tegn")
-        Else
-            If payload.Rows.Count = 1 Then
+        If sjekkPassord(eposttxt.Text, nåværendePassordtxt.Text) = True Then
+            If nyttPassordtxt.Text.Length > 30 Or nåværendePassordtxt.Text.Length > 30 Then
+                MsgBox("Passord må inneholde mindre enn 30 tegn")
+            Else
                 endrePassord()
                 MsgBox("Passordet er endret til: " & nyttPassordtxt.Text)
 
                 eposttxt.Text = ""
                 nåværendePassordtxt.Text = ""
                 nyttPassordtxt.Text = ""
-
-            Else
-                MsgBox("Finner ikke: " & eposttxt.Text & " i databasen.")
             End If
+        Else
+            MsgBox("E-post eller nåværende passord er feil, eller ikke funnet i databasen.")
         End If
-        
+
+
     End Sub
 
 
@@ -36,12 +39,20 @@
         payload = db.query(sql)
     End Sub
 
-    Private Function sjekkPassord()
+    Private Function sjekkPassord(ByVal mail As String, ByVal current As String)
 
+        Dim payload As New DataTable
+        Dim sql As String = "SELECT * FROM ansatt " &
+                            "JOIN person ON ansatt.person_id = person.id " &
+                            "WHERE passord = '" & current & "' " &
+                            "AND Mail = '" & mail & "'"
 
+        payload = db.query(sql)
 
-
-        'Trenger SQL spørring som joiner ansatt & person og sjekker at epost er lik epostTxt, og at nåværendePassord.text matcher passordet til den eposten i databasen. HOW???
-        Return False
+        If payload.Rows.Count = 1 Then
+            Return True
+        Else
+            Return False
+        End If
     End Function
 End Class
