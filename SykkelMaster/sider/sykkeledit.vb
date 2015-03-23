@@ -8,9 +8,30 @@
         Dim payload As New DataTable
 
 
-        With cbxSted
+        With cbxTilhorer
             .DisplayMember = "navn"
             .DataSource = hoved.lokasjoner
+        End With
+
+        With cbxPosisjon
+            .DisplayMember = "navn"
+            .DataSource = hoved.lokasjoner
+        End With
+
+        payload = db.query("SELECT * FROM sykkeltype")
+
+        With cbxType
+            .DisplayMember = "sykkeltype"
+            .ValueMember = "id"
+            .DataSource = payload
+        End With
+
+        payload = db.query("SELECT * FROM status")
+
+        With cbxStatus
+            .DisplayMember = "status"
+            .ValueMember = "id"
+            .DataSource = payload
         End With
 
     End Sub
@@ -53,28 +74,15 @@
 
         'Setter inn datane fra Grid Viewn i Textboksene
         With Me.SykkelGridView
+            cbxTilhorer.Text = .Rows(gridIndex).Cells("navn").Value
+            cbxPosisjon.Text = .Rows(gridIndex).Cells("posisjon").Value
+            cbxType.Text = .Rows(gridIndex).Cells("sykkeltype").Value
             txtRammenr.Text = .Rows(gridIndex).Cells("rammenr").Value
+            cbxHjul.Text = .Rows(gridIndex).Cells("hjulstr").Value
+            cbxRamme.Text = .Rows(gridIndex).Cells("rammestr").Value
+            cbxStatus.Text = .Rows(gridIndex).Cells("status").Value
             txtAvvik.Text = .Rows(gridIndex).Cells("avviksmelding").Value
         End With
-        sykkeltype()
-    End Sub
-
-    Private Sub sykkeltype()
-        Dim payload As New DataTable
-        Dim sql As String = "SELECT id, sykkeltype FROM sykkeltype"
-        payload = db.query(sql)
-
-        With cbxType
-            .DisplayMember = "sykkeltype"
-            .ValueMember = "id"
-            .DataSource = payload
-        End With
-
-        For i As Integer = 0 To payload.Rows.Count - 1
-            If payload.Rows(i)(cbxType.DisplayMember).ToString() = SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value Then
-                Me.cbxType.SelectedIndex = i
-            End If
-        Next
     End Sub
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged

@@ -33,7 +33,8 @@
     Private Sub btnAddlocation_Click(sender As Object, e As EventArgs) Handles btnAddlocation.Click
         Dim payload As New DataTable
         Dim sql As String
-        sql = "INSERT INTO virksomhet(navn, telefon, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtAdresse.Text & "', '" & txtpostnr.Text & "')"
+        sql = "INSERT INTO virksomhet(navn, telefon, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtAdresse.Text & "', '" & txtpostnr.Text & "', '" & txtPoststed.Text & "')"
+
         payload = db.query(sql)
         Oppdaterlokasjon.DataSource = payload
         oppdaterGridView()
