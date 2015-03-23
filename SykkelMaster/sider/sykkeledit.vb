@@ -43,7 +43,11 @@
         Dim payload As New DataTable
         Dim sql As String
         If Not sok = Nothing Then
-            sql = "SELECT * FROM sykkel WHERE rammenr LIKE '%" & sok & "%'"
+            sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
+                "sykkel.avviksmelding, v1.navn posisjon, v2.navn " & _
+                "FROM sykkel JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id JOIN status ON sykkel.status = status.id " & _
+                "JOIN virksomhet v1 ON sykkel.posisjon = v1.id JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " & _
+                "AND rammenr LIKE '%" & sok & "%'"
         Else
             sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
                 "sykkel.avviksmelding, v1.navn posisjon, v2.navn " & _
