@@ -54,7 +54,7 @@ Partial Class EndrePassord
         'nåværendePassordtxt
         '
         Me.nåværendePassordtxt.Location = New System.Drawing.Point(163, 21)
-        Me.nåværendePassordtxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.nåværendePassordtxt.Margin = New System.Windows.Forms.Padding(4)
         Me.nåværendePassordtxt.Name = "nåværendePassordtxt"
         Me.nåværendePassordtxt.Size = New System.Drawing.Size(200, 22)
         Me.nåværendePassordtxt.TabIndex = 4
@@ -62,29 +62,20 @@ Partial Class EndrePassord
         'nyttPassordtxt
         '
         Me.nyttPassordtxt.Location = New System.Drawing.Point(163, 51)
-        Me.nyttPassordtxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.nyttPassordtxt.Margin = New System.Windows.Forms.Padding(4)
         Me.nyttPassordtxt.Name = "nyttPassordtxt"
         Me.nyttPassordtxt.Size = New System.Drawing.Size(200, 22)
         Me.nyttPassordtxt.TabIndex = 5
         '
         'btnBytt_Passord
         '
-<<<<<<< HEAD
-        Me.Button1.Location = New System.Drawing.Point(14, 81)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(352, 28)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Bytt Passord"
-        Me.Button1.UseVisualStyleBackColor = True
-=======
         Me.btnBytt_Passord.Location = New System.Drawing.Point(8, 80)
+        Me.btnBytt_Passord.Margin = New System.Windows.Forms.Padding(4)
         Me.btnBytt_Passord.Name = "btnBytt_Passord"
-        Me.btnBytt_Passord.Size = New System.Drawing.Size(264, 23)
+        Me.btnBytt_Passord.Size = New System.Drawing.Size(355, 23)
         Me.btnBytt_Passord.TabIndex = 6
         Me.btnBytt_Passord.Text = "Bytt Passord"
         Me.btnBytt_Passord.UseVisualStyleBackColor = True
->>>>>>> origin/master
         '
         'GroupBox1
         '
@@ -93,19 +84,11 @@ Partial Class EndrePassord
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.nyttPassordtxt)
         Me.GroupBox1.Controls.Add(Me.nåværendePassordtxt)
-<<<<<<< HEAD
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(373, 117)
-=======
         Me.GroupBox1.Location = New System.Drawing.Point(9, 10)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(280, 110)
->>>>>>> origin/master
+        Me.GroupBox1.Size = New System.Drawing.Size(369, 110)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Endre passord"
@@ -117,7 +100,7 @@ Partial Class EndrePassord
         Me.ClientSize = New System.Drawing.Size(389, 136)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "EndrePassord"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

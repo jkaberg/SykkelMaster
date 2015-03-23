@@ -1,14 +1,7 @@
 ﻿Public Class EndrePassord
 
-<<<<<<< HEAD
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If sjekkPassord(start.bruker.pEpost, nåværendePassordtxt.Text) Then
-=======
     Private Sub Bytt_Passord(sender As Object, e As EventArgs) Handles btnBytt_Passord.Click
-
-
-        If sjekkPassord(eposttxt.Text, nåværendePassordtxt.Text) = True Then
->>>>>>> origin/master
+        If sjekkPassord(start.bruker.pEpost, nåværendePassordtxt.Text) = True Then
             If nyttPassordtxt.Text.Length > 30 Or nåværendePassordtxt.Text.Length > 30 Then
                 MsgBox("Passord må inneholde mindre enn 30 tegn")
             Else
