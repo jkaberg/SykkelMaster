@@ -24,8 +24,9 @@ Public Class start
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        settPassord(byttEpost.Text)
-        byttEpost.Text = ""
+        'settPassord(byttEpost.Text)
+        sjekkMail(byttEpost.Text)
+        'byttEpost.Text = ""
     End Sub
 
     Private Function sjekkLogin(ByVal epost As String, ByVal passord As String)
@@ -74,39 +75,29 @@ Public Class start
                             "WHERE person.mail = '" & epost & "'"
         payload = db.query(sql)
 
-        If payload.Rows.Count = 0 Then
-            sendMail(epost, passord)
+            'sendMail(epost, passord)
+        If sjekkMail(byttEpost.Text) Then
+            util.sendMail(epost, "Bytt Passord", "Her er ditt nye passord: " & passord)
+            MsgBox("Ditt nye passord er sendt til deg på mail.")
         Else
+            MsgBox("Epost ikke registrert")
             Return False
         End If
+
         Return True
     End Function
 
-    Private Sub sendMail(ByVal epost As String, ByVal passord As String)
+    Private Function sjekkMail(ByVal epost As String)
         Dim payload As New DataTable
-        Dim sql As String = "SELECT mail from person WHERE mail='" & byttEpost.Text & "'"
+        Dim sql As String = "SELECT mail from person WHERE mail='" & epost & "'"
 
         payload = db.query(sql)
         If payload.Rows.Count = 1 Then
-            Dim epostmelding As New MailMessage()
-            Try
-                epostmelding.From = New MailAddress("Granlieirik3@gmail.com")
-                epostmelding.To.Add(byttEpost.Text)
-                epostmelding.Subject = "Sykkelmaster Nytt Passord"
-                epostmelding.Body = "Hei, her er ditt nye passord til Sykkelmaster: " & passord
-
-                Dim smtp As New SmtpClient("smtp.gmail.com")
-                smtp.Port = 587
-                smtp.EnableSsl = True
-                smtp.Credentials = New System.Net.NetworkCredential("granlieirik3@gmail.com", "eirik12345")
-                smtp.Send(epostmelding)
-                MsgBox("Ditt nye passord er sendt til din epost")
-
-            Catch ex As Exception
-                MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
-            End Try
+            MsgBox("hei")
+            Return True
         Else
-            MsgBox("Ikke registrert epost")
+            Return False
+            MsgBox("Finnes ikke")
         End If
-    End Sub
+    End Function
 End Class
