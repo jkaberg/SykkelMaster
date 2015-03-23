@@ -71,6 +71,7 @@
 
     Private Sub Logg_ut(sender As Object, e As EventArgs) Handles btnLogg_ut.Click
         Me.Close()
+        start.bruker = Nothing
         start.Show()
     End Sub
 End Class
