@@ -43,5 +43,14 @@
         Return randString
     End Function
 
+    Public Shared Function Finn_Poststed(sender As Object, e As EventArgs) As String
+        Dim poststed_sql As New DataTable
+        Dim post_sted As String
+        Dim postnr As String
+        poststed_sql = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & postnr  "'")
+        'Oppdaterer poststedet når post nummer blir skrevet inn
+        Return post_sted
+
+    End Function
 
 End Class
