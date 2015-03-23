@@ -37,9 +37,10 @@ Public Class start
                             "sted.post_sted, " &
                             "stilling.tilgangsniva " &
                             "FROM person JOIN ansatt " &
-                            "ON person.mail = '" & epost & "' AND ansatt.passord = '" & passord & "' " &
+                            "ON person.mail = '" & epost & "' " &
                             "JOIN sted ON sted.post_nr = person.post_nr JOIN stilling " &
-                            "ON ansatt.stilling = stilling.id"
+                            "ON ansatt.stilling = stilling.id " &
+                            "WHERE ansatt.passord = '" & passord & "'"
         payload = db.query(sql)
 
         'Hvis payload inneholder en rad så har vi korrekt epost/passord
