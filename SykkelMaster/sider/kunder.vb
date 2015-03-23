@@ -69,11 +69,9 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny person i databasen
-        Dim payload As New DataTable
         Dim sql As String
         sql = "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) VALUES('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', " & txttelefon.Text & ", '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtPostnr.Text & "')"
-        payload = db.query(sql)
-        kundeGridView.DataSource = payload
+        db.query(sql)
         oppdaterGridView()
         oppdaterTxtbox()
     End Sub

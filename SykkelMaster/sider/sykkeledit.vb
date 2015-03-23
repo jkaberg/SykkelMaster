@@ -7,10 +7,10 @@
 
         Dim payload As New DataTable
 
-        payload = db.query("SELECT * FROM virksomhet")
+
         With cbxSted
             .DisplayMember = "navn"
-            .DataSource = payload
+            .DataSource = hoved.lokasjoner
         End With
 
         payload = db.query("SELECT * FROM sykkeltype")
