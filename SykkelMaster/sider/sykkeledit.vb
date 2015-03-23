@@ -8,14 +8,17 @@
         Dim payload As New DataTable
 
         'Laster inn data til comboBox'ene
+        payload = db.query("SELECT * FROM virksomhet")
         With cbxTilhorer
             .DisplayMember = "navn"
+            .ValueMember = "id"
             .DataSource = hoved.lokasjoner
         End With
 
         With cbxPosisjon
             .DisplayMember = "navn"
-            .DataSource = hoved.lokasjoner
+            .ValueMember = "id"
+            .DataSource = payload
         End With
 
         payload = db.query("SELECT * FROM sykkeltype")
@@ -87,14 +90,40 @@
         End With
     End Sub
 
+    Private Sub btnTom_Click(sender As Object, e As EventArgs) Handles btnTom.Click
+        txtRammenr.Text = ""
+        txtAvvik.Text = ""
+        oppdaterGridView()
+    End Sub
+
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkel i databasen
         Dim sql As String
-        sql = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & "1" & ", " & cbxHjul.Text & ", " & cbxRamme.Text & ", " & "1" & ", '" & txtAvvik.Text & "', " & "1" & ", " & cbxLokasjon.ValueMember & ")"
+        sql = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & CInt(cbxType.SelectedValue) & ", " & _
+            cbxHjul.Text & ", " & cbxRamme.Text & ", " & CInt(cbxStatus.SelectedValue) & ", '" & txtAvvik.Text & _
+            "', " & CInt(cbxPosisjon.SelectedValue) & ", " & CInt(cbxTilhorer.SelectedValue) & ")"
         db.query(sql)
         oppdaterGridView()
         oppdaterTxtbox()
     End Sub
+
+    'Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
+    '    'Oppdatere sykkel i databasen
+    '    Dim payload As New DataTable
+    '    Dim sql As String = "UPDATE sykkel SET rammenr = '" & txtRammenr.Text & "', sykkeltype = " & CInt(cbxType.SelectedValue) & _
+    '        ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", status = " & CInt(cbxStatus.SelectedValue) & _
+    '        ", avvikmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
+    '        ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr =" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value
+
+    '    Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
+    '    'Oppdater bruker
+    '    Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
+    '        Case MsgBoxResult.Yes
+    '            payload = db.query(sql)
+    '            oppdaterGridView()
+    '            oppdaterTxtbox()
+    '    End Select
+    'End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
@@ -114,6 +143,7 @@
 
         oppdaterGridView()
     End Sub
+
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
         oppdaterGridView(txtSok.Text)

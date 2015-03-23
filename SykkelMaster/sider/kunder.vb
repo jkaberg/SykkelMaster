@@ -82,7 +82,7 @@
         Dim sql As String = "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txttelefon.Text & ", mail = '" & txtMail.Text & "', post_nr = " & txtPostnr.Text & " WHERE id =" & Me.kundeGridView.Rows(gridIndex).Cells("id").Value
 
         Dim bruker As String = Me.kundeGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(gridIndex).Cells("etternavn").Value
-        'Slett bruker
+        'Oppdater bruker
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 payload = db.query(sql)
