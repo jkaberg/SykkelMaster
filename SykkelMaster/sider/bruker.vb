@@ -7,7 +7,7 @@
     End Sub
 
     Private Sub Vis_bruker(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
-        'Sett nuvarende DataGrid index sånn at vi finner rett rad i DataTablen
+        'Sett nåværende DataGrid index sånn at vi finner rett rad i DataTablen
         gridIndex = brukerGridView.CurrentRow.Index
 
         'Setter inn dataen fra Grid Viewn i Textboksene
@@ -28,7 +28,7 @@
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
         Dim payload As New DataTable
         payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & txtPostnr.Text & "'")
-
+        'Oppdaterer poststedet når post nummer blir skrevet inn
         If payload.Rows.Count = 1 Then
             TextBox8.Text = payload.Rows(0).Item(0)
         Else
@@ -59,7 +59,7 @@
             .ValueMember = "id"
             .DataSource = payload
         End With
-
+        'oppdaterer stillling fra databasen i combobox
         For i As Integer = 0 To payload.Rows.Count - 1
             If payload.Rows(i)(cbxStilling.DisplayMember).ToString() = Me.brukerGridView.Rows(gridIndex).Cells("stilling").Value Then
                 Me.cbxStilling.SelectedIndex = i
@@ -128,5 +128,7 @@
 
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
         'Oppdater bruker
+        'db.query("UPDATE TABLE personer (fornavn, etternavn, telefon, mail, adresse, post_nr, stilling, provisjon) VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtPostnr.Text & "', '" & stilling() & "', '" & HScrollBar1.Value & "')")
+        oppdaterGridView()
     End Sub
 End Class
