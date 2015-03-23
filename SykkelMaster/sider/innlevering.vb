@@ -16,7 +16,7 @@ Public Class innlevering
         If txtSokKunde.Text = "" Then
             sokLeieAvtale()
         Else
-            sokKunde()
+            sokKunde(txtSokKunde.Text)
         End If
     End Sub
 
@@ -27,12 +27,12 @@ Public Class innlevering
 
     End Sub
 
-    Private Sub sokKunde()
+    Private Sub sokKunde(ByVal sok As String)
         Dim payload As New DataTable
         Dim sql As String = "SELECT id, fornavn, etternavn, telefon FROM person " &
-                            "WHERE fornavn LIKE '" & txtSokKunde.Text & "%' " &
-                            "OR etternavn LIKE '" & txtSokKunde.Text & "%' " &
-                            "OR telefon LIKE '" & txtSokKunde.Text & "%' "
+                            "WHERE fornavn LIKE '" & sok & "%' " &
+                            "OR etternavn LIKE '" & sok & "%' " &
+                            "OR telefon LIKE '" & sok & "%' "
 
         payload = db.query(sql)
 
@@ -63,6 +63,7 @@ Public Class innlevering
                   "FROM salg_leie, person"
 
             cbxKunde.DataSource = Nothing
+            txtTelefon.Text = ""
             'cbxLeieAvtaler.DataSource = Nothing
             'cbxLeieAvtaler.Items.Clear()
         End If
