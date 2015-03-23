@@ -7,7 +7,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class EndrePassord
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Bytt_Passord(sender As Object, e As EventArgs) Handles btnBytt_Passord.Click
 
 
         If sjekkPassord(eposttxt.Text, nåværendePassordtxt.Text) = True Then
