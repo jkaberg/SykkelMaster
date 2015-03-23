@@ -78,12 +78,12 @@ Public Class innlevering
         End With
 
         With Me.oversiktGrid
-            'Vis ikke enkelte kolonner 
+            'Unngår å vise enkelte kolonner 
             .Columns("person_id_selger").Visible = False
             .Columns("id").Visible = False
             .Columns("person_id_kunde").Visible = False
             .Columns("rabatt_id").Visible = False
-            'Endre navn for å gi en bedre visuell opplevelse
+            'Endrer navn på headere for å gi en bedre visuell opplevelse
             .Columns("ordre_nr").HeaderText = "Order nummer"
             .Columns("dato").HeaderText = "Dato"
             .Columns("frist").HeaderText = "Frist"
