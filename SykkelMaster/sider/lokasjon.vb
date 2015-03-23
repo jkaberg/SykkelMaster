@@ -21,8 +21,9 @@
             ' Kolonne vises ikke 
             .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
-            .Columns("virksomhet").HeaderText = "Lokasjon"
-            .Columns("Telefonnummer").HeaderText = "Telefonnummer"
+            .Columns("navn").HeaderText = "Lokasjon"
+            .Columns("telefon").HeaderText = "Telefonnummer"
+            .Columns("mail").HeaderText = "Epost"
             .Columns("adresse").HeaderText = "Adresse"
             .Columns("post_nr").HeaderText = "Postnr"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
@@ -33,7 +34,7 @@
     Private Sub btnAddlocation_Click(sender As Object, e As EventArgs) Handles btnAddlocation.Click
         Dim payload As New DataTable
         Dim sql As String
-        sql = "INSERT INTO virksomhet(navn, telefon, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtAdresse.Text & "', '" & txtpostnr.Text & "', '" & txtPoststed.Text & "')"
+        sql = "INSERT INTO virksomhet(navn, telefon, mail, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtpostnr.Text & "')"
 
         payload = db.query(sql)
         Oppdaterlokasjon.DataSource = payload

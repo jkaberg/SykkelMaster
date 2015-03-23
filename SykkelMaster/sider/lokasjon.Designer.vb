@@ -38,6 +38,8 @@ Partial Class lokasjon
         Me.txtTelefon = New System.Windows.Forms.TextBox()
         Me.txtLokasjon = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtMail = New System.Windows.Forms.TextBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Oppdaterlokasjon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -50,7 +52,7 @@ Partial Class lokasjon
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(335, 223)
+        Me.GroupBox2.Size = New System.Drawing.Size(335, 257)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Oversikt"
@@ -62,11 +64,13 @@ Partial Class lokasjon
         Me.Oppdaterlokasjon.Margin = New System.Windows.Forms.Padding(2)
         Me.Oppdaterlokasjon.Name = "Oppdaterlokasjon"
         Me.Oppdaterlokasjon.RowTemplate.Height = 24
-        Me.Oppdaterlokasjon.Size = New System.Drawing.Size(324, 194)
+        Me.Oppdaterlokasjon.Size = New System.Drawing.Size(324, 232)
         Me.Oppdaterlokasjon.TabIndex = 18
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtMail)
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.BtnDeleteLocation)
         Me.GroupBox1.Controls.Add(Me.btnUpdateLocation)
         Me.GroupBox1.Controls.Add(Me.btnAddLocation)
@@ -84,14 +88,14 @@ Partial Class lokasjon
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(193, 223)
+        Me.GroupBox1.Size = New System.Drawing.Size(193, 257)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger lokasjon"
         '
         'BtnDeleteLocation
         '
-        Me.BtnDeleteLocation.Location = New System.Drawing.Point(7, 187)
+        Me.BtnDeleteLocation.Location = New System.Drawing.Point(8, 225)
         Me.BtnDeleteLocation.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnDeleteLocation.Name = "BtnDeleteLocation"
         Me.BtnDeleteLocation.Size = New System.Drawing.Size(178, 24)
@@ -101,7 +105,7 @@ Partial Class lokasjon
         '
         'btnUpdateLocation
         '
-        Me.btnUpdateLocation.Location = New System.Drawing.Point(7, 158)
+        Me.btnUpdateLocation.Location = New System.Drawing.Point(8, 196)
         Me.btnUpdateLocation.Margin = New System.Windows.Forms.Padding(2)
         Me.btnUpdateLocation.Name = "btnUpdateLocation"
         Me.btnUpdateLocation.Size = New System.Drawing.Size(178, 24)
@@ -111,7 +115,7 @@ Partial Class lokasjon
         '
         'btnAddLocation
         '
-        Me.btnAddLocation.Location = New System.Drawing.Point(7, 128)
+        Me.btnAddLocation.Location = New System.Drawing.Point(8, 166)
         Me.btnAddLocation.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAddLocation.Name = "btnAddLocation"
         Me.btnAddLocation.Size = New System.Drawing.Size(178, 24)
@@ -122,7 +126,7 @@ Partial Class lokasjon
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(4, 108)
+        Me.Label2.Location = New System.Drawing.Point(4, 134)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(48, 13)
@@ -131,7 +135,7 @@ Partial Class lokasjon
         '
         'txtPoststed
         '
-        Me.txtPoststed.Location = New System.Drawing.Point(60, 106)
+        Me.txtPoststed.Location = New System.Drawing.Point(60, 132)
         Me.txtPoststed.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPoststed.Name = "txtPoststed"
         Me.txtPoststed.ReadOnly = True
@@ -141,7 +145,7 @@ Partial Class lokasjon
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(4, 85)
+        Me.Label5.Location = New System.Drawing.Point(4, 111)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(37, 13)
@@ -150,7 +154,7 @@ Partial Class lokasjon
         '
         'txtpostnr
         '
-        Me.txtpostnr.Location = New System.Drawing.Point(60, 83)
+        Me.txtpostnr.Location = New System.Drawing.Point(60, 109)
         Me.txtpostnr.Margin = New System.Windows.Forms.Padding(2)
         Me.txtpostnr.Name = "txtpostnr"
         Me.txtpostnr.Size = New System.Drawing.Size(126, 20)
@@ -210,11 +214,29 @@ Partial Class lokasjon
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Navn"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(5, 87)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(34, 13)
+        Me.Label6.TabIndex = 34
+        Me.Label6.Text = "Epost"
+        '
+        'txtMail
+        '
+        Me.txtMail.Location = New System.Drawing.Point(60, 84)
+        Me.txtMail.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtMail.Name = "txtMail"
+        Me.txtMail.Size = New System.Drawing.Size(126, 20)
+        Me.txtMail.TabIndex = 35
+        '
         'lokasjon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(548, 237)
+        Me.ClientSize = New System.Drawing.Size(548, 278)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -245,4 +267,6 @@ Partial Class lokasjon
     Friend WithEvents BtnDeleteLocation As System.Windows.Forms.Button
     Friend WithEvents btnUpdateLocation As System.Windows.Forms.Button
     Friend WithEvents btnAddLocation As System.Windows.Forms.Button
+    Friend WithEvents txtMail As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class
