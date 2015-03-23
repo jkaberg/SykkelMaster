@@ -29,7 +29,7 @@ Partial Class lokasjon
         Me.btnUpdateLocation = New System.Windows.Forms.Button()
         Me.btnAddLocation = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtPoststed = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtpostnr = New System.Windows.Forms.TextBox()
         Me.txtAdresse = New System.Windows.Forms.TextBox()
@@ -47,9 +47,9 @@ Partial Class lokasjon
         '
         Me.GroupBox2.Controls.Add(Me.Oppdaterlokasjon)
         Me.GroupBox2.Location = New System.Drawing.Point(206, 10)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(335, 223)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
@@ -59,7 +59,7 @@ Partial Class lokasjon
         '
         Me.Oppdaterlokasjon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Oppdaterlokasjon.Location = New System.Drawing.Point(7, 17)
-        Me.Oppdaterlokasjon.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Oppdaterlokasjon.Margin = New System.Windows.Forms.Padding(2)
         Me.Oppdaterlokasjon.Name = "Oppdaterlokasjon"
         Me.Oppdaterlokasjon.RowTemplate.Height = 24
         Me.Oppdaterlokasjon.Size = New System.Drawing.Size(324, 194)
@@ -71,7 +71,7 @@ Partial Class lokasjon
         Me.GroupBox1.Controls.Add(Me.btnUpdateLocation)
         Me.GroupBox1.Controls.Add(Me.btnAddLocation)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.txtPoststed)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.txtpostnr)
         Me.GroupBox1.Controls.Add(Me.txtAdresse)
@@ -81,9 +81,9 @@ Partial Class lokasjon
         Me.GroupBox1.Controls.Add(Me.txtLokasjon)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 10)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(193, 223)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
@@ -92,7 +92,7 @@ Partial Class lokasjon
         'BtnDeleteLocation
         '
         Me.BtnDeleteLocation.Location = New System.Drawing.Point(7, 187)
-        Me.BtnDeleteLocation.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BtnDeleteLocation.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnDeleteLocation.Name = "BtnDeleteLocation"
         Me.BtnDeleteLocation.Size = New System.Drawing.Size(178, 24)
         Me.BtnDeleteLocation.TabIndex = 33
@@ -102,7 +102,7 @@ Partial Class lokasjon
         'btnUpdateLocation
         '
         Me.btnUpdateLocation.Location = New System.Drawing.Point(7, 158)
-        Me.btnUpdateLocation.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnUpdateLocation.Margin = New System.Windows.Forms.Padding(2)
         Me.btnUpdateLocation.Name = "btnUpdateLocation"
         Me.btnUpdateLocation.Size = New System.Drawing.Size(178, 24)
         Me.btnUpdateLocation.TabIndex = 32
@@ -112,7 +112,7 @@ Partial Class lokasjon
         'btnAddLocation
         '
         Me.btnAddLocation.Location = New System.Drawing.Point(7, 128)
-        Me.btnAddLocation.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAddLocation.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAddLocation.Name = "btnAddLocation"
         Me.btnAddLocation.Size = New System.Drawing.Size(178, 24)
         Me.btnAddLocation.TabIndex = 31
@@ -129,13 +129,14 @@ Partial Class lokasjon
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Poststed"
         '
-        'TextBox2
+        'txtPoststed
         '
-        Me.TextBox2.Location = New System.Drawing.Point(60, 106)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(126, 20)
-        Me.TextBox2.TabIndex = 25
+        Me.txtPoststed.Location = New System.Drawing.Point(60, 106)
+        Me.txtPoststed.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtPoststed.Name = "txtPoststed"
+        Me.txtPoststed.ReadOnly = True
+        Me.txtPoststed.Size = New System.Drawing.Size(126, 20)
+        Me.txtPoststed.TabIndex = 25
         '
         'Label5
         '
@@ -150,7 +151,7 @@ Partial Class lokasjon
         'txtpostnr
         '
         Me.txtpostnr.Location = New System.Drawing.Point(60, 83)
-        Me.txtpostnr.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtpostnr.Margin = New System.Windows.Forms.Padding(2)
         Me.txtpostnr.Name = "txtpostnr"
         Me.txtpostnr.Size = New System.Drawing.Size(126, 20)
         Me.txtpostnr.TabIndex = 9
@@ -158,7 +159,7 @@ Partial Class lokasjon
         'txtAdresse
         '
         Me.txtAdresse.Location = New System.Drawing.Point(60, 60)
-        Me.txtAdresse.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtAdresse.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAdresse.Name = "txtAdresse"
         Me.txtAdresse.Size = New System.Drawing.Size(126, 20)
         Me.txtAdresse.TabIndex = 8
@@ -186,7 +187,7 @@ Partial Class lokasjon
         'txtTelefon
         '
         Me.txtTelefon.Location = New System.Drawing.Point(60, 37)
-        Me.txtTelefon.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtTelefon.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTelefon.Name = "txtTelefon"
         Me.txtTelefon.Size = New System.Drawing.Size(126, 20)
         Me.txtTelefon.TabIndex = 4
@@ -194,7 +195,7 @@ Partial Class lokasjon
         'txtLokasjon
         '
         Me.txtLokasjon.Location = New System.Drawing.Point(60, 15)
-        Me.txtLokasjon.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtLokasjon.Margin = New System.Windows.Forms.Padding(2)
         Me.txtLokasjon.Name = "txtLokasjon"
         Me.txtLokasjon.Size = New System.Drawing.Size(126, 20)
         Me.txtLokasjon.TabIndex = 2
@@ -217,7 +218,7 @@ Partial Class lokasjon
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "lokasjon"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Lokasjon"
@@ -240,7 +241,7 @@ Partial Class lokasjon
     Friend WithEvents txtLokasjon As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPoststed As System.Windows.Forms.TextBox
     Friend WithEvents BtnDeleteLocation As System.Windows.Forms.Button
     Friend WithEvents btnUpdateLocation As System.Windows.Forms.Button
     Friend WithEvents btnAddLocation As System.Windows.Forms.Button
