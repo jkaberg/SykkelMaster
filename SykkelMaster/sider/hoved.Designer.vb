@@ -22,64 +22,64 @@ Partial Class hoved
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnVis_Kunder = New System.Windows.Forms.Button()
+        Me.btnVis_Utleie = New System.Windows.Forms.Button()
+        Me.btnVis_Lokasjoner = New System.Windows.Forms.Button()
+        Me.btnVis_Sykler = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cbxPlassering = New System.Windows.Forms.ComboBox()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnVis_Brukere = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.btnVis_innlevering = New System.Windows.Forms.Button()
+        Me.btnBytt_Passord = New System.Windows.Forms.Button()
+        Me.btnLogg_ut = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnVis_Kunder
         '
-        Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(196, 105)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(107, 40)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Kunder"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnVis_Kunder.Enabled = False
+        Me.btnVis_Kunder.Location = New System.Drawing.Point(196, 105)
+        Me.btnVis_Kunder.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnVis_Kunder.Name = "btnVis_Kunder"
+        Me.btnVis_Kunder.Size = New System.Drawing.Size(107, 40)
+        Me.btnVis_Kunder.TabIndex = 4
+        Me.btnVis_Kunder.Text = "Kunder"
+        Me.btnVis_Kunder.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnVis_Utleie
         '
-        Me.Button2.Enabled = False
-        Me.Button2.Location = New System.Drawing.Point(10, 105)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(107, 40)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Utleie"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnVis_Utleie.Enabled = False
+        Me.btnVis_Utleie.Location = New System.Drawing.Point(10, 105)
+        Me.btnVis_Utleie.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnVis_Utleie.Name = "btnVis_Utleie"
+        Me.btnVis_Utleie.Size = New System.Drawing.Size(107, 40)
+        Me.btnVis_Utleie.TabIndex = 2
+        Me.btnVis_Utleie.Text = "Utleie"
+        Me.btnVis_Utleie.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnVis_Lokasjoner
         '
-        Me.Button3.Enabled = False
-        Me.Button3.Location = New System.Drawing.Point(10, 150)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(107, 40)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Lokasjoner"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnVis_Lokasjoner.Enabled = False
+        Me.btnVis_Lokasjoner.Location = New System.Drawing.Point(10, 150)
+        Me.btnVis_Lokasjoner.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnVis_Lokasjoner.Name = "btnVis_Lokasjoner"
+        Me.btnVis_Lokasjoner.Size = New System.Drawing.Size(107, 40)
+        Me.btnVis_Lokasjoner.TabIndex = 5
+        Me.btnVis_Lokasjoner.Text = "Lokasjoner"
+        Me.btnVis_Lokasjoner.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnVis_Sykler
         '
-        Me.Button4.Location = New System.Drawing.Point(196, 60)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(107, 40)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Sykler"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnVis_Sykler.Location = New System.Drawing.Point(196, 60)
+        Me.btnVis_Sykler.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnVis_Sykler.Name = "btnVis_Sykler"
+        Me.btnVis_Sykler.Size = New System.Drawing.Size(107, 40)
+        Me.btnVis_Sykler.TabIndex = 3
+        Me.btnVis_Sykler.Text = "Sykler"
+        Me.btnVis_Sykler.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -102,16 +102,16 @@ Partial Class hoved
         Me.cbxPlassering.Size = New System.Drawing.Size(92, 21)
         Me.cbxPlassering.TabIndex = 0
         '
-        'Button5
+        'btnVis_Brukere
         '
-        Me.Button5.Enabled = False
-        Me.Button5.Location = New System.Drawing.Point(196, 150)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(107, 40)
-        Me.Button5.TabIndex = 6
-        Me.Button5.Text = "Brukere"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnVis_Brukere.Enabled = False
+        Me.btnVis_Brukere.Location = New System.Drawing.Point(196, 150)
+        Me.btnVis_Brukere.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnVis_Brukere.Name = "btnVis_Brukere"
+        Me.btnVis_Brukere.Size = New System.Drawing.Size(107, 40)
+        Me.btnVis_Brukere.TabIndex = 6
+        Me.btnVis_Brukere.Text = "Brukere"
+        Me.btnVis_Brukere.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -135,51 +135,51 @@ Partial Class hoved
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Velkommen, "
         '
-        'Button6
+        'btnVis_innlevering
         '
-        Me.Button6.Location = New System.Drawing.Point(9, 60)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(107, 40)
-        Me.Button6.TabIndex = 1
-        Me.Button6.Text = "Innlevering"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnVis_innlevering.Location = New System.Drawing.Point(9, 60)
+        Me.btnVis_innlevering.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnVis_innlevering.Name = "btnVis_innlevering"
+        Me.btnVis_innlevering.Size = New System.Drawing.Size(107, 40)
+        Me.btnVis_innlevering.TabIndex = 1
+        Me.btnVis_innlevering.Text = "Innlevering"
+        Me.btnVis_innlevering.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnBytt_Passord
         '
-        Me.Button7.Location = New System.Drawing.Point(9, 194)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(107, 40)
-        Me.Button7.TabIndex = 7
-        Me.Button7.Text = "Endre Passord"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnBytt_Passord.Location = New System.Drawing.Point(9, 194)
+        Me.btnBytt_Passord.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnBytt_Passord.Name = "btnBytt_Passord"
+        Me.btnBytt_Passord.Size = New System.Drawing.Size(107, 40)
+        Me.btnBytt_Passord.TabIndex = 7
+        Me.btnBytt_Passord.Text = "Endre Passord"
+        Me.btnBytt_Passord.UseVisualStyleBackColor = True
         '
-        'Button8
+        'btnLogg_ut
         '
-        Me.Button8.Location = New System.Drawing.Point(196, 194)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(107, 40)
-        Me.Button8.TabIndex = 8
-        Me.Button8.Text = "Logg ut"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.btnLogg_ut.Location = New System.Drawing.Point(196, 194)
+        Me.btnLogg_ut.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnLogg_ut.Name = "btnLogg_ut"
+        Me.btnLogg_ut.Size = New System.Drawing.Size(107, 40)
+        Me.btnLogg_ut.TabIndex = 8
+        Me.btnLogg_ut.Text = "Logg ut"
+        Me.btnLogg_ut.UseVisualStyleBackColor = True
         '
         'hoved
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(309, 238)
-        Me.Controls.Add(Me.Button8)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.btnLogg_ut)
+        Me.Controls.Add(Me.btnBytt_Passord)
+        Me.Controls.Add(Me.btnVis_innlevering)
+        Me.Controls.Add(Me.btnVis_Sykler)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.btnVis_Brukere)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnVis_Lokasjoner)
+        Me.Controls.Add(Me.btnVis_Utleie)
+        Me.Controls.Add(Me.btnVis_Kunder)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "hoved"
@@ -191,16 +191,16 @@ Partial Class hoved
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents btnVis_Kunder As System.Windows.Forms.Button
+    Friend WithEvents btnVis_Utleie As System.Windows.Forms.Button
+    Friend WithEvents btnVis_Lokasjoner As System.Windows.Forms.Button
+    Friend WithEvents btnVis_Sykler As System.Windows.Forms.Button
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents cbxPlassering As System.Windows.Forms.ComboBox
-    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents btnVis_Brukere As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents btnVis_innlevering As System.Windows.Forms.Button
+    Friend WithEvents btnBytt_Passord As System.Windows.Forms.Button
+    Friend WithEvents btnLogg_ut As System.Windows.Forms.Button
 End Class

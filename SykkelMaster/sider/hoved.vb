@@ -2,27 +2,27 @@
 
     Public lokasjoner As DataTable
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Vis_Kunder(sender As Object, e As EventArgs) Handles btnVis_Kunder.Click
         kunder.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Vis_Utleie(sender As Object, e As EventArgs) Handles btnVis_Utleie.Click
         utleie.Show()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Vis_Lokasjoner(sender As Object, e As EventArgs) Handles btnVis_Lokasjoner.Click
         lokasjon.Show()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Vis_Sykler(sender As Object, e As EventArgs) Handles btnVis_Sykler.Click
         sykkelEdit.Show()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Vis_Brukere(sender As Object, e As EventArgs) Handles btnVis_Brukere.Click
         bruker.Show()
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Vis_Innelvering(sender As Object, e As EventArgs) Handles btnVis_innlevering.Click
         innlevering.Show()
     End Sub
 
@@ -54,22 +54,22 @@
         ' Sjekk hvilke tillatelser innloggetburker har ved å enable knapper
         Select Case start.bruker.pStilling
             Case Is >= 3
-                Button1.Enabled = True
-                Button2.Enabled = True
-                Button3.Enabled = True
-                Button5.Enabled = True
+                btnVis_Kunder.Enabled = True
+                btnVis_Utleie.Enabled = True
+                btnVis_Lokasjoner.Enabled = True
+                btnVis_Brukere.Enabled = True
             Case Is >= 2
-                Button1.Enabled = True
-                Button2.Enabled = True
+                btnVis_Kunder.Enabled = True
+                btnVis_Utleie.Enabled = True
 
         End Select
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+    Private Sub Bytt_Passord(sender As Object, e As EventArgs) Handles btnBytt_Passord.Click
         EndrePassord.Show()
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+    Private Sub Logg_ut(sender As Object, e As EventArgs) Handles btnLogg_ut.Click
         Me.Close()
         start.Show()
     End Sub
