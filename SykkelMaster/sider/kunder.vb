@@ -103,7 +103,7 @@
                 Try
                     payload = db.query(sql)
                 Catch
-                    MsgBox("Du kan ikke slett ansatt")
+                    MsgBox("Du kan ikke slette person")
                 End Try
         End Select
 

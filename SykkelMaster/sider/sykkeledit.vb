@@ -7,7 +7,7 @@
 
         Dim payload As New DataTable
 
-
+        'Laster inn data til comboBox'ene
         With cbxTilhorer
             .DisplayMember = "navn"
             .DataSource = hoved.lokasjoner
@@ -22,7 +22,6 @@
 
         With cbxType
             .DisplayMember = "sykkeltype"
-            .ValueMember = "id"
             .DataSource = payload
         End With
 
@@ -30,7 +29,6 @@
 
         With cbxStatus
             .DisplayMember = "status"
-            .ValueMember = "id"
             .DataSource = payload
         End With
 
@@ -83,6 +81,34 @@
             cbxStatus.Text = .Rows(gridIndex).Cells("status").Value
             txtAvvik.Text = .Rows(gridIndex).Cells("avviksmelding").Value
         End With
+    End Sub
+
+    Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
+        'Legge til en ny person i databasen
+        Dim sql As String
+        sql = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & "1" & ", " & cbxHjul.Text & ", " & cbxRamme.Text & ", " & "1" & ", '" & txtAvvik.Text & "', " & "1" & ", " & "1" & ")"
+        db.query(sql)
+        oppdaterGridView()
+        oppdaterTxtbox()
+    End Sub
+
+    Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
+        'Slette en sykkel i databasen
+        Dim payload As New DataTable
+        Dim sql As String = "DELETE FROM sykkelmaster2015.sykkel WHERE rammenr = '" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & "'"
+
+        Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
+        'Slett sykkel
+        Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                Try
+                    payload = db.query(sql)
+                Catch
+                    MsgBox("Du kan ikke slette sykkel")
+                End Try
+        End Select
+
+        oppdaterGridView()
     End Sub
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
