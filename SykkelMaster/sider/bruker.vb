@@ -109,9 +109,29 @@
         txtPostnr.Text = ""
     End Sub
 
+    Private Sub leggTillBruker()
+        Dim passord As String = util.tilfeldigStreng()
+        Dim payload As DataTable
+        Dim sql As String = "START TRANSACTION;" &
+                            "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
+                            "VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & CInt(txtTelefon.Text) & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & CInt(txtPostnr.Text) & "');" &
+                            "INSERT INTO ansatt(person_id, stilling, provisjon, passord, virksomhet_id) " &
+                            "VALUES (LAST_INSERT_ID(), '" & CInt(cbxStilling.SelectedValue) & "', '" & CInt(ProvisjonBar.Value) & "', '" & passord & "', 1);" &
+                            "COMMIT;"
+        Console.WriteLine(sql)
+        payload = db.query(sql)
+
+        If payload.Rows.Count = 1 Then
+            MsgBox("Bruker" & txtNavn.Text & " " & txtEtternavn.Text & " lagt til.")
+        End If
+    End Sub
+
     Private Sub Legg_Til_Bruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
-        'Legg til bruker
-        'db.query("INSERT INTO personer (fornavn, etternavn, telefon, mail, adresse, post_nr, stilling, provisjon) VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtPostnr.Text & "', '" & stilling() & "', '" & HScrollBar1.Value & "')")
+        Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
+        Select Case MsgBox("Er du sikker på at du vil legg til " & bruker & "?", MsgBoxStyle.YesNo)
+            Case MsgBoxResult.Yes
+                leggTillBruker()
+        End Select
     End Sub
 
     Private Sub Slett_Bruker(sender As Object, e As EventArgs) Handles btnSlett_Bruker.Click
