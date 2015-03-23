@@ -23,6 +23,8 @@ Partial Class sykkelEdit
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbxPosisjon = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.btnSlett = New System.Windows.Forms.Button()
         Me.btnOppdater = New System.Windows.Forms.Button()
         Me.btnLeggTil = New System.Windows.Forms.Button()
@@ -46,8 +48,6 @@ Partial Class sykkelEdit
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
         Me.SykkelGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.cbxPosisjon = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SykkelGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +82,23 @@ Partial Class sykkelEdit
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
+        '
+        'cbxPosisjon
+        '
+        Me.cbxPosisjon.FormattingEnabled = True
+        Me.cbxPosisjon.Location = New System.Drawing.Point(93, 63)
+        Me.cbxPosisjon.Name = "cbxPosisjon"
+        Me.cbxPosisjon.Size = New System.Drawing.Size(249, 28)
+        Me.cbxPosisjon.TabIndex = 2
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(7, 66)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(68, 20)
+        Me.Label10.TabIndex = 20
+        Me.Label10.Text = "Posisjon"
         '
         'btnSlett
         '
@@ -293,6 +310,7 @@ Partial Class sykkelEdit
         Me.SykkelGridView.Location = New System.Drawing.Point(10, 58)
         Me.SykkelGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.SykkelGridView.Name = "SykkelGridView"
+        Me.SykkelGridView.ReadOnly = True
         Me.SykkelGridView.RowTemplate.Height = 24
         Me.SykkelGridView.Size = New System.Drawing.Size(1007, 425)
         Me.SykkelGridView.TabIndex = 18
@@ -305,23 +323,6 @@ Partial Class sykkelEdit
         Me.Label6.Size = New System.Drawing.Size(73, 20)
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Lokasjon"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(7, 66)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(68, 20)
-        Me.Label10.TabIndex = 20
-        Me.Label10.Text = "Posisjon"
-        '
-        'cbxPosisjon
-        '
-        Me.cbxPosisjon.FormattingEnabled = True
-        Me.cbxPosisjon.Location = New System.Drawing.Point(93, 63)
-        Me.cbxPosisjon.Name = "cbxPosisjon"
-        Me.cbxPosisjon.Size = New System.Drawing.Size(249, 28)
-        Me.cbxPosisjon.TabIndex = 2
         '
         'sykkelEdit
         '

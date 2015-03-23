@@ -19,16 +19,16 @@
         End With
 
         payload = db.query("SELECT * FROM sykkeltype")
-
         With cbxType
             .DisplayMember = "sykkeltype"
+            .ValueMember = "id"
             .DataSource = payload
         End With
 
         payload = db.query("SELECT * FROM status")
-
         With cbxStatus
             .DisplayMember = "status"
+            .ValueMember = "id"
             .DataSource = payload
         End With
 
@@ -84,9 +84,9 @@
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
-        'Legge til en ny person i databasen
+        'Legge til en ny sykkel i databasen
         Dim sql As String
-        sql = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & "1" & ", " & cbxHjul.Text & ", " & cbxRamme.Text & ", " & "1" & ", '" & txtAvvik.Text & "', " & "1" & ", " & "1" & ")"
+        sql = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & "1" & ", " & cbxHjul.Text & ", " & cbxRamme.Text & ", " & "1" & ", '" & txtAvvik.Text & "', " & "1" & ", " & cbxLokasjon.ValueMember & ")"
         db.query(sql)
         oppdaterGridView()
         oppdaterTxtbox()
