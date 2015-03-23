@@ -38,7 +38,7 @@ Public Class util
 
         'Løkken som genererer tall helt til telleren har 8 characters, og deretter legger til characters i Passord variabelen.
         For t As Integer = 0 To 7
-            stringposisjon = random.Next(8, tegnsett.Length)2
+            stringposisjon = random.Next(8, tegnsett.Length)
             randString &= tegnsett(stringposisjon)
         Next
         'Returnerer det nye genererte tilfeldige passord

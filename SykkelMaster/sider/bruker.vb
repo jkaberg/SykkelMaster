@@ -111,6 +111,7 @@
 
     Private Sub leggTillBruker()
         Dim passord As String = util.tilfeldigStreng()
+        Dim body As String
         Dim payload As DataTable
         Dim sql As String = "START TRANSACTION;" &
                             "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
@@ -118,11 +119,17 @@
                             "INSERT INTO ansatt(person_id, stilling, provisjon, passord, virksomhet_id) " &
                             "VALUES (LAST_INSERT_ID(), '" & CInt(cbxStilling.SelectedValue) & "', '" & CInt(ProvisjonBar.Value) & "', '" & passord & "', 1);" &
                             "COMMIT;"
-        Console.WriteLine(sql)
         payload = db.query(sql)
+
+        body = "Hei og velkommen til Sykkelmaster," & vbNewLine &
+               "Det er opprettet en ny bruker til deg med følgende oplysninger" & vbNewLine & vbNewLine &
+               "Brukernavn: " & txtMail.Text & vbNewLine &
+               "Passord: " & passord & vbNewLine & vbNewLine &
+               "Hilsen, Sykkelmaster"
 
         If payload.Rows.Count = 1 Then
             MsgBox("Bruker" & txtNavn.Text & " " & txtEtternavn.Text & " lagt til.")
+            util.sendMail(txtMail.Text, "Ny bruker i Sykkelmaster", body)
         End If
     End Sub
 
