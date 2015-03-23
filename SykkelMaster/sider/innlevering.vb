@@ -21,10 +21,12 @@ Public Class innlevering
     End Sub
 
     Private Sub cbxKunde_DataSourceChanged(sender As Object, e As EventArgs) Handles cbxKunde.DataSourceChanged
-        If txtSokKunde.Text <> "" Then
+        If txtSokKunde.Text = "" Then
             sokLeieAvtale(cbxKunde.SelectedValue())
+            txtTelefon.Text = cbxKunde.SelectedValue
+        Else
+            sokLeieAvtale()
         End If
-
     End Sub
 
     Private Sub sokKunde(ByVal sok As String)
@@ -38,15 +40,17 @@ Public Class innlevering
 
         payload.Columns.Add("navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
 
-        With cbxKunde
-            .DisplayMember = "navn"
-            .ValueMember = "telefon"
-            .DataSource = payload
-        End With
+        If payload.Rows.Count >= 1 Then
+            With cbxKunde
+                .DisplayMember = "navn"
+                .ValueMember = "telefon"
+                .DataSource = payload
+            End With
+        End If
     End Sub
 
     Private Sub sokLeieAvtale(Optional ByVal telefon As Integer = Nothing)
-        txtTelefon.Text = cbxKunde.SelectedValue
+
         Dim payload As New DataTable
         Dim sql As String
 
