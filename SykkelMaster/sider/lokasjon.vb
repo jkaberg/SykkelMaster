@@ -2,7 +2,7 @@
 
     Private Sub lokasjon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim payload As New DataTable
-        payload = db.query("SELECT * FROM virksomhet")
+        payload = db.query("SELECT navn, telefon, mail, adresse, virksomhet.post_nr, sted.post_sted FROM virksomhet JOIN sted ON sted.post_nr = virksomhet.post_nr")
 
         Oppdaterlokasjon.DataSource = payload
     End Sub
@@ -26,6 +26,7 @@
             .Columns("mail").HeaderText = "Epost"
             .Columns("adresse").HeaderText = "Adresse"
             .Columns("post_nr").HeaderText = "Postnr"
+            .Columns("post_sted").HeaderText = "Poststed"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
