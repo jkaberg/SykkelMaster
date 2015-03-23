@@ -34,45 +34,40 @@ Partial Class EndrePassord
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(8, 24)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(6, 20)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(139, 17)
+        Me.Label2.Size = New System.Drawing.Size(105, 13)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Nåværende Passord"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 54)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(6, 44)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 17)
+        Me.Label3.Size = New System.Drawing.Size(67, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Nytt Passord"
         '
         'nåværendePassordtxt
         '
-        Me.nåværendePassordtxt.Location = New System.Drawing.Point(163, 21)
-        Me.nåværendePassordtxt.Margin = New System.Windows.Forms.Padding(4)
+        Me.nåværendePassordtxt.Location = New System.Drawing.Point(122, 17)
         Me.nåværendePassordtxt.Name = "nåværendePassordtxt"
-        Me.nåværendePassordtxt.Size = New System.Drawing.Size(200, 22)
+        Me.nåværendePassordtxt.Size = New System.Drawing.Size(151, 20)
         Me.nåværendePassordtxt.TabIndex = 4
         '
         'nyttPassordtxt
         '
-        Me.nyttPassordtxt.Location = New System.Drawing.Point(163, 51)
-        Me.nyttPassordtxt.Margin = New System.Windows.Forms.Padding(4)
+        Me.nyttPassordtxt.Location = New System.Drawing.Point(122, 41)
         Me.nyttPassordtxt.Name = "nyttPassordtxt"
-        Me.nyttPassordtxt.Size = New System.Drawing.Size(200, 22)
+        Me.nyttPassordtxt.Size = New System.Drawing.Size(151, 20)
         Me.nyttPassordtxt.TabIndex = 5
         '
         'btnBytt_Passord
         '
-        Me.btnBytt_Passord.Location = New System.Drawing.Point(8, 80)
-        Me.btnBytt_Passord.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnBytt_Passord.Location = New System.Drawing.Point(6, 65)
         Me.btnBytt_Passord.Name = "btnBytt_Passord"
-        Me.btnBytt_Passord.Size = New System.Drawing.Size(355, 23)
+        Me.btnBytt_Passord.Size = New System.Drawing.Size(266, 19)
         Me.btnBytt_Passord.TabIndex = 6
         Me.btnBytt_Passord.Text = "Bytt Passord"
         Me.btnBytt_Passord.UseVisualStyleBackColor = True
@@ -84,23 +79,22 @@ Partial Class EndrePassord
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.nyttPassordtxt)
         Me.GroupBox1.Controls.Add(Me.nåværendePassordtxt)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 10)
+        Me.GroupBox1.Location = New System.Drawing.Point(7, 8)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(369, 110)
+        Me.GroupBox1.Size = New System.Drawing.Size(277, 89)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Endre passord"
         '
         'EndrePassord
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(389, 136)
+        Me.ClientSize = New System.Drawing.Size(292, 110)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "EndrePassord"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
