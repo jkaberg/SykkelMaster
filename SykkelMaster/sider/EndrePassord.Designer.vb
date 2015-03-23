@@ -26,7 +26,7 @@ Partial Class EndrePassord
         Me.Label3 = New System.Windows.Forms.Label()
         Me.nåværendePassordtxt = New System.Windows.Forms.TextBox()
         Me.nyttPassordtxt = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnBytt_Passord = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -67,8 +67,9 @@ Partial Class EndrePassord
         Me.nyttPassordtxt.Size = New System.Drawing.Size(200, 22)
         Me.nyttPassordtxt.TabIndex = 5
         '
-        'Button1
+        'btnBytt_Passord
         '
+<<<<<<< HEAD
         Me.Button1.Location = New System.Drawing.Point(14, 81)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
@@ -76,19 +77,35 @@ Partial Class EndrePassord
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Bytt Passord"
         Me.Button1.UseVisualStyleBackColor = True
+=======
+        Me.btnBytt_Passord.Location = New System.Drawing.Point(8, 80)
+        Me.btnBytt_Passord.Name = "btnBytt_Passord"
+        Me.btnBytt_Passord.Size = New System.Drawing.Size(264, 23)
+        Me.btnBytt_Passord.TabIndex = 6
+        Me.btnBytt_Passord.Text = "Bytt Passord"
+        Me.btnBytt_Passord.UseVisualStyleBackColor = True
+>>>>>>> origin/master
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnBytt_Passord)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.nyttPassordtxt)
         Me.GroupBox1.Controls.Add(Me.nåværendePassordtxt)
+<<<<<<< HEAD
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Size = New System.Drawing.Size(373, 117)
+=======
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 10)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Size = New System.Drawing.Size(280, 110)
+>>>>>>> origin/master
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Endre passord"
@@ -114,6 +131,6 @@ Partial Class EndrePassord
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents nåværendePassordtxt As System.Windows.Forms.TextBox
     Friend WithEvents nyttPassordtxt As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnBytt_Passord As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
 End Class

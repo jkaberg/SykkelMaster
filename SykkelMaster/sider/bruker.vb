@@ -6,7 +6,7 @@
         oppdaterGridView()
     End Sub
 
-    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
+    Private Sub Vis_bruker(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
         'Sett nuvarende DataGrid index sånn at vi finner rett rad i DataTablen
         gridIndex = brukerGridView.CurrentRow.Index
 
@@ -36,15 +36,15 @@
         End If
     End Sub
 
-    Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll
+    Private Sub ProvisjoBar_Scroll(sender As Object, e As ScrollEventArgs) Handles ProvisjonBar.Scroll
         'Oppdater provisjonslabel med scrollbar veriden
-        provisjonLabel(HScrollBar1.Value)
+        provisjonLabel(ProvisjonBar.Value)
     End Sub
 
     Private Sub provisjonLabel(ByVal p As Integer)
         'Oppdater provisjonslabel med scrollbar veriden
-        If Not HScrollBar1.Value = p Then
-            HScrollBar1.Value = p
+        If Not ProvisjonBar.Value = p Then
+            ProvisjonBar.Value = p
         End If
         Label10.Text = p & "%"
     End Sub
@@ -109,12 +109,12 @@
         txtPostnr.Text = ""
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Legg_Til_Bruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
         'Legg til bruker
         'db.query("INSERT INTO personer (fornavn, etternavn, telefon, mail, adresse, post_nr, stilling, provisjon) VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtPostnr.Text & "', '" & stilling() & "', '" & HScrollBar1.Value & "')")
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Slett_Bruker(sender As Object, e As EventArgs) Handles btnSlett_Bruker.Click
         Dim bruker As String = Me.brukerGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(gridIndex).Cells("etternavn").Value
         'Slett bruker
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo)
@@ -126,7 +126,7 @@
         oppdaterGridView()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
         'Oppdater bruker
     End Sub
 End Class
