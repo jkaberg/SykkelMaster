@@ -1,4 +1,7 @@
-﻿Public Class util
+﻿Imports System.Net.Mail
+Imports System.Configuration
+
+Public Class util
     Public Shared Function validerEpost(ByVal epost As String) As Boolean
         Dim regx As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
         Dim ep As System.Text.RegularExpressions.Match = regx.Match(epost)
@@ -35,13 +38,36 @@
 
         'Løkken som genererer tall helt til telleren har 8 characters, og deretter legger til characters i Passord variabelen.
         For t As Integer = 0 To 7
-            stringposisjon = random.Next(8, tegnsett.Length)
+            stringposisjon = random.Next(8, tegnsett.Length)2
             randString &= tegnsett(stringposisjon)
         Next
-
         'Returnerer det nye genererte tilfeldige passord
         Return randString
     End Function
+
+    Public Shared Function sendMail(ByVal mottaker As String, ByVal emne As String, ByVal hovedtekst As String)
+
+        Dim epostmelding As New MailMessage()
+        Try
+            epostmelding.From = New MailAddress("Granlieirik3@gmail.com")
+            epostmelding.To.Add(mottaker)
+            epostmelding.Subject = emne
+            epostmelding.Body = hovedtekst
+
+            Dim smtp As New SmtpClient("smtp.gmail.com")
+            smtp.Port = 587
+            smtp.EnableSsl = True
+            smtp.Credentials = New System.Net.NetworkCredential("granlieirik3@gmail.com", "eirik12345")
+
+            smtp.Send(epostmelding)
+            Return True
+
+        Catch ex As Exception
+            MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
+        End Try
+        Return False
+    End Function
+
 
     Public Shared Function Finn_Poststed(sender As Object, e As EventArgs) As String
         Dim poststed_sql As New DataTable

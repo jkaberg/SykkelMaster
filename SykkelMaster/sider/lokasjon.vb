@@ -31,7 +31,7 @@
     End Sub
 
 
-    Private Sub btnAddlocation_Click(sender As Object, e As EventArgs) Handles btnAddlocation.Click
+    Private Sub btnAddlocation_Click(sender As Object, e As EventArgs) Handles btnAddLocation.Click
         Dim payload As New DataTable
         Dim sql As String
         sql = "INSERT INTO virksomhet(navn, telefon, mail, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtpostnr.Text & "')"
