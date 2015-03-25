@@ -8,18 +8,29 @@
         Dim payload As New DataTable
 
         'Laster inn data til comboBox'ene
-        payload = db.query("SELECT * FROM virksomhet")
         With cbxTilhorer
             .DisplayMember = "navn"
             .ValueMember = "id"
             .DataSource = hoved.lokasjoner
         End With
+        'Gjør at comboBox'en er tom når programmet starter
+        cbxTilhorer.SelectedIndex = -1
 
+        payload = db.query("SELECT * FROM virksomhet")
         With cbxPosisjon
             .DisplayMember = "navn"
             .ValueMember = "id"
             .DataSource = payload
         End With
+        cbxPosisjon.SelectedIndex = -1
+
+        payload = db.query("SELECT * FROM virksomhet")
+        With cbxLokasjon
+            .DisplayMember = "navn"
+            .ValueMember = "id"
+            .DataSource = payload
+        End With
+        cbxLokasjon.SelectedIndex = -1
 
         payload = db.query("SELECT * FROM sykkeltype")
         With cbxType
@@ -27,6 +38,7 @@
             .ValueMember = "id"
             .DataSource = payload
         End With
+        cbxType.SelectedIndex = -1
 
         payload = db.query("SELECT * FROM status")
         With cbxStatus
@@ -34,6 +46,7 @@
             .ValueMember = "id"
             .DataSource = payload
         End With
+        cbxStatus.SelectedIndex = -1
 
     End Sub
 
@@ -91,6 +104,13 @@
     End Sub
 
     Private Sub btnTom_Click(sender As Object, e As EventArgs) Handles btnTom.Click
+        'Nulstiller alle textBox'ene og comboBox'ene
+        cbxTilhorer.SelectedIndex = -1
+        cbxPosisjon.SelectedIndex = -1
+        cbxType.SelectedIndex = -1
+        cbxHjul.SelectedIndex = -1
+        cbxRamme.SelectedIndex = -1
+        cbxStatus.SelectedIndex = -1
         txtRammenr.Text = ""
         txtAvvik.Text = ""
         oppdaterGridView()
@@ -107,23 +127,23 @@
         oppdaterTxtbox()
     End Sub
 
-    'Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
-    '    'Oppdatere sykkel i databasen
-    '    Dim payload As New DataTable
-    '    Dim sql As String = "UPDATE sykkel SET rammenr = '" & txtRammenr.Text & "', sykkeltype = " & CInt(cbxType.SelectedValue) & _
-    '        ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", status = " & CInt(cbxStatus.SelectedValue) & _
-    '        ", avvikmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
-    '        ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr =" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value
+    Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
+        'Oppdatere sykkel i databasen
+        Dim payload As New DataTable
+        Dim sql As String = "UPDATE sykkel SET rammenr = '" & txtRammenr.Text & "', sykkeltype = " & CInt(cbxType.SelectedValue) & _
+            ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", status = " & CInt(cbxStatus.SelectedValue) & _
+            ", avviksmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
+            ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr = '" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & "'"
 
-    '    Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
-    '    'Oppdater bruker
-    '    Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
-    '        Case MsgBoxResult.Yes
-    '            payload = db.query(sql)
-    '            oppdaterGridView()
-    '            oppdaterTxtbox()
-    '    End Select
-    'End Sub
+        Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
+        'Oppdater bruker
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                payload = db.query(sql)
+                oppdaterGridView()
+                oppdaterTxtbox()
+        End Select
+    End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
@@ -148,4 +168,5 @@
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
         oppdaterGridView(txtSok.Text)
     End Sub
+
 End Class

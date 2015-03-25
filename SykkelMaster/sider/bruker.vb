@@ -4,6 +4,16 @@
     Private Sub bruker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn daten fra databasen til GridView
         oppdaterGridView()
+
+        Dim payload As New DataTable
+
+        'Laster inn data til comboBoxen cbx stilling
+        payload = db.query("SELECT * FROM stilling")
+        With cbxStilling
+            .DisplayMember = "stilling"
+            .ValueMember = "id"
+            .DataSource = payload
+        End With
     End Sub
 
     Private Sub Vis_bruker(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
