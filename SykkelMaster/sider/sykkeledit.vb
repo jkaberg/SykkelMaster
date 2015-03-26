@@ -56,18 +56,12 @@
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
         Dim sql As String
-        If Not sok = Nothing Or posisjon = Nothing Then
-            sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
-                "sykkel.avviksmelding, v1.navn posisjon, v2.navn " & _
-                "FROM sykkel JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id JOIN status ON sykkel.status = status.id " & _
-                "JOIN virksomhet v1 ON sykkel.posisjon = v1.id JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " & _
-                "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"
-        Else
-            sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
-                "sykkel.avviksmelding, v1.navn posisjon, v2.navn " & _
-                "FROM sykkel JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id JOIN status ON sykkel.status = status.id " & _
-                "JOIN virksomhet v1 ON sykkel.posisjon = v1.id JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id"
-        End If
+
+        sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
+            "sykkel.avviksmelding, v1.navn posisjon, v2.navn " & _
+            "FROM sykkel JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id JOIN status ON sykkel.status = status.id " & _
+            "JOIN virksomhet v1 ON sykkel.posisjon = v1.id JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " & _
+            "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"
         payload = db.query(sql)
         SykkelGridView.DataSource = payload
 
@@ -166,7 +160,6 @@
     End Sub
 
     Private Sub cbxLokasjon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxLokasjon.SelectedIndexChanged
-        oppdaterGridView(posisjon:=txtRammenr.Text)
-        txtRammenr.Text = cbxLokasjon.Text
+        oppdaterGridView(posisjon:=cbxLokasjon.Text)
     End Sub
 End Class
