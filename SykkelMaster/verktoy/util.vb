@@ -79,4 +79,15 @@ Public Class util
 
     End Function
 
+    Public Shared Function sjekkBrukerEksisterer(ByVal epost As String)
+        Dim payload As DataTable
+        Dim sql As String = "SELECT mail FROM person WHERE mail = '" & epost & "'"
+        Console.WriteLine(sql)
+        payload = db.query(sql)
+
+        If payload.Rows.Count >= 0 Then
+            Return True
+        End If
+        Return False
+    End Function
 End Class
