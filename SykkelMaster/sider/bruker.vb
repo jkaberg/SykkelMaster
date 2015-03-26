@@ -141,10 +141,7 @@
     End Sub
 
     Private Sub fjernBruker(ByVal id As Integer)
-        Dim sql As String = "DELETE ansatt, person " &
-                            "FROM ansatt JOIN person " &
-                            "WHERE person.id = ansatt.person_id " &
-                            "AND ansatt.person_id = " & id
+        Dim sql As String = "DELETE FROM ansatt WHERE ansatt.person_id = " & id
         payload = db.query(sql)
 
         If payload.Rows.Count > 0 Then
