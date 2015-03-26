@@ -23,10 +23,13 @@ Public Class start
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'settPassord(byttEpost.Text)
-        sjekkMail(byttEpost.Text)
-        'byttEpost.Text = ""
+    Private Sub Sendnyttpassord_click(sender As Object, e As EventArgs) Handles SendNyttPassord.Click
+
+        If sjekkMail(byttEpost.Text) Then
+            settPassord(byttEpost.Text)
+        End If
+        byttEpost.Text = ""
+
     End Sub
 
     Private Function sjekkLogin(ByVal epost As String, ByVal passord As String)
@@ -75,12 +78,11 @@ Public Class start
                             "WHERE person.mail = '" & epost & "'"
         payload = db.query(sql)
 
-            'sendMail(epost, passord)
+        'Dersom mail finnes i databasen kjøres funksjonen SendMail som tar inn parameterne epost, emne, brødtekst.
         If sjekkMail(byttEpost.Text) Then
             util.sendMail(epost, "Bytt Passord", "Her er ditt nye passord: " & passord)
             MsgBox("Ditt nye passord er sendt til deg på mail.")
         Else
-            MsgBox("Epost ikke registrert")
             Return False
         End If
 
@@ -88,16 +90,17 @@ Public Class start
     End Function
 
     Private Function sjekkMail(ByVal epost As String)
+        'Funksjon som sjekker om mail input er registrert i databasen, og returnerer true dersom den er det.
         Dim payload As New DataTable
         Dim sql As String = "SELECT mail from person WHERE mail='" & epost & "'"
 
         payload = db.query(sql)
         If payload.Rows.Count = 1 Then
-            MsgBox("hei")
             Return True
         Else
+            MsgBox("Mail finnes ikke i databasen")
             Return False
-            MsgBox("Finnes ikke")
+
         End If
     End Function
 End Class
