@@ -1,5 +1,6 @@
 ﻿Public Class kunder
     Private gridIndex As Integer
+    Private payload As New DataTable
 
     Private Sub kunder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
@@ -12,7 +13,6 @@
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
         'Henter opp poststed i textboxen
-        Dim payload As New DataTable
         payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & txtPostnr.Text & "'")
 
         If payload.Rows.Count = 1 Then
@@ -24,7 +24,6 @@
 
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        Dim payload As New DataTable
         Dim sql As String
         If Not sok = Nothing Then
             sql = "SELECT * FROM person WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%' OR etternavn LIKE '%" & sok & "%'"
@@ -78,7 +77,6 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere person i databasen
-        Dim payload As New DataTable
         Dim sql As String = "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txttelefon.Text & ", mail = '" & txtMail.Text & "', post_nr = " & txtPostnr.Text & " WHERE id =" & Me.kundeGridView.Rows(gridIndex).Cells("id").Value
 
         Dim bruker As String = Me.kundeGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(gridIndex).Cells("etternavn").Value
@@ -93,7 +91,6 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en person i databasen
-        Dim payload As New DataTable
         Dim sql As String = "DELETE FROM sykkelmaster2015.person WHERE person.id = " & Me.kundeGridView.Rows(gridIndex).Cells("id").Value
 
         Dim bruker As String = Me.kundeGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(gridIndex).Cells("etternavn").Value

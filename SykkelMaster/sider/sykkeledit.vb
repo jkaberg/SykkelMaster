@@ -1,11 +1,10 @@
 ﻿Public Class sykkelEdit
     Private gridIndex As Integer
+    Private payload As New DataTable
 
     Private Sub sykkelEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
         oppdaterGridView()
-
-        Dim payload As New DataTable
 
         'Laster inn data til comboBox'ene
         With cbxTilhorer
@@ -54,16 +53,15 @@
         oppdaterTxtbox()
     End Sub
 
-    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
+    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        Dim payload As New DataTable
         Dim sql As String
-        If Not sok = Nothing Then
+        If Not sok = Nothing Or posisjon = Nothing Then
             sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
                 "sykkel.avviksmelding, v1.navn posisjon, v2.navn " & _
                 "FROM sykkel JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id JOIN status ON sykkel.status = status.id " & _
                 "JOIN virksomhet v1 ON sykkel.posisjon = v1.id JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " & _
-                "AND rammenr LIKE '%" & sok & "%'"
+                "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"
         Else
             sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
                 "sykkel.avviksmelding, v1.navn posisjon, v2.navn " & _
@@ -129,7 +127,6 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
-        Dim payload As New DataTable
         Dim sql As String = "UPDATE sykkel SET rammenr = '" & txtRammenr.Text & "', sykkeltype = " & CInt(cbxType.SelectedValue) & _
             ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", status = " & CInt(cbxStatus.SelectedValue) & _
             ", avviksmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
@@ -147,7 +144,6 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
-        Dim payload As New DataTable
         Dim sql As String = "DELETE FROM sykkelmaster2015.sykkel WHERE rammenr = '" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & "'"
 
         Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
@@ -166,7 +162,11 @@
 
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
-        oppdaterGridView(txtSok.Text)
+        oppdaterGridView(sok:=txtSok.Text)
     End Sub
 
+    Private Sub cbxLokasjon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxLokasjon.SelectedIndexChanged
+        oppdaterGridView(posisjon:=txtRammenr.Text)
+        txtRammenr.Text = cbxLokasjon.Text
+    End Sub
 End Class
