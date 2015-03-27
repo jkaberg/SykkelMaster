@@ -85,7 +85,6 @@
                             "ON person.id = ansatt.person_id " &
                             "JOIN sted ON sted.post_nr = person.post_nr JOIN stilling " &
                             "ON ansatt.stilling = stilling.id"
-        'payload = db.query("SELECT * FROM person JOIN ansatt ON person.id = ansatt.person_id")
         payload = db.query(sql)
         brukerGridView.DataSource = payload
 
