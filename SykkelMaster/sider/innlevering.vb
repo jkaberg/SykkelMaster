@@ -102,4 +102,18 @@ Public Class innlevering
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
+
+    Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
+        'If TextBox1.Text = "" Then
+        'Endre status fra utleid til levert
+        '"UPDATE sykkel_leid_ut" &
+        'JOIN ordre_nr ON  
+        'SET status.status = 1
+        'Else 
+        '"UPDATE sykkel_leid_ut" &
+        'JOIN ordre_nr ON  
+        'SET status.status = 3
+
+
+    End Sub
 End Class
