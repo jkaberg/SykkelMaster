@@ -132,9 +132,10 @@
             .Columns("stilling").HeaderText = "Stilling"
             .Columns("post_sted").HeaderText = "Post sted"
             .Columns("provisjon").HeaderText = "Provisjon"
-            .Columns("provisjon").DefaultCellStyle.Format = "p1"
+            .Columns("provisjon").DefaultCellStyle.Format = "p1" ' legger til prosenttegn etter provisjon, tallet er antal desimaler
             .Columns("navn").HeaderText = "Arbeidsplass"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+            .Refresh()
         End With
 
         txtNavn.Text = ""
