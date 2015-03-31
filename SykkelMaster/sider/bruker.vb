@@ -156,9 +156,9 @@
 
         Dim sql As String = "START TRANSACTION;" &
                             "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
-                            "VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & CInt(txtTelefon.Text) & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & CInt(txtPostnr.Text) & "');" &
+                            "VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', " & CInt(txtTelefon.Text) & ", '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & CInt(txtPostnr.Text) & ");" &
                             "INSERT INTO ansatt(person_id, stilling, provisjon, passord, virksomhet_id) " &
-                            "VALUES (LAST_INSERT_ID(), '" & CInt(cbxStilling.SelectedValue) & "', '" & CInt(ProvisjonBar.Value) & "', '" & passord & "', " & cbxArbedidssted.SelectedValue & ");" &
+                            "VALUES (LAST_INSERT_ID(), " & CInt(cbxStilling.SelectedValue) & ", " & CInt(ProvisjonBar.Value) & ", '" & passord & "', " & cbxArbedidssted.SelectedValue & ");" &
                             "COMMIT;"
         payload = db.query(sql)
 
@@ -207,7 +207,7 @@
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
         Dim id As Integer = Me.brukerGridView.Rows(gridIndex).Cells("id").Value
         Dim sql As String = "START TRANSACTION;" &
-                            "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = " & txtPostnr.Text & " " &
+                            "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txtTelefon.Text & ", mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = " & txtPostnr.Text & " " &
                             "WHERE id = " & id & ";" &
                             "UPDATE ansatt SET stilling = " & cbxStilling.SelectedValue & ", provisjon = " & ProvisjonBar.Value & ", virksomhet_id = " & cbxArbedidssted.SelectedValue & " " &
                             "WHERE person_id = " & id & ";" &

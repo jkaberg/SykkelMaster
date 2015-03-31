@@ -55,13 +55,14 @@
 
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        Dim sql As String
-
-        sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
-            "sykkel.avviksmelding, v1.navn posisjon, v2.navn " & _
-            "FROM sykkel JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id JOIN status ON sykkel.status = status.id " & _
-            "JOIN virksomhet v1 ON sykkel.posisjon = v1.id JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " & _
-            "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"
+        Dim sql As String = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
+                            "sykkel.avviksmelding, v1.navn posisjon, v2.navn " &
+                            "FROM sykkel " &
+                            "JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id " &
+                            "JOIN status ON sykkel.status = status.id " &
+                            "JOIN virksomhet v1 ON sykkel.posisjon = v1.id " &
+                            "JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " &
+                            "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"
         payload = db.query(sql)
         SykkelGridView.DataSource = payload
 
@@ -110,10 +111,9 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkel i databasen
-        Dim sql As String
-        sql = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & CInt(cbxType.SelectedValue) & ", " & _
-            cbxHjul.Text & ", " & cbxRamme.Text & ", " & CInt(cbxStatus.SelectedValue) & ", '" & txtAvvik.Text & _
-            "', " & CInt(cbxPosisjon.SelectedValue) & ", " & CInt(cbxTilhorer.SelectedValue) & ")"
+        Dim sql As String = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & CInt(cbxType.SelectedValue) & ", " &
+                            cbxHjul.Text & ", " & cbxRamme.Text & ", " & CInt(cbxStatus.SelectedValue) & ", '" & txtAvvik.Text &
+                            "', " & CInt(cbxPosisjon.SelectedValue) & ", " & CInt(cbxTilhorer.SelectedValue) & ")"
         db.query(sql)
         oppdaterGridView()
         oppdaterTxtbox()
@@ -122,9 +122,9 @@
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
         Dim sql As String = "UPDATE sykkel SET rammenr = '" & txtRammenr.Text & "', sykkeltype = " & CInt(cbxType.SelectedValue) & _
-            ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", status = " & CInt(cbxStatus.SelectedValue) & _
-            ", avviksmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
-            ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr = '" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & "'"
+                            ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", status = " & CInt(cbxStatus.SelectedValue) & _
+                            ", avviksmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
+                            ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr = '" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & "'"
 
         Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
         'Oppdater bruker
