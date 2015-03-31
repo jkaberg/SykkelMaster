@@ -104,6 +104,7 @@
             .Columns("stilling").HeaderText = "Stilling"
             .Columns("post_sted").HeaderText = "Post sted"
             .Columns("provisjon").HeaderText = "Provisjon"
+            .Columns("provisjon").DefaultCellStyle.Format = "p1"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
 
