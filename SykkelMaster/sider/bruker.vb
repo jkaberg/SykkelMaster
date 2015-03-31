@@ -177,7 +177,14 @@
 
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
         'Oppdater bruker
-        'db.query("UPDATE TABLE personer (fornavn, etternavn, telefon, mail, adresse, post_nr, stilling, provisjon) VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & txtPostnr.Text & "', '" & stilling() & "', '" & HScrollBar1.Value & "')")
+        Dim sql As String = "START TRANSACTION;" &
+                            "UPDATE TABLE person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
+                            "VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & CInt(txtTelefon.Text) & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & CInt(txtPostnr.Text) & "') " &
+                            "UPDATE TABLE ansatt(stilling, provisjon, virksomhet_id) " &
+                            "VALUES ('" & CInt(cbxStilling.SelectedValue) & "', '" & CInt(ProvisjonBar.Value) & "', 1) " &
+                            "COMMIT;"
+        Console.WriteLine(sql)
+        payload = db.query(sql)
         oppdaterGridView()
     End Sub
 End Class
