@@ -8,10 +8,17 @@
 
         'Laster inn data til comboBoxen cbx stilling
         payload = db.query("SELECT * FROM stilling")
+
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
             .DataSource = payload
+        End With
+
+        With cbxArbedidssted
+            .DisplayMember = "navn"
+            .ValueMember = "id"
+            .DataSource = hoved.lokasjoner
         End With
     End Sub
 
@@ -32,6 +39,7 @@
             provisjonLabel(.Rows(gridIndex).Cells("provisjon").Value)
         End With
         stilling()
+        arbeidssted()
     End Sub
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
@@ -75,16 +83,36 @@
         Next
     End Sub
 
+    Private Sub arbeidssted()
+        Dim lokasjon As DataTable = hoved.lokasjoner
+
+        With cbxArbedidssted
+            .DisplayMember = "navn"
+            .ValueMember = "id"
+            .DataSource = lokasjon
+        End With
+
+        'oppdaterer stillling fra databasen i combobox
+        For i As Integer = 0 To lokasjon.Rows.Count - 1
+            If lokasjon.Rows(i)(cbxArbedidssted.DisplayMember).ToString() = Me.brukerGridView.Rows(gridIndex).Cells("navn").Value Then
+                Me.cbxArbedidssted.SelectedIndex = i
+            End If
+        Next
+    End Sub
+
     Private Sub oppdaterGridView()
         Dim sql As String = "SELECT " &
                             "person.id, person.fornavn, person.etternavn, person.telefon, person.mail, person.adresse, person.post_nr, " &
                             "ansatt.provisjon, " &
                             "sted.post_sted, " &
-                            "stilling.stilling " &
-                            "FROM person JOIN ansatt " &
-                            "ON person.id = ansatt.person_id " &
-                            "JOIN sted ON sted.post_nr = person.post_nr JOIN stilling " &
-                            "ON ansatt.stilling = stilling.id"
+                            "stilling.stilling, " &
+                            "virksomhet.navn " &
+                            "FROM person " &
+                            "JOIN ansatt ON person.id = ansatt.person_id " &
+                            "JOIN sted ON sted.post_nr = person.post_nr " &
+                            "JOIN stilling ON ansatt.stilling = stilling.id " &
+                            "JOIN virksomhet ON virksomhet.id = ansatt.virksomhet_id"
+        'Console.WriteLine(sql)
         payload = db.query(sql)
         brukerGridView.DataSource = payload
 
@@ -105,6 +133,7 @@
             .Columns("post_sted").HeaderText = "Post sted"
             .Columns("provisjon").HeaderText = "Provisjon"
             .Columns("provisjon").DefaultCellStyle.Format = "p1"
+            .Columns("navn").HeaderText = "Arbeidsplass"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
 
@@ -128,12 +157,11 @@
                             "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
                             "VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & CInt(txtTelefon.Text) & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & CInt(txtPostnr.Text) & "');" &
                             "INSERT INTO ansatt(person_id, stilling, provisjon, passord, virksomhet_id) " &
-                            "VALUES (LAST_INSERT_ID(), '" & CInt(cbxStilling.SelectedValue) & "', '" & CInt(ProvisjonBar.Value) & "', '" & passord & "', 1);" &
+                            "VALUES (LAST_INSERT_ID(), '" & CInt(cbxStilling.SelectedValue) & "', '" & CInt(ProvisjonBar.Value) & "', '" & passord & "', " & cbxArbedidssted.SelectedValue & ");" &
                             "COMMIT;"
         payload = db.query(sql)
 
-        ' SPØRR
-
+        ' LAG NY QUERY FUNKSJON RETURN FALSE/TRUE
         If payload.Rows.Count = 1 Then
             MsgBox("Bruker" & txtNavn.Text & " " & txtEtternavn.Text & " lagt til.")
             util.sendMail(txtMail.Text, "Ny bruker i Sykkelmaster", body)
@@ -176,15 +204,15 @@
     End Sub
 
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
-        'Oppdater bruker
+        Dim id As Integer = Me.brukerGridView.Rows(gridIndex).Cells("id").Value
         Dim sql As String = "START TRANSACTION;" &
-                            "UPDATE TABLE person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
-                            "VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', '" & CInt(txtTelefon.Text) & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', '" & CInt(txtPostnr.Text) & "') " &
-                            "UPDATE TABLE ansatt(stilling, provisjon, virksomhet_id) " &
-                            "VALUES ('" & CInt(cbxStilling.SelectedValue) & "', '" & CInt(ProvisjonBar.Value) & "', 1) " &
+                            "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = " & txtPostnr.Text & " " &
+                            "WHERE id = " & id & ";" &
+                            "UPDATE ansatt SET stilling = " & cbxStilling.SelectedValue & ", provisjon = " & ProvisjonBar.Value & ", virksomhet_id = " & cbxArbedidssted.SelectedValue & " " &
+                            "WHERE person_id = " & id & ";" &
                             "COMMIT;"
-        Console.WriteLine(sql)
         payload = db.query(sql)
         oppdaterGridView()
     End Sub
+
 End Class
