@@ -3,7 +3,7 @@ Public Class innlevering
     Public telefon As Integer
 
     Private Sub innlevering_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        sokLeieAvtale()
+        avtaleInnehold()
 
         With lokasjoner
             .DisplayMember = "navn"
@@ -14,7 +14,7 @@ Public Class innlevering
 
     Private Sub txtSokKunde_TextChanged(sender As Object, e As EventArgs) Handles txtSokKunde.TextChanged
         If txtSokKunde.Text = "" Then
-            sokLeieAvtale()
+            avtaleInnehold()
         Else
             sokKunde(txtSokKunde.Text)
         End If
@@ -22,10 +22,10 @@ Public Class innlevering
 
     Private Sub cbxKunde_DataSourceChanged(sender As Object, e As EventArgs) Handles cbxKunde.DataSourceChanged
         If txtSokKunde.Text = "" Then
-            sokLeieAvtale(cbxKunde.SelectedValue())
+            avtaleInnehold(cbxKunde.SelectedValue())
             txtTelefon.Text = cbxKunde.SelectedValue
         Else
-            sokLeieAvtale()
+            avtaleInnehold()
         End If
     End Sub
 
@@ -49,22 +49,33 @@ Public Class innlevering
         End If
     End Sub
 
-    Private Sub sokLeieAvtale(Optional ByVal telefon As Integer = Nothing)
-
+    Private Sub avtaleInnehold(Optional ByVal id As Integer = Nothing)
         Dim payload As New DataTable
         Dim sql As String
 
-        If telefon Then
-            sql = "SELECT salg_leie.*, person.id, person.fornavn, person.etternavn, person.telefon, person.adresse, person.post_nr, " &
-                  "sted.post_sted " &
-                  "FROM salg_leie JOIN person " &
-                  "ON person.id = salg_leie.person_id_kunde " &
-                  "JOIN sted ON sted.post_nr = person.post_nr " &
-                  "WHERE person.telefon = '" & telefon & "'"
+        If id Then
+            sql = "SELECT salg_leie.ordre_nr, " &
+                  "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
+                  "sykkeltype.sykkeltype, " &
+                  "sykkelutstyr.navn " &
+                  "FROM salg_leie " &
+                  "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
+                  "JOIN sykkel ON sykkel.rammenr = sykkel.rammenr " &
+                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
+                  "JOIN utstyr_leid_ut ON utstyr_leid_ut.ordre_nr = salg_leie.ordre_nr " &
+                  "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
+                  "WHERE salg_leie.ordre_nr = " & id
         Else
-            sql = "SELECT salg_leie.*, " &
-                  "person.id, person.fornavn, person.etternavn, person.telefon, person.adresse, person.post_nr " &
-                  "FROM salg_leie, person"
+            sql = "SELECT salg_leie.ordre_nr, " &
+                  "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
+                  "sykkeltype.sykkeltype, " &
+                  "sykkelutstyr.navn " &
+                  "FROM salg_leie " &
+                  "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
+                  "JOIN sykkel ON sykkel.rammenr = sykkel.rammenr " &
+                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
+                  "JOIN utstyr_leid_ut ON utstyr_leid_ut.ordre_nr = salg_leie.ordre_nr " &
+                  "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id"
 
             cbxKunde.DataSource = Nothing
             txtTelefon.Text = ""
@@ -81,26 +92,26 @@ Public Class innlevering
             .DataSource = payload
         End With
 
-        With Me.oversiktGrid
-            'Unngår å vise enkelte kolonner 
-            .Columns("person_id_selger").Visible = False
-            .Columns("id").Visible = False
-            .Columns("person_id_kunde").Visible = False
-            .Columns("rabatt_id").Visible = False
-            'Endrer navn på headere for å gi en bedre visuell opplevelse
-            .Columns("ordre_nr").HeaderText = "Order nummer"
-            .Columns("dato").HeaderText = "Dato"
-            .Columns("frist").HeaderText = "Frist"
-            .Columns("person_id_selger").HeaderText = "Etternavn"
-            .Columns("fornavn").HeaderText = "Fornavn"
-            .Columns("etternavn").HeaderText = "Etternavn"
-            .Columns("telefon").HeaderText = "Telefon"
-            .Columns("adresse").HeaderText = "Adresse"
-            .Columns("post_nr").HeaderText = "Post nummer"
-            '.Columns("post_sted").HeaderText = "Post sted"
-            .Columns("sum").HeaderText = "Betalt sum"
-            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        End With
+        'With Me.oversiktGrid
+        '    'Unngår å vise enkelte kolonner 
+        '    .Columns("person_id_selger").Visible = False
+        '    .Columns("id").Visible = False
+        '    .Columns("person_id_kunde").Visible = False
+        '    .Columns("rabatt_id").Visible = False
+        '    'Endrer navn på headere for å gi en bedre visuell opplevelse
+        '    .Columns("ordre_nr").HeaderText = "Order nummer"
+        '    .Columns("dato").HeaderText = "Dato"
+        '    .Columns("frist").HeaderText = "Frist"
+        '    .Columns("person_id_selger").HeaderText = "Etternavn"
+        '    .Columns("fornavn").HeaderText = "Fornavn"
+        '    .Columns("etternavn").HeaderText = "Etternavn"
+        '    .Columns("telefon").HeaderText = "Telefon"
+        '    .Columns("adresse").HeaderText = "Adresse"
+        '    .Columns("post_nr").HeaderText = "Post nummer"
+        '    '.Columns("post_sted").HeaderText = "Post sted"
+        '    .Columns("sum").HeaderText = "Betalt sum"
+        '    .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        'End With
     End Sub
 
     Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
@@ -116,4 +127,5 @@ Public Class innlevering
 
 
     End Sub
+
 End Class
