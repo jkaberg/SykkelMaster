@@ -50,9 +50,8 @@ Public Class innlevering
         tilbehorGrid.DataSource = payload
 
         With tilbehorGrid
-            'Unngår å vise enkelte kolonner 
-            .Columns("ordre_nr").Visible = False
             'Endrer navn på headere for å gi en bedre visuell opplevelse
+            .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("navn").HeaderText = "Navn"
         End With
     End Sub
@@ -85,13 +84,15 @@ Public Class innlevering
         Dim payload As New DataTable
         Dim sql As String
 
+        Me.oversiktGrid.DataSource = Nothing
+
         If id Then
             sql = "SELECT salg_leie.ordre_nr, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
                   "sykkeltype.sykkeltype " &
                   "FROM salg_leie " &
                   "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
-                  "JOIN sykkel ON sykkel.rammenr = sykkel.rammenr " &
+                  "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
                   "WHERE salg_leie.ordre_nr = " & id
         Else
@@ -100,7 +101,7 @@ Public Class innlevering
                   "sykkeltype.sykkeltype " &
                   "FROM salg_leie " &
                   "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
-                  "JOIN sykkel ON sykkel.rammenr = sykkel.rammenr " &
+                  "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype"
 
             cbxKunde.DataSource = Nothing
@@ -111,9 +112,8 @@ Public Class innlevering
         oversiktGrid.DataSource = payload 'Ordrene til kunden som er valgt blir lagt ut i DataGrid
 
         With Me.oversiktGrid
-            'Unngår å vise enkelte kolonner 
-            .Columns("ordre_nr").Visible = False
             'Endrer navn på headere for å gi en bedre visuell opplevelse
+            .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("sykkeltype").HeaderText = "Sykkeltype"
             .Columns("rammenr").HeaderText = "Rammenummer"
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
