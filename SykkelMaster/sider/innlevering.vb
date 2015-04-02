@@ -20,15 +20,15 @@ Public Class innlevering
         End If
     End Sub
 
-    Private Sub cbxKunde_DataSourceChanged(sender As Object, e As EventArgs) Handles cbxKunde.DataSourceChanged
+    Private Sub cbxKunde_DataSourceChanged(sender As Object, e As EventArgs) Handles cbxKunde.SelectedIndexChanged
         Dim payload As DataTable
-        Dim sql As String = "SELECT salg_leie.ordre_nr " &
-                            "FROM salg_leie " &
-                            "WHERE salg_leie.person_id__kunde = " & cbxKunde.SelectedValue
+        If cbxKunde.SelectedValue > 0 Then
+            Dim sql As String = "SELECT ordre_nr " &
+                                "FROM salg_leie " &
+                                "WHERE salg_leie.person_id_kunde = " & cbxKunde.SelectedValue
 
-        payload = db.query(sql)
+            payload = db.query(sql)
 
-        If payload.Rows.Count >= 0 Then
             With cbxLeieAvtaler
                 .DisplayMember = "ordre_nr"
                 .ValueMember = "ordre_nr"
@@ -48,6 +48,13 @@ Public Class innlevering
         payload = db.query(sql)
 
         tilbehorGrid.DataSource = payload
+
+        With tilbehorGrid
+            'Unngår å vise enkelte kolonner 
+            .Columns("ordre_nr").Visible = False
+            'Endrer navn på headere for å gi en bedre visuell opplevelse
+            .Columns("navn").HeaderText = "Navn"
+        End With
     End Sub
 
     Private Sub sokKunde(ByVal sok As String)
@@ -74,8 +81,6 @@ Public Class innlevering
         Dim payload As New DataTable
         Dim sql As String
 
-        'cbxLeieAvtaler.Items.Clear()
-
         If id Then
             sql = "SELECT salg_leie.ordre_nr, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
@@ -95,34 +100,22 @@ Public Class innlevering
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype"
 
             cbxKunde.DataSource = Nothing
-            'txtTelefon.Text = ""
-            'cbxLeieAvtaler.DataSource = Nothing
-            'cbxLeieAvtaler.Items.Clear()
+            cbxLeieAvtaler.DataSource = Nothing
         End If
 
         payload = db.query(sql)
         oversiktGrid.DataSource = payload 'Ordrene til kunden som er valgt blir lagt ut i DataGrid
 
-        'With Me.oversiktGrid
-        '    'Unngår å vise enkelte kolonner 
-        '    .Columns("person_id_selger").Visible = False
-        '    .Columns("id").Visible = False
-        '    .Columns("person_id_kunde").Visible = False
-        '    .Columns("rabatt_id").Visible = False
-        '    'Endrer navn på headere for å gi en bedre visuell opplevelse
-        '    .Columns("ordre_nr").HeaderText = "Order nummer"
-        '    .Columns("dato").HeaderText = "Dato"
-        '    .Columns("frist").HeaderText = "Frist"
-        '    .Columns("person_id_selger").HeaderText = "Etternavn"
-        '    .Columns("fornavn").HeaderText = "Fornavn"
-        '    .Columns("etternavn").HeaderText = "Etternavn"
-        '    .Columns("telefon").HeaderText = "Telefon"
-        '    .Columns("adresse").HeaderText = "Adresse"
-        '    .Columns("post_nr").HeaderText = "Post nummer"
-        '    '.Columns("post_sted").HeaderText = "Post sted"
-        '    .Columns("sum").HeaderText = "Betalt sum"
-        '    .DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        'End With
+        With Me.oversiktGrid
+            'Unngår å vise enkelte kolonner 
+            .Columns("ordre_nr").Visible = False
+            'Endrer navn på headere for å gi en bedre visuell opplevelse
+            .Columns("sykkeltype").HeaderText = "Sykkeltype"
+            .Columns("rammenr").HeaderText = "Rammenummer"
+            .Columns("hjulstr").HeaderText = "Hjulstørrelse"
+            .Columns("rammestr").HeaderText = "Rammestørrelse"
+            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        End With
     End Sub
 
     Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
@@ -135,11 +128,9 @@ Public Class innlevering
         '"UPDATE sykkel_leid_ut" &
         'JOIN ordre_nr ON  
         'SET status.status = 3
-
-
     End Sub
 
-    Private Sub cbxLeieAvtaler_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxLeieAvtaler.DataSourceChanged
+    Private Sub cbxLeieAvtaler_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cbxLeieAvtaler.SelectedIndexChanged
         avtaleInnehold(cbxLeieAvtaler.SelectedValue)
     End Sub
 End Class
