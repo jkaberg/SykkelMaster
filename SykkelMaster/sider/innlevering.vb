@@ -57,6 +57,10 @@ Public Class innlevering
         End With
     End Sub
 
+    Private Sub cbxLeieAvtaler_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cbxLeieAvtaler.SelectedIndexChanged
+        avtaleInnehold(cbxLeieAvtaler.SelectedValue)
+    End Sub
+
     Private Sub sokKunde(ByVal sok As String)
         Dim payload As New DataTable
         Dim sql As String = "SELECT id, fornavn, etternavn, telefon FROM person " &
@@ -128,9 +132,5 @@ Public Class innlevering
         '"UPDATE sykkel_leid_ut" &
         'JOIN ordre_nr ON  
         'SET status.status = 3
-    End Sub
-
-    Private Sub cbxLeieAvtaler_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cbxLeieAvtaler.SelectedIndexChanged
-        avtaleInnehold(cbxLeieAvtaler.SelectedValue)
     End Sub
 End Class
