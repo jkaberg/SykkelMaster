@@ -40,10 +40,14 @@ Partial Class innlevering
         Me.txtSokKunde = New System.Windows.Forms.TextBox()
         Me.cbxKunde = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.oversiktGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -135,10 +139,10 @@ Partial Class innlevering
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(995, 409)
+        Me.GroupBox1.Size = New System.Drawing.Size(995, 222)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Avtale oversikt"
+        Me.GroupBox1.Text = "Avtale"
         '
         'oversiktGrid
         '
@@ -150,7 +154,7 @@ Partial Class innlevering
         Me.oversiktGrid.Name = "oversiktGrid"
         Me.oversiktGrid.ReadOnly = True
         Me.oversiktGrid.RowTemplate.Height = 24
-        Me.oversiktGrid.Size = New System.Drawing.Size(983, 377)
+        Me.oversiktGrid.Size = New System.Drawing.Size(983, 192)
         Me.oversiktGrid.TabIndex = 0
         '
         'GroupBox3
@@ -234,11 +238,34 @@ Partial Class innlevering
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Søk"
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.DataGridView1)
+        Me.GroupBox4.Location = New System.Drawing.Point(328, 240)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(993, 181)
+        Me.GroupBox4.TabIndex = 5
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Tilbehør"
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(7, 22)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(980, 150)
+        Me.DataGridView1.TabIndex = 0
+        '
         'innlevering
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1333, 427)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
@@ -253,6 +280,8 @@ Partial Class innlevering
         CType(Me.oversiktGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -274,4 +303,6 @@ Partial Class innlevering
     Friend WithEvents txtSokKunde As System.Windows.Forms.TextBox
     Friend WithEvents cbxKunde As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 End Class
