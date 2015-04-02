@@ -56,26 +56,20 @@ Public Class innlevering
         If id Then
             sql = "SELECT salg_leie.ordre_nr, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
-                  "sykkeltype.sykkeltype, " &
-                  "sykkelutstyr.navn " &
+                  "sykkeltype.sykkeltype " &
                   "FROM salg_leie " &
                   "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
                   "JOIN sykkel ON sykkel.rammenr = sykkel.rammenr " &
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
-                  "JOIN utstyr_leid_ut ON utstyr_leid_ut.ordre_nr = salg_leie.ordre_nr " &
-                  "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
                   "WHERE salg_leie.ordre_nr = " & id
         Else
             sql = "SELECT salg_leie.ordre_nr, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
-                  "sykkeltype.sykkeltype, " &
-                  "sykkelutstyr.navn " &
+                  "sykkeltype.sykkeltype " &
                   "FROM salg_leie " &
                   "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
                   "JOIN sykkel ON sykkel.rammenr = sykkel.rammenr " &
-                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
-                  "JOIN utstyr_leid_ut ON utstyr_leid_ut.ordre_nr = salg_leie.ordre_nr " &
-                  "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id"
+                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype "
 
             cbxKunde.DataSource = Nothing
             txtTelefon.Text = ""
@@ -128,4 +122,8 @@ Public Class innlevering
 
     End Sub
 
+    Private Sub oversiktGrid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellContentClick
+        '"JOIN utstyr_leid_ut ON utstyr_leid_ut.ordre_nr = salg_leie.ordre_nr " &
+        '"JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
+    End Sub
 End Class
