@@ -29,6 +29,19 @@ Public Class innlevering
         End If
     End Sub
 
+    Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
+        Dim payload As New DataTable
+        Dim sql As String = "SELECT utstyr_leid_ut.ordre_nr, " &
+                            "sykkelutstyr.navn " &
+                            "FROM utstyr_leid_ut " &
+                            "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
+                            "WHERE utstyr_leid_ut.ordre_nr = " & Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
+
+        payload = db.query(sql)
+
+        tilbehorGrid.DataSource = payload
+    End Sub
+
     Private Sub sokKunde(ByVal sok As String)
         Dim payload As New DataTable
         Dim sql As String = "SELECT id, fornavn, etternavn, telefon FROM person " &
@@ -38,11 +51,11 @@ Public Class innlevering
 
         payload = db.query(sql)
 
-        payload.Columns.Add("navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
+        payload.Columns.Add("kunde_navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
 
         If payload.Rows.Count >= 1 Then
             With cbxKunde
-                .DisplayMember = "navn"
+                .DisplayMember = "kunde_navn"
                 .ValueMember = "telefon"
                 .DataSource = payload
             End With
@@ -73,8 +86,8 @@ Public Class innlevering
 
             cbxKunde.DataSource = Nothing
             txtTelefon.Text = ""
-            'cbxLeieAvtaler.DataSource = Nothing
-            'cbxLeieAvtaler.Items.Clear()
+            cbxLeieAvtaler.DataSource = Nothing
+            cbxLeieAvtaler.Items.Clear()
         End If
 
         payload = db.query(sql)
@@ -120,18 +133,5 @@ Public Class innlevering
         'SET status.status = 3
 
 
-    End Sub
-
-    Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
-        Dim payload As New DataTable
-        Dim sql As String = "SELECT utstyr_leid_ut.ordre_nr, " &
-                            "sykkelutstyr.navn " &
-                            "FROM utstyr_leid_ut " &
-                            "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
-                            "WHERE utstyr_leid_ut.ordre_nr = " & Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
-
-        payload = db.query(sql)
-
-        tilbehorGrid.DataSource = payload
     End Sub
 End Class
