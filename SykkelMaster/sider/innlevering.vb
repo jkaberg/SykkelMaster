@@ -14,18 +14,26 @@ Public Class innlevering
 
     Private Sub txtSokKunde_TextChanged(sender As Object, e As EventArgs) Handles txtSokKunde.TextChanged
         If txtSokKunde.Text = "" Then
-            avtaleInnehold()
+            avtaleInnehold() 'Viser alle leie avtaler om man ikke søkt etter kunde
         Else
             sokKunde(txtSokKunde.Text)
         End If
     End Sub
 
     Private Sub cbxKunde_DataSourceChanged(sender As Object, e As EventArgs) Handles cbxKunde.DataSourceChanged
-        If txtSokKunde.Text = "" Then
-            avtaleInnehold(cbxKunde.SelectedValue())
-            txtTelefon.Text = cbxKunde.SelectedValue
-        Else
-            avtaleInnehold()
+        Dim payload As DataTable
+        Dim sql As String = "SELECT salg_leie.ordre_nr " &
+                            "FROM salg_leie " &
+                            "WHERE salg_leie.person_id__kunde = " & cbxKunde.SelectedValue
+
+        payload = db.query(sql)
+
+        If payload.Rows.Count >= 0 Then
+            With cbxLeieAvtaler
+                .DisplayMember = "ordre_nr"
+                .ValueMember = "ordre_nr"
+                .DataSource = payload
+            End With
         End If
     End Sub
 
@@ -56,7 +64,7 @@ Public Class innlevering
         If payload.Rows.Count >= 1 Then
             With cbxKunde
                 .DisplayMember = "kunde_navn"
-                .ValueMember = "telefon"
+                .ValueMember = "id"
                 .DataSource = payload
             End With
         End If
@@ -65,6 +73,8 @@ Public Class innlevering
     Private Sub avtaleInnehold(Optional ByVal id As Integer = Nothing)
         Dim payload As New DataTable
         Dim sql As String
+
+        'cbxLeieAvtaler.Items.Clear()
 
         If id Then
             sql = "SELECT salg_leie.ordre_nr, " &
@@ -82,22 +92,16 @@ Public Class innlevering
                   "FROM salg_leie " &
                   "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
                   "JOIN sykkel ON sykkel.rammenr = sykkel.rammenr " &
-                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype "
+                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype"
 
             cbxKunde.DataSource = Nothing
-            txtTelefon.Text = ""
-            cbxLeieAvtaler.DataSource = Nothing
-            cbxLeieAvtaler.Items.Clear()
+            'txtTelefon.Text = ""
+            'cbxLeieAvtaler.DataSource = Nothing
+            'cbxLeieAvtaler.Items.Clear()
         End If
 
         payload = db.query(sql)
         oversiktGrid.DataSource = payload 'Ordrene til kunden som er valgt blir lagt ut i DataGrid
-
-        With cbxLeieAvtaler
-            .DisplayMember = "ordre_nr"
-            .ValueMember = "ordre_nr"
-            .DataSource = payload
-        End With
 
         'With Me.oversiktGrid
         '    'Unngår å vise enkelte kolonner 
@@ -133,5 +137,9 @@ Public Class innlevering
         'SET status.status = 3
 
 
+    End Sub
+
+    Private Sub cbxLeieAvtaler_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxLeieAvtaler.DataSourceChanged
+        avtaleInnehold(cbxLeieAvtaler.SelectedValue)
     End Sub
 End Class
