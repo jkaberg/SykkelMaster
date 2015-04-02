@@ -41,13 +41,13 @@ Partial Class innlevering
         Me.cbxKunde = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.tilbehorGrid = New System.Windows.Forms.DataGridView()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.oversiktGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tilbehorGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -240,7 +240,7 @@ Partial Class innlevering
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.DataGridView1)
+        Me.GroupBox4.Controls.Add(Me.tilbehorGrid)
         Me.GroupBox4.Location = New System.Drawing.Point(328, 240)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(993, 181)
@@ -248,17 +248,17 @@ Partial Class innlevering
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Tilbehør"
         '
-        'DataGridView1
+        'tilbehorGrid
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(7, 22)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(980, 150)
-        Me.DataGridView1.TabIndex = 0
+        Me.tilbehorGrid.AllowUserToAddRows = False
+        Me.tilbehorGrid.AllowUserToDeleteRows = False
+        Me.tilbehorGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tilbehorGrid.Location = New System.Drawing.Point(7, 22)
+        Me.tilbehorGrid.Name = "tilbehorGrid"
+        Me.tilbehorGrid.ReadOnly = True
+        Me.tilbehorGrid.RowTemplate.Height = 24
+        Me.tilbehorGrid.Size = New System.Drawing.Size(980, 150)
+        Me.tilbehorGrid.TabIndex = 0
         '
         'innlevering
         '
@@ -281,7 +281,7 @@ Partial Class innlevering
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tilbehorGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -304,5 +304,5 @@ Partial Class innlevering
     Friend WithEvents cbxKunde As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents tilbehorGrid As System.Windows.Forms.DataGridView
 End Class

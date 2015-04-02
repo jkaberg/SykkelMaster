@@ -122,8 +122,16 @@ Public Class innlevering
 
     End Sub
 
-    Private Sub oversiktGrid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellContentClick
-        '"JOIN utstyr_leid_ut ON utstyr_leid_ut.ordre_nr = salg_leie.ordre_nr " &
-        '"JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
+    Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
+        Dim payload As New DataTable
+        Dim sql As String = "SELECT utstyr_leid_ut.ordre_nr, " &
+                            "sykkelutstyr.navn " &
+                            "FROM utstyr_leid_ut " &
+                            "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
+                            "WHERE utstyr_leid_ut.ordre_nr = " & Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
+
+        payload = db.query(sql)
+
+        tilbehorGrid.DataSource = payload
     End Sub
 End Class
