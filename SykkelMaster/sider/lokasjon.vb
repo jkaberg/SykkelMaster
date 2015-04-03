@@ -70,12 +70,31 @@
         Dim sql As String
         sql = "UPDATE virksomhet SET navn = '" & txtLokasjon.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = '" & txtpostnr.Text & "' WHERE id = '" & Me.Oppdaterlokasjon.Rows(gridIndex).Cells("id").Value & "'"
         Dim lokasjon As String = Me.Oppdaterlokasjon.Rows(gridIndex).Cells("navn").Value
-        'Oppdater bruker
+
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 payload = db.query(sql)
                 oppdaterGridView()
 
         End Select
+    End Sub
+
+    Private Sub BtnDeleteLocation_Click(sender As Object, e As EventArgs) Handles BtnDeleteLocation.Click
+        'Slette en lokasjon i databasen
+        Dim payload As New DataTable
+        Dim sql As String = "DELETE FROM sykkelmaster2015.virksomhet WHERE virksomhet.id = '" & Me.Oppdaterlokasjon.Rows(gridIndex).Cells("id").Value & "'"
+
+        Dim virksomhet As String = Me.Oppdaterlokasjon.Rows(gridIndex).Cells("navn").Value
+        'Slett virksomhet
+        Select Case MsgBox("Er du sikker på at du vil fjern " & virksomhet & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                Try
+                    payload = db.query(sql)
+                Catch
+                    MsgBox("Du kan ikke slette lokasjon")
+                End Try
+        End Select
+
+        oppdaterGridView()
     End Sub
 End Class
