@@ -1,5 +1,5 @@
 ﻿Public Class lokasjon
-
+    Private gridIndex As Integer
     Private Sub lokasjon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim payload As New DataTable
         payload = db.query("SELECT navn, telefon, mail, adresse, virksomhet.post_nr, sted.post_sted FROM virksomhet JOIN sted ON sted.post_nr = virksomhet.post_nr")
@@ -28,6 +28,20 @@
             .Columns("post_nr").HeaderText = "Postnr"
             .Columns("post_sted").HeaderText = "Poststed"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        End With
+    End Sub
+    Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Oppdaterlokasjon.CellClick
+        Dim payload As New DataTable
+        Dim sql As String = "SELECT * FROM virksomhet WHERE navn = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value & "'"
+        payload = db.query(sql)
+        gridIndex = Oppdaterlokasjon.CurrentRow.Index()
+
+        With Me.Oppdaterlokasjon
+            txtLokasjon.Text = .Rows(gridIndex).Cells("navn").Value
+            txtTelefon.Text = .Rows(gridIndex).Cells("telefon").Value
+            txtMail.Text = .Rows(gridIndex).Cells("mail").Value
+            txtAdresse.Text = .Rows(gridIndex).Cells("adresse").Value
+            txtpostnr.Text = .Rows(gridIndex).Cells("post_nr").Value
         End With
     End Sub
 
