@@ -25,6 +25,8 @@ Partial Class lokasjon
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Oppdaterlokasjon = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtMail = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.BtnDeleteLocation = New System.Windows.Forms.Button()
         Me.btnUpdateLocation = New System.Windows.Forms.Button()
         Me.btnAddLocation = New System.Windows.Forms.Button()
@@ -38,8 +40,6 @@ Partial Class lokasjon
         Me.txtTelefon = New System.Windows.Forms.TextBox()
         Me.txtLokasjon = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtMail = New System.Windows.Forms.TextBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Oppdaterlokasjon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -92,6 +92,24 @@ Partial Class lokasjon
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger lokasjon"
+        '
+        'txtMail
+        '
+        Me.txtMail.Location = New System.Drawing.Point(60, 84)
+        Me.txtMail.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtMail.Name = "txtMail"
+        Me.txtMail.Size = New System.Drawing.Size(126, 20)
+        Me.txtMail.TabIndex = 35
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(5, 87)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(34, 13)
+        Me.Label6.TabIndex = 34
+        Me.Label6.Text = "Epost"
         '
         'BtnDeleteLocation
         '
@@ -213,24 +231,6 @@ Partial Class lokasjon
         Me.Label1.Size = New System.Drawing.Size(33, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Navn"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(5, 87)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(34, 13)
-        Me.Label6.TabIndex = 34
-        Me.Label6.Text = "Epost"
-        '
-        'txtMail
-        '
-        Me.txtMail.Location = New System.Drawing.Point(60, 84)
-        Me.txtMail.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtMail.Name = "txtMail"
-        Me.txtMail.Size = New System.Drawing.Size(126, 20)
-        Me.txtMail.TabIndex = 35
         '
         'lokasjon
         '

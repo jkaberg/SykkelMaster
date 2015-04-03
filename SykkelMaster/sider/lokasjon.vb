@@ -1,10 +1,7 @@
 ﻿Public Class lokasjon
     Private gridIndex As Integer
     Private Sub lokasjon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim payload As New DataTable
-        payload = db.query("SELECT navn, telefon, mail, adresse, virksomhet.post_nr, sted.post_sted FROM virksomhet JOIN sted ON sted.post_nr = virksomhet.post_nr")
-
-        Oppdaterlokasjon.DataSource = payload
+        oppdaterGridView()
     End Sub
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
         Dim payload As New DataTable
@@ -26,7 +23,7 @@
             .Columns("mail").HeaderText = "Epost"
             .Columns("adresse").HeaderText = "Adresse"
             .Columns("post_nr").HeaderText = "Postnr"
-            .Columns("post_sted").HeaderText = "Poststed"
+
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
@@ -66,5 +63,19 @@
         Else
             txtPoststed.Text = ""
         End If
+    End Sub
+
+    Private Sub btnUpdateLocation_Click(sender As Object, e As EventArgs) Handles btnUpdateLocation.Click
+        Dim payload As New DataTable
+        Dim sql As String
+        sql = "UPDATE virksomhet SET navn = '" & txtLokasjon.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = '" & txtpostnr.Text & "' WHERE id = '" & Me.Oppdaterlokasjon.Rows(gridIndex).Cells("id").Value & "'"
+        Dim lokasjon As String = Me.Oppdaterlokasjon.Rows(gridIndex).Cells("navn").Value
+        'Oppdater bruker
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                payload = db.query(sql)
+                oppdaterGridView()
+
+        End Select
     End Sub
 End Class
