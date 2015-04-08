@@ -139,7 +139,7 @@ Partial Class innlevering
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(995, 222)
+        Me.GroupBox1.Size = New System.Drawing.Size(737, 222)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Avtale"
@@ -154,7 +154,7 @@ Partial Class innlevering
         Me.oversiktGrid.Name = "oversiktGrid"
         Me.oversiktGrid.ReadOnly = True
         Me.oversiktGrid.RowTemplate.Height = 24
-        Me.oversiktGrid.Size = New System.Drawing.Size(983, 192)
+        Me.oversiktGrid.Size = New System.Drawing.Size(726, 192)
         Me.oversiktGrid.TabIndex = 0
         '
         'GroupBox3
@@ -243,7 +243,7 @@ Partial Class innlevering
         Me.GroupBox4.Controls.Add(Me.tilbehorGrid)
         Me.GroupBox4.Location = New System.Drawing.Point(328, 240)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(993, 181)
+        Me.GroupBox4.Size = New System.Drawing.Size(737, 181)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Tilbehør"
@@ -257,14 +257,14 @@ Partial Class innlevering
         Me.tilbehorGrid.Name = "tilbehorGrid"
         Me.tilbehorGrid.ReadOnly = True
         Me.tilbehorGrid.RowTemplate.Height = 24
-        Me.tilbehorGrid.Size = New System.Drawing.Size(980, 150)
+        Me.tilbehorGrid.Size = New System.Drawing.Size(724, 150)
         Me.tilbehorGrid.TabIndex = 0
         '
         'innlevering
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1333, 427)
+        Me.ClientSize = New System.Drawing.Size(1069, 427)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)

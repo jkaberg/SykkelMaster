@@ -1,7 +1,5 @@
 ﻿
 Public Class innlevering
-    Public telefon As Integer
-
     Private Sub innlevering_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         avtaleInnehold()
 
@@ -77,6 +75,10 @@ Public Class innlevering
                 .ValueMember = "id"
                 .DataSource = payload
             End With
+        Else
+            Me.cbxKunde.DataSource = Nothing
+            Me.oversiktGrid.DataSource = Nothing
+            Me.tilbehorGrid.DataSource = Nothing
         End If
     End Sub
 
