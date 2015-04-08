@@ -139,12 +139,7 @@
             .Refresh()
         End With
 
-        txtNavn.Text = ""
-        txtEtternavn.Text = ""
-        txtTelefon.Text = ""
-        txtAdresse.Text = ""
-        txtMail.Text = ""
-        txtPostnr.Text = ""
+        
     End Sub
 
     Private Sub leggTilBruker()
@@ -194,7 +189,6 @@
             End If
         Else
             MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
-            valider_feilmelding = ""
         End If
         oppdaterGridView()
 
@@ -227,33 +221,44 @@
             oppdaterGridView()
         Else
             MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
-            valider_feilmelding = ""
         End If
 
     End Sub
 
 
     Function ValiderBruker() As Boolean
-
+        valider_feilmelding = ""
 
         If Not util.validerStreng(txtNavn.Text) Then
             valider_feilmelding &= "Feil input fornavn" & vbCrLf
+            txtNavn.Text = ""
+
         End If
 
         If Not util.validerStreng(txtEtternavn.Text) Then
             valider_feilmelding &= "Feil input etternavn" & vbCrLf
+            txtEtternavn.Text = ""
         End If
 
         If Not util.validerNummer(txtTelefon.Text, 8) Then
             valider_feilmelding &= "Feil input telefonnummer" & vbCrLf
+            txtTelefon.Text = ""
+        End If
+
+        If Not util.validerEpost(txtMail.Text) Then
+            valider_feilmelding &= "Feil input E-post" & vbCrLf
+            txtMail.Text = ""
         End If
 
         If txtAdresse.Text = "" Then
             valider_feilmelding &= "Feil input adresse" & vbCrLf
+            txtAdresse.Text = ""
+
         End If
 
         If Not util.validerNummer(txtPostnr.Text, 4) Then
             valider_feilmelding &= "Feil input postnummer" & vbCrLf
+            txtPostnr.Text = ""
         End If
 
 
@@ -263,6 +268,12 @@
 
 
     End Function
+
+
+
+
+
+
 
 
 End Class

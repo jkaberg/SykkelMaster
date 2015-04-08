@@ -1,6 +1,7 @@
 ﻿Public Class kunder
     Private gridIndex As Integer
     Private payload As New DataTable
+    Private valider_feilmelding As String = ""
 
     Private Sub kunder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
@@ -70,6 +71,9 @@
         'Legge til en ny person i databasen
         Dim sql As String
         sql = "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) VALUES('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', " & txttelefon.Text & ", '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & txtPostnr.Text & ")"
+
+
+
         db.query(sql)
         oppdaterGridView()
         oppdaterTxtbox()
@@ -116,4 +120,8 @@
         txttelefon.Text = ""
         oppdaterGridView()
     End Sub
+
+
+
+
 End Class
