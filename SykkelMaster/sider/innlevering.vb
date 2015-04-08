@@ -39,12 +39,14 @@ Public Class innlevering
     Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
         Dim id As Integer = Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
         Dim sql As String = "START TRANSACTION;" &
-                            "UPDATE salg_leie SET s.l.status = 'Innlevert'" &
+                            "UPDATE salg_leie SET s_l_status = 'Innlevert' " &
                             "WHERE ordre_nr = " & id & ";" &
-                            "UPDATE sykkel_leid_ut SET s.l.u.status = 'Levert'" &
+                            "UPDATE sykkel_leid_ut SET s_l_u_status = 'Levert' " &
                             "WHERE ordre_nr = " & id & ";" &
-                            "UPDATE utstyr_leid_ut SET u.l.u.status = 'Levert'" &
+                            "UPDATE utstyr_leid_ut SET u_l_u_status = 'Levert' " &
                             "WHERE ordre_nr = " & id & ";" &
+                            "UPDATE sykkel SET posisjon = " & lokasjoner.SelectedValue & " " &
+                            "JOIN salg_leie ON salg_leie.rammenr = sykkel.rammenr;" &
                             "COMMIT;"
         payload = db.query(sql)
 
