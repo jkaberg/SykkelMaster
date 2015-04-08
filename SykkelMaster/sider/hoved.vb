@@ -26,6 +26,10 @@
         innlevering.Show()
     End Sub
 
+    Private Sub Vis_Statistikk(sender As Object, e As EventArgs) Handles btnStatistikk.Click
+        statistikk.Show()
+    End Sub
+
     Private Sub hoved_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Vis navnet på den ansatte som logger inn i Label1 (eksempel: Velkommen, Joel Kåberg)
         Label1.Text += start.bruker.pFnavn & " " & start.bruker.pEnavn

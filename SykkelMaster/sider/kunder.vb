@@ -129,7 +129,6 @@
         oppdaterGridView()
     End Sub
 
-
     Function ValiderKunde() As Boolean
         valider_feilmelding = ""
 
@@ -165,13 +164,8 @@
             txtPostnr.Text = ""
         End If
 
-
         If valider_feilmelding = "" Then
             Return True
         End If
-
     End Function
-
-
-
 End Class

@@ -153,7 +153,7 @@
         Dim sql As String = "START TRANSACTION;" &
                             "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
                             "VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', " & CInt(txtTelefon.Text) & ", '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & CInt(txtPostnr.Text) & ");" &
-                            "INSERT INTO ansatt(person_id, stilling, provisjon, passord, virksomhet_id) " &
+                            "INSERT INTO ansatt (person_id, stilling, provisjon, passord, virksomhet_id) " &
                             "VALUES (LAST_INSERT_ID(), " & CInt(cbxStilling.SelectedValue) & ", " & CInt(ProvisjonBar.Value) & ", '" & passord & "', " & cbxArbedidssted.SelectedValue & ");" &
                             "COMMIT;"
         payload = db.query(sql)
