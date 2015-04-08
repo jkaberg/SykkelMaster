@@ -74,14 +74,14 @@ Partial Class kunder
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(297, 442)
+        Me.GroupBox1.Size = New System.Drawing.Size(297, 447)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger kunde"
         '
         'btnTom
         '
-        Me.btnTom.Location = New System.Drawing.Point(11, 262)
+        Me.btnTom.Location = New System.Drawing.Point(11, 266)
         Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnTom.Name = "btnTom"
         Me.btnTom.Size = New System.Drawing.Size(270, 38)
@@ -91,7 +91,7 @@ Partial Class kunder
         '
         'btnSlett
         '
-        Me.btnSlett.Location = New System.Drawing.Point(11, 398)
+        Me.btnSlett.Location = New System.Drawing.Point(11, 404)
         Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnSlett.Name = "btnSlett"
         Me.btnSlett.Size = New System.Drawing.Size(270, 38)
@@ -101,7 +101,7 @@ Partial Class kunder
         '
         'btnOppdater
         '
-        Me.btnOppdater.Location = New System.Drawing.Point(11, 352)
+        Me.btnOppdater.Location = New System.Drawing.Point(11, 358)
         Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnOppdater.Name = "btnOppdater"
         Me.btnOppdater.Size = New System.Drawing.Size(270, 38)
@@ -146,7 +146,7 @@ Partial Class kunder
         '
         'btnLeggTil
         '
-        Me.btnLeggTil.Location = New System.Drawing.Point(11, 308)
+        Me.btnLeggTil.Location = New System.Drawing.Point(11, 312)
         Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnLeggTil.Name = "btnLeggTil"
         Me.btnLeggTil.Size = New System.Drawing.Size(270, 38)
@@ -250,7 +250,7 @@ Partial Class kunder
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(918, 442)
+        Me.GroupBox2.Size = New System.Drawing.Size(918, 447)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -265,7 +265,7 @@ Partial Class kunder
         Me.kundeGridView.Name = "kundeGridView"
         Me.kundeGridView.ReadOnly = True
         Me.kundeGridView.RowTemplate.Height = 24
-        Me.kundeGridView.Size = New System.Drawing.Size(898, 376)
+        Me.kundeGridView.Size = New System.Drawing.Size(898, 381)
         Me.kundeGridView.TabIndex = 18
         '
         'sokKunde
@@ -289,7 +289,7 @@ Partial Class kunder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1250, 471)
+        Me.ClientSize = New System.Drawing.Size(1250, 474)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
