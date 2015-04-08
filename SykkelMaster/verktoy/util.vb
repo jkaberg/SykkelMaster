@@ -10,20 +10,25 @@ Public Class util
 
 
     Public Shared Function validerNummer(ByVal nummer As String, ByVal lengde As Integer) As Boolean
-        If nummer.Length = lengde And IsNumeric(CInt(nummer)) Then
+        If nummer.Length = lengde And IsNumeric(nummer) Then
             Return True
+        Else
+            Return False
         End If
-        Return False
     End Function
 
 
     Public Shared Function validerStreng(ByVal Streng As String) As Boolean
-        For i = 0 To Streng.Length - 1
-            If Not Char.IsLetter(Streng.Chars(i)) Then
-                Return False
-            End If
-        Next
-        Return True
+        If Streng = "" Then
+            Return False
+        Else
+            For i = 0 To Streng.Length - 1
+                If Not Char.IsLetter(Streng.Chars(i)) Then
+                    Return False
+                End If
+            Next
+            Return True
+        End If
     End Function
 
     Public Shared Function tilfeldigStreng() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
@@ -89,4 +94,8 @@ Public Class util
         End If
         Return False
     End Function
+
+
+    
+
 End Class

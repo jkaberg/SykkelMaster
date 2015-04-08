@@ -15,21 +15,32 @@ Public Class start
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If sjekkLogin(txtEpost.Text, txtPassord.Text) Then
-            hoved.Show()
-            Me.Hide()
-        Else
-            MsgBox("Feil e-post eller passord.", MsgBoxStyle.Critical)
-        End If
+
+        'If util.validerEpost(txtEpost.Text) Then
+            If sjekkLogin(txtEpost.Text, txtPassord.Text) Then
+                hoved.Show()
+                Me.Hide()
+            Else
+                MsgBox("Feil e-post eller passord.", MsgBoxStyle.Critical)
+            End If
+        'Else
+        '    MsgBox("Feil E-post validering")
+        '   txtEpost.Text = ""
+        '  txtPassord.Text = ""
+        'End If
+
     End Sub
 
     Private Sub Sendnyttpassord_click(sender As Object, e As EventArgs) Handles SendNyttPassord.Click
-
-        If sjekkMail(byttEpost.Text) Then
-            settPassord(byttEpost.Text)
+        If util.validerEpost(byttEpost.Text) Then
+            If sjekkMail(byttEpost.Text) Then
+                settPassord(byttEpost.Text)
+            End If
+            byttEpost.Text = ""
+        Else
+            MsgBox("Feil E-post validering")
+            byttEpost.Text = ""
         End If
-        byttEpost.Text = ""
-
     End Sub
 
     Private Function sjekkLogin(ByVal epost As String, ByVal passord As String)

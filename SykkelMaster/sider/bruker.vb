@@ -1,6 +1,7 @@
 ﻿Public Class bruker
     Private gridIndex As Integer
     Private payload As New DataTable
+    Private valider_feilmelding As String = ""
 
     Private Sub bruker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn daten fra databasen til GridView
@@ -180,16 +181,23 @@
 
     Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
         Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
-        If util.sjekkBrukerEksisterer(txtMail.Text) Then
-            MsgBox("Det eksisterer allerede en bruker med mail adresse " & txtMail.Text & ", vennligt velg noe annet.", MsgBoxStyle.Critical)
-        Else
-            Select Case MsgBox("Er du sikker på at du vil legg til " & bruker & "?", MsgBoxStyle.YesNo)
-                Case MsgBoxResult.Yes
-                    leggTilBruker()
-            End Select
-        End If
 
+        
+        If ValiderBruker() Then
+            If util.sjekkBrukerEksisterer(txtMail.Text) Then
+                MsgBox("Det eksisterer allerede en bruker med mail adresse " & txtMail.Text & ", vennligt velg noe annet.", MsgBoxStyle.Critical)
+            Else
+                Select Case MsgBox("Er du sikker på at du vil legg til " & bruker & "?", MsgBoxStyle.YesNo)
+                    Case MsgBoxResult.Yes
+                        leggTilBruker()
+                End Select
+            End If
+        Else
+            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
+            valider_feilmelding = ""
+        End If
         oppdaterGridView()
+
     End Sub
 
     Private Sub Slett_Bruker(sender As Object, e As EventArgs) Handles btnSlett_Bruker.Click
@@ -205,6 +213,8 @@
     End Sub
 
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
+
+
         Dim id As Integer = Me.brukerGridView.Rows(gridIndex).Cells("id").Value
         Dim sql As String = "START TRANSACTION;" &
                             "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txtTelefon.Text & ", mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = " & txtPostnr.Text & " " &
@@ -212,8 +222,47 @@
                             "UPDATE ansatt SET stilling = " & cbxStilling.SelectedValue & ", provisjon = " & ProvisjonBar.Value & ", virksomhet_id = " & cbxArbedidssted.SelectedValue & " " &
                             "WHERE person_id = " & id & ";" &
                             "COMMIT;"
-        payload = db.query(sql)
-        oppdaterGridView()
+        If ValiderBruker() Then
+            payload = db.query(sql)
+            oppdaterGridView()
+        Else
+            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
+            valider_feilmelding = ""
+        End If
+        
     End Sub
+
+
+    Function ValiderBruker() As Boolean
+
+
+        If Not util.validerStreng(txtNavn.Text) Then
+            valider_feilmelding &= "Feil input fornavn" & vbCrLf
+        End If
+
+        If Not util.validerStreng(txtEtternavn.Text) Then
+            valider_feilmelding &= "Feil input etternavn" & vbCrLf
+        End If
+
+        If Not util.validerNummer(txtTelefon.Text, 8) Then
+            valider_feilmelding &= "Feil input telefonnummer" & vbCrLf
+        End If
+
+        If txtAdresse.Text = "" Then
+            valider_feilmelding &= "Feil input adresse" & vbCrLf
+        End If
+
+        If Not util.validerNummer(txtPostnr.Text, 4) Then
+            valider_feilmelding &= "Feil input postnummer" & vbCrLf
+        End If
+
+
+        If valider_feilmelding = "" Then
+            Return True
+        End If
+
+
+    End Function
+
 
 End Class
