@@ -59,7 +59,7 @@
                             "sykkel.avviksmelding, v1.navn posisjon, v2.navn " &
                             "FROM sykkel " &
                             "JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id " &
-                            "JOIN status ON sykkel.status = sykkel_status.id " &
+                            "JOIN sykkel_status ON sykkel.status = sykkel_status.id " &
                             "JOIN virksomhet v1 ON sykkel.posisjon = v1.id " &
                             "JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " &
                             "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"
