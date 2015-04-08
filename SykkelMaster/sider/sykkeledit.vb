@@ -39,7 +39,7 @@
         End With
         cbxType.SelectedIndex = -1
 
-        payload = db.query("SELECT * FROM status")
+        payload = db.query("SELECT * FROM sykkel_status")
         With cbxStatus
             .DisplayMember = "status"
             .ValueMember = "id"
@@ -55,11 +55,11 @@
 
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        Dim sql As String = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, status.status, sykkel.hjulstr, sykkel.rammestr, " & _
+        Dim sql As String = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, sykkel_status.status, sykkel.hjulstr, sykkel.rammestr, " & _
                             "sykkel.avviksmelding, v1.navn posisjon, v2.navn " &
                             "FROM sykkel " &
                             "JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id " &
-                            "JOIN status ON sykkel.status = status.id " &
+                            "JOIN status ON sykkel.status = sykkel_status.id " &
                             "JOIN virksomhet v1 ON sykkel.posisjon = v1.id " &
                             "JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " &
                             "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"

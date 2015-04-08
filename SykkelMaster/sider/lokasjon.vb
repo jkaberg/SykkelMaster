@@ -1,10 +1,11 @@
 ﻿Public Class lokasjon
     Private gridIndex As Integer
+    Private payload As New DataTable
+
     Private Sub lokasjon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         oppdaterGridView()
     End Sub
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
-        Dim payload As New DataTable
         Dim sql As String
         If Not sok = Nothing Then
             sql = "SELECT * FROM virksomhet WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%'"
@@ -28,7 +29,6 @@
         End With
     End Sub
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Oppdaterlokasjon.CellClick
-        Dim payload As New DataTable
         Dim sql As String = "SELECT * FROM virksomhet WHERE navn = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value & "'"
         payload = db.query(sql)
         gridIndex = Oppdaterlokasjon.CurrentRow.Index()
@@ -44,7 +44,6 @@
 
 
     Private Sub btnAddlocation_Click(sender As Object, e As EventArgs) Handles btnAddLocation.Click
-        Dim payload As New DataTable
         Dim sql As String
         sql = "INSERT INTO virksomhet(navn, telefon, mail, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & txtpostnr.Text & ")"
 
@@ -55,7 +54,6 @@
 
 
     Private Sub txtpostnr_TextChanged(sender As Object, e As EventArgs) Handles txtpostnr.TextChanged
-        Dim payload As New DataTable
         payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = " & txtpostnr.Text)
         'Oppdaterer poststedet når post nummer blir skrevet inn
         If payload.Rows.Count = 1 Then
@@ -66,7 +64,6 @@
     End Sub
 
     Private Sub btnUpdateLocation_Click(sender As Object, e As EventArgs) Handles btnUpdateLocation.Click
-        Dim payload As New DataTable
         Dim sql As String
         sql = "UPDATE virksomhet SET navn = '" & txtLokasjon.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = '" & txtpostnr.Text & "' WHERE id = '" & Me.Oppdaterlokasjon.Rows(gridIndex).Cells("id").Value & "'"
         Dim lokasjon As String = Me.Oppdaterlokasjon.Rows(gridIndex).Cells("navn").Value
@@ -81,7 +78,6 @@
 
     Private Sub BtnDeleteLocation_Click(sender As Object, e As EventArgs) Handles BtnDeleteLocation.Click
         'Slette en lokasjon i databasen
-        Dim payload As New DataTable
         Dim sql As String = "DELETE FROM sykkelmaster2015.virksomhet WHERE virksomhet.id = '" & Me.Oppdaterlokasjon.Rows(gridIndex).Cells("id").Value & "'"
 
         Dim virksomhet As String = Me.Oppdaterlokasjon.Rows(gridIndex).Cells("navn").Value
@@ -97,4 +93,14 @@
 
         oppdaterGridView()
     End Sub
+
+    Private Sub btnTom_Click(sender As Object, e As EventArgs) Handles btnTom.Click
+        txtLokasjon.Text = ""
+        txtTelefon.Text = ""
+        txtAdresse.Text = ""
+        txtMail.Text = ""
+        txtpostnr.Text = ""
+        oppdaterGridView()
+    End Sub
+
 End Class
