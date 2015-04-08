@@ -73,10 +73,13 @@
         sql = "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) VALUES('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', " & txttelefon.Text & ", '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & txtPostnr.Text & ")"
 
 
-
-        db.query(sql)
-        oppdaterGridView()
-        oppdaterTxtbox()
+        If ValiderKunde() Then
+            db.query(sql)
+            oppdaterGridView()
+            oppdaterTxtbox()
+        Else
+            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
+        End If
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
@@ -85,12 +88,17 @@
 
         Dim bruker As String = Me.kundeGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(gridIndex).Cells("etternavn").Value
         'Oppdater bruker
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
-            Case MsgBoxResult.Yes
-                payload = db.query(sql)
-                oppdaterGridView()
-                oppdaterTxtbox()
-        End Select
+
+        If ValiderKunde() Then
+            Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
+                Case MsgBoxResult.Yes
+                    payload = db.query(sql)
+                    oppdaterGridView()
+                    oppdaterTxtbox()
+            End Select
+        Else
+            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
+        End If
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
@@ -121,6 +129,48 @@
         oppdaterGridView()
     End Sub
 
+
+    Function ValiderKunde() As Boolean
+        valider_feilmelding = ""
+
+        If Not util.validerStreng(txtNavn.Text) Then
+            valider_feilmelding &= "Feil input fornavn" & vbCrLf
+            txtNavn.Text = ""
+
+        End If
+
+        If Not util.validerStreng(txtEtternavn.Text) Then
+            valider_feilmelding &= "Feil input etternavn" & vbCrLf
+            txtEtternavn.Text = ""
+        End If
+
+        If Not util.validerNummer(txttelefon.Text, 8) Then
+            valider_feilmelding &= "Feil input telefonnummer" & vbCrLf
+            txttelefon.Text = ""
+        End If
+
+        If Not util.validerEpost(txtMail.Text) Then
+            valider_feilmelding &= "Feil input E-post" & vbCrLf
+            txtMail.Text = ""
+        End If
+
+        If txtAdresse.Text = "" Then
+            valider_feilmelding &= "Feil input adresse" & vbCrLf
+            txtAdresse.Text = ""
+
+        End If
+
+        If Not util.validerNummer(txtPostnr.Text, 4) Then
+            valider_feilmelding &= "Feil input postnummer" & vbCrLf
+            txtPostnr.Text = ""
+        End If
+
+
+        If valider_feilmelding = "" Then
+            Return True
+        End If
+
+    End Function
 
 
 
