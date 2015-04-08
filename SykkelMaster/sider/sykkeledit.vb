@@ -39,14 +39,6 @@
         End With
         cbxType.SelectedIndex = -1
 
-        payload = db.query("SELECT * FROM sykkel_status")
-        With cbxStatus
-            .DisplayMember = "status"
-            .ValueMember = "id"
-            .DataSource = payload
-        End With
-        cbxStatus.SelectedIndex = -1
-
     End Sub
 
     Private Sub SykkelGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles SykkelGridView.CellClick
@@ -55,11 +47,10 @@
 
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        Dim sql As String = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, sykkel_status.status, sykkel.hjulstr, sykkel.rammestr, " & _
+        Dim sql As String = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, s_status, sykkel.hjulstr, sykkel.rammestr, " & _
                             "sykkel.avviksmelding, v1.navn posisjon, v2.navn " &
                             "FROM sykkel " &
                             "JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id " &
-                            "JOIN sykkel_status ON sykkel.status = sykkel_status.id " &
                             "JOIN virksomhet v1 ON sykkel.posisjon = v1.id " &
                             "JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " &
                             "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"
@@ -70,7 +61,7 @@
             'Endre navn for å gi en bedre visuell opplevelse
             .Columns("rammenr").HeaderText = "Rammenr"
             .Columns("sykkeltype").HeaderText = "Sykkeltype"
-            .Columns("status").HeaderText = "Status"
+            .Columns("s_status").HeaderText = "Status"
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
             .Columns("rammestr").HeaderText = "Rammestørrelse"
             .Columns("avviksmelding").HeaderText = "Avviksmelding"
@@ -91,7 +82,7 @@
             txtRammenr.Text = .Rows(gridIndex).Cells("rammenr").Value
             cbxHjul.Text = .Rows(gridIndex).Cells("hjulstr").Value
             cbxRamme.Text = .Rows(gridIndex).Cells("rammestr").Value
-            cbxStatus.Text = .Rows(gridIndex).Cells("status").Value
+            cbxStatus.Text = .Rows(gridIndex).Cells("s_status").Value
             txtAvvik.Text = .Rows(gridIndex).Cells("avviksmelding").Value
         End With
     End Sub
@@ -122,8 +113,8 @@
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
         Dim sql As String = "UPDATE sykkel SET rammenr = '" & txtRammenr.Text & "', sykkeltype = " & CInt(cbxType.SelectedValue) & _
-                            ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", status = " & CInt(cbxStatus.SelectedValue) & _
-                            ", avviksmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
+                            ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", s_status = '" & cbxStatus.Text & _
+                            "', avviksmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
                             ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr = '" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & "'"
 
         Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value

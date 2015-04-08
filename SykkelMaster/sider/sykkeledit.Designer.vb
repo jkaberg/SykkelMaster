@@ -163,7 +163,7 @@ Partial Class sykkelEdit
         'cbxStatus
         '
         Me.cbxStatus.FormattingEnabled = True
-        Me.cbxStatus.Items.AddRange(New Object() {"Tilgjengelig", "Reperasjon", "Utilgjengelig"})
+        Me.cbxStatus.Items.AddRange(New Object() {"Innlevert", "Leid ut", "Reparasjon"})
         Me.cbxStatus.Location = New System.Drawing.Point(90, 204)
         Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxStatus.Name = "cbxStatus"
