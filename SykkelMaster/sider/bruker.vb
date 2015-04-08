@@ -182,7 +182,7 @@
     Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
         Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
 
-        
+
         If ValiderBruker() Then
             If util.sjekkBrukerEksisterer(txtMail.Text) Then
                 MsgBox("Det eksisterer allerede en bruker med mail adresse " & txtMail.Text & ", vennligt velg noe annet.", MsgBoxStyle.Critical)
@@ -229,7 +229,7 @@
             MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
             valider_feilmelding = ""
         End If
-        
+
     End Sub
 
 

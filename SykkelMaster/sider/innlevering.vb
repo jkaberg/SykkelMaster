@@ -1,5 +1,6 @@
 ﻿
 Public Class innlevering
+    Private payload As DataTable
     Private Sub innlevering_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         avtaleInnehold()
 
@@ -35,8 +36,26 @@ Public Class innlevering
         End If
     End Sub
 
+    Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
+        Dim id As Integer = Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
+        Dim sql As String = "START TRANSACTION;" &
+                            "UPDATE salg_leie SET s.l.status = 'Innlevert'" &
+                            "WHERE ordre_nr = " & id & ";" &
+                            "UPDATE sykkel_leid_ut SET s.l.u.status = 'Levert'" &
+                            "WHERE ordre_nr = " & id & ";" &
+                            "UPDATE utstyr_leid_ut SET u.l.u.status = 'Levert'" &
+                            "WHERE ordre_nr = " & id & ";" &
+                            "COMMIT;"
+        payload = db.query(sql)
+
+        If payload.Rows.Count >= 1 Then
+            MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
+        Else
+            MsgBox("Noe gikk galt.", MsgBoxStyle.Critical)
+        End If
+    End Sub
+
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
-        Dim payload As New DataTable
         Dim sql As String = "SELECT utstyr_leid_ut.ordre_nr, " &
                             "sykkelutstyr.navn " &
                             "FROM utstyr_leid_ut " &
@@ -59,7 +78,6 @@ Public Class innlevering
     End Sub
 
     Private Sub sokKunde(ByVal sok As String)
-        Dim payload As New DataTable
         Dim sql As String = "SELECT id, fornavn, etternavn, telefon FROM person " &
                             "WHERE fornavn LIKE '" & sok & "%' " &
                             "OR etternavn LIKE '" & sok & "%' " &
@@ -83,7 +101,6 @@ Public Class innlevering
     End Sub
 
     Private Sub avtaleInnehold(Optional ByVal id As Integer = Nothing)
-        Dim payload As New DataTable
         Dim sql As String
 
         Me.oversiktGrid.DataSource = Nothing
@@ -122,17 +139,5 @@ Public Class innlevering
             .Columns("rammestr").HeaderText = "Rammestørrelse"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
-    End Sub
-
-    Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
-        'If TextBox1.Text = "" Then
-        'Endre status fra utleid til levert
-        '"UPDATE sykkel_leid_ut" &
-        'JOIN ordre_nr ON  
-        'SET status.status = 1
-        'Else 
-        '"UPDATE sykkel_leid_ut" &
-        'JOIN ordre_nr ON  
-        'SET status.status = 3
     End Sub
 End Class
