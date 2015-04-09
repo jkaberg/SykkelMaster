@@ -111,13 +111,9 @@ Partial Class utleie
         Me.cbxHjulstr.Items.AddRange(New Object() {"12", "14", "16", "18", "20", "24"})
         Me.cbxHjulstr.Location = New System.Drawing.Point(102, 198)
         Me.cbxHjulstr.Name = "cbxHjulstr"
-<<<<<<< HEAD
         Me.cbxHjulstr.Size = New System.Drawing.Size(114, 28)
         Me.cbxHjulstr.TabIndex = 12
-=======
-        Me.cbxHjulstr.Size = New System.Drawing.Size(102, 24)
-        Me.cbxHjulstr.TabIndex = 36
->>>>>>> origin/master
+
         '
         'Label12
         '
@@ -135,13 +131,8 @@ Partial Class utleie
         Me.cbxRammestr.Items.AddRange(New Object() {"13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"})
         Me.cbxRammestr.Location = New System.Drawing.Point(311, 198)
         Me.cbxRammestr.Name = "cbxRammestr"
-<<<<<<< HEAD
         Me.cbxRammestr.Size = New System.Drawing.Size(114, 28)
         Me.cbxRammestr.TabIndex = 13
-=======
-        Me.cbxRammestr.Size = New System.Drawing.Size(102, 24)
-        Me.cbxRammestr.TabIndex = 34
->>>>>>> origin/master
         '
         'Label13
         '
@@ -157,13 +148,9 @@ Partial Class utleie
         '
         Me.btnLeggTil.Location = New System.Drawing.Point(9, 306)
         Me.btnLeggTil.Name = "btnLeggTil"
-<<<<<<< HEAD
         Me.btnLeggTil.Size = New System.Drawing.Size(132, 61)
         Me.btnLeggTil.TabIndex = 15
-=======
-        Me.btnLeggTil.Size = New System.Drawing.Size(117, 49)
-        Me.btnLeggTil.TabIndex = 26
->>>>>>> origin/master
+
         Me.btnLeggTil.Text = "Legg til"
         Me.btnLeggTil.UseVisualStyleBackColor = True
         '
@@ -173,13 +160,8 @@ Partial Class utleie
         Me.cbxSykkeltype.FormattingEnabled = True
         Me.cbxSykkeltype.Location = New System.Drawing.Point(102, 168)
         Me.cbxSykkeltype.Name = "cbxSykkeltype"
-<<<<<<< HEAD
         Me.cbxSykkeltype.Size = New System.Drawing.Size(349, 28)
         Me.cbxSykkeltype.TabIndex = 11
-=======
-        Me.cbxSykkeltype.Size = New System.Drawing.Size(311, 24)
-        Me.cbxSykkeltype.TabIndex = 22
->>>>>>> origin/master
         '
         'Label11
         '
@@ -223,38 +205,23 @@ Partial Class utleie
         '
         Me.DateTimePicker2.Location = New System.Drawing.Point(102, 107)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-<<<<<<< HEAD
         Me.DateTimePicker2.Size = New System.Drawing.Size(349, 26)
         Me.DateTimePicker2.TabIndex = 10
-=======
-        Me.DateTimePicker2.Size = New System.Drawing.Size(311, 22)
-        Me.DateTimePicker2.TabIndex = 19
->>>>>>> origin/master
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Location = New System.Drawing.Point(102, 77)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-<<<<<<< HEAD
         Me.DateTimePicker1.Size = New System.Drawing.Size(349, 26)
         Me.DateTimePicker1.TabIndex = 9
-=======
-        Me.DateTimePicker1.Size = New System.Drawing.Size(311, 22)
-        Me.DateTimePicker1.TabIndex = 14
->>>>>>> origin/master
         '
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Location = New System.Drawing.Point(157, 51)
         Me.RadioButton2.Name = "RadioButton2"
-<<<<<<< HEAD
         Me.RadioButton2.Size = New System.Drawing.Size(64, 24)
         Me.RadioButton2.TabIndex = 8
-=======
-        Me.RadioButton2.Size = New System.Drawing.Size(55, 21)
-        Me.RadioButton2.TabIndex = 16
->>>>>>> origin/master
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Dag"
         Me.RadioButton2.UseVisualStyleBackColor = True
@@ -282,13 +249,8 @@ Partial Class utleie
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Location = New System.Drawing.Point(91, 51)
         Me.RadioButton1.Name = "RadioButton1"
-<<<<<<< HEAD
         Me.RadioButton1.Size = New System.Drawing.Size(68, 24)
         Me.RadioButton1.TabIndex = 7
-=======
-        Me.RadioButton1.Size = New System.Drawing.Size(60, 21)
-        Me.RadioButton1.TabIndex = 15
->>>>>>> origin/master
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Time"
         Me.RadioButton1.UseVisualStyleBackColor = True
@@ -319,25 +281,15 @@ Partial Class utleie
         Me.cbxAvtale.FormattingEnabled = True
         Me.cbxAvtale.Location = New System.Drawing.Point(87, 21)
         Me.cbxAvtale.Name = "cbxAvtale"
-<<<<<<< HEAD
         Me.cbxAvtale.Size = New System.Drawing.Size(224, 28)
         Me.cbxAvtale.TabIndex = 6
-=======
-        Me.cbxAvtale.Size = New System.Drawing.Size(200, 24)
-        Me.cbxAvtale.TabIndex = 0
->>>>>>> origin/master
         '
         'txtSok
         '
         Me.txtSok.Location = New System.Drawing.Point(87, 21)
         Me.txtSok.Name = "txtSok"
-<<<<<<< HEAD
         Me.txtSok.Size = New System.Drawing.Size(224, 26)
         Me.txtSok.TabIndex = 1
-=======
-        Me.txtSok.Size = New System.Drawing.Size(200, 22)
-        Me.txtSok.TabIndex = 14
->>>>>>> origin/master
         '
         'Label5
         '
@@ -354,13 +306,8 @@ Partial Class utleie
         Me.cbxNavn.FormattingEnabled = True
         Me.cbxNavn.Location = New System.Drawing.Point(87, 50)
         Me.cbxNavn.Name = "cbxNavn"
-<<<<<<< HEAD
         Me.cbxNavn.Size = New System.Drawing.Size(224, 28)
         Me.cbxNavn.TabIndex = 2
-=======
-        Me.cbxNavn.Size = New System.Drawing.Size(200, 24)
-        Me.cbxNavn.TabIndex = 16
->>>>>>> origin/master
         '
         'Label1
         '
@@ -392,13 +339,8 @@ Partial Class utleie
         '
         Me.btnKunde.Location = New System.Drawing.Point(14, 108)
         Me.btnKunde.Name = "btnKunde"
-<<<<<<< HEAD
         Me.btnKunde.Size = New System.Drawing.Size(169, 61)
         Me.btnKunde.TabIndex = 4
-=======
-        Me.btnKunde.Size = New System.Drawing.Size(150, 49)
-        Me.btnKunde.TabIndex = 21
->>>>>>> origin/master
         Me.btnKunde.Text = "Legg til ny kunde"
         Me.btnKunde.UseVisualStyleBackColor = True
         '
@@ -406,13 +348,8 @@ Partial Class utleie
         '
         Me.btnRedigerKunde.Location = New System.Drawing.Point(170, 108)
         Me.btnRedigerKunde.Name = "btnRedigerKunde"
-<<<<<<< HEAD
         Me.btnRedigerKunde.Size = New System.Drawing.Size(132, 61)
         Me.btnRedigerKunde.TabIndex = 5
-=======
-        Me.btnRedigerKunde.Size = New System.Drawing.Size(117, 49)
-        Me.btnRedigerKunde.TabIndex = 14
->>>>>>> origin/master
         Me.btnRedigerKunde.Text = "Rediger kunde"
         Me.btnRedigerKunde.UseVisualStyleBackColor = True
         '
@@ -420,13 +357,8 @@ Partial Class utleie
         '
         Me.txtTelefon.Location = New System.Drawing.Point(87, 80)
         Me.txtTelefon.Name = "txtTelefon"
-<<<<<<< HEAD
         Me.txtTelefon.Size = New System.Drawing.Size(224, 26)
         Me.txtTelefon.TabIndex = 3
-=======
-        Me.txtTelefon.Size = New System.Drawing.Size(200, 22)
-        Me.txtTelefon.TabIndex = 20
->>>>>>> origin/master
         '
         'Label6
         '
@@ -463,13 +395,8 @@ Partial Class utleie
         '
         Me.btnSlett.Location = New System.Drawing.Point(611, 77)
         Me.btnSlett.Name = "btnSlett"
-<<<<<<< HEAD
         Me.btnSlett.Size = New System.Drawing.Size(132, 61)
         Me.btnSlett.TabIndex = 17
-=======
-        Me.btnSlett.Size = New System.Drawing.Size(117, 49)
-        Me.btnSlett.TabIndex = 39
->>>>>>> origin/master
         Me.btnSlett.Text = "Slett"
         Me.btnSlett.UseVisualStyleBackColor = True
         '
@@ -477,13 +404,8 @@ Partial Class utleie
         '
         Me.btnRedigere.Location = New System.Drawing.Point(612, 22)
         Me.btnRedigere.Name = "btnRedigere"
-<<<<<<< HEAD
         Me.btnRedigere.Size = New System.Drawing.Size(132, 61)
         Me.btnRedigere.TabIndex = 16
-=======
-        Me.btnRedigere.Size = New System.Drawing.Size(117, 49)
-        Me.btnRedigere.TabIndex = 38
->>>>>>> origin/master
         Me.btnRedigere.Text = "Redigere"
         Me.btnRedigere.UseVisualStyleBackColor = True
         '
