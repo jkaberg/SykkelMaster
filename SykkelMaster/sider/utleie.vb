@@ -53,4 +53,8 @@
                             & CInt(cbxNavn.SelectedValue)
 
     End Sub
+
+    Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
+       
+    End Sub
 End Class

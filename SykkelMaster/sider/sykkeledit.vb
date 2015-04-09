@@ -203,7 +203,7 @@
             valider_feilmelding &= "Feil input: Ramme (Kan ikke være tom)" & vbCrLf
         End If
 
-        
+
 
         If cbxStatus.Text = "" Then
             valider_feilmelding &= "Feil input: Status (Kan ikke være tom)" & vbCrLf
