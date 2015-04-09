@@ -86,12 +86,6 @@
     <Compile Include="sider\endrepassord.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sider\statistikk.Designer.vb">
-      <DependentUpon>statistikk.vb</DependentUpon>
-    </Compile>
-    <Compile Include="sider\statistikk.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="verktoy\db.vb" />
     <Compile Include="sider\hoved.Designer.vb">
       <DependentUpon>hoved.vb</DependentUpon>
@@ -175,9 +169,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sider\lokasjon.resx">
       <DependentUpon>lokasjon.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sider\statistikk.resx">
-      <DependentUpon>statistikk.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="start.resx">
       <DependentUpon>start.vb</DependentUpon>
