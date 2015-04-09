@@ -3,6 +3,7 @@
 
     Private Sub cbxStats_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStats.SelectedIndexChanged
         Dim sql As String
+        Dim a As String
 
         ' Rens ut nuvarende informasjon som evt er i grafen
         graf.Series(0).Points.Clear()
