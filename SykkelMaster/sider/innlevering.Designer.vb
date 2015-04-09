@@ -33,7 +33,7 @@ Partial Class innlevering
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.oversiktGrid = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Rediger_kunde = New System.Windows.Forms.Button()
         Me.txtTelefon = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -161,7 +161,7 @@ Partial Class innlevering
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Button2)
+        Me.GroupBox3.Controls.Add(Me.Rediger_kunde)
         Me.GroupBox3.Controls.Add(Me.txtTelefon)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label2)
@@ -179,13 +179,13 @@ Partial Class innlevering
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(13, 108)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(117, 49)
-        Me.Button2.TabIndex = 14
-        Me.Button2.Text = "Rediger kunde"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Rediger_kunde.Location = New System.Drawing.Point(13, 108)
+        Me.Rediger_kunde.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Rediger_kunde.Name = "Button2"
+        Me.Rediger_kunde.Size = New System.Drawing.Size(117, 49)
+        Me.Rediger_kunde.TabIndex = 14
+        Me.Rediger_kunde.Text = "Rediger kunde"
+        Me.Rediger_kunde.UseVisualStyleBackColor = True
         '
         'txtTelefon
         '
@@ -299,7 +299,7 @@ Partial Class innlevering
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Rediger_kunde As System.Windows.Forms.Button
     Friend WithEvents txtTelefon As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
