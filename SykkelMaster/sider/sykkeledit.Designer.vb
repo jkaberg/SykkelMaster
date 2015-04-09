@@ -44,6 +44,8 @@ Partial Class sykkelEdit
         Me.cbxType = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.cbxSokStatus = New System.Windows.Forms.ComboBox()
         Me.txtSok = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
@@ -274,6 +276,8 @@ Partial Class sykkelEdit
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label11)
+        Me.GroupBox2.Controls.Add(Me.cbxSokStatus)
         Me.GroupBox2.Controls.Add(Me.txtSok)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.cbxLokasjon)
@@ -287,6 +291,25 @@ Partial Class sykkelEdit
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(512, 23)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(60, 20)
+        Me.Label11.TabIndex = 21
+        Me.Label11.Text = "Status:"
+        '
+        'cbxSokStatus
+        '
+        Me.cbxSokStatus.FormattingEnabled = True
+        Me.cbxSokStatus.Items.AddRange(New Object() {"Innlevert", "Leid ut", "Reparasjon"})
+        Me.cbxSokStatus.Location = New System.Drawing.Point(578, 20)
+        Me.cbxSokStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxSokStatus.Name = "cbxSokStatus"
+        Me.cbxSokStatus.Size = New System.Drawing.Size(147, 28)
+        Me.cbxSokStatus.TabIndex = 20
         '
         'txtSok
         '
@@ -383,4 +406,6 @@ Partial Class sykkelEdit
     Friend WithEvents cbxPosisjon As System.Windows.Forms.ComboBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents btnTom As System.Windows.Forms.Button
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents cbxSokStatus As System.Windows.Forms.ComboBox
 End Class

@@ -46,7 +46,7 @@
         oppdaterTxtbox()
     End Sub
 
-    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing)
+    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing, Optional ByVal status As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
         Dim sql As String = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, s_status, sykkel.hjulstr, sykkel.rammestr, " & _
                             "sykkel.avviksmelding, v1.navn posisjon, v2.navn " &
@@ -54,7 +54,7 @@
                             "JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id " &
                             "JOIN virksomhet v1 ON sykkel.posisjon = v1.id " &
                             "JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " &
-                            "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%'"
+                            "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%' AND s_status LIKE '%" & status & "%'"
         payload = db.query(sql)
         SykkelGridView.DataSource = payload
 
@@ -171,6 +171,10 @@
         oppdaterGridView(posisjon:=cbxLokasjon.Text)
     End Sub
 
+    Private Sub cbxSokStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxSokStatus.SelectedIndexChanged
+        oppdaterGridView(status:=cbxSokStatus.Text)
+    End Sub
+
     Function validerSykkel() As Boolean
         valider_feilmelding = ""
 
@@ -207,6 +211,5 @@
         End If
 
     End Function
-
 
 End Class
