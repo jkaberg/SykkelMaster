@@ -104,7 +104,7 @@
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkel i databasen
         Dim sql As String = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & CInt(cbxType.SelectedValue) & ", " &
-                            cbxHjul.Text & ", " & cbxRamme.Text & ", " & CInt(cbxStatus.SelectedValue) & ", '" & txtAvvik.Text &
+                            cbxHjul.Text & ", " & cbxRamme.Text & ", '" & cbxStatus.Text & "', '" & txtAvvik.Text &
                             "', " & CInt(cbxPosisjon.SelectedValue) & ", " & CInt(cbxTilhorer.SelectedValue) & ")"
 
         If validerSykkel() Then
@@ -210,6 +210,7 @@
             Return True
         End If
 
+        Return False
     End Function
 
 End Class

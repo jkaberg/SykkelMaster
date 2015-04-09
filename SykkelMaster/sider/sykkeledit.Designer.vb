@@ -347,7 +347,7 @@ Partial Class sykkelEdit
         Me.SykkelGridView.Name = "SykkelGridView"
         Me.SykkelGridView.ReadOnly = True
         Me.SykkelGridView.RowTemplate.Height = 24
-        Me.SykkelGridView.Size = New System.Drawing.Size(1007, 469)
+        Me.SykkelGridView.Size = New System.Drawing.Size(929, 469)
         Me.SykkelGridView.TabIndex = 18
         '
         'Label6
@@ -363,7 +363,7 @@ Partial Class sykkelEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1423, 561)
+        Me.ClientSize = New System.Drawing.Size(1440, 561)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
