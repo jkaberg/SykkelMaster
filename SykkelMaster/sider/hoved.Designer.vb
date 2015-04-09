@@ -165,11 +165,11 @@ Partial Class hoved
         Me.btnLogg_ut.Text = "Logg ut"
         Me.btnLogg_ut.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnStatistikk
         '
-        Me.btnStatistikk.Location = New System.Drawing.Point(137, 292)
+        Me.btnStatistikk.Location = New System.Drawing.Point(13, 292)
         Me.btnStatistikk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnStatistikk.Name = "Button1"
+        Me.btnStatistikk.Name = "btnStatistikk"
         Me.btnStatistikk.Size = New System.Drawing.Size(143, 49)
         Me.btnStatistikk.TabIndex = 9
         Me.btnStatistikk.Text = "Statistikk"

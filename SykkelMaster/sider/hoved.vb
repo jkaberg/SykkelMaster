@@ -49,7 +49,7 @@
         '    If payload.Rows(i)(cbxPlassering.DisplayMember).ToString() = table.Rows(gridIndex).Cells("stilling").Value Then
         '        Me.cbxPlassering.SelectedIndex = i
         '    End If
-        'Next
+        'Next yo
 
         ' Rettighetsnivå (integer):
         ' Daglig leder: 10
