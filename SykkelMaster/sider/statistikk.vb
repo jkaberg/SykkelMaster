@@ -6,7 +6,6 @@
 
     Private Sub cbxStats_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStats.SelectedIndexChanged
         Dim sql As String
-        Dim a As String
 
         ' Rens ut nuvarende informasjon som evt er i grafen
         graf.Series(0).Points.Clear()
@@ -33,7 +32,7 @@
                       "JOIN virksomhet ON virksomhet.id = sykkel.posisjon " &
                       "GROUP BY virksomhet.navn;"
             Case 3
-                ' Hvilke sykkler blir mest ødelagd - IKKE FERDIG
+                ' Hvilke sykkler blir mest ødelagd
                 sql = "SELECT sykkeltype.sykkeltype as navn, count(*) as num " &
                       "FROM sykkel " &
                       "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
@@ -51,6 +50,5 @@
 
         graf.Series("Series1").XValueMember = "navn"
         graf.Series("Series1").YValueMembers = "num"
-        graf.Series(0)("PieLabelStyle") = "Disabled"
     End Sub
 End Class

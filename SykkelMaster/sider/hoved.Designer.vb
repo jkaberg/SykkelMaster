@@ -96,6 +96,7 @@ Partial Class hoved
         '
         'cbxPlassering
         '
+        Me.cbxPlassering.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxPlassering.FormattingEnabled = True
         Me.cbxPlassering.Location = New System.Drawing.Point(7, 22)
         Me.cbxPlassering.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)

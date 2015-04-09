@@ -117,6 +117,7 @@ Partial Class bruker
         '
         'cbxArbedidssted
         '
+        Me.cbxArbedidssted.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxArbedidssted.FormattingEnabled = True
         Me.cbxArbedidssted.Location = New System.Drawing.Point(94, 275)
         Me.cbxArbedidssted.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -162,6 +163,7 @@ Partial Class bruker
         '
         'cbxStilling
         '
+        Me.cbxStilling.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStilling.FormattingEnabled = True
         Me.cbxStilling.Location = New System.Drawing.Point(80, 214)
         Me.cbxStilling.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
