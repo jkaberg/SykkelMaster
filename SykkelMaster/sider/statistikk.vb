@@ -11,28 +11,30 @@
 
         Select Case cbxStats.SelectedIndex
             Case 0
-                ' Antal sykkler per sykkeltype - FERDIG
+                ' Antal sykkler per sykkeltype
                 sql = "SELECT sykkeltype.sykkeltype AS navn, count(*) AS num " &
                       "FROM sykkel " &
                       "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
                       "GROUP BY sykkeltype.sykkeltype;"
             Case 1
-                ' Mest populære sykklene - IKKE FERDIG
-                sql = "SELECT sykkeltype.sykkeltype AS navn, count(*) AS num " &
+                ' Mest populære sykklene
+                sql = "SELECT sykkeltype.sykkeltype as navn, count(*) as num " &
                       "FROM sykkel " &
+                      "JOIN sykkel_leid_ut ON sykkel_leid_ut.rammenr = sykkel.rammenr " &
                       "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
                       "GROUP BY sykkeltype.sykkeltype;"
             Case 2
-                ' Hvor mange sykkler per "lagerplass" - IKKE FERDIG
-                sql = "SELECT sykkeltype.sykkeltype AS navn, count(*) AS num " &
+                ' Hvor mange sykkler per "lagerplass"
+                sql = "SELECT virksomhet.navn as navn, count(*) as num " &
                       "FROM sykkel " &
-                      "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
-                      "GROUP BY sykkeltype.sykkeltype;"
+                      "JOIN virksomhet ON virksomhet.id = sykkel.posisjon " &
+                      "GROUP BY virksomhet.navn;"
             Case 3
                 ' Hvilke sykkler blir mest ødelagd - IKKE FERDIG
-                sql = "SELECT sykkeltype.sykkeltype AS navn, count(*) AS num " &
+                sql = "SELECT sykkeltype.sykkeltype as navn, count(*) as num " &
                       "FROM sykkel " &
                       "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
+                      "WHERE sykkel.s_status = 'Reparasjon' " &
                       "GROUP BY sykkeltype.sykkeltype;"
             Case Else
                 sql = "SELECT sykkeltype.sykkeltype AS navn, count(*) AS num " &
@@ -46,5 +48,6 @@
 
         graf.Series("Series1").XValueMember = "navn"
         graf.Series("Series1").YValueMembers = "num"
+        graf.Series(0)("PieLabelStyle") = "Disabled"
     End Sub
 End Class

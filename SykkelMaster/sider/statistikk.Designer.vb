@@ -30,28 +30,46 @@ Partial Class statistikk
         CType(Me.graf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Chart1
+        'graf
         '
+        Me.graf.BackColor = System.Drawing.Color.Transparent
+        Me.graf.BorderlineColor = System.Drawing.Color.Transparent
         ChartArea1.Name = "ChartArea1"
         Me.graf.ChartAreas.Add(ChartArea1)
+        Legend1.Enabled = False
         Legend1.Name = "Legend1"
+        Legend1.TitleBackColor = System.Drawing.Color.Transparent
         Me.graf.Legends.Add(Legend1)
         Me.graf.Location = New System.Drawing.Point(12, 12)
-        Me.graf.Name = "Chart1"
+        Me.graf.Name = "graf"
+        Series1.BackImageTransparentColor = System.Drawing.Color.Transparent
+        Series1.BackSecondaryColor = System.Drawing.Color.Transparent
+        Series1.BorderColor = System.Drawing.Color.Black
         Series1.ChartArea = "ChartArea1"
+        Series1.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Series1.IsValueShownAsLabel = True
+        Series1.LabelBackColor = System.Drawing.Color.LightGray
+        Series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDotDot
+        Series1.LabelBorderWidth = 0
         Series1.Legend = "Legend1"
+        Series1.MarkerBorderColor = System.Drawing.Color.Transparent
+        Series1.MarkerColor = System.Drawing.Color.Transparent
         Series1.Name = "Series1"
+        Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
+        Series1.ShadowColor = System.Drawing.Color.Beige
+        Series1.SmartLabelStyle.Enabled = False
         Me.graf.Series.Add(Series1)
         Me.graf.Size = New System.Drawing.Size(897, 467)
         Me.graf.TabIndex = 0
         Me.graf.Text = "Chart1"
         '
-        'ComboBox1
+        'cbxStats
         '
         Me.cbxStats.FormattingEnabled = True
         Me.cbxStats.Items.AddRange(New Object() {"Antal sykkler per sykkeltype", "Mest populære sykklene", "Hvor mange sykkler per ""lagerplass""", "Hvilke sykkler blir mest ødelagd"})
         Me.cbxStats.Location = New System.Drawing.Point(12, 485)
-        Me.cbxStats.Name = "ComboBox1"
+        Me.cbxStats.Name = "cbxStats"
         Me.cbxStats.Size = New System.Drawing.Size(287, 24)
         Me.cbxStats.TabIndex = 1
         '
