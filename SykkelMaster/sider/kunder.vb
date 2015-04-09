@@ -23,13 +23,16 @@
         End If
     End Sub
 
-    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
+    Public Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal id As Integer = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
         Dim sql As String
-        If Not sok = Nothing Then
-            sql = "SELECT * FROM person WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%' OR etternavn LIKE '%" & sok & "%'"
-        Else
+
+        If Not id = Nothing Then
+            sql = "SELECT * FROM person WHERE id = " & id & ";"
+        ElseIf sok = Nothing Then
             sql = "SELECT * FROM person"
+        Else
+            sql = "SELECT * FROM person WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%' OR etternavn LIKE '%;"
         End If
         payload = db.query(sql)
         kundeGridView.DataSource = payload
@@ -46,6 +49,10 @@
             .Columns("post_nr").HeaderText = "Postnr"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
+
+        If Not id = Nothing Then
+            oppdaterTxtbox()
+        End If
     End Sub
 
     Private Sub oppdaterTxtbox()
@@ -64,7 +71,7 @@
     End Sub
 
     Private Sub sokKunde_TextChanged(sender As Object, e As EventArgs) Handles sokKunde.TextChanged
-        oppdaterGridView(sokKunde.Text)
+        oppdaterGridView(sok:=sokKunde.Text)
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click

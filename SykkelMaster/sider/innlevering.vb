@@ -142,4 +142,9 @@ Public Class innlevering
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
+
+    Private Sub Rediger_kunde_Click(sender As Object, e As EventArgs) Handles Rediger_kunde.Click
+        kunder.Show()
+        kunder.oppdaterGridView(id:=cbxKunde.SelectedValue)
+    End Sub
 End Class
