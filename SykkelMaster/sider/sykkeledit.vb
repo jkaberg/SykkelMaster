@@ -1,6 +1,7 @@
 ﻿Public Class sykkelEdit
     Private gridIndex As Integer
     Private payload As New DataTable
+    Private valider_feilmelding As String = ""
 
     Private Sub sykkelEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
@@ -105,9 +106,15 @@
         Dim sql As String = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & CInt(cbxType.SelectedValue) & ", " &
                             cbxHjul.Text & ", " & cbxRamme.Text & ", " & CInt(cbxStatus.SelectedValue) & ", '" & txtAvvik.Text &
                             "', " & CInt(cbxPosisjon.SelectedValue) & ", " & CInt(cbxTilhorer.SelectedValue) & ")"
-        db.query(sql)
-        oppdaterGridView()
-        oppdaterTxtbox()
+
+        If validerSykkel() Then
+            db.query(sql)
+            oppdaterGridView()
+            oppdaterTxtbox()
+        Else
+            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
+        End If
+
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
@@ -119,12 +126,18 @@
 
         Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
         'Oppdater bruker
+
+        If validerSykkel() then
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 payload = db.query(sql)
                 oppdaterGridView()
                 oppdaterTxtbox()
-        End Select
+            End Select
+        Else
+            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
+        End If
+
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
@@ -133,15 +146,19 @@
 
         Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
         'Slett sykkel
-        Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
-            Case MsgBoxResult.Yes
-                Try
-                    payload = db.query(sql)
-                Catch
-                    MsgBox("Du kan ikke slette sykkel")
-                End Try
-        End Select
 
+        If validerSykkel() Then
+            Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
+                Case MsgBoxResult.Yes
+                    Try
+                        payload = db.query(sql)
+                    Catch
+                        MsgBox("Du kan ikke slette sykkel")
+                    End Try
+            End Select
+        Else
+            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
+        End If
         oppdaterGridView()
     End Sub
 
@@ -153,4 +170,43 @@
     Private Sub cbxLokasjon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxLokasjon.SelectedIndexChanged
         oppdaterGridView(posisjon:=cbxLokasjon.Text)
     End Sub
+
+    Function validerSykkel() As Boolean
+        valider_feilmelding = ""
+
+        If cbxTilhorer.Text = "" Then
+            valider_feilmelding &= "Feil input: Tilhører (Kan ikke være tom)" & vbCrLf
+        End If
+
+        If cbxPosisjon.Text = "" Then
+            valider_feilmelding &= "Feil input: Posisjon (Kan ikke være tom)" & vbCrLf
+        End If
+
+        If cbxType.Text = "" Then
+            valider_feilmelding &= "Feil input: Type (Kan ikke være tom)" & vbCrLf
+        End If
+
+        If txtRammenr.Text = "" Then
+            valider_feilmelding &= "Feil input: Rammenr (Kan ikke være tom)" & vbCrLf
+        End If
+
+        If cbxHjul.Text = "" Then
+            valider_feilmelding &= "Feil input: Hjul (Kan ikke være tom)" & vbCrLf
+        End If
+
+        If cbxRamme.Text = "" Then
+            valider_feilmelding &= "Feil input: Ramme (Kan ikke være tom)" & vbCrLf
+        End If
+
+        If cbxStatus.Text = "" Then
+            valider_feilmelding &= "Feil input: Status (Kan ikke være tom)" & vbCrLf
+        End If
+
+        If valider_feilmelding = "" Then
+            Return True
+        End If
+
+    End Function
+
+
 End Class
