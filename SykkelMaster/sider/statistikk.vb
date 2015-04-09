@@ -6,7 +6,6 @@
 
     Private Sub cbxStats_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStats.SelectedIndexChanged
         Dim sql As String
-        Dim a As String
 
         ' Rens ut nuvarende informasjon som evt er i grafen
         graf.Series(0).Points.Clear()
@@ -51,6 +50,5 @@
 
         graf.Series("Series1").XValueMember = "navn"
         graf.Series("Series1").YValueMembers = "num"
-        graf.Series(0)("PieLabelStyle") = "Disabled"
     End Sub
 End Class
