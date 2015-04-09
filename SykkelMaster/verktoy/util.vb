@@ -31,6 +31,14 @@ Public Class util
         End If
     End Function
 
+    Public Shared Function validerRammenr(ByVal rammenr As String) As Boolean
+
+
+
+
+    End Function
+
+
     Public Shared Function tilfeldigStreng() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
         'Lager variabel random som ny random funksjon 
         Dim random As New Random
