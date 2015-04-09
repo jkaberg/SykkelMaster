@@ -32,7 +32,7 @@
                       "JOIN virksomhet ON virksomhet.id = sykkel.posisjon " &
                       "GROUP BY virksomhet.navn;"
             Case 3
-                ' Hvilke sykkler blir mest ødelagd
+                ' Hvilke type sykkler er ødelagd
                 sql = "SELECT sykkeltype.sykkeltype as navn, count(*) as num " &
                       "FROM sykkel " &
                       "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
