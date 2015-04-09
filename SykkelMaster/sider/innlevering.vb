@@ -46,16 +46,15 @@ Public Class innlevering
                                 "WHERE ordre_nr = " & id & ";" &
                                 "UPDATE utstyr_leid_ut SET u_l_u_status = 'Levert' " &
                                 "WHERE ordre_nr = " & id & ";" &
-                                "UPDATE sykkel SET posisjon = " & lokasjoner.SelectedValue & " " &
-                                "JOIN salg_leie ON salg_leie.rammenr = sykkel.rammenr;" &
+                                "UPDATE sykkel " &
+                                "JOIN sykkel_leid_ut ON sykkel.rammenr = sykkel_leid_ut.rammenr AND sykkel_leid_ut.ordre_nr = " & id & " " &
+                                "SET sykkel.posisjon = " & lokasjoner.SelectedValue & ";" &
                                 "COMMIT;"
+            Console.WriteLine(sql)
             payload = db.query(sql)
 
-            If payload.Rows.Count >= 1 Then
-                MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
-            Else
-                MsgBox("Noe gikk galt.", MsgBoxStyle.Critical)
-            End If
+            MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
+            avtaleInnehold()
         Else
             MsgBox("Du må velge en plass å levere inn ordren på.", MsgBoxStyle.Critical)
         End If
@@ -128,7 +127,8 @@ Public Class innlevering
                   "FROM salg_leie " &
                   "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
                   "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
-                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype"
+                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
+                  "WHERE s_l_status <> 'Innlevert';"
 
             cbxKunde.DataSource = Nothing
             cbxLeieAvtaler.DataSource = Nothing
