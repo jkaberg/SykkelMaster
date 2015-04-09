@@ -88,6 +88,7 @@ Partial Class innlevering
         '
         'lokasjoner
         '
+        Me.lokasjoner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.lokasjoner.FormattingEnabled = True
         Me.lokasjoner.Location = New System.Drawing.Point(85, 50)
         Me.lokasjoner.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -106,6 +107,7 @@ Partial Class innlevering
         '
         'cbxLeieAvtaler
         '
+        Me.cbxLeieAvtaler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxLeieAvtaler.FormattingEnabled = True
         Me.cbxLeieAvtaler.Location = New System.Drawing.Point(85, 21)
         Me.cbxLeieAvtaler.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -222,6 +224,7 @@ Partial Class innlevering
         '
         'cbxKunde
         '
+        Me.cbxKunde.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxKunde.FormattingEnabled = True
         Me.cbxKunde.Location = New System.Drawing.Point(87, 50)
         Me.cbxKunde.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
