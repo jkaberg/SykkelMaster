@@ -38,23 +38,28 @@ Public Class innlevering
 
     Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
         Dim id As Integer = Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
-        Dim sql As String = "START TRANSACTION;" &
-                            "UPDATE salg_leie SET s_l_status = 'Innlevert' " &
-                            "WHERE ordre_nr = " & id & ";" &
-                            "UPDATE sykkel_leid_ut SET s_l_u_status = 'Levert' " &
-                            "WHERE ordre_nr = " & id & ";" &
-                            "UPDATE utstyr_leid_ut SET u_l_u_status = 'Levert' " &
-                            "WHERE ordre_nr = " & id & ";" &
-                            "UPDATE sykkel SET posisjon = " & lokasjoner.SelectedValue & " " &
-                            "JOIN salg_leie ON salg_leie.rammenr = sykkel.rammenr;" &
-                            "COMMIT;"
-        payload = db.query(sql)
+        If lokasjoner.SelectedValue <> 0 Then
+            Dim sql As String = "START TRANSACTION;" &
+                                "UPDATE salg_leie SET s_l_status = 'Innlevert' " &
+                                "WHERE ordre_nr = " & id & ";" &
+                                "UPDATE sykkel_leid_ut SET s_l_u_status = 'Levert' " &
+                                "WHERE ordre_nr = " & id & ";" &
+                                "UPDATE utstyr_leid_ut SET u_l_u_status = 'Levert' " &
+                                "WHERE ordre_nr = " & id & ";" &
+                                "UPDATE sykkel SET posisjon = " & lokasjoner.SelectedValue & " " &
+                                "JOIN salg_leie ON salg_leie.rammenr = sykkel.rammenr;" &
+                                "COMMIT;"
+            payload = db.query(sql)
 
-        If payload.Rows.Count >= 1 Then
-            MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
+            If payload.Rows.Count >= 1 Then
+                MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
+            Else
+                MsgBox("Noe gikk galt.", MsgBoxStyle.Critical)
+            End If
         Else
-            MsgBox("Noe gikk galt.", MsgBoxStyle.Critical)
+            MsgBox("Du må velge en plass å levere inn ordren på.", MsgBoxStyle.Critical)
         End If
+
     End Sub
 
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
