@@ -10,24 +10,24 @@ Public Class start
     Public bruker As ansatt
 
     Private Sub start_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtEpost.Text = "d@"
+        txtEpost.Text = "ddd@ddd"
         txtPassord.Text = "d"
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        'If util.validerEpost(txtEpost.Text) Then
+        If util.validerEpost(txtEpost.Text) Then
             If sjekkLogin(txtEpost.Text, txtPassord.Text) Then
                 hoved.Show()
                 Me.Hide()
             Else
                 MsgBox("Feil e-post eller passord.", MsgBoxStyle.Critical)
             End If
-        'Else
-        '    MsgBox("Feil E-post validering")
-        '   txtEpost.Text = ""
-        '  txtPassord.Text = ""
-        'End If
+        Else
+            MsgBox("Feil E-post validering")
+            txtEpost.Text = ""
+            txtPassord.Text = ""
+        End If
 
     End Sub
 
