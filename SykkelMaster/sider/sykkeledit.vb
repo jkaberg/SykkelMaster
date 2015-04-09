@@ -190,9 +190,10 @@
             valider_feilmelding &= "Feil input: Type (Kan ikke være tom)" & vbCrLf
         End If
 
-        If txtRammenr.Text = "" Then
-            valider_feilmelding &= "Feil input: Rammenr (Kan ikke være tom)" & vbCrLf
+        If txtRammenr.Text = "" Or txtRammenr.Text.Contains(" ") = True Then
+            valider_feilmelding &= "Feil input: Rammenr (Kan ikke være tom eller inneholde mellomrom)" & vbCrLf
         End If
+
 
         If cbxHjul.Text = "" Then
             valider_feilmelding &= "Feil input: Hjul (Kan ikke være tom)" & vbCrLf
@@ -201,6 +202,8 @@
         If cbxRamme.Text = "" Then
             valider_feilmelding &= "Feil input: Ramme (Kan ikke være tom)" & vbCrLf
         End If
+
+        
 
         If cbxStatus.Text = "" Then
             valider_feilmelding &= "Feil input: Status (Kan ikke være tom)" & vbCrLf
