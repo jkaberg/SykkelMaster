@@ -1,5 +1,8 @@
 ﻿Public Class statistikk
     Private payload As DataTable
+    Private Sub statistikk_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cbxStats.SelectedIndex = 0
+    End Sub
 
     Private Sub cbxStats_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStats.SelectedIndexChanged
         Dim sql As String
