@@ -20,6 +20,7 @@
     End Sub
     Private Sub btnRedigerKunde_Click(sender As Object, e As EventArgs) Handles btnRedigerKunde.Click
         kunder.Show()
+        kunder.oppdaterGridView(id:=cbxNavn.SelectedValue)
     End Sub
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged

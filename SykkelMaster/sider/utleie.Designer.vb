@@ -87,7 +87,7 @@ Partial Class utleie
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
         Me.GroupBox1.Location = New System.Drawing.Point(328, 13)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(420, 370)
+        Me.GroupBox1.Size = New System.Drawing.Size(461, 370)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Utleie"
@@ -111,9 +111,8 @@ Partial Class utleie
         Me.cbxHjulstr.Items.AddRange(New Object() {"12", "14", "16", "18", "20", "24"})
         Me.cbxHjulstr.Location = New System.Drawing.Point(102, 198)
         Me.cbxHjulstr.Name = "cbxHjulstr"
-        Me.cbxHjulstr.Size = New System.Drawing.Size(114, 28)
+        Me.cbxHjulstr.Size = New System.Drawing.Size(114, 24)
         Me.cbxHjulstr.TabIndex = 12
-
         '
         'Label12
         '
@@ -131,7 +130,7 @@ Partial Class utleie
         Me.cbxRammestr.Items.AddRange(New Object() {"13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"})
         Me.cbxRammestr.Location = New System.Drawing.Point(311, 198)
         Me.cbxRammestr.Name = "cbxRammestr"
-        Me.cbxRammestr.Size = New System.Drawing.Size(114, 28)
+        Me.cbxRammestr.Size = New System.Drawing.Size(114, 24)
         Me.cbxRammestr.TabIndex = 13
         '
         'Label13
@@ -150,7 +149,6 @@ Partial Class utleie
         Me.btnLeggTil.Name = "btnLeggTil"
         Me.btnLeggTil.Size = New System.Drawing.Size(132, 61)
         Me.btnLeggTil.TabIndex = 15
-
         Me.btnLeggTil.Text = "Legg til"
         Me.btnLeggTil.UseVisualStyleBackColor = True
         '
@@ -160,7 +158,7 @@ Partial Class utleie
         Me.cbxSykkeltype.FormattingEnabled = True
         Me.cbxSykkeltype.Location = New System.Drawing.Point(102, 168)
         Me.cbxSykkeltype.Name = "cbxSykkeltype"
-        Me.cbxSykkeltype.Size = New System.Drawing.Size(349, 28)
+        Me.cbxSykkeltype.Size = New System.Drawing.Size(349, 24)
         Me.cbxSykkeltype.TabIndex = 11
         '
         'Label11
@@ -205,14 +203,14 @@ Partial Class utleie
         '
         Me.DateTimePicker2.Location = New System.Drawing.Point(102, 107)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(349, 26)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(349, 22)
         Me.DateTimePicker2.TabIndex = 10
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Location = New System.Drawing.Point(102, 77)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(349, 26)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(349, 22)
         Me.DateTimePicker1.TabIndex = 9
         '
         'RadioButton2
@@ -220,7 +218,7 @@ Partial Class utleie
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Location = New System.Drawing.Point(157, 51)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(64, 24)
+        Me.RadioButton2.Size = New System.Drawing.Size(55, 21)
         Me.RadioButton2.TabIndex = 8
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Dag"
@@ -249,7 +247,7 @@ Partial Class utleie
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Location = New System.Drawing.Point(91, 51)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(68, 24)
+        Me.RadioButton1.Size = New System.Drawing.Size(60, 21)
         Me.RadioButton1.TabIndex = 7
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Time"
@@ -281,14 +279,14 @@ Partial Class utleie
         Me.cbxAvtale.FormattingEnabled = True
         Me.cbxAvtale.Location = New System.Drawing.Point(87, 21)
         Me.cbxAvtale.Name = "cbxAvtale"
-        Me.cbxAvtale.Size = New System.Drawing.Size(224, 28)
+        Me.cbxAvtale.Size = New System.Drawing.Size(215, 24)
         Me.cbxAvtale.TabIndex = 6
         '
         'txtSok
         '
         Me.txtSok.Location = New System.Drawing.Point(87, 21)
         Me.txtSok.Name = "txtSok"
-        Me.txtSok.Size = New System.Drawing.Size(224, 26)
+        Me.txtSok.Size = New System.Drawing.Size(215, 22)
         Me.txtSok.TabIndex = 1
         '
         'Label5
@@ -306,7 +304,7 @@ Partial Class utleie
         Me.cbxNavn.FormattingEnabled = True
         Me.cbxNavn.Location = New System.Drawing.Point(87, 50)
         Me.cbxNavn.Name = "cbxNavn"
-        Me.cbxNavn.Size = New System.Drawing.Size(224, 28)
+        Me.cbxNavn.Size = New System.Drawing.Size(215, 24)
         Me.cbxNavn.TabIndex = 2
         '
         'Label1
@@ -339,7 +337,7 @@ Partial Class utleie
         '
         Me.btnKunde.Location = New System.Drawing.Point(14, 108)
         Me.btnKunde.Name = "btnKunde"
-        Me.btnKunde.Size = New System.Drawing.Size(169, 61)
+        Me.btnKunde.Size = New System.Drawing.Size(150, 49)
         Me.btnKunde.TabIndex = 4
         Me.btnKunde.Text = "Legg til ny kunde"
         Me.btnKunde.UseVisualStyleBackColor = True
@@ -348,16 +346,17 @@ Partial Class utleie
         '
         Me.btnRedigerKunde.Location = New System.Drawing.Point(170, 108)
         Me.btnRedigerKunde.Name = "btnRedigerKunde"
-        Me.btnRedigerKunde.Size = New System.Drawing.Size(132, 61)
+        Me.btnRedigerKunde.Size = New System.Drawing.Size(132, 51)
         Me.btnRedigerKunde.TabIndex = 5
         Me.btnRedigerKunde.Text = "Rediger kunde"
         Me.btnRedigerKunde.UseVisualStyleBackColor = True
         '
         'txtTelefon
         '
+        Me.txtTelefon.Enabled = False
         Me.txtTelefon.Location = New System.Drawing.Point(87, 80)
         Me.txtTelefon.Name = "txtTelefon"
-        Me.txtTelefon.Size = New System.Drawing.Size(224, 26)
+        Me.txtTelefon.Size = New System.Drawing.Size(215, 22)
         Me.txtTelefon.TabIndex = 3
         '
         'Label6
@@ -377,25 +376,25 @@ Partial Class utleie
         Me.GroupBox4.Controls.Add(Me.DataGridView1)
         Me.GroupBox4.Location = New System.Drawing.Point(13, 389)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(735, 313)
+        Me.GroupBox4.Size = New System.Drawing.Size(776, 313)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Kundevogn"
         '
         'btnOprettAvtale
         '
-        Me.btnOprettAvtale.Location = New System.Drawing.Point(611, 253)
+        Me.btnOprettAvtale.Location = New System.Drawing.Point(611, 242)
         Me.btnOprettAvtale.Name = "btnOprettAvtale"
-        Me.btnOprettAvtale.Size = New System.Drawing.Size(117, 49)
+        Me.btnOprettAvtale.Size = New System.Drawing.Size(133, 60)
         Me.btnOprettAvtale.TabIndex = 40
         Me.btnOprettAvtale.Text = "Opprett avtale"
         Me.btnOprettAvtale.UseVisualStyleBackColor = True
         '
         'btnSlett
         '
-        Me.btnSlett.Location = New System.Drawing.Point(611, 77)
+        Me.btnSlett.Location = New System.Drawing.Point(611, 89)
         Me.btnSlett.Name = "btnSlett"
-        Me.btnSlett.Size = New System.Drawing.Size(132, 61)
+        Me.btnSlett.Size = New System.Drawing.Size(133, 61)
         Me.btnSlett.TabIndex = 17
         Me.btnSlett.Text = "Slett"
         Me.btnSlett.UseVisualStyleBackColor = True
@@ -422,7 +421,7 @@ Partial Class utleie
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(753, 710)
+        Me.ClientSize = New System.Drawing.Size(800, 710)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
