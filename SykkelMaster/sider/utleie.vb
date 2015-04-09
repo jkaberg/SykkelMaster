@@ -11,6 +11,14 @@
         End With
         cbxAvtale.SelectedIndex = -1
 
+        payload = db.query("SELECT * FROM sykkeltype")
+        With cbxSykkeltype
+            .DisplayMember = "sykkeltype"
+            .ValueMember = "id"
+            .DataSource = payload
+        End With
+        cbxSykkeltype.SelectedIndex = -1
+
         ToolTip1.SetToolTip(Me.Label5, "Her kan du søke på navn eller telefonnr.")
     End Sub
 
