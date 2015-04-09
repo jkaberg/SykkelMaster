@@ -3,14 +3,6 @@
 
     Private Sub utleie_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        payload = db.query("SELECT * FROM virksomhet")
-        With cbxAvtale
-            .DisplayMember = "navn"
-            .ValueMember = "id"
-            .DataSource = payload
-        End With
-        cbxAvtale.SelectedIndex = -1
-
         payload = db.query("SELECT * FROM sykkeltype")
         With cbxSykkeltype
             .DisplayMember = "sykkeltype"

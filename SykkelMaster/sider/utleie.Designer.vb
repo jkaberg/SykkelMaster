@@ -105,7 +105,7 @@ Partial Class utleie
         Me.CheckedListBox1.Name = "CheckedListBox1"
         Me.CheckedListBox1.Size = New System.Drawing.Size(454, 88)
         Me.CheckedListBox1.Sorted = True
-        Me.CheckedListBox1.TabIndex = 37
+        Me.CheckedListBox1.TabIndex = 14
         '
         'cbxHjulstr
         '
@@ -115,7 +115,7 @@ Partial Class utleie
         Me.cbxHjulstr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxHjulstr.Name = "cbxHjulstr"
         Me.cbxHjulstr.Size = New System.Drawing.Size(114, 28)
-        Me.cbxHjulstr.TabIndex = 36
+        Me.cbxHjulstr.TabIndex = 12
         '
         'Label12
         '
@@ -134,7 +134,7 @@ Partial Class utleie
         Me.cbxRammestr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxRammestr.Name = "cbxRammestr"
         Me.cbxRammestr.Size = New System.Drawing.Size(114, 28)
-        Me.cbxRammestr.TabIndex = 34
+        Me.cbxRammestr.TabIndex = 13
         '
         'Label13
         '
@@ -152,7 +152,7 @@ Partial Class utleie
         Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnLeggTil.Name = "btnLeggTil"
         Me.btnLeggTil.Size = New System.Drawing.Size(132, 61)
-        Me.btnLeggTil.TabIndex = 26
+        Me.btnLeggTil.TabIndex = 15
         Me.btnLeggTil.Text = "Legg til"
         Me.btnLeggTil.UseVisualStyleBackColor = True
         '
@@ -163,7 +163,7 @@ Partial Class utleie
         Me.cbxSykkeltype.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxSykkeltype.Name = "cbxSykkeltype"
         Me.cbxSykkeltype.Size = New System.Drawing.Size(349, 28)
-        Me.cbxSykkeltype.TabIndex = 22
+        Me.cbxSykkeltype.TabIndex = 11
         '
         'Label11
         '
@@ -209,7 +209,7 @@ Partial Class utleie
         Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(349, 26)
-        Me.DateTimePicker2.TabIndex = 19
+        Me.DateTimePicker2.TabIndex = 10
         '
         'DateTimePicker1
         '
@@ -217,7 +217,7 @@ Partial Class utleie
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(349, 26)
-        Me.DateTimePicker1.TabIndex = 14
+        Me.DateTimePicker1.TabIndex = 9
         '
         'RadioButton2
         '
@@ -226,7 +226,7 @@ Partial Class utleie
         Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(64, 24)
-        Me.RadioButton2.TabIndex = 16
+        Me.RadioButton2.TabIndex = 8
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Dag"
         Me.RadioButton2.UseVisualStyleBackColor = True
@@ -256,7 +256,7 @@ Partial Class utleie
         Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(68, 24)
-        Me.RadioButton1.TabIndex = 15
+        Me.RadioButton1.TabIndex = 7
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Time"
         Me.RadioButton1.UseVisualStyleBackColor = True
@@ -290,7 +290,7 @@ Partial Class utleie
         Me.cbxAvtale.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxAvtale.Name = "cbxAvtale"
         Me.cbxAvtale.Size = New System.Drawing.Size(224, 28)
-        Me.cbxAvtale.TabIndex = 0
+        Me.cbxAvtale.TabIndex = 6
         '
         'txtSok
         '
@@ -298,7 +298,7 @@ Partial Class utleie
         Me.txtSok.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtSok.Name = "txtSok"
         Me.txtSok.Size = New System.Drawing.Size(224, 26)
-        Me.txtSok.TabIndex = 14
+        Me.txtSok.TabIndex = 1
         '
         'Label5
         '
@@ -316,7 +316,7 @@ Partial Class utleie
         Me.cbxNavn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxNavn.Name = "cbxNavn"
         Me.cbxNavn.Size = New System.Drawing.Size(224, 28)
-        Me.cbxNavn.TabIndex = 16
+        Me.cbxNavn.TabIndex = 2
         '
         'Label1
         '
@@ -352,7 +352,7 @@ Partial Class utleie
         Me.btnKunde.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnKunde.Name = "btnKunde"
         Me.btnKunde.Size = New System.Drawing.Size(169, 61)
-        Me.btnKunde.TabIndex = 21
+        Me.btnKunde.TabIndex = 4
         Me.btnKunde.Text = "Legg til ny kunde"
         Me.btnKunde.UseVisualStyleBackColor = True
         '
@@ -362,7 +362,7 @@ Partial Class utleie
         Me.btnRedigerKunde.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnRedigerKunde.Name = "btnRedigerKunde"
         Me.btnRedigerKunde.Size = New System.Drawing.Size(132, 61)
-        Me.btnRedigerKunde.TabIndex = 14
+        Me.btnRedigerKunde.TabIndex = 5
         Me.btnRedigerKunde.Text = "Rediger kunde"
         Me.btnRedigerKunde.UseVisualStyleBackColor = True
         '
@@ -372,7 +372,7 @@ Partial Class utleie
         Me.txtTelefon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtTelefon.Name = "txtTelefon"
         Me.txtTelefon.Size = New System.Drawing.Size(224, 26)
-        Me.txtTelefon.TabIndex = 20
+        Me.txtTelefon.TabIndex = 3
         '
         'Label6
         '
@@ -414,7 +414,7 @@ Partial Class utleie
         Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnSlett.Name = "btnSlett"
         Me.btnSlett.Size = New System.Drawing.Size(132, 61)
-        Me.btnSlett.TabIndex = 39
+        Me.btnSlett.TabIndex = 17
         Me.btnSlett.Text = "Slett"
         Me.btnSlett.UseVisualStyleBackColor = True
         '
@@ -424,7 +424,7 @@ Partial Class utleie
         Me.btnRedigere.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnRedigere.Name = "btnRedigere"
         Me.btnRedigere.Size = New System.Drawing.Size(132, 61)
-        Me.btnRedigere.TabIndex = 38
+        Me.btnRedigere.TabIndex = 16
         Me.btnRedigere.Text = "Redigere"
         Me.btnRedigere.UseVisualStyleBackColor = True
         '
