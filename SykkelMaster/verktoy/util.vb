@@ -34,8 +34,6 @@ Public Class util
     Public Shared Function validerRammenr(ByVal rammenr As String) As Boolean
 
 
-
-
     End Function
 
 

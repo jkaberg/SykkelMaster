@@ -227,6 +227,7 @@
 
 
     Function ValiderBruker() As Boolean
+        'validering av inndata på textboxer o.l
         valider_feilmelding = ""
 
         If Not util.validerStreng(txtNavn.Text) Then

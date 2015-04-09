@@ -13,7 +13,7 @@
                 nyttPassordtxt.Text = ""
             End If
         Else
-            MsgBox("E-post eller nåværende passord er feil, eller ikke funnet i databasen.")
+            MsgBox("Nåværende passord er feil, eller ikke funnet i databasen.")
         End If
     End Sub
 
