@@ -116,7 +116,7 @@ Public Class innlevering
         Me.oversiktGrid.DataSource = Nothing
 
         If id Then
-            sql = "SELECT salg_leie.ordre_nr, " &
+            sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
                   "sykkeltype.sykkeltype " &
                   "FROM salg_leie " &
@@ -125,7 +125,7 @@ Public Class innlevering
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
                   "WHERE salg_leie.ordre_nr = " & id
         Else
-            sql = "SELECT salg_leie.ordre_nr, " &
+            sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
                   "sykkeltype.sykkeltype " &
                   "FROM salg_leie " &
@@ -145,6 +145,7 @@ Public Class innlevering
         With Me.oversiktGrid
             'Endrer navn på headere for å gi en bedre visuell opplevelse
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
+            .Columns("frist").HeaderText = "Frist"
             .Columns("sykkeltype").HeaderText = "Sykkeltype"
             .Columns("rammenr").HeaderText = "Rammenummer"
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
@@ -156,5 +157,35 @@ Public Class innlevering
     Private Sub Rediger_kunde_Click(sender As Object, e As EventArgs) Handles Rediger_kunde.Click
         kunder.Show()
         kunder.oppdaterGridView(id:=cbxKunde.SelectedValue)
+    End Sub
+
+    Private Sub btnTidsfrist_Click(sender As Object, e As EventArgs) Handles btnTidsfrist.Click
+        fristGattUt()
+    End Sub
+
+    Public Sub fristGattUt()
+        'Får opp de som ikke har levert inn sykkelen innen fristen
+        Dim sql As String = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
+                            "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
+                            "sykkeltype.sykkeltype " &
+                            "FROM salg_leie " &
+                            "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
+                            "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
+                            "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
+                            "WHERE DATE(frist) < DATE(NOW()) AND s_l_status = 'Leid ut'"
+
+        payload = db.query(sql)
+        oversiktGrid.DataSource = payload
+
+        With Me.oversiktGrid
+            'Endre navn for å gi en bedre visuell opplevelse
+            .Columns("ordre_nr").HeaderText = "Ordrenummer"
+            .Columns("frist").HeaderText = "Frist"
+            .Columns("sykkeltype").HeaderText = "Sykkeltype"
+            .Columns("rammenr").HeaderText = "Rammenummer"
+            .Columns("hjulstr").HeaderText = "Hjulstørrelse"
+            .Columns("rammestr").HeaderText = "Rammestørrelse"
+            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        End With
     End Sub
 End Class
