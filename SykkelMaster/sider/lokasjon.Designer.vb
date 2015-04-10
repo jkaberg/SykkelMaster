@@ -25,6 +25,7 @@ Partial Class lokasjon
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Oppdaterlokasjon = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnTom = New System.Windows.Forms.Button()
         Me.txtMail = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.BtnDeleteLocation = New System.Windows.Forms.Button()
@@ -40,7 +41,6 @@ Partial Class lokasjon
         Me.txtTelefon = New System.Windows.Forms.TextBox()
         Me.txtLokasjon = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnTom = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Oppdaterlokasjon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -91,6 +91,15 @@ Partial Class lokasjon
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger lokasjon"
+        '
+        'btnTom
+        '
+        Me.btnTom.Location = New System.Drawing.Point(10, 235)
+        Me.btnTom.Name = "btnTom"
+        Me.btnTom.Size = New System.Drawing.Size(267, 37)
+        Me.btnTom.TabIndex = 36
+        Me.btnTom.Text = "Tøm"
+        Me.btnTom.UseVisualStyleBackColor = True
         '
         'txtMail
         '
@@ -215,15 +224,6 @@ Partial Class lokasjon
         Me.Label1.Size = New System.Drawing.Size(45, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Navn"
-        '
-        'btnTom
-        '
-        Me.btnTom.Location = New System.Drawing.Point(10, 235)
-        Me.btnTom.Name = "btnTom"
-        Me.btnTom.Size = New System.Drawing.Size(267, 37)
-        Me.btnTom.TabIndex = 36
-        Me.btnTom.Text = "Tøm"
-        Me.btnTom.UseVisualStyleBackColor = True
         '
         'lokasjon
         '
