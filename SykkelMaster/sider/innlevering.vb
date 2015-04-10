@@ -19,9 +19,11 @@ Public Class innlevering
         End If
     End Sub
 
-    Private Sub cbxKunde_DataSourceChanged(sender As Object, e As EventArgs) Handles cbxKunde.SelectedIndexChanged
+    Private Sub cbxKunde_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxKunde.SelectedIndexChanged
         Dim payload As DataTable
-        If cbxKunde.SelectedValue > 0 Then
+        Dim kunde_id As String = cbxKunde.SelectedValue
+
+        If kunde_id > 0 Then
             Dim sql As String = "SELECT ordre_nr " &
                                 "FROM salg_leie " &
                                 "WHERE salg_leie.person_id_kunde = " & cbxKunde.SelectedValue
@@ -33,6 +35,8 @@ Public Class innlevering
                 .ValueMember = "ordre_nr"
                 .DataSource = payload
             End With
+
+            txtTelefon.Text = util.sokTlfNummer(kunde_id)
         End If
     End Sub
 

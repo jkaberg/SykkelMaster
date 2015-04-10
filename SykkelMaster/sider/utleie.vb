@@ -43,6 +43,8 @@
                 .ValueMember = "id"
                 .DataSource = payload
             End With
+
+            txtTelefon.Text = util.sokTlfNummer(cbxNavn.SelectedValue)
         Else
             Me.cbxNavn.DataSource = Nothing
         End If

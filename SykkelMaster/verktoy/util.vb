@@ -2,6 +2,8 @@
 Imports System.Configuration
 
 Public Class util
+    Public Shared payload As DataTable
+
     Public Shared Function validerEpost(ByVal epost As String) As Boolean
         Dim regx As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
         Dim ep As System.Text.RegularExpressions.Match = regx.Match(epost)
@@ -32,10 +34,9 @@ Public Class util
     End Function
 
     Public Shared Function validerRammenr(ByVal rammenr As String) As Boolean
-       
+
 
     End Function
-
 
     Public Shared Function tilfeldigStreng() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
         'Lager variabel random som ny random funksjon 
@@ -101,7 +102,16 @@ Public Class util
         Return False
     End Function
 
+    Public Shared Function sokTlfNummer(ByVal kunde_id As Integer) As Integer
+        Dim sql As String = "SELECT telefon FROM person WHERE id = " & kunde_id & ";"
 
-    
+        payload = db.query(sql)
+
+        If payload.Rows.Count >= 0 Then
+            Return payload.Rows(0).Item(0) 'returnerer telefon nummer til Kunde
+        End If
+
+        Return vbEmpty
+    End Function
 
 End Class
