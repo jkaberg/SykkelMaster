@@ -1,5 +1,4 @@
 ﻿Public Class kunder
-    Private gridIndex As Integer
     Private payload As New DataTable
     Private valider_feilmelding As String = ""
 
@@ -56,16 +55,14 @@
     End Sub
 
     Private Sub oppdaterTxtbox()
-        gridIndex = kundeGridView.CurrentRow.Index()
-
         'Setter inn datane fra Grid Viewn i Textboksene
         With Me.kundeGridView
-            txtNavn.Text = .Rows(gridIndex).Cells("fornavn").Value
-            txtEtternavn.Text = .Rows(gridIndex).Cells("etternavn").Value
-            txttelefon.Text = .Rows(gridIndex).Cells("telefon").Value
-            txtAdresse.Text = .Rows(gridIndex).Cells("adresse").Value
-            txtMail.Text = .Rows(gridIndex).Cells("mail").Value
-            txtPostnr.Text = .Rows(gridIndex).Cells("post_nr").Value
+            txtNavn.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("fornavn").Value
+            txtEtternavn.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("etternavn").Value
+            txttelefon.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("telefon").Value
+            txtAdresse.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("adresse").Value
+            txtMail.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("mail").Value
+            txtPostnr.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("post_nr").Value
 
         End With
     End Sub
@@ -91,9 +88,9 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere person i databasen
-        Dim sql As String = "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txttelefon.Text & ", mail = '" & txtMail.Text & "', post_nr = " & txtPostnr.Text & " WHERE id =" & Me.kundeGridView.Rows(gridIndex).Cells("id").Value
+        Dim sql As String = "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txttelefon.Text & ", mail = '" & txtMail.Text & "', post_nr = " & txtPostnr.Text & " WHERE id =" & Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value
 
-        Dim bruker As String = Me.kundeGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(gridIndex).Cells("etternavn").Value
+        Dim bruker As String = Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("etternavn").Value
         'Oppdater bruker
 
         If ValiderKunde() Then
@@ -110,9 +107,9 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en person i databasen
-        Dim sql As String = "DELETE FROM sykkelmaster2015.person WHERE person.id = " & Me.kundeGridView.Rows(gridIndex).Cells("id").Value
+        Dim sql As String = "DELETE FROM sykkelmaster2015.person WHERE person.id = " & Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value
 
-        Dim bruker As String = Me.kundeGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(gridIndex).Cells("etternavn").Value
+        Dim bruker As String = Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("etternavn").Value
         'Slett bruker
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
