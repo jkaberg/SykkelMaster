@@ -14,7 +14,7 @@ Public Class db
             adapter.Fill(data)
             conn.Close()
         Catch ex As Exception
-            MessageBox.Show("Feil ved oppkobling til database: " & ex.Message)
+            MessageBox.Show("Database feil: " & ex.Message)
         Finally
             conn.Dispose()
         End Try
@@ -27,11 +27,9 @@ Public Class db
         Try
             conn.Open()
             Dim cmd As MySqlCommand = New MySqlCommand(sql, conn)
-
             status = cmd.ExecuteNonQuery()
-
         Catch ex As Exception
-            MessageBox.Show("Feil ved oppkobling til database: " & ex.Message)
+            MessageBox.Show("Database feil: " & ex.Message)
         Finally
             conn.Dispose()
         End Try
@@ -42,19 +40,4 @@ Public Class db
             Return False
         End If
     End Function
-
-    Dim Query As String
-    'Query = "INSERT INTO  userreg"
-    Dim con As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=test;User ID=root;Password=mysql;")
-    'Dim sql As MySqlCommand = New MySqlCommand(Query, con)
-
-    Dim cmd As MySqlCommand = New MySqlCommand(query, con)
-
-    Dim i As Integer = cmd.ExecuteNonQuery()
-        If (i > 0) Then
-            lblMsg.Text = "Record is Successfully Inserted"
-        Else
-            lblMsg.Text = "Record is not Inserted"
-        End If
-        con.Close()
 End Class
