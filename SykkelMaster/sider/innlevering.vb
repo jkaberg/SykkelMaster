@@ -136,6 +136,7 @@ Public Class innlevering
 
             cbxKunde.DataSource = Nothing
             cbxLeieAvtaler.DataSource = Nothing
+            txtSokKunde.Text = ""
         End If
 
         payload = db.query(sql)

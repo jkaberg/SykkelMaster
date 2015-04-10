@@ -62,12 +62,14 @@
 
 
     Private Sub txtpostnr_TextChanged(sender As Object, e As EventArgs) Handles txtpostnr.TextChanged
-        payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = " & txtpostnr.Text)
-        'Oppdaterer poststedet når post nummer blir skrevet inn
-        If payload.Rows.Count = 1 Then
-            txtPoststed.Text = payload.Rows(0).Item(0)
-        Else
-            txtPoststed.Text = ""
+        If IsNumeric(txtpostnr.Text) Then
+            payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = " & txtpostnr.Text)
+            'Oppdaterer poststedet når post nummer blir skrevet inn
+            If payload.Rows.Count = 1 Then
+                txtPoststed.Text = payload.Rows(0).Item(0)
+            Else
+                txtPoststed.Text = ""
+            End If
         End If
     End Sub
 
