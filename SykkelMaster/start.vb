@@ -19,7 +19,7 @@ Public Class start
             Me.Hide()
             hoved.Show()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -33,10 +33,9 @@ Public Class start
                     MsgBox("Ditt nye passord er sendt til deg på mail.", MsgBoxStyle.Information)
                 End If
             End If
-            byttEpost.Text = ""
         Else
-            MsgBox("Feil E-post validering")
-            byttEpost.Text = ""
+            MsgBox("E-post adressen har ikke en korrekt formatering.", MsgBoxStyle.Critical)
         End If
+        byttEpost.Text = ""
     End Sub
 End Class
