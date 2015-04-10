@@ -1,5 +1,4 @@
 ﻿Public Class sykkelEdit
-    Private gridIndex As Integer
     Private payload As New DataTable
     Private valider_feilmelding As String = ""
 
@@ -73,18 +72,16 @@
     End Sub
 
     Private Sub oppdaterTxtbox()
-        gridIndex = SykkelGridView.CurrentRow.Index()
-
         'Setter inn datane fra Grid Viewn i Textboksene
         With Me.SykkelGridView
-            cbxTilhorer.Text = .Rows(gridIndex).Cells("navn").Value
-            cbxPosisjon.Text = .Rows(gridIndex).Cells("posisjon").Value
-            cbxType.Text = .Rows(gridIndex).Cells("sykkeltype").Value
-            txtRammenr.Text = .Rows(gridIndex).Cells("rammenr").Value
-            cbxHjul.Text = .Rows(gridIndex).Cells("hjulstr").Value
-            cbxRamme.Text = .Rows(gridIndex).Cells("rammestr").Value
-            cbxStatus.Text = .Rows(gridIndex).Cells("s_status").Value
-            txtAvvik.Text = .Rows(gridIndex).Cells("avviksmelding").Value
+            cbxTilhorer.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("navn").Value
+            cbxPosisjon.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("posisjon").Value
+            cbxType.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
+            txtRammenr.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value
+            cbxHjul.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("hjulstr").Value
+            cbxRamme.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammestr").Value
+            cbxStatus.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("s_status").Value
+            txtAvvik.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("avviksmelding").Value
         End With
     End Sub
 
@@ -122,9 +119,9 @@
         Dim sql As String = "UPDATE sykkel SET rammenr = '" & txtRammenr.Text & "', sykkeltype = " & CInt(cbxType.SelectedValue) & _
                             ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", s_status = '" & cbxStatus.Text & _
                             "', avviksmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
-                            ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr = '" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & "'"
+                            ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr = '" & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & "'"
 
-        Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
+        Dim sykkel As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
         'Oppdater bruker
 
         If validerSykkel() then
@@ -142,9 +139,9 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
-        Dim sql As String = "DELETE FROM sykkelmaster2015.sykkel WHERE rammenr = '" & Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & "'"
+        Dim sql As String = "DELETE FROM sykkelmaster2015.sykkel WHERE rammenr = '" & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & "'"
 
-        Dim sykkel As String = Me.SykkelGridView.Rows(gridIndex).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(gridIndex).Cells("sykkeltype").Value
+        Dim sykkel As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
         'Slett sykkel
 
         If validerSykkel() Then
