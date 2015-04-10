@@ -26,11 +26,11 @@
         Dim payload As DataTable
 
         If Not id = Nothing Then
-            payload = kundeDAO.hentPersoner(id:=id)
+            payload = personDAO.hentPersoner(id:=id)
         ElseIf sok = Nothing Then
-            payload = kundeDAO.hentPersoner()
+            payload = personDAO.hentPersoner()
         Else
-            payload = kundeDAO.hentPersoner(sok:=sok)
+            payload = personDAO.hentPersoner(sok:=sok)
         End If
 
         kundeGridView.DataSource = payload
@@ -74,7 +74,7 @@
         Dim person As New person(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txttelefon.Text, txtAdresse.Text, txtPoststed.Text, txtMail.Text)
 
         Try
-            kundeDAO.leggTilPerson(person)
+            personDAO.leggTilPerson(person)
             MsgBox("Kunde lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -91,7 +91,7 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    kundeDAO.oppdaterPerson(person)
+                    personDAO.oppdaterPerson(person)
                     MsgBox(bruker & " er oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -110,7 +110,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    kundeDAO.fjernPerson(person_id)
+                    personDAO.fjernPerson(person_id)
                     MsgBox(bruker & " fjernet.", MsgBoxStyle.Information)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)

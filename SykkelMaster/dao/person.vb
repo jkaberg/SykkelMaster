@@ -1,4 +1,4 @@
-﻿Public Class kundeDAO
+﻿Public Class personDAO
     Public Shared payload As DataTable
     Public Shared sql As String
 
