@@ -5,7 +5,7 @@
     Private sted As String 'Trondheim
 
     Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
-        If sjekkepost(epost) And sjekktlf(tnr) Then
+        If sjekkEpost(epost) And sjekkTelefon(tnr) Then
             Me.id = id
             Me.fornavn = fnavn
             Me.etternavn = enavn
@@ -31,7 +31,9 @@
             Return fornavn
         End Get
         Set(ByVal value As String)
-            fornavn = value
+            If sjekkNavn("For", value) Then
+                fornavn = value
+            End If
         End Set
     End Property
 
@@ -40,7 +42,9 @@
             Return etternavn
         End Get
         Set(ByVal value As String)
-            etternavn = value
+            If sjekkNavn("Etter", value) Then
+                etternavn = value
+            End If
         End Set
     End Property
 
@@ -49,7 +53,9 @@
             Return postnr
         End Get
         Set(ByVal value As Integer)
-            postnr = value
+            If sjekkPostnr(value) Then
+                postnr = value
+            End If
         End Set
     End Property
 
@@ -58,7 +64,9 @@
             Return telefonnr
         End Get
         Set(ByVal value As Integer)
-            telefonnr = value
+            If sjekkTelefon(value) Then
+                telefonnr = value
+            End If
         End Set
     End Property
 
@@ -67,7 +75,9 @@
             Return gate
         End Get
         Set(ByVal value As String)
-            gate = value
+            If sjekkGate(value) Then
+                gate = value
+            End If
         End Set
     End Property
 
@@ -85,23 +95,60 @@
             Return epost
         End Get
         Set(ByVal value As String)
-            epost = value
+            If sjekkEpost(value) Then
+                epost = value
+            End If
         End Set
     End Property
-
-    Private Function sjekktlf(ByVal tlf As Integer)
-        If Not tlf.ToString.Length = 8 Then
-            MsgBox("Du må angi ett korrekt telefonnummer!", MsgBoxStyle.Critical)
+    Private Function sjekkNavn(ByVal navntype As String, ByVal navn As String) As Boolean
+        If navn.ToString.Length <= 2 Then
+            MsgBox(navntype & "navn må være minst 3 tegn langt.", MsgBoxStyle.Critical)
             Return False
         End If
         Return True
     End Function
 
-    Private Function sjekkepost(ByVal epost As String)
-        If Not epost.Contains("@") Then
+    Private Function sjekkGate(ByVal gate As String) As Boolean
+        If gate.ToString.Length <= 3 Then
+            MsgBox("Gate må være minst 3 tegn langt.", MsgBoxStyle.Critical)
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Private Function sjekkPostnr(ByVal postnr As Integer) As Boolean
+        If postnr.ToString.Length <> 4 Then
+            MsgBox("Post nummeret kan kun bestå av 4 tall.", MsgBoxStyle.Critical)
+            Return False
+        ElseIf Not IsNumeric(postnr) Then
+            MsgBox("Post nummeret må bestå av kun tall.", MsgBoxStyle.Critical)
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Private Function sjekkTelefon(ByVal tlf As Integer) As Boolean
+        If Not tlf.ToString.Length = 8 Then
+            MsgBox("Telefon nummeret må bestå av 8 tall.", MsgBoxStyle.Critical)
+            Return False
+        ElseIf Not IsNumeric(tlf) Then
+            MsgBox("Telefon nummeret kan kun bestå av tall.", MsgBoxStyle.Critical)
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Private Function sjekkEpost(ByVal epost As String) As Boolean
+        Dim regx As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
+        Dim ep As System.Text.RegularExpressions.Match = regx.Match(epost)
+        If Not ep.Success Then
             MsgBox("Du må angi en korrekt e-post adresse!", MsgBoxStyle.Critical)
             Return False
+        Else
+            Return True
         End If
-        Return True
     End Function
 End Class
