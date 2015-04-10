@@ -212,4 +212,7 @@
         Return False
     End Function
 
+    Private Sub btnSykkeltype_Click(sender As Object, e As EventArgs) Handles btnSykkeltype.Click
+        sykkeltype.Show()
+    End Sub
 End Class

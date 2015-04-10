@@ -23,6 +23,7 @@ Partial Class sykkelEdit
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnSykkeltype = New System.Windows.Forms.Button()
         Me.btnTom = New System.Windows.Forms.Button()
         Me.cbxPosisjon = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -58,6 +59,7 @@ Partial Class sykkelEdit
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnSykkeltype)
         Me.GroupBox1.Controls.Add(Me.btnTom)
         Me.GroupBox1.Controls.Add(Me.cbxPosisjon)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -86,6 +88,15 @@ Partial Class sykkelEdit
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
+        '
+        'btnSykkeltype
+        '
+        Me.btnSykkeltype.Location = New System.Drawing.Point(233, 96)
+        Me.btnSykkeltype.Name = "btnSykkeltype"
+        Me.btnSykkeltype.Size = New System.Drawing.Size(109, 32)
+        Me.btnSykkeltype.TabIndex = 22
+        Me.btnSykkeltype.Text = "Legg til"
+        Me.btnSykkeltype.UseVisualStyleBackColor = True
         '
         'btnTom
         '
@@ -266,7 +277,7 @@ Partial Class sykkelEdit
         Me.cbxType.Location = New System.Drawing.Point(90, 98)
         Me.cbxType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxType.Name = "cbxType"
-        Me.cbxType.Size = New System.Drawing.Size(252, 28)
+        Me.cbxType.Size = New System.Drawing.Size(137, 28)
         Me.cbxType.TabIndex = 3
         '
         'Label1
@@ -291,7 +302,7 @@ Partial Class sykkelEdit
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1035, 535)
+        Me.GroupBox2.Size = New System.Drawing.Size(1280, 535)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -353,7 +364,7 @@ Partial Class sykkelEdit
         Me.SykkelGridView.Name = "SykkelGridView"
         Me.SykkelGridView.ReadOnly = True
         Me.SykkelGridView.RowTemplate.Height = 24
-        Me.SykkelGridView.Size = New System.Drawing.Size(929, 469)
+        Me.SykkelGridView.Size = New System.Drawing.Size(1265, 469)
         Me.SykkelGridView.TabIndex = 18
         '
         'Label6
@@ -369,7 +380,7 @@ Partial Class sykkelEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1440, 561)
+        Me.ClientSize = New System.Drawing.Size(1669, 561)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -414,4 +425,5 @@ Partial Class sykkelEdit
     Friend WithEvents btnTom As System.Windows.Forms.Button
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents cbxSokStatus As System.Windows.Forms.ComboBox
+    Friend WithEvents btnSykkeltype As System.Windows.Forms.Button
 End Class

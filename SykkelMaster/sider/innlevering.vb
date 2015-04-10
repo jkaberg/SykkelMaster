@@ -65,8 +65,6 @@ Public Class innlevering
     End Sub
 
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
-        'cbxKunde. = Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("id").Value
-
         Dim sql As String = "SELECT utstyr_leid_ut.ordre_nr, " &
                             "sykkelutstyr.navn " &
                             "FROM utstyr_leid_ut " &
