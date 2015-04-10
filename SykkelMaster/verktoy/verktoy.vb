@@ -1,9 +1,6 @@
 ﻿Imports System.Net.Mail
-'Imports System.Configuration
 
-Public Class util
-    Public Shared payload As DataTable
-
+Public Class verktoy
     Public Shared Function validerEpost(ByVal epost As String) As Boolean
         Dim regx As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
         Dim ep As System.Text.RegularExpressions.Match = regx.Match(epost)
@@ -73,52 +70,4 @@ Public Class util
         End Try
         Return False
     End Function
-
-
-    Public Shared Function Finn_Poststed(sender As Object, e As EventArgs) As String
-        Dim poststed_sql As New DataTable
-        Dim post_sted As String = ""
-        Dim postnr As String = ""
-        poststed_sql = db.data_table_query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & postnr & "'")
-        'Oppdaterer poststedet når post nummer blir skrevet inn
-        Return post_sted
-
-    End Function
-
-    Public Shared Function sjekkBrukerEksisterer(ByVal epost As String)
-        Dim payload As New DataTable
-        Dim sql As String = "SELECT COUNT(mail) FROM person WHERE mail = '" & epost & "'"
-        payload = db.data_table_query(sql)
-
-        If payload.Rows.Count > 0 And CInt(payload.Rows(0)(0)) >= 1 Then
-            Return True
-        End If
-        Return False
-    End Function
-
-    Public Shared Function sokTlfNummer(ByVal kunde_id As Integer) As Integer
-        Dim sql As String = "SELECT telefon FROM person WHERE id = " & kunde_id & ";"
-
-        payload = db.data_table_query(sql)
-
-        If payload.Rows.Count >= 0 Then
-            Return payload.Rows(0).Item(0) 'returnerer telefon nummer til Kunde
-        End If
-
-        Return vbEmpty
-    End Function
-
-    Public Shared Function finnPostSted(ByVal postnr As String) As String
-        If Not postnr = "" Then
-            payload = db.data_table_query("SELECT post_sted FROM sted WHERE sted.post_nr = " & postnr & ";")
-
-            If payload.Rows.Count >= 1 Then
-                Return payload.Rows(0).Item(0).ToString
-            Else
-                Return ""
-            End If
-        End If
-        Return ""
-    End Function
-
 End Class

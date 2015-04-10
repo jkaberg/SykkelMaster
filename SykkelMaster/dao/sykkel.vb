@@ -1,5 +1,4 @@
 ﻿Public Class sykkelDAO
-    Public Shared payload As DataTable
     Public Shared sql As String
 
     Public Shared Function leggTilSykkel(ByVal sykkel As sykkel) As Boolean
@@ -7,7 +6,7 @@
               sykkel.pHjulstr & ", " & sykkel.pRammestr & ", '" & sykkel.pStatus & "', '" &
               sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
 
-        Return db.query(sql)
+        Return database.query(sql)
     End Function
 
     Public Shared Function oppdaterSykkel(ByVal sykkel As sykkel) As Boolean
@@ -16,13 +15,11 @@
               "', avviksmelding = '" & sykkel.pAvviksmld & "', posisjon = " & sykkel.pPosisjon &
               ", virksomhet_id = " & sykkel.pVirksomhet & " WHERE rammenr = '" & sykkel.pRammenr & "';"
 
-        Return db.query(sql)
+        Return database.query(sql)
     End Function
 
     Public Shared Function fjernSykkel(ByVal sykkel As sykkel) As Boolean
-        sql = "DELETE FROM sykkel WHERE rammenr = '" & sykkel.pID & "';"
-
-        Return db.query(sql)
+        Return database.query("DELETE FROM sykkel WHERE rammenr = '" & sykkel.pID & "';")
     End Function
 
     Public Shared Function hentSykkler(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing, Optional ByVal status As String = Nothing) As DataTable
@@ -34,6 +31,6 @@
               "JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " &
               "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%' AND s_status LIKE '%" & status & "%';"
 
-        Return db.data_table_query(sql)
+        Return database.dt_query(sql)
     End Function
 End Class

@@ -36,7 +36,7 @@
     End Sub
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
-        Dim sok As String = util.finnPostSted(txtPostnr.Text)
+        Dim sok As String = delt.finnPostSted(txtPostnr.Text)
 
         If sok <> "" Then
             txtPostSted.Text = sok
@@ -115,7 +115,7 @@
 
     Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
         Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
-        Dim passord As String = util.tilfeldigStreng()
+        Dim passord As String = verktoy.tilfeldigStreng()
         Dim ansatt As New ansatt(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), passord, cbxArbedidssted.SelectedValue)
 
         Dim body As String = "Hei " & bruker & ", velkommen til Sykkelmaster." & vbNewLine &
@@ -124,14 +124,14 @@
                              "Passord: " & passord & vbNewLine & vbNewLine &
                              "Hilsen, SykkelMaster"
 
-        If util.sjekkBrukerEksisterer(txtMail.Text) Then
+        If delt.sjekkBrukerEksisterer(txtMail.Text) Then
             MsgBox("Det eksisterer allerede en bruker med mail adresse " & txtMail.Text & ", vennligt velg noe annet.", MsgBoxStyle.Critical)
         Else
             Select Case MsgBox("Er du sikker på at du vil legg til " & bruker & "?", MsgBoxStyle.YesNo)
                 Case MsgBoxResult.Yes
                     Try
                         ansattDAO.leggTilAnsatt(ansatt)
-                        util.sendMail(txtMail.Text, "Ny bruker i Sykkelmaster", body)
+                        verktoy.sendMail(txtMail.Text, "Ny bruker i Sykkelmaster", body)
                         MsgBox(bruker & " lagt til.", MsgBoxStyle.Exclamation)
                     Catch ex As Exception
                         MsgBox(ex.Message, MsgBoxStyle.Critical)

@@ -12,7 +12,7 @@
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
         'Henter opp poststed i textboxen
-        Dim sok As String = util.finnPostSted(txtPostnr.Text)
+        Dim sok As String = delt.finnPostSted(txtPostnr.Text)
 
         If sok <> "" Then
             txtPoststed.Text = sok

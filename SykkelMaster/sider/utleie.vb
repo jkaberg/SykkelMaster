@@ -3,7 +3,7 @@
 
     Private Sub utleie_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        payload = db.data_table_query("SELECT * FROM sykkeltype")
+        payload = database.dt_query("SELECT * FROM sykkeltype")
         With cbxSykkeltype
             .DisplayMember = "sykkeltype"
             .ValueMember = "id"
@@ -33,7 +33,7 @@
                             "OR etternavn LIKE '" & sok & "%' " &
                             "OR telefon LIKE '" & sok & "%' "
 
-        payload = db.data_table_query(sql)
+        payload = database.dt_query(sql)
 
         payload.Columns.Add("kunde_navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
 
@@ -44,7 +44,7 @@
                 .DataSource = payload
             End With
 
-            txtTelefon.Text = util.sokTlfNummer(cbxNavn.SelectedValue)
+            txtTelefon.Text = delt.finnTlfNummer(cbxNavn.SelectedValue)
         Else
             Me.cbxNavn.DataSource = Nothing
         End If

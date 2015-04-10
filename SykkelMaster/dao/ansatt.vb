@@ -8,7 +8,7 @@
               "VALUES (LAST_INSERT_ID(), " & ansatt.pStilling & ", " & ansatt.pProvisjon & ", '" & ansatt.pPassord & "', " & ansatt.pArbeidssted & ");" &
               "COMMIT;"
 
-        Return db.query(sql)
+        Return database.query(sql)
     End Function
 
     Public Shared Function oppdaterAnsatt(ByVal ansatt As ansatt) As Boolean
@@ -19,13 +19,11 @@
               "WHERE person_id = " & ansatt.pID & ";" &
               "COMMIT;"
 
-        Return db.query(sql)
+        Return database.query(sql)
     End Function
 
     Public Shared Function fjernAnsatt(ByVal ansatt As ansatt) As Boolean
-        sql = "DELETE FROM ansatt WHERE ansatt.person_id = " & ansatt.pID
-
-        Return db.query(sql)
+        Return database.query("DELETE FROM ansatt WHERE ansatt.person_id = " & ansatt.pID & ";")
     End Function
 
     Public Shared Function hentAnsatte() As DataTable
@@ -41,7 +39,7 @@
               "JOIN stilling ON ansatt.stilling = stilling.id " &
               "JOIN virksomhet ON virksomhet.id = ansatt.virksomhet_id;"
 
-        Return db.data_table_query(sql)
+        Return database.dt_query(sql)
     End Function
 
 End Class

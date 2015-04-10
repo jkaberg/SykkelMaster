@@ -12,7 +12,7 @@
         Else
             sql = "SELECT * FROM virksomhet"
         End If
-        payload = db.data_table_query(sql)
+        payload = database.dt_query(sql)
         Oppdaterlokasjon.DataSource = payload
 
         With Me.Oppdaterlokasjon
@@ -29,7 +29,7 @@
     End Sub
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Oppdaterlokasjon.CellClick
         Dim sql As String = "SELECT * FROM virksomhet WHERE id = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value & "'"
-        payload = db.data_table_query(sql)
+        payload = database.dt_query(sql)
 
         With Me.Oppdaterlokasjon
             txtLokasjon.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
@@ -46,7 +46,7 @@
         sql = "INSERT INTO virksomhet(navn, telefon, mail, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & txtpostnr.Text & ")"
 
         If ValiderLokasjon() Then
-            payload = db.data_table_query(sql)
+            payload = database.dt_query(sql)
             Oppdaterlokasjon.DataSource = payload
             oppdaterGridView()
         Else
@@ -57,7 +57,7 @@
 
     Private Sub txtpostnr_TextChanged(sender As Object, e As EventArgs) Handles txtpostnr.TextChanged
         If IsNumeric(txtpostnr.Text) Then
-            payload = db.data_table_query("SELECT post_sted FROM sted WHERE sted.post_nr = " & txtpostnr.Text)
+            payload = database.dt_query("SELECT post_sted FROM sted WHERE sted.post_nr = " & txtpostnr.Text)
             'Oppdaterer poststedet når post nummer blir skrevet inn
             If payload.Rows.Count = 1 Then
                 txtPoststed.Text = payload.Rows(0).Item(0)
@@ -75,7 +75,7 @@
         If ValiderLokasjon() Then
             Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon & "?", MsgBoxStyle.YesNo, "caption")
                 Case MsgBoxResult.Yes
-                    payload = db.data_table_query(sql)
+                    payload = database.dt_query(sql)
                     oppdaterGridView()
             End Select
         Else
@@ -94,7 +94,7 @@
             Select Case MsgBox("Er du sikker på at du vil fjern " & virksomhet & "?", MsgBoxStyle.YesNo, "caption")
                 Case MsgBoxResult.Yes
                     Try
-                        payload = db.data_table_query(sql)
+                        payload = database.dt_query(sql)
                     Catch
                         MsgBox("Du kan ikke slette lokasjon")
                     End Try
@@ -117,12 +117,12 @@
     Function ValiderLokasjon() As Boolean
         valider_feilmelding = ""
 
-        If Not util.validerStreng(txtLokasjon.Text) Then
+        If Not verktoy.validerStreng(txtLokasjon.Text) Then
             valider_feilmelding &= "Feil input fornavn" & vbCrLf
             txtLokasjon.Text = ""
         End If
 
-        If Not util.validerNummer(txtTelefon.Text, 8) Then
+        If Not verktoy.validerNummer(txtTelefon.Text, 8) Then
             valider_feilmelding &= "Feil input telefonnummer" & vbCrLf
             txtTelefon.Text = ""
         End If
@@ -132,12 +132,12 @@
             txtAdresse.Text = ""
         End If
 
-        If Not util.validerEpost(txtMail.Text) Then
+        If Not verktoy.validerEpost(txtMail.Text) Then
             valider_feilmelding &= "Feil input E-post" & vbCrLf
             txtMail.Text = ""
         End If
 
-        If Not util.validerNummer(txtpostnr.Text, 4) Then
+        If Not verktoy.validerNummer(txtpostnr.Text, 4) Then
             valider_feilmelding &= "Feil input postnummer" & vbCrLf
             txtpostnr.Text = ""
         End If

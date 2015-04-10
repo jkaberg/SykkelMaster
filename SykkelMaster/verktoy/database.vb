@@ -1,10 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
-Public Class db
+Public Class database
     Public Shared conn As New MySqlConnection
     Public Shared config As String = ConfigurationManager.ConnectionStrings("mysql").ConnectionString
 
-    Public Shared Function data_table_query(ByVal sql As String) As DataTable
+    Public Shared Function dt_query(ByVal sql As String) As DataTable
         Dim data As New DataTable
         conn.ConnectionString = config
         Try
@@ -34,7 +34,7 @@ Public Class db
             conn.Dispose()
         End Try
 
-        If (status > 0) Then
+        If status > 0 Then
             Return True
         Else
             Return False

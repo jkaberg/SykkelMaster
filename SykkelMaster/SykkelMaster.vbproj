@@ -77,6 +77,8 @@
   <ItemGroup>
     <Compile Include="dao\ansatt.vb" />
     <Compile Include="dao\delt.vb" />
+    <Compile Include="dao\endre_passord.vb" />
+    <Compile Include="dao\start.vb" />
     <Compile Include="dao\sykkel.vb" />
     <Compile Include="dao\sykkel_utstyr.vb" />
     <Compile Include="sider\bruker.Designer.vb">
@@ -98,7 +100,7 @@
     <Compile Include="sider\statistikk.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="verktoy\db.vb" />
+    <Compile Include="verktoy\database.vb" />
     <Compile Include="sider\hoved.Designer.vb">
       <DependentUpon>hoved.vb</DependentUpon>
     </Compile>
@@ -161,7 +163,7 @@
     <Compile Include="sider\utleie.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="verktoy\util.vb" />
+    <Compile Include="verktoy\verktoy.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="sider\bruker.resx">

@@ -7,7 +7,7 @@
               "SET ansatt.passord = '" & passord & "' " &
               "WHERE person.mail = '" & epost & "'"
 
-        Return db.query(sql)
+        Return database.query(sql)
     End Function
     Public Shared Function sjekkPassord(ByVal passord As String, ByVal epost As String) As Boolean
         sql = "SELECT person.mail, ansatt.passord " &
@@ -16,6 +16,6 @@
               "WHERE mail = '" & epost & "' " &
               "AND passord = '" & passord & "'"
 
-        Return db.query(sql)
+        Return database.query(sql)
     End Function
 End Class

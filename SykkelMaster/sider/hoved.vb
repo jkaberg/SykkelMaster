@@ -36,7 +36,7 @@
 
         'Hent ut å vis frem alle lokasjoner (virksomheter) i ComboBox1
         lokasjoner = New DataTable
-        lokasjoner = db.data_table_query("SELECT * FROM virksomhet")
+        lokasjoner = delt.hentVirksomhet
 
         With cbxPlassering
             .DisplayMember = "navn"

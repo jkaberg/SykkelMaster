@@ -23,7 +23,7 @@ Partial Class start
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnLogin = New System.Windows.Forms.Button()
         Me.txtPassord = New System.Windows.Forms.TextBox()
         Me.txtEpost = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -39,7 +39,7 @@ Partial Class start
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnLogin)
         Me.GroupBox1.Controls.Add(Me.txtPassord)
         Me.GroupBox1.Controls.Add(Me.txtEpost)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -55,13 +55,13 @@ Partial Class start
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(8, 62)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(170, 37)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Logg inn"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnLogin.Location = New System.Drawing.Point(8, 62)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnLogin.Name = "Button1"
+        Me.btnLogin.Size = New System.Drawing.Size(170, 37)
+        Me.btnLogin.TabIndex = 4
+        Me.btnLogin.Text = "Logg inn"
+        Me.btnLogin.UseVisualStyleBackColor = True
         '
         'txtPassord
         '
@@ -174,7 +174,7 @@ Partial Class start
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnLogin As System.Windows.Forms.Button
     Friend WithEvents txtPassord As System.Windows.Forms.TextBox
     Friend WithEvents txtEpost As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
