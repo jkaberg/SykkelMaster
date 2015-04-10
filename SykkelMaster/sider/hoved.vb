@@ -44,13 +44,6 @@
             .DataSource = lokasjoner
         End With
 
-        'Dim table As DataTable = DirectCast(Me.cbxPlassering.DataSource, DataTable)
-        'For i As Integer = 0 To payload.Rows.Count - 1
-        '    If payload.Rows(i)(cbxPlassering.DisplayMember).ToString() = table.Rows(gridIndex).Cells("stilling").Value Then
-        '        Me.cbxPlassering.SelectedIndex = i
-        '    End If
-        'Next yo
-
         ' Rettighetsnivå (integer):
         ' Daglig leder: 10
         ' Selger: 5
