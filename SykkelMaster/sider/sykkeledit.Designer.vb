@@ -273,7 +273,6 @@ Partial Class sykkelEdit
         'cbxType
         '
         Me.cbxType.FormattingEnabled = True
-        Me.cbxType.Items.AddRange(New Object() {"Mountainbike", "Bysykkel", "Hybridsykkel", "Barnsykkel"})
         Me.cbxType.Location = New System.Drawing.Point(90, 98)
         Me.cbxType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxType.Name = "cbxType"
