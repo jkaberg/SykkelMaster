@@ -24,7 +24,7 @@
                             "JOIN person ON ansatt.person_id = person.id " &
                             "SET ansatt.passord = '" & passord & "' " &
                             "WHERE person.mail = '" & start.bruker.pEpost & "'"
-        db.query(sql)
+        db.data_table_query(sql)
     End Sub
 
     Private Function sjekkPassord(ByVal mail As String, ByVal current As String)
@@ -35,7 +35,7 @@
                             "JOIN person ON ansatt.person_id = person.id " &
                             "WHERE mail = '" & mail & "' " &
                             "AND passord = '" & current & "'"
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
 
         If payload.Rows.Count = 1 Then
             Return True

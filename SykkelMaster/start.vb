@@ -55,7 +55,7 @@ Public Class start
                             "JOIN sted ON sted.post_nr = person.post_nr " &
                             "JOIN stilling ON ansatt.stilling = stilling.id " &
                             "WHERE ansatt.passord = '" & passord & "';"
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
 
         'Hvis payload inneholder en rad så har vi korrekt epost/passord
         If payload.Rows.Count = 1 Then
@@ -89,7 +89,7 @@ Public Class start
                             "JOIN person ON ansatt.person_id = person.id " &
                             "SET ansatt.passord = '" & passord & "' " &
                             "WHERE person.mail = '" & epost & "';"
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
 
         'Dersom mail finnes i databasen kjøres funksjonen SendMail som tar inn parameterne epost, emne, brødtekst.
         If sjekkMail(byttEpost.Text) Then
@@ -107,7 +107,7 @@ Public Class start
         Dim payload As New DataTable
         Dim sql As String = "SELECT mail from person WHERE mail='" & epost & "'"
 
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
         If payload.Rows.Count = 1 Then
             Return True
         Else

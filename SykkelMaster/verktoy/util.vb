@@ -79,7 +79,7 @@ Public Class util
         Dim poststed_sql As New DataTable
         Dim post_sted As String = ""
         Dim postnr As String = ""
-        poststed_sql = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & postnr & "'")
+        poststed_sql = db.data_table_query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & postnr & "'")
         'Oppdaterer poststedet når post nummer blir skrevet inn
         Return post_sted
 
@@ -88,7 +88,7 @@ Public Class util
     Public Shared Function sjekkBrukerEksisterer(ByVal epost As String)
         Dim payload As New DataTable
         Dim sql As String = "SELECT COUNT(mail) FROM person WHERE mail = '" & epost & "'"
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
 
         If payload.Rows.Count > 0 And CInt(payload.Rows(0)(0)) >= 1 Then
             Return True
@@ -99,7 +99,7 @@ Public Class util
     Public Shared Function sokTlfNummer(ByVal kunde_id As Integer) As Integer
         Dim sql As String = "SELECT telefon FROM person WHERE id = " & kunde_id & ";"
 
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
 
         If payload.Rows.Count >= 0 Then
             Return payload.Rows(0).Item(0) 'returnerer telefon nummer til Kunde
@@ -110,7 +110,7 @@ Public Class util
 
     Public Shared Function finnPostSted(ByVal postnr As String) As String
         If Not postnr = "" Then
-            payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = " & postnr & ";")
+            payload = db.data_table_query("SELECT post_sted FROM sted WHERE sted.post_nr = " & postnr & ";")
 
             If payload.Rows.Count >= 1 Then
                 Return payload.Rows(0).Item(0).ToString

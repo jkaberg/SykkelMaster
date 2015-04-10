@@ -4,7 +4,7 @@ Public Class db
     Public Shared conn As New MySqlConnection
     Public Shared config As String = ConfigurationManager.ConnectionStrings("mysql").ConnectionString
 
-    Public Shared Function query(ByVal sql As String) As DataTable
+    Public Shared Function data_table_query(ByVal sql As String) As DataTable
         Dim data As New DataTable
         conn.ConnectionString = config
         Try
@@ -21,7 +21,7 @@ Public Class db
         Return data
     End Function
 
-    Public Shared Function query2(ByVal sql As String) As Boolean
+    Public Shared Function query(ByVal sql As String) As Boolean
         conn.ConnectionString = config
         Dim status As Integer
         Try

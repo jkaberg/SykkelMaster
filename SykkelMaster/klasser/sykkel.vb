@@ -1,16 +1,36 @@
 ﻿Public Class sykkel
-    Private rammenr, avviksmelding As String
-    Private sykkeltype, hjulstr, rammestr, posisjon, virksomhet As Integer
+    Private rammenr, avviksmelding, status As String
+    Private id, sykkeltype, hjulstr, rammestr, posisjon, virksomhet As Integer
 
-    Sub New(ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer, ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal posisjon As Integer, ByVal virksomhet As Integer)
+    Sub New(ByVal id As Integer, ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer, ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal status As String, ByVal posisjon As Integer, ByVal virksomhet As Integer)
+        Me.pID = id
         Me.pRammenr = rammenr
         Me.pAvviksmld = avviksmelding
         Me.pSykkeltype = sykkeltype
         Me.pHjulstr = hjulstr
         Me.pRammestr = rammestr
+        Me.pStatus = status
         Me.pPosisjon = posisjon
         Me.pVirksomhet = virksomhet
     End Sub
+    Sub New(ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer, ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal status As String, ByVal posisjon As Integer, ByVal virksomhet As Integer)
+        Me.pRammenr = rammenr
+        Me.pAvviksmld = avviksmelding
+        Me.pSykkeltype = sykkeltype
+        Me.pHjulstr = hjulstr
+        Me.pRammestr = rammestr
+        Me.pStatus = status
+        Me.pPosisjon = posisjon
+        Me.pVirksomhet = virksomhet
+    End Sub
+    Public Property pID() As Integer
+        Get
+            Return id
+        End Get
+        Set(ByVal value As Integer)
+            id = value
+        End Set
+    End Property
     Public Property pRammenr() As Integer
         Get
             Return rammenr
@@ -49,6 +69,14 @@
         End Get
         Set(ByVal value As Integer)
             rammestr = value
+        End Set
+    End Property
+    Public Property pStatus() As Integer
+        Get
+            Return status
+        End Get
+        Set(ByVal value As Integer)
+            status = value
         End Set
     End Property
     Public Property pPosisjon() As Integer

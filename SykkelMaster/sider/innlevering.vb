@@ -28,7 +28,7 @@ Public Class innlevering
                                 "FROM salg_leie " &
                                 "WHERE salg_leie.person_id_kunde = " & cbxKunde.SelectedValue
 
-            payload = db.query(sql)
+            payload = db.data_table_query(sql)
 
             With cbxLeieAvtaler
                 .DisplayMember = "ordre_nr"
@@ -55,7 +55,7 @@ Public Class innlevering
                                 "SET sykkel.posisjon = " & lokasjoner.SelectedValue & ";" &
                                 "COMMIT;"
             Console.WriteLine(sql)
-            payload = db.query(sql)
+            payload = db.data_table_query(sql)
 
             MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
             avtaleInnehold()
@@ -72,7 +72,7 @@ Public Class innlevering
                             "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
                             "WHERE utstyr_leid_ut.ordre_nr = " & Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
 
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
 
         tilbehorGrid.DataSource = payload
 
@@ -93,7 +93,7 @@ Public Class innlevering
                             "OR etternavn LIKE '" & sok & "%' " &
                             "OR telefon LIKE '" & sok & "%' "
 
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
 
         payload.Columns.Add("kunde_navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
 
@@ -139,7 +139,7 @@ Public Class innlevering
             txtSokKunde.Text = ""
         End If
 
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
         oversiktGrid.DataSource = payload 'Ordrene til kunden som er valgt blir lagt ut i DataGrid
 
         With Me.oversiktGrid

@@ -45,7 +45,7 @@
                       "GROUP BY sykkeltype.sykkeltype;"
         End Select
 
-        payload = db.query(sql)
+        payload = db.data_table_query(sql)
         graf.DataSource = payload
 
         graf.Series("Series1").XValueMember = "navn"

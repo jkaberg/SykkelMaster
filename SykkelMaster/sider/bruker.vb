@@ -8,7 +8,7 @@
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
-            .DataSource = ansattDAO.hentStillinger()
+            .DataSource = delt.hentStillinger()
         End With
 
         With cbxArbedidssted
@@ -62,7 +62,7 @@
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
-            .DataSource = ansattDAO.hentStillinger()
+            .DataSource = delt.hentStillinger()
         End With
 
         'oppdaterer stillling fra databasen i combobox

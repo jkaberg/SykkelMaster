@@ -1,8 +1,6 @@
 ﻿Public Class ansattDAO
-    Public Shared payload As DataTable
     Public Shared sql As String
-
-    Public Shared Sub leggTilAnsatt(ByVal ansatt As ansatt)
+    Public Shared Function leggTilAnsatt(ByVal ansatt As ansatt) As Boolean
         sql = "START TRANSACTION;" &
               "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
               "VALUES ('" & ansatt.pFnavn & "', '" & ansatt.pFnavn & "', " & ansatt.pTlfnr & ", '" & ansatt.pEpost & "', '" & ansatt.pGate & "', " & ansatt.pPostnr & ");" &
@@ -10,10 +8,10 @@
               "VALUES (LAST_INSERT_ID(), " & ansatt.pStilling & ", " & ansatt.pProvisjon & ", '" & ansatt.pPassord & "', " & ansatt.pArbeidssted & ");" &
               "COMMIT;"
 
-        db.query(sql)
-    End Sub
+        Return db.query(sql)
+    End Function
 
-    Public Shared Sub oppdaterAnsatt(ByVal ansatt As ansatt)
+    Public Shared Function oppdaterAnsatt(ByVal ansatt As ansatt) As Boolean
         sql = "START TRANSACTION;" &
               "UPDATE person SET fornavn = '" & ansatt.pFnavn & "', etternavn = '" & ansatt.pEnavn & "', telefon = " & ansatt.pTlfnr & ", mail = '" & ansatt.pEpost & "', adresse = '" & ansatt.pGate & "', post_nr = " & ansatt.pGate & " " &
               "WHERE id = " & ansatt.pID & ";" &
@@ -21,17 +19,13 @@
               "WHERE person_id = " & ansatt.pID & ";" &
               "COMMIT;"
 
-        db.query(sql)
-    End Sub
+        Return db.query(sql)
+    End Function
 
-    Public Shared Sub fjernAnsatt(ByVal ansatt As ansatt)
+    Public Shared Function fjernAnsatt(ByVal ansatt As ansatt) As Boolean
         sql = "DELETE FROM ansatt WHERE ansatt.person_id = " & ansatt.pID
 
-        db.query(sql)
-    End Sub
-
-    Public Shared Function hentStillinger() As DataTable
-        Return db.query("SELECT * FROM stilling")
+        Return db.query(sql)
     End Function
 
     Public Shared Function hentAnsatte() As DataTable
@@ -47,7 +41,7 @@
               "JOIN stilling ON ansatt.stilling = stilling.id " &
               "JOIN virksomhet ON virksomhet.id = ansatt.virksomhet_id;"
 
-        Return db.query(sql)
+        Return db.data_table_query(sql)
     End Function
 
 End Class
