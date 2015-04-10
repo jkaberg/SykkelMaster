@@ -111,6 +111,7 @@
         txtAdresse.Text = ""
         txtMail.Text = ""
         txtpostnr.Text = ""
+        txtPoststed.Text = ""
         oppdaterGridView()
     End Sub
 
