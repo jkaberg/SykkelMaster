@@ -42,7 +42,8 @@ Partial Class innlevering
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.tilbehorGrid = New System.Windows.Forms.DataGridView()
-        Me.btnTidsfrist = New System.Windows.Forms.Button()
+        Me.cbxStatus = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.oversiktGrid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -267,22 +268,31 @@ Partial Class innlevering
         Me.tilbehorGrid.Size = New System.Drawing.Size(814, 188)
         Me.tilbehorGrid.TabIndex = 0
         '
-        'btnTidsfrist
+        'cbxStatus
         '
-        Me.btnTidsfrist.Location = New System.Drawing.Point(1040, 0)
-        Me.btnTidsfrist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnTidsfrist.Name = "btnTidsfrist"
-        Me.btnTidsfrist.Size = New System.Drawing.Size(151, 38)
-        Me.btnTidsfrist.TabIndex = 21
-        Me.btnTidsfrist.Text = "Tidsfrist gått ut"
-        Me.btnTidsfrist.UseVisualStyleBackColor = True
+        Me.cbxStatus.FormattingEnabled = True
+        Me.cbxStatus.Items.AddRange(New Object() {"Leid ut", "Tidsfrist gått ut", "Tidsfrist ikke gått ut"})
+        Me.cbxStatus.Location = New System.Drawing.Point(1006, 7)
+        Me.cbxStatus.Name = "cbxStatus"
+        Me.cbxStatus.Size = New System.Drawing.Size(185, 28)
+        Me.cbxStatus.TabIndex = 22
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(955, 10)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(41, 20)
+        Me.Label3.TabIndex = 23
+        Me.Label3.Text = "Søk:"
         '
         'innlevering
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1203, 534)
-        Me.Controls.Add(Me.btnTidsfrist)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.cbxStatus)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
@@ -301,6 +311,7 @@ Partial Class innlevering
         Me.GroupBox4.ResumeLayout(False)
         CType(Me.tilbehorGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
@@ -323,5 +334,6 @@ Partial Class innlevering
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents tilbehorGrid As System.Windows.Forms.DataGridView
-    Friend WithEvents btnTidsfrist As System.Windows.Forms.Button
+    Friend WithEvents cbxStatus As System.Windows.Forms.ComboBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

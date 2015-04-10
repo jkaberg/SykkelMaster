@@ -92,7 +92,6 @@
 
         Dim bruker As String = Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("etternavn").Value
         'Oppdater bruker
-
         If ValiderKunde() Then
             Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
                 Case MsgBoxResult.Yes

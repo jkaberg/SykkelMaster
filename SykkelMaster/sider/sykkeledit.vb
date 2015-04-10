@@ -111,7 +111,6 @@
         Else
             MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
         End If
-
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
@@ -124,12 +123,12 @@
         Dim sykkel As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
         'Oppdater bruker
 
-        If validerSykkel() then
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
-            Case MsgBoxResult.Yes
-                payload = db.query(sql)
-                oppdaterGridView()
-                oppdaterTxtbox()
+        If validerSykkel() Then
+            Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
+                Case MsgBoxResult.Yes
+                    payload = db.query(sql)
+                    oppdaterGridView()
+                    oppdaterTxtbox()
             End Select
         Else
             MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
