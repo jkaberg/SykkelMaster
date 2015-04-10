@@ -1,5 +1,4 @@
 ﻿Public Class lokasjon
-    Private gridIndex As Integer
     Private payload As New DataTable
     Private valider_feilmelding As String = ""
 
@@ -31,14 +30,13 @@
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Oppdaterlokasjon.CellClick
         Dim sql As String = "SELECT * FROM virksomhet WHERE navn = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value & "'"
         payload = db.query(sql)
-        gridIndex = Oppdaterlokasjon.CurrentRow.Index()
 
         With Me.Oppdaterlokasjon
-            txtLokasjon.Text = .Rows(gridIndex).Cells("navn").Value
-            txtTelefon.Text = .Rows(gridIndex).Cells("telefon").Value
-            txtMail.Text = .Rows(gridIndex).Cells("mail").Value
-            txtAdresse.Text = .Rows(gridIndex).Cells("adresse").Value
-            txtpostnr.Text = .Rows(gridIndex).Cells("post_nr").Value
+            txtLokasjon.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
+            txtTelefon.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("telefon").Value
+            txtMail.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("mail").Value
+            txtAdresse.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("adresse").Value
+            txtpostnr.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("post_nr").Value
         End With
     End Sub
 
@@ -71,8 +69,8 @@
 
     Private Sub btnUpdateLocation_Click(sender As Object, e As EventArgs) Handles btnUpdateLocation.Click
         Dim sql As String
-        sql = "UPDATE virksomhet SET navn = '" & txtLokasjon.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = '" & txtpostnr.Text & "' WHERE id = '" & Me.Oppdaterlokasjon.Rows(gridIndex).Cells("id").Value & "'"
-        Dim lokasjon As String = Me.Oppdaterlokasjon.Rows(gridIndex).Cells("navn").Value
+        sql = "UPDATE virksomhet SET navn = '" & txtLokasjon.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = '" & txtpostnr.Text & "' WHERE id = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value & "'"
+        Dim lokasjon As String = Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
 
         If ValiderLokasjon() Then
             Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon & "?", MsgBoxStyle.YesNo, "caption")
@@ -87,9 +85,9 @@
 
     Private Sub BtnDeleteLocation_Click(sender As Object, e As EventArgs) Handles BtnDeleteLocation.Click
         'Slette en lokasjon i databasen
-        Dim sql As String = "DELETE FROM sykkelmaster2015.virksomhet WHERE virksomhet.id = '" & Me.Oppdaterlokasjon.Rows(gridIndex).Cells("id").Value & "'"
+        Dim sql As String = "DELETE FROM sykkelmaster2015.virksomhet WHERE virksomhet.id = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value & "'"
 
-        Dim virksomhet As String = Me.Oppdaterlokasjon.Rows(gridIndex).Cells("navn").Value
+        Dim virksomhet As String = Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
         'Slett virksomhet
 
         If ValiderLokasjon() Then
