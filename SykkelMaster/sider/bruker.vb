@@ -1,5 +1,4 @@
 ﻿Public Class bruker
-    Private gridIndex As Integer
     Private payload As New DataTable
     Private valider_feilmelding As String = ""
 
@@ -24,20 +23,17 @@
     End Sub
 
     Private Sub Vis_bruker(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
-        'Sett nåværende DataGrid index sånn at vi finner rett rad i DataTablen
-        gridIndex = brukerGridView.CurrentRow.Index
-
         'Setter inn dataen fra Grid Viewn i Textboksene
         With Me.brukerGridView
-            txtNavn.Text = .Rows(gridIndex).Cells("fornavn").Value
-            txtEtternavn.Text = .Rows(gridIndex).Cells("etternavn").Value
-            txtTelefon.Text = .Rows(gridIndex).Cells("telefon").Value
-            txtAdresse.Text = .Rows(gridIndex).Cells("adresse").Value
-            txtMail.Text = .Rows(gridIndex).Cells("mail").Value
-            txtPostnr.Text = .Rows(gridIndex).Cells("post_nr").Value
+            txtNavn.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("fornavn").Value
+            txtEtternavn.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("etternavn").Value
+            txtTelefon.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("telefon").Value
+            txtAdresse.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("adresse").Value
+            txtMail.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("mail").Value
+            txtPostnr.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("post_nr").Value
 
             'Sett provisjonen
-            provisjonLabel(.Rows(gridIndex).Cells("provisjon").Value)
+            provisjonLabel(.Rows(Me.brukerGridView.CurrentRow.Index).Cells("provisjon").Value)
         End With
         stilling()
         arbeidssted()
@@ -78,7 +74,7 @@
 
         'oppdaterer stillling fra databasen i combobox
         For i As Integer = 0 To payload.Rows.Count - 1
-            If payload.Rows(i)(cbxStilling.DisplayMember).ToString() = Me.brukerGridView.Rows(gridIndex).Cells("stilling").Value Then
+            If payload.Rows(i)(cbxStilling.DisplayMember).ToString() = Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("stilling").Value Then
                 Me.cbxStilling.SelectedIndex = i
             End If
         Next
@@ -95,7 +91,7 @@
 
         'oppdaterer stillling fra databasen i combobox
         For i As Integer = 0 To lokasjon.Rows.Count - 1
-            If lokasjon.Rows(i)(cbxArbedidssted.DisplayMember).ToString() = Me.brukerGridView.Rows(gridIndex).Cells("navn").Value Then
+            If lokasjon.Rows(i)(cbxArbedidssted.DisplayMember).ToString() = Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("navn").Value Then
                 Me.cbxArbedidssted.SelectedIndex = i
             End If
         Next
@@ -117,9 +113,6 @@
         payload = db.query(sql)
         brukerGridView.DataSource = payload
 
-        ' Sett gridIndex sånn at vi finner frem i djungelen av data fra databasen
-        gridIndex = brukerGridView.CurrentRow.Index
-
         With Me.brukerGridView
             'Vis ikke enkelte kolonner 
             .Columns("id").Visible = False
@@ -138,8 +131,6 @@
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
             .Refresh()
         End With
-
-        
     End Sub
 
     Private Sub leggTilBruker()
@@ -195,11 +186,11 @@
     End Sub
 
     Private Sub Slett_Bruker(sender As Object, e As EventArgs) Handles btnSlett_Bruker.Click
-        Dim bruker As String = Me.brukerGridView.Rows(gridIndex).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(gridIndex).Cells("etternavn").Value
+        Dim bruker As String = Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("etternavn").Value
         'Slett bruker
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
-                fjernBruker(Me.brukerGridView.Rows(gridIndex).Cells("id").Value)
+                fjernBruker(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value)
         End Select
 
         'Ettersom vi slettet ansatte så må vi oppdatere gridView
@@ -209,7 +200,7 @@
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
 
 
-        Dim id As Integer = Me.brukerGridView.Rows(gridIndex).Cells("id").Value
+        Dim id As Integer = Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value
         Dim sql As String = "START TRANSACTION;" &
                             "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txtTelefon.Text & ", mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = " & txtPostnr.Text & " " &
                             "WHERE id = " & id & ";" &
@@ -225,7 +216,6 @@
 
     End Sub
 
-
     Function ValiderBruker() As Boolean
         'validering av inndata på textboxer o.l
         valider_feilmelding = ""
@@ -233,7 +223,6 @@
         If Not util.validerStreng(txtNavn.Text) Then
             valider_feilmelding &= "Feil input fornavn" & vbCrLf
             txtNavn.Text = ""
-
         End If
 
         If Not util.validerStreng(txtEtternavn.Text) Then
@@ -254,7 +243,6 @@
         If txtAdresse.Text = "" Then
             valider_feilmelding &= "Feil input adresse" & vbCrLf
             txtAdresse.Text = ""
-
         End If
 
         If Not util.validerNummer(txtPostnr.Text, 4) Then
@@ -262,18 +250,8 @@
             txtPostnr.Text = ""
         End If
 
-
         If valider_feilmelding = "" Then
             Return True
         End If
-
     End Function
-
-
-
-
-
-
-
-
 End Class

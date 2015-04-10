@@ -25,7 +25,6 @@
             .Columns("mail").HeaderText = "Epost"
             .Columns("adresse").HeaderText = "Adresse"
             .Columns("post_nr").HeaderText = "Postnr"
-
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
@@ -48,16 +47,13 @@
         Dim sql As String
         sql = "INSERT INTO virksomhet(navn, telefon, mail, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & txtpostnr.Text & ")"
 
-
         If ValiderLokasjon() Then
-
             payload = db.query(sql)
             Oppdaterlokasjon.DataSource = payload
             oppdaterGridView()
         Else
             MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
         End If
-
     End Sub
 
 
@@ -78,18 +74,15 @@
         sql = "UPDATE virksomhet SET navn = '" & txtLokasjon.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = '" & txtpostnr.Text & "' WHERE id = '" & Me.Oppdaterlokasjon.Rows(gridIndex).Cells("id").Value & "'"
         Dim lokasjon As String = Me.Oppdaterlokasjon.Rows(gridIndex).Cells("navn").Value
 
-
         If ValiderLokasjon() Then
             Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon & "?", MsgBoxStyle.YesNo, "caption")
                 Case MsgBoxResult.Yes
                     payload = db.query(sql)
                     oppdaterGridView()
-
             End Select
         Else
             MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
         End If
-
     End Sub
 
     Private Sub BtnDeleteLocation_Click(sender As Object, e As EventArgs) Handles BtnDeleteLocation.Click
@@ -111,10 +104,7 @@
         Else
             MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
         End If
-
-
         oppdaterGridView()
-
     End Sub
 
     Private Sub btnTom_Click(sender As Object, e As EventArgs) Handles btnTom.Click
@@ -132,7 +122,6 @@
         If Not util.validerStreng(txtLokasjon.Text) Then
             valider_feilmelding &= "Feil input fornavn" & vbCrLf
             txtLokasjon.Text = ""
-
         End If
 
         If Not util.validerNummer(txtTelefon.Text, 8) Then
@@ -143,7 +132,6 @@
         If txtAdresse.Text = "" Then
             valider_feilmelding &= "Feil input adresse" & vbCrLf
             txtAdresse.Text = ""
-
         End If
 
         If Not util.validerEpost(txtMail.Text) Then
@@ -160,6 +148,5 @@
             Return True
         End If
     End Function
-
 
 End Class
