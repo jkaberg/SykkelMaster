@@ -28,7 +28,7 @@
         End With
     End Sub
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Oppdaterlokasjon.CellClick
-        Dim sql As String = "SELECT * FROM virksomhet WHERE navn = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value & "'"
+        Dim sql As String = "SELECT * FROM virksomhet WHERE id = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value & "'"
         payload = db.query(sql)
 
         With Me.Oppdaterlokasjon
