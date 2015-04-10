@@ -13,10 +13,12 @@
         Me.pArbeidssted = arbeidssted
     End Sub
 
+    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal passord As String, ByVal arbsted As Integer)
         MyBase.New(fnavn, enavn, pnr, tnr, gate, sted, epost)
         Me.pStilling = stilling
         Me.pProvisjon = provisjon
         Me.pPassord = passord
+        Me.pArbeidssted = arbsted
     End Sub
 
     Public Property pStilling() As Integer
@@ -46,9 +48,11 @@
         End Set
     End Property
 
+    Public Property pArbeidssted() As Integer
         Get
             Return arbeidssted
         End Get
+        Set(ByVal value As Integer)
             arbeidssted = value
         End Set
     End Property

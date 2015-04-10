@@ -5,7 +5,6 @@ Imports System.Net.Mail
 Imports System.Configuration
 Imports MySql.Data.MySqlClient
 
-
 Public Class start
     Public bruker As ansatt
 
@@ -48,14 +47,15 @@ Public Class start
         Dim payload As New DataTable
         Dim sql As String = "SELECT " &
                             "person.id, person.fornavn, person.etternavn, person.telefon, person.mail, person.adresse, person.post_nr, " &
-                            "ansatt.provisjon, " &
+                            "ansatt.provisjon, ansatt.virksomhet_id, " &
                             "sted.post_sted, " &
                             "stilling.tilgangsniva " &
-                            "FROM person JOIN ansatt " &
-                            "ON person.mail = '" & epost & "' " &
-                            "JOIN sted ON sted.post_nr = person.post_nr JOIN stilling " &
-                            "ON ansatt.stilling = stilling.id " &
-                            "WHERE ansatt.passord = '" & passord & "'"
+                            "FROM person " &
+                            "JOIN ansatt ON person.mail = '" & epost & "' " &
+                            "JOIN sted ON sted.post_nr = person.post_nr " &
+                            "JOIN stilling ON ansatt.stilling = stilling.id " &
+                            "WHERE ansatt.passord = '" & passord & "';"
+        Console.WriteLine(sql)
         payload = db.query(sql)
 
         'Hvis payload inneholder en rad så har vi korrekt epost/passord
@@ -72,7 +72,8 @@ Public Class start
                                 d("post_sted"),
                                 d("mail"),
                                 d("tilgangsniva"),
-                                d("provisjon"))
+                                d("provisjon"),
+                                d("virksomhet_id"))
             Return True
         End If
         Return False
@@ -86,7 +87,7 @@ Public Class start
         Dim sql As String = "UPDATE ansatt " &
                             "JOIN person ON ansatt.person_id = person.id " &
                             "SET ansatt.passord = '" & passord & "' " &
-                            "WHERE person.mail = '" & epost & "'"
+                            "WHERE person.mail = '" & epost & "';"
         payload = db.query(sql)
 
         'Dersom mail finnes i databasen kjøres funksjonen SendMail som tar inn parameterne epost, emne, brødtekst.
