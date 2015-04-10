@@ -1,5 +1,4 @@
 ﻿Public Class personDAO
-    Public Shared payload As DataTable
     Public Shared sql As String
 
     Public Shared Function leggTilPerson(ByVal person As person) As Boolean
