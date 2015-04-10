@@ -14,7 +14,6 @@
     End Sub
 
     Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
-        Me.pID = id
         Me.pFnavn = fnavn
         Me.pEnavn = enavn
         Me.pPostnr = pnr
@@ -24,11 +23,11 @@
         Me.pEpost = epost
     End Sub
 
-    Public Property pID() As String
+    Public Property pID() As Integer
         Get
             Return id
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             id = value
         End Set
     End Property

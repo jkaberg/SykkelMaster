@@ -1,18 +1,14 @@
 ﻿Public Class bruker
     Private payload As New DataTable
-    Private valider_feilmelding As String = ""
 
     Private Sub bruker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn daten fra databasen til GridView
         oppdaterGridView()
 
-        'Laster inn data til comboBoxen cbx stilling
-        payload = db.query("SELECT * FROM stilling")
-
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = ansattDAO.hentStillinger()
         End With
 
         With cbxArbedidssted
@@ -40,12 +36,12 @@
     End Sub
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
-        payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & txtPostnr.Text & "'")
-        'Oppdaterer poststedet når post nummer blir skrevet inn
-        If payload.Rows.Count = 1 Then
-            TextBox8.Text = payload.Rows(0).Item(0)
+        Dim sok As String = util.finnPostSted(txtPostnr.Text)
+
+        If sok <> "" Then
+            txtPostSted.Text = sok
         Else
-            TextBox8.Text = ""
+            txtPostSted.Text = ""
         End If
     End Sub
 
@@ -59,17 +55,14 @@
         If Not ProvisjonBar.Value = p Then
             ProvisjonBar.Value = p
         End If
-        Label10.Text = p & "%"
+        provisjon.Text = p & "%"
     End Sub
 
     Private Sub stilling()
-        Dim sql As String = "SELECT id, stilling FROM stilling"
-        payload = db.query(sql)
-
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = ansattDAO.hentStillinger()
         End With
 
         'oppdaterer stillling fra databasen i combobox
@@ -98,20 +91,7 @@
     End Sub
 
     Private Sub oppdaterGridView()
-        Dim sql As String = "SELECT " &
-                            "person.id, person.fornavn, person.etternavn, person.telefon, person.mail, person.adresse, person.post_nr, " &
-                            "ansatt.provisjon, " &
-                            "sted.post_sted, " &
-                            "stilling.stilling, " &
-                            "virksomhet.navn " &
-                            "FROM person " &
-                            "JOIN ansatt ON person.id = ansatt.person_id " &
-                            "JOIN sted ON sted.post_nr = person.post_nr " &
-                            "JOIN stilling ON ansatt.stilling = stilling.id " &
-                            "JOIN virksomhet ON virksomhet.id = ansatt.virksomhet_id"
-        'Console.WriteLine(sql)
-        payload = db.query(sql)
-        brukerGridView.DataSource = payload
+        brukerGridView.DataSource = ansattDAO.hentAnsatte()
 
         With Me.brukerGridView
             'Vis ikke enkelte kolonner 
@@ -133,125 +113,68 @@
         End With
     End Sub
 
-    Private Sub leggTilBruker()
+    Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
+        Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
         Dim passord As String = util.tilfeldigStreng()
-        Dim body As String = "Hei og velkommen til Sykkelmaster," & vbNewLine &
+        Dim ansatt As New ansatt(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), passord, cbxArbedidssted.SelectedValue)
+
+        Dim body As String = "Hei " & bruker & ", velkommen til Sykkelmaster." & vbNewLine &
                              "Det er opprettet en ny bruker til deg med følgende opplysninger" & vbNewLine & vbNewLine &
                              "Brukernavn: " & txtMail.Text & vbNewLine &
                              "Passord: " & passord & vbNewLine & vbNewLine &
                              "Hilsen, SykkelMaster"
 
-        Dim sql As String = "START TRANSACTION;" &
-                            "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
-                            "VALUES ('" & txtNavn.Text & "', '" & txtEtternavn.Text & "', " & CInt(txtTelefon.Text) & ", '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & CInt(txtPostnr.Text) & ");" &
-                            "INSERT INTO ansatt (person_id, stilling, provisjon, passord, virksomhet_id) " &
-                            "VALUES (LAST_INSERT_ID(), " & CInt(cbxStilling.SelectedValue) & ", " & CInt(ProvisjonBar.Value) & ", '" & passord & "', " & cbxArbedidssted.SelectedValue & ");" &
-                            "COMMIT;"
-        payload = db.query(sql)
-
-        ' LAG NY QUERY FUNKSJON RETURN FALSE/TRUE
-        If payload.Rows.Count = 1 Then
-            MsgBox("Bruker" & txtNavn.Text & " " & txtEtternavn.Text & " lagt til.")
-            util.sendMail(txtMail.Text, "Ny bruker i Sykkelmaster", body)
-        End If
-    End Sub
-
-    Private Sub fjernBruker(ByVal id As Integer)
-        Dim sql As String = "DELETE FROM ansatt WHERE ansatt.person_id = " & id
-        payload = db.query(sql)
-
-        If payload.Rows.Count > 0 Then
-            MsgBox("Bruker er fjernet.", MsgBoxStyle.Information)
-        End If
-    End Sub
-
-    Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
-        Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
-
-
-        If ValiderBruker() Then
-            If util.sjekkBrukerEksisterer(txtMail.Text) Then
-                MsgBox("Det eksisterer allerede en bruker med mail adresse " & txtMail.Text & ", vennligt velg noe annet.", MsgBoxStyle.Critical)
-            Else
-                Select Case MsgBox("Er du sikker på at du vil legg til " & bruker & "?", MsgBoxStyle.YesNo)
-                    Case MsgBoxResult.Yes
-                        leggTilBruker()
-                End Select
-            End If
+        If util.sjekkBrukerEksisterer(txtMail.Text) Then
+            MsgBox("Det eksisterer allerede en bruker med mail adresse " & txtMail.Text & ", vennligt velg noe annet.", MsgBoxStyle.Critical)
         Else
-            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
+            Select Case MsgBox("Er du sikker på at du vil legg til " & bruker & "?", MsgBoxStyle.YesNo)
+                Case MsgBoxResult.Yes
+                    Try
+                        ansattDAO.leggTilAnsatt(ansatt)
+                        util.sendMail(txtMail.Text, "Ny bruker i Sykkelmaster", body)
+                        MsgBox(bruker & " lagt til.", MsgBoxStyle.Exclamation)
+                    Catch ex As Exception
+                        MsgBox(ex.Message, MsgBoxStyle.Critical)
+                    Finally
+                        oppdaterGridView()
+                    End Try
+            End Select
         End If
-        oppdaterGridView()
-
     End Sub
 
     Private Sub Slett_Bruker(sender As Object, e As EventArgs) Handles btnSlett_Bruker.Click
-        Dim bruker As String = Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("fornavn").Value & " " & Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("etternavn").Value
+        Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
+        Dim ansatt As New ansatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), cbxArbedidssted.SelectedValue)
+
         'Slett bruker
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
-                fjernBruker(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value)
+                Try
+                    ansattDAO.fjernAnsatt(ansatt)
+                    MsgBox(bruker & " er fjernet.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    oppdaterGridView()
+                End Try
         End Select
-
-        'Ettersom vi slettet ansatte så må vi oppdatere gridView
-        oppdaterGridView()
     End Sub
 
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
+        Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
+        Dim ansatt As New ansatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), cbxArbedidssted.SelectedValue)
 
-
-        Dim id As Integer = Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value
-        Dim sql As String = "START TRANSACTION;" &
-                            "UPDATE person SET fornavn = '" & txtNavn.Text & "', etternavn = '" & txtEtternavn.Text & "', telefon = " & txtTelefon.Text & ", mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = " & txtPostnr.Text & " " &
-                            "WHERE id = " & id & ";" &
-                            "UPDATE ansatt SET stilling = " & cbxStilling.SelectedValue & ", provisjon = " & ProvisjonBar.Value & ", virksomhet_id = " & cbxArbedidssted.SelectedValue & " " &
-                            "WHERE person_id = " & id & ";" &
-                            "COMMIT;"
-        If ValiderBruker() Then
-            payload = db.query(sql)
-            oppdaterGridView()
-        Else
-            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
-        End If
-
+        'Oppdater bruker
+        Select Case MsgBox("Er du sikker på at du vil oppdater " & bruker & "?", MsgBoxStyle.YesNo)
+            Case MsgBoxResult.Yes
+                Try
+                    ansattDAO.oppdaterAnsatt(ansatt)
+                    MsgBox(bruker & " er oppdatert.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    oppdaterGridView()
+                End Try
+        End Select
     End Sub
-
-    Function ValiderBruker() As Boolean
-        'validering av inndata på textboxer o.l
-        valider_feilmelding = ""
-
-        If Not util.validerStreng(txtNavn.Text) Then
-            valider_feilmelding &= "Feil input fornavn" & vbCrLf
-            txtNavn.Text = ""
-        End If
-
-        If Not util.validerStreng(txtEtternavn.Text) Then
-            valider_feilmelding &= "Feil input etternavn" & vbCrLf
-            txtEtternavn.Text = ""
-        End If
-
-        If Not util.validerNummer(txtTelefon.Text, 8) Then
-            valider_feilmelding &= "Feil input telefonnummer" & vbCrLf
-            txtTelefon.Text = ""
-        End If
-
-        If Not util.validerEpost(txtMail.Text) Then
-            valider_feilmelding &= "Feil input E-post" & vbCrLf
-            txtMail.Text = ""
-        End If
-
-        If txtAdresse.Text = "" Then
-            valider_feilmelding &= "Feil input adresse" & vbCrLf
-            txtAdresse.Text = ""
-        End If
-
-        If Not util.validerNummer(txtPostnr.Text, 4) Then
-            valider_feilmelding &= "Feil input postnummer" & vbCrLf
-            txtPostnr.Text = ""
-        End If
-
-        If valider_feilmelding = "" Then
-            Return True
-        End If
-    End Function
 End Class
