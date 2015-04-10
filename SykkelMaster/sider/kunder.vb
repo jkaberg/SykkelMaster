@@ -31,7 +31,7 @@
         ElseIf sok = Nothing Then
             sql = "SELECT * FROM person"
         Else
-            sql = "SELECT * FROM person WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%' OR etternavn LIKE '%;"
+            sql = "SELECT * FROM person WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%' OR etternavn LIKE '%" & sok & "%';"
         End If
         payload = db.query(sql)
         kundeGridView.DataSource = payload
