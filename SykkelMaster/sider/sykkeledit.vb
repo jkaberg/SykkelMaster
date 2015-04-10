@@ -9,7 +9,7 @@
         With cbxTilhorer
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = hoved.lokasjoner
+            .DataSource = hoved.virksomheter
         End With
         'Gjør at comboBox'en er tom når programmet starter
         cbxTilhorer.SelectedIndex = -1

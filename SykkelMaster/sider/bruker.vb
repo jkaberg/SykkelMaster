@@ -14,7 +14,7 @@
         With cbxArbedidssted
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = hoved.lokasjoner
+            .DataSource = hoved.virksomheter
         End With
     End Sub
 
@@ -74,7 +74,7 @@
     End Sub
 
     Private Sub arbeidssted()
-        Dim lokasjon As DataTable = hoved.lokasjoner
+        Dim lokasjon As DataTable = hoved.virksomheter
 
         With cbxArbedidssted
             .DisplayMember = "navn"

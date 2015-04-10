@@ -7,7 +7,7 @@ Public Class innlevering
         With lokasjoner
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = hoved.lokasjoner
+            .DataSource = hoved.virksomheter
         End With
     End Sub
 

@@ -1,6 +1,6 @@
 ﻿Public Class hoved
 
-    Public lokasjoner As DataTable
+    Public virksomheter As DataTable
 
     Private Sub Vis_Kunder(sender As Object, e As EventArgs) Handles btnVis_Kunder.Click
         kunder.Show()
@@ -11,7 +11,7 @@
     End Sub
 
     Private Sub Vis_Lokasjoner(sender As Object, e As EventArgs) Handles btnVis_Lokasjoner.Click
-        lokasjon.Show()
+        lokasjoner.Show()
     End Sub
 
     Private Sub Vis_Sykler(sender As Object, e As EventArgs) Handles btnVis_Sykler.Click
@@ -32,16 +32,16 @@
 
     Private Sub hoved_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Vis navnet på den ansatte som logger inn i Label1 (eksempel: Velkommen, Joel Kåberg)
-        Label1.Text += start.bruker.pFnavn & " " & start.bruker.pEnavn
+        lblNavn.Text += start.bruker.pFnavn & " " & start.bruker.pEnavn
 
         'Hent ut å vis frem alle lokasjoner (virksomheter) i ComboBox1
-        lokasjoner = New DataTable
-        lokasjoner = delt.hentVirksomhet
+        virksomheter = New DataTable
+        virksomheter = delt.hentVirksomhet
 
         With cbxPlassering
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = lokasjoner
+            .DataSource = virksomheter
         End With
 
         ' Rettighetsnivå (integer):
