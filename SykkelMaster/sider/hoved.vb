@@ -56,7 +56,7 @@
         ' Selger: 5
         ' Lagermedarbeider: 3
         ' Sjekk hvilke tillatelser innloggetburker har ved å enable knapper
-        Select Case start.bruker.pStilling
+        Select Case start.bruker.pTilgangsniva
             Case Is >= 3
                 btnVis_Kunder.Enabled = True
                 btnVis_Utleie.Enabled = True

@@ -47,7 +47,7 @@ Public Class start
         Dim payload As New DataTable
         Dim sql As String = "SELECT " &
                             "person.id, person.fornavn, person.etternavn, person.telefon, person.mail, person.adresse, person.post_nr, " &
-                            "ansatt.provisjon, ansatt.virksomhet_id, " &
+                            "ansatt.provisjon, ansatt.stilling, ansatt.passord, ansatt.virksomhet_id, " &
                             "sted.post_sted, " &
                             "stilling.tilgangsniva " &
                             "FROM person " &
@@ -55,7 +55,6 @@ Public Class start
                             "JOIN sted ON sted.post_nr = person.post_nr " &
                             "JOIN stilling ON ansatt.stilling = stilling.id " &
                             "WHERE ansatt.passord = '" & passord & "';"
-        Console.WriteLine(sql)
         payload = db.query(sql)
 
         'Hvis payload inneholder en rad så har vi korrekt epost/passord
@@ -71,8 +70,10 @@ Public Class start
                                 d("adresse"),
                                 d("post_sted"),
                                 d("mail"),
+                                d("stilling"),
                                 d("tilgangsniva"),
                                 d("provisjon"),
+                                d("passord"),
                                 d("virksomhet_id"))
             Return True
         End If
