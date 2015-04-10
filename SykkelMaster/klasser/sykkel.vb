@@ -11,7 +11,6 @@
         Me.pPosisjon = posisjon
         Me.pVirksomhet = virksomhet
     End Sub
-
     Public Property pRammenr() As Integer
         Get
             Return rammenr
