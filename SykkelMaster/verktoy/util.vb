@@ -1,5 +1,5 @@
 ﻿Imports System.Net.Mail
-Imports System.Configuration
+'Imports System.Configuration
 
 Public Class util
     Public Shared payload As DataTable
@@ -33,11 +33,6 @@ Public Class util
         End If
     End Function
 
-    Public Shared Function validerRammenr(ByVal rammenr As String) As Boolean
-
-
-    End Function
-
     Public Shared Function tilfeldigStreng() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
         'Lager variabel random som ny random funksjon 
         Dim random As New Random
@@ -58,7 +53,6 @@ Public Class util
     End Function
 
     Public Shared Function sendMail(ByVal mottaker As String, ByVal emne As String, ByVal hovedtekst As String)
-
         Dim epostmelding As New MailMessage()
         Try
             epostmelding.From = New MailAddress("Granlieirik3@gmail.com")
@@ -112,6 +106,19 @@ Public Class util
         End If
 
         Return vbEmpty
+    End Function
+
+    Public Shared Function finnPostSted(ByVal postnr As String) As String
+        If Not postnr = "" Then
+            payload = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = " & postnr & ";")
+
+            If payload.Rows.Count >= 1 Then
+                Return payload.Rows(0).Item(0).ToString
+            Else
+                Return ""
+            End If
+        End If
+        Return ""
     End Function
 
 End Class

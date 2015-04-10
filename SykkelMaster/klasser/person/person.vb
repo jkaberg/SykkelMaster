@@ -1,23 +1,30 @@
 ﻿Public Class person
-    Private fornavn, etternavn, epost As String ' Ola | Nordmann | ola.nordmann@epost.com
+    Private fornavn, etternavn, epost, gate, sted As String ' Ola | Nordmann | ola.nordmann@epost.com | Olav Tryggvasonsgate 10 | Trondheim
     Private id, postnr, telefonnr As Integer ' 1 | 7070 | 12345678
-    Private gate As String 'Olav Tryggvasonsgate 10
-    Private sted As String 'Trondheim
 
     Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
-        If sjekkEpost(epost) And sjekkTelefon(tnr) Then
-            Me.id = id
-            Me.fornavn = fnavn
-            Me.etternavn = enavn
-            Me.postnr = pnr
-            Me.telefonnr = tnr
-            Me.gate = gate
-            Me.sted = sted
-            Me.epost = epost
-        End If
+        Me.pID = id
+        Me.pFnavn = fnavn
+        Me.pEnavn = enavn
+        Me.pPostnr = pnr
+        Me.pTlfnr = tnr
+        Me.pGate = gate
+        Me.pSted = sted
+        Me.pEpost = epost
     End Sub
 
-    Public Property pId() As String
+    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
+        Me.pID = id
+        Me.pFnavn = fnavn
+        Me.pEnavn = enavn
+        Me.pPostnr = pnr
+        Me.pTlfnr = tnr
+        Me.pGate = gate
+        Me.pSted = sted
+        Me.pEpost = epost
+    End Sub
+
+    Public Property pID() As String
         Get
             Return id
         End Get
@@ -31,7 +38,9 @@
             Return fornavn
         End Get
         Set(ByVal value As String)
-            If sjekkNavn("For", value) Then
+            If value.Length < 3 Then
+                Throw New Exception("Fornavn må være minst 3 tegn langt.")
+            Else
                 fornavn = value
             End If
         End Set
@@ -42,7 +51,9 @@
             Return etternavn
         End Get
         Set(ByVal value As String)
-            If sjekkNavn("Etter", value) Then
+            If value.Length < 3 Then
+                Throw New Exception("Etternavn må være minst 3 tegn langt.")
+            Else
                 etternavn = value
             End If
         End Set
@@ -53,7 +64,11 @@
             Return postnr
         End Get
         Set(ByVal value As Integer)
-            If sjekkPostnr(value) Then
+            If value.ToString.Length <> 4 Then
+                Throw New Exception("Post nummeret kan kun bestå av 4 tall.")
+            ElseIf Not IsNumeric(value) Then
+                Throw New Exception("Post nummeret må bestå av kun tall.")
+            Else
                 postnr = value
             End If
         End Set
@@ -64,7 +79,11 @@
             Return telefonnr
         End Get
         Set(ByVal value As Integer)
-            If sjekkTelefon(value) Then
+            If Not value.ToString.Length = 8 Then
+                Throw New Exception("Telefon nummeret må bestå av 8 tall.")
+            ElseIf Not IsNumeric(value) Then
+                Throw New Exception("Telefon nummeret kan kun bestå av tall.")
+            Else
                 telefonnr = value
             End If
         End Set
@@ -75,7 +94,9 @@
             Return gate
         End Get
         Set(ByVal value As String)
-            If sjekkGate(value) Then
+            If value.Length < 3 Then
+                Throw New Exception("Gate må være minst 3 tegn langt.")
+            Else
                 gate = value
             End If
         End Set
@@ -95,60 +116,14 @@
             Return epost
         End Get
         Set(ByVal value As String)
-            If sjekkEpost(value) Then
+            Dim regx As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
+            Dim ep As System.Text.RegularExpressions.Match = regx.Match(value)
+
+            If Not ep.Success Then
+                Throw New Exception("Du må angi en korrekt e-post adresse.")
+            Else
                 epost = value
             End If
         End Set
     End Property
-    Private Function sjekkNavn(ByVal navntype As String, ByVal navn As String) As Boolean
-        If navn.ToString.Length <= 2 Then
-            MsgBox(navntype & "navn må være minst 3 tegn langt.", MsgBoxStyle.Critical)
-            Return False
-        End If
-        Return True
-    End Function
-
-    Private Function sjekkGate(ByVal gate As String) As Boolean
-        If gate.ToString.Length <= 3 Then
-            MsgBox("Gate må være minst 3 tegn langt.", MsgBoxStyle.Critical)
-            Return False
-        Else
-            Return True
-        End If
-    End Function
-
-    Private Function sjekkPostnr(ByVal postnr As Integer) As Boolean
-        If postnr.ToString.Length <> 4 Then
-            MsgBox("Post nummeret kan kun bestå av 4 tall.", MsgBoxStyle.Critical)
-            Return False
-        ElseIf Not IsNumeric(postnr) Then
-            MsgBox("Post nummeret må bestå av kun tall.", MsgBoxStyle.Critical)
-            Return False
-        Else
-            Return True
-        End If
-    End Function
-
-    Private Function sjekkTelefon(ByVal tlf As Integer) As Boolean
-        If Not tlf.ToString.Length = 8 Then
-            MsgBox("Telefon nummeret må bestå av 8 tall.", MsgBoxStyle.Critical)
-            Return False
-        ElseIf Not IsNumeric(tlf) Then
-            MsgBox("Telefon nummeret kan kun bestå av tall.", MsgBoxStyle.Critical)
-            Return False
-        Else
-            Return True
-        End If
-    End Function
-
-    Private Function sjekkEpost(ByVal epost As String) As Boolean
-        Dim regx As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
-        Dim ep As System.Text.RegularExpressions.Match = regx.Match(epost)
-        If Not ep.Success Then
-            MsgBox("Du må angi en korrekt e-post adresse!", MsgBoxStyle.Critical)
-            Return False
-        Else
-            Return True
-        End If
-    End Function
 End Class

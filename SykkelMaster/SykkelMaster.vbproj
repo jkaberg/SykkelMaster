@@ -86,6 +86,7 @@
     <Compile Include="sider\endrepassord.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="dao\kunder.vb" />
     <Compile Include="sider\statistikk.Designer.vb">
       <DependentUpon>statistikk.vb</DependentUpon>
     </Compile>
