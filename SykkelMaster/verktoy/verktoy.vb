@@ -17,12 +17,12 @@ Public Class verktoy
     End Function
 
 
-    Public Shared Function validerStreng(ByVal Streng As String) As Boolean
-        If Streng = "" Then
+    Public Shared Function validerStreng(ByVal streng As String) As Boolean
+        If streng = "" Then
             Return False
         Else
-            For i = 0 To Streng.Length - 1
-                If Not Char.IsLetter(Streng.Chars(i)) Then
+            For i = 0 To streng.Length - 1
+                If Not Char.IsLetter(streng.Chars(i)) Then
                     Return False
                 End If
             Next

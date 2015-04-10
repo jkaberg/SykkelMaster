@@ -32,6 +32,8 @@ Public Class start
                     verktoy.sendMail(byttEpost.Text, "Nytt Passord", "Her er ditt nye passord: " & passord)
                     MsgBox("Ditt nye passord er sendt til deg på mail.", MsgBoxStyle.Information)
                 End If
+            Else
+                MsgBox("E-post adressen eksisterer ikke.", MsgBoxStyle.Critical)
             End If
         Else
             MsgBox("E-post adressen har ikke en korrekt formatering.", MsgBoxStyle.Critical)
