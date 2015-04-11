@@ -1,11 +1,4 @@
-﻿Imports SykkelMaster.database
-Imports SykkelMaster.verktoy
-Imports SykkelMaster.ansatt
-Imports System.Net.Mail
-Imports System.Configuration
-Imports MySql.Data.MySqlClient
-
-Public Class start
+﻿Public Class start
     Public bruker As ansatt
 
     Private Sub start_Load(sender As Object, e As EventArgs) Handles MyBase.Load

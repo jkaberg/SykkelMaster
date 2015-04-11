@@ -14,7 +14,7 @@ Public Class database
             adapter.Fill(data)
             conn.Close()
         Catch ex As Exception
-            MessageBox.Show("Database feil: " & ex.Message)
+            MsgBox("Database feil: " & ex.Message, MsgBoxStyle.Critical)
         Finally
             conn.Dispose()
         End Try
@@ -29,7 +29,7 @@ Public Class database
             Dim cmd As MySqlCommand = New MySqlCommand(sql, conn)
             status = cmd.ExecuteNonQuery()
         Catch ex As Exception
-            MessageBox.Show("Database feil: " & ex.Message)
+            MsgBox("Database feil: " & ex.Message, MsgBoxStyle.Critical)
         Finally
             conn.Dispose()
         End Try

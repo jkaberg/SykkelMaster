@@ -33,9 +33,8 @@
             payload = personDAO.hentPersoner(sok:=sok)
         End If
 
-        kundeGridView.DataSource = payload
-
         With Me.kundeGridView
+            .DataSource = payload
             'Kolonne vises ikke 
             .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
