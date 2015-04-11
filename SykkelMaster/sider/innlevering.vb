@@ -183,7 +183,7 @@ Public Class innlevering
                             "JOIN person ON salg_leie.person_id_kunde = person.id " &
                             "WHERE DATE(frist) " & sok & " DATE(NOW()) AND s_l_status = 'Leid ut'"
 
-        payload = db.query(sql)
+        payload = database.dt_query(sql)
         oversiktGrid.DataSource = payload
 
         With Me.oversiktGrid

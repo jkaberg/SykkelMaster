@@ -28,8 +28,6 @@
         End With
         cbxLokasjon.SelectedIndex = -1
 
-<<<<<<< HEAD
-
         With cbxType
             .DisplayMember = "sykkeltype"
             .ValueMember = "id"
@@ -37,8 +35,6 @@
         End With
         cbxType.SelectedIndex = -1
 
-=======
->>>>>>> f1784ae5ec626ec5e4c654acf7002f64c6f8597f
     End Sub
 
     Private Sub SykkelGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles SykkelGridView.CellClick
@@ -102,13 +98,8 @@
         Finally
             oppdaterGridView()
             oppdaterTxtbox()
-<<<<<<< HEAD
         End Try
-=======
-        Else
-            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
-        End If
->>>>>>> f1784ae5ec626ec5e4c654acf7002f64c6f8597f
+
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
@@ -116,7 +107,6 @@
         Dim sykkel As New sykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
         Dim sykkel_navn As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
 
-<<<<<<< HEAD
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
@@ -129,22 +119,6 @@
                     oppdaterTxtbox()
                 End Try
         End Select
-=======
-        Dim sykkel As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
-        'Oppdater bruker
-
-        If validerSykkel() Then
-            Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
-                Case MsgBoxResult.Yes
-                    payload = db.query(sql)
-                    oppdaterGridView()
-                    oppdaterTxtbox()
-            End Select
-        Else
-            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
-        End If
->>>>>>> f1784ae5ec626ec5e4c654acf7002f64c6f8597f
-
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
@@ -178,62 +152,17 @@
     Private Sub cbxSokStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxSokStatus.SelectedIndexChanged
         oppdaterGridView(status:=cbxSokStatus.Text)
     End Sub
-<<<<<<< HEAD
-=======
-
-    Function validerSykkel() As Boolean
-        valider_feilmelding = ""
-
-        If cbxTilhorer.Text = "" Then
-            valider_feilmelding &= "Feil input: Tilhører (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If cbxPosisjon.Text = "" Then
-            valider_feilmelding &= "Feil input: Posisjon (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If cbxType.Text = "" Then
-            valider_feilmelding &= "Feil input: Type (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If txtRammenr.Text = "" Or txtRammenr.Text.Contains(" ") = True Then
-            valider_feilmelding &= "Feil input: Rammenr (Kan ikke være tom eller inneholde mellomrom)" & vbCrLf
-        End If
-
-
-        If cbxHjul.Text = "" Then
-            valider_feilmelding &= "Feil input: Hjul (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If cbxRamme.Text = "" Then
-            valider_feilmelding &= "Feil input: Ramme (Kan ikke være tom)" & vbCrLf
-        End If
-
-
-
-        If cbxStatus.Text = "" Then
-            valider_feilmelding &= "Feil input: Status (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If valider_feilmelding = "" Then
-            Return True
-        End If
-
-        Return False
-    End Function
 
     Private Sub btnSykkeltype_Click(sender As Object, e As EventArgs) Handles btnSykkeltype.Click
-        sykkeltype.Show()
+        'sykkeltype.Show()
     End Sub
 
     Private Sub cbxType_Click(sender As Object, e As EventArgs) Handles cbxType.Click
-        payload = db.query("SELECT * FROM sykkeltype")
         With cbxType
             .DisplayMember = "sykkeltype"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = delt.hentSykkeltype
         End With
         cbxType.SelectedIndex = -1
     End Sub
->>>>>>> f1784ae5ec626ec5e4c654acf7002f64c6f8597f
 End Class
