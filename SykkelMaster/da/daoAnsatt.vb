@@ -3,7 +3,7 @@
     Public Shared Function leggTilAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         sql = "START TRANSACTION;" &
               "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
-              "VALUES ('" & ansatt.pFnavn & "', '" & ansatt.pFnavn & "', " & ansatt.pTlfnr & ", '" & ansatt.pEpost & "', '" & ansatt.pGate & "', " & ansatt.pPostnr & ");" &
+              "VALUES ('" & ansatt.pFnavn & "', '" & ansatt.pEnavn & "', " & ansatt.pTlfnr & ", '" & ansatt.pEpost & "', '" & ansatt.pGate & "', " & ansatt.pPostnr & ");" &
               "INSERT INTO ansatt (person_id, stilling, provisjon, passord, virksomhet_id) " &
               "VALUES (LAST_INSERT_ID(), " & ansatt.pStilling & ", " & ansatt.pProvisjon & ", '" & ansatt.pPassord & "', " & ansatt.pArbeidssted & ");" &
               "COMMIT;"
