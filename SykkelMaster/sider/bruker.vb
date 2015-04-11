@@ -118,7 +118,7 @@
         Dim passord As String = verktoy.tilfeldigStreng()
         Dim ansatt As New ansatt(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), passord, cbxArbedidssted.SelectedValue)
 
-        Dim body As String = "Hei " & bruker & ", velkommen til Sykkelmaster." & vbNewLine &
+        Dim body As String = "Hei " & bruker & ", og velkommen til Sykkelmaster." & vbNewLine &
                              "Det er opprettet en ny bruker til deg med følgende opplysninger" & vbNewLine & vbNewLine &
                              "Brukernavn: " & txtMail.Text & vbNewLine &
                              "Passord: " & passord & vbNewLine & vbNewLine &
