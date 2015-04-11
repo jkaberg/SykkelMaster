@@ -17,11 +17,6 @@
     End Sub
 
     Private Sub SykkelGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles sykkeltypeGrid.CellClick
-        oppdaterTxtbox()
-    End Sub
-
-    Private Sub oppdaterTxtbox()
-        'Setter inn datane fra Grid Viewn i Textboksen
         txtNavn.Text = Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("sykkeltype").Value
     End Sub
 
@@ -35,7 +30,6 @@
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
             oppdaterGridView()
-            oppdaterTxtbox()
         End Try
     End Sub
 
@@ -54,7 +48,6 @@
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
                     oppdaterGridView()
-                    oppdaterTxtbox()
                 End Try
         End Select
     End Sub
@@ -74,7 +67,6 @@
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
                     oppdaterGridView()
-                    oppdaterTxtbox()
                 End Try
         End Select
     End Sub

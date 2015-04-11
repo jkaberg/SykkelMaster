@@ -74,31 +74,33 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="da\ansatt.vb" />
-    <Compile Include="da\delt.vb" />
-    <Compile Include="da\endre_passord.vb" />
-    <Compile Include="da\innlevering.vb" />
-    <Compile Include="da\lokasjon.vb" />
-    <Compile Include="da\person.vb" />
-    <Compile Include="da\start.vb" />
-    <Compile Include="da\statistikk.vb" />
-    <Compile Include="da\sykkel.vb" />
-    <Compile Include="da\sykkel_utstyr.vb" />
-    <Compile Include="klasser\ansatt.vb" />
-    <Compile Include="klasser\lokasjon.vb" />
-    <Compile Include="klasser\person.vb" />
-    <Compile Include="klasser\sykkel.vb" />
-    <Compile Include="klasser\sykkel_utstyr.vb" />
+    <Compile Include="da\daoAnsatt.vb" />
+    <Compile Include="da\daoDelt.vb" />
+    <Compile Include="da\daoEndrePassord.vb" />
+    <Compile Include="da\daoInnlevering.vb" />
+    <Compile Include="da\daoLokasjon.vb" />
+    <Compile Include="da\daoPerson.vb" />
+    <Compile Include="da\daoStart.vb" />
+    <Compile Include="da\daoStatistikk.vb" />
+    <Compile Include="da\daoSykkel.vb" />
+    <Compile Include="da\daoSykkelType.vb" />
+    <Compile Include="da\daoSykkelUtstyr.vb" />
+    <Compile Include="cls\clsAnsatt.vb" />
+    <Compile Include="cls\clsLokasjon.vb" />
+    <Compile Include="cls\clsPerson.vb" />
+    <Compile Include="cls\clsSykkel.vb" />
+    <Compile Include="cls\clsSykkelType.vb" />
+    <Compile Include="cls\clsSykkelUtstyr.vb" />
     <Compile Include="sider\ansatt.Designer.vb">
       <DependentUpon>ansatt.vb</DependentUpon>
     </Compile>
     <Compile Include="sider\ansatt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sider\endrepassord.Designer.vb">
-      <DependentUpon>endrepassord.vb</DependentUpon>
+    <Compile Include="sider\endrePassord.Designer.vb">
+      <DependentUpon>endrePassord.vb</DependentUpon>
     </Compile>
-    <Compile Include="sider\endrepassord.vb">
+    <Compile Include="sider\endrePassord.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sider\lokasjon.Designer.vb">
@@ -113,10 +115,10 @@
     <Compile Include="sider\statistikk.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sider\sykkeltype.Designer.vb">
-      <DependentUpon>sykkeltype.vb</DependentUpon>
+    <Compile Include="sider\sykkelType.Designer.vb">
+      <DependentUpon>sykkelType.vb</DependentUpon>
     </Compile>
-    <Compile Include="sider\sykkeltype.vb">
+    <Compile Include="sider\sykkelType.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="verktoy\database.vb" />
@@ -160,10 +162,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="sider\sykkeledit.Designer.vb">
-      <DependentUpon>sykkeledit.vb</DependentUpon>
+    <Compile Include="sider\sykkelEdit.Designer.vb">
+      <DependentUpon>sykkelEdit.vb</DependentUpon>
     </Compile>
-    <Compile Include="sider\sykkeledit.vb">
+    <Compile Include="sider\sykkelEdit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sider\utleie.Designer.vb">
@@ -178,8 +180,8 @@
     <EmbeddedResource Include="sider\ansatt.resx">
       <DependentUpon>ansatt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sider\endrepassord.resx">
-      <DependentUpon>endrepassord.vb</DependentUpon>
+    <EmbeddedResource Include="sider\endrePassord.resx">
+      <DependentUpon>endrePassord.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\hoved.resx">
       <DependentUpon>hoved.vb</DependentUpon>
@@ -196,8 +198,8 @@
     <EmbeddedResource Include="sider\statistikk.resx">
       <DependentUpon>statistikk.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sider\sykkeltype.resx">
-      <DependentUpon>sykkeltype.vb</DependentUpon>
+    <EmbeddedResource Include="sider\sykkelType.resx">
+      <DependentUpon>sykkelType.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="start.resx">
       <DependentUpon>start.vb</DependentUpon>
@@ -208,8 +210,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="sider\sykkeledit.resx">
-      <DependentUpon>sykkeledit.vb</DependentUpon>
+    <EmbeddedResource Include="sider\sykkelEdit.resx">
+      <DependentUpon>sykkelEdit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\utleie.resx">
       <DependentUpon>utleie.vb</DependentUpon>
