@@ -62,7 +62,6 @@ Public Class innlevering
         Else
             MsgBox("Du må velge en plass å levere inn ordren på.", MsgBoxStyle.Critical)
         End If
-
     End Sub
 
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
@@ -116,22 +115,24 @@ Public Class innlevering
         Me.oversiktGrid.DataSource = Nothing
 
         If id Then
-            sql = "SELECT salg_leie.ordre_nr, " &
+            sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
-                  "sykkeltype.sykkeltype " &
+                  "sykkeltype.sykkeltype , person.id " &
                   "FROM salg_leie " &
                   "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
                   "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
+                  "JOIN person ON salg_leie.person_id_kunde = person.id " &
                   "WHERE salg_leie.ordre_nr = " & id
         Else
-            sql = "SELECT salg_leie.ordre_nr, " &
+            sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
-                  "sykkeltype.sykkeltype " &
+                  "sykkeltype.sykkeltype, person.id " &
                   "FROM salg_leie " &
                   "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
                   "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
+                  "JOIN person ON salg_leie.person_id_kunde = person.id " &
                   "WHERE s_l_status <> 'Innlevert';"
 
             cbxKunde.DataSource = Nothing
@@ -145,10 +146,12 @@ Public Class innlevering
         With Me.oversiktGrid
             'Endrer navn på headere for å gi en bedre visuell opplevelse
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
+            .Columns("frist").HeaderText = "Frist"
             .Columns("sykkeltype").HeaderText = "Sykkeltype"
             .Columns("rammenr").HeaderText = "Rammenummer"
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
             .Columns("rammestr").HeaderText = "Rammestørrelse"
+            .Columns("id").Visible = False
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
@@ -156,5 +159,43 @@ Public Class innlevering
     Private Sub Rediger_kunde_Click(sender As Object, e As EventArgs) Handles Rediger_kunde.Click
         kunder.Show()
         kunder.oppdaterGridView(id:=cbxKunde.SelectedValue)
+    End Sub
+
+    Private Sub cbxStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStatus.SelectedIndexChanged
+        If cbxStatus.Text = "Leid ut" Then
+            avtaleInnehold()
+        ElseIf cbxStatus.Text = "Tidsfrist gått ut" Then
+            fristGattUt("<")
+        ElseIf cbxStatus.Text = "Tidsfrist ikke gått ut" Then
+            fristGattUt(">=")
+        End If
+    End Sub
+
+    Public Sub fristGattUt(sok As String)
+        'Får opp de som ikke har levert inn sykkelen innen fristen
+        Dim sql As String = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
+                            "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
+                            "sykkeltype.sykkeltype, person.id " &
+                            "FROM salg_leie " &
+                            "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
+                            "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
+                            "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
+                            "JOIN person ON salg_leie.person_id_kunde = person.id " &
+                            "WHERE DATE(frist) " & sok & " DATE(NOW()) AND s_l_status = 'Leid ut'"
+
+        payload = db.query(sql)
+        oversiktGrid.DataSource = payload
+
+        With Me.oversiktGrid
+            'Endre navn for å gi en bedre visuell opplevelse
+            .Columns("ordre_nr").HeaderText = "Ordrenummer"
+            .Columns("frist").HeaderText = "Frist"
+            .Columns("sykkeltype").HeaderText = "Sykkeltype"
+            .Columns("rammenr").HeaderText = "Rammenummer"
+            .Columns("hjulstr").HeaderText = "Hjulstørrelse"
+            .Columns("rammestr").HeaderText = "Rammestørrelse"
+            .Columns("id").Visible = False
+            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        End With
     End Sub
 End Class

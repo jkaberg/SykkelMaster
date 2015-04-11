@@ -70,19 +70,19 @@ Partial Class kunder
         Me.GroupBox1.Controls.Add(Me.txtNavn)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 16)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 15)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(297, 447)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(297, 448)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger kunde"
         '
         'btnTom
         '
-        Me.btnTom.Location = New System.Drawing.Point(11, 266)
-        Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnTom.Location = New System.Drawing.Point(10, 266)
+        Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnTom.Name = "btnTom"
         Me.btnTom.Size = New System.Drawing.Size(270, 38)
         Me.btnTom.TabIndex = 6
@@ -91,8 +91,8 @@ Partial Class kunder
         '
         'btnSlett
         '
-        Me.btnSlett.Location = New System.Drawing.Point(11, 404)
-        Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnSlett.Location = New System.Drawing.Point(10, 405)
+        Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnSlett.Name = "btnSlett"
         Me.btnSlett.Size = New System.Drawing.Size(270, 38)
         Me.btnSlett.TabIndex = 9
@@ -101,8 +101,8 @@ Partial Class kunder
         '
         'btnOppdater
         '
-        Me.btnOppdater.Location = New System.Drawing.Point(11, 358)
-        Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnOppdater.Location = New System.Drawing.Point(10, 358)
+        Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnOppdater.Name = "btnOppdater"
         Me.btnOppdater.Size = New System.Drawing.Size(270, 38)
         Me.btnOppdater.TabIndex = 8
@@ -112,7 +112,7 @@ Partial Class kunder
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(7, 236)
+        Me.Label8.Location = New System.Drawing.Point(8, 235)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(72, 20)
         Me.Label8.TabIndex = 28
@@ -122,7 +122,7 @@ Partial Class kunder
         '
         Me.txtPoststed.Enabled = False
         Me.txtPoststed.Location = New System.Drawing.Point(90, 232)
-        Me.txtPoststed.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtPoststed.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txtPoststed.Name = "txtPoststed"
         Me.txtPoststed.Size = New System.Drawing.Size(186, 26)
         Me.txtPoststed.TabIndex = 27
@@ -130,7 +130,7 @@ Partial Class kunder
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 131)
+        Me.Label7.Location = New System.Drawing.Point(8, 131)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(56, 20)
         Me.Label7.TabIndex = 26
@@ -139,15 +139,15 @@ Partial Class kunder
         'txtMail
         '
         Me.txtMail.Location = New System.Drawing.Point(90, 128)
-        Me.txtMail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtMail.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txtMail.Name = "txtMail"
         Me.txtMail.Size = New System.Drawing.Size(186, 26)
         Me.txtMail.TabIndex = 3
         '
         'btnLeggTil
         '
-        Me.btnLeggTil.Location = New System.Drawing.Point(11, 312)
-        Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnLeggTil.Location = New System.Drawing.Point(10, 312)
+        Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnLeggTil.Name = "btnLeggTil"
         Me.btnLeggTil.Size = New System.Drawing.Size(270, 38)
         Me.btnLeggTil.TabIndex = 7
@@ -157,7 +157,7 @@ Partial Class kunder
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(7, 201)
+        Me.Label5.Location = New System.Drawing.Point(8, 202)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(55, 20)
         Me.Label5.TabIndex = 10
@@ -166,7 +166,7 @@ Partial Class kunder
         'txtPostnr
         '
         Me.txtPostnr.Location = New System.Drawing.Point(90, 198)
-        Me.txtPostnr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtPostnr.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txtPostnr.MaxLength = 4
         Me.txtPostnr.Name = "txtPostnr"
         Me.txtPostnr.Size = New System.Drawing.Size(186, 26)
@@ -175,7 +175,7 @@ Partial Class kunder
         'txtAdresse
         '
         Me.txtAdresse.Location = New System.Drawing.Point(90, 162)
-        Me.txtAdresse.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtAdresse.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txtAdresse.Name = "txtAdresse"
         Me.txtAdresse.Size = New System.Drawing.Size(186, 26)
         Me.txtAdresse.TabIndex = 4
@@ -183,7 +183,7 @@ Partial Class kunder
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 166)
+        Me.Label4.Location = New System.Drawing.Point(8, 166)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(68, 20)
         Me.Label4.TabIndex = 7
@@ -192,7 +192,7 @@ Partial Class kunder
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 96)
+        Me.Label3.Location = New System.Drawing.Point(8, 95)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(76, 20)
         Me.Label3.TabIndex = 5
@@ -201,7 +201,7 @@ Partial Class kunder
         'txttelefon
         '
         Me.txttelefon.Location = New System.Drawing.Point(90, 92)
-        Me.txttelefon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txttelefon.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txttelefon.MaxLength = 8
         Me.txttelefon.Name = "txttelefon"
         Me.txttelefon.Size = New System.Drawing.Size(186, 26)
@@ -210,7 +210,7 @@ Partial Class kunder
         'txtEtternavn
         '
         Me.txtEtternavn.Location = New System.Drawing.Point(90, 58)
-        Me.txtEtternavn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtEtternavn.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txtEtternavn.Name = "txtEtternavn"
         Me.txtEtternavn.Size = New System.Drawing.Size(186, 26)
         Me.txtEtternavn.TabIndex = 1
@@ -218,7 +218,7 @@ Partial Class kunder
         'txtNavn
         '
         Me.txtNavn.Location = New System.Drawing.Point(90, 22)
-        Me.txtNavn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtNavn.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txtNavn.Name = "txtNavn"
         Me.txtNavn.Size = New System.Drawing.Size(186, 26)
         Me.txtNavn.TabIndex = 0
@@ -226,7 +226,7 @@ Partial Class kunder
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(7, 61)
+        Me.Label2.Location = New System.Drawing.Point(8, 62)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(78, 20)
         Me.Label2.TabIndex = 1
@@ -235,7 +235,7 @@ Partial Class kunder
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 26)
+        Me.Label1.Location = New System.Drawing.Point(8, 26)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 20)
         Me.Label1.TabIndex = 0
@@ -246,11 +246,11 @@ Partial Class kunder
         Me.GroupBox2.Controls.Add(Me.kundeGridView)
         Me.GroupBox2.Controls.Add(Me.sokKunde)
         Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Location = New System.Drawing.Point(320, 16)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox2.Location = New System.Drawing.Point(320, 15)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(918, 447)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.GroupBox2.Size = New System.Drawing.Size(993, 448)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -261,17 +261,17 @@ Partial Class kunder
         Me.kundeGridView.AllowUserToDeleteRows = False
         Me.kundeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.kundeGridView.Location = New System.Drawing.Point(12, 58)
-        Me.kundeGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.kundeGridView.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.kundeGridView.Name = "kundeGridView"
         Me.kundeGridView.ReadOnly = True
         Me.kundeGridView.RowTemplate.Height = 24
-        Me.kundeGridView.Size = New System.Drawing.Size(898, 381)
+        Me.kundeGridView.Size = New System.Drawing.Size(965, 382)
         Me.kundeGridView.TabIndex = 18
         '
         'sokKunde
         '
-        Me.sokKunde.Location = New System.Drawing.Point(127, 22)
-        Me.sokKunde.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.sokKunde.Location = New System.Drawing.Point(128, 22)
+        Me.sokKunde.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.sokKunde.Name = "sokKunde"
         Me.sokKunde.Size = New System.Drawing.Size(368, 26)
         Me.sokKunde.TabIndex = 10
@@ -279,7 +279,7 @@ Partial Class kunder
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(7, 26)
+        Me.Label6.Location = New System.Drawing.Point(8, 26)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(112, 20)
         Me.Label6.TabIndex = 17
@@ -289,11 +289,11 @@ Partial Class kunder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1250, 474)
+        Me.ClientSize = New System.Drawing.Size(1320, 474)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.Name = "kunder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Kunde"

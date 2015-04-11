@@ -87,6 +87,12 @@
     <Compile Include="sider\bruker.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sider\sykkeltype.Designer.vb">
+      <DependentUpon>sykkeltype.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sider\sykkeltype.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="sider\endrepassord.Designer.vb">
       <DependentUpon>endrepassord.vb</DependentUpon>
     </Compile>
@@ -168,6 +174,9 @@
   <ItemGroup>
     <EmbeddedResource Include="sider\bruker.resx">
       <DependentUpon>bruker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sider\sykkeltype.resx">
+      <DependentUpon>sykkeltype.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\endrepassord.resx">
       <DependentUpon>endrepassord.vb</DependentUpon>

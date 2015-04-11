@@ -85,6 +85,7 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdater bruker
+<<<<<<< HEAD
         Dim person As New person(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txttelefon.Text, txtAdresse.Text, txtPoststed.Text, txtMail.Text)
         Dim bruker As String = Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("etternavn").Value
 
@@ -96,6 +97,12 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
+=======
+        If ValiderKunde() Then
+            Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
+                Case MsgBoxResult.Yes
+                    payload = db.query(sql)
+>>>>>>> f1784ae5ec626ec5e4c654acf7002f64c6f8597f
                     oppdaterGridView()
                     oppdaterTxtbox()
                 End Try
