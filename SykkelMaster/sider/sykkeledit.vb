@@ -1,6 +1,5 @@
 ﻿Public Class sykkelEdit
-    Private payload As New DataTable
-    Private valider_feilmelding As String = ""
+    Private sykkel As sykkel
 
     Private Sub sykkelEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
@@ -10,32 +9,30 @@
         With cbxTilhorer
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = hoved.lokasjoner
+            .DataSource = hoved.virksomheter
         End With
         'Gjør at comboBox'en er tom når programmet starter
         cbxTilhorer.SelectedIndex = -1
 
-        payload = db.query("SELECT * FROM virksomhet")
         With cbxPosisjon
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = delt.hentVirksomhet
         End With
         cbxPosisjon.SelectedIndex = -1
 
-        payload = db.query("SELECT * FROM virksomhet")
         With cbxLokasjon
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = delt.hentVirksomhet
         End With
         cbxLokasjon.SelectedIndex = -1
 
-        payload = db.query("SELECT * FROM sykkeltype")
+
         With cbxType
             .DisplayMember = "sykkeltype"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = delt.hentSykkeltype
         End With
         cbxType.SelectedIndex = -1
 
@@ -47,15 +44,7 @@
 
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing, Optional ByVal status As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        Dim sql As String = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, s_status, sykkel.hjulstr, sykkel.rammestr, " & _
-                            "sykkel.avviksmelding, v1.navn posisjon, v2.navn " &
-                            "FROM sykkel " &
-                            "JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id " &
-                            "JOIN virksomhet v1 ON sykkel.posisjon = v1.id " &
-                            "JOIN virksomhet v2 ON sykkel.virksomhet_id = v2.id " &
-                            "AND rammenr LIKE '%" & sok & "%' AND v1.navn LIKE '%" & posisjon & "%' AND s_status LIKE '%" & status & "%'"
-        payload = db.query(sql)
-        SykkelGridView.DataSource = payload
+        SykkelGridView.DataSource = sykkelDAO.hentSykkler(sok, posisjon, status)
 
         With Me.SykkelGridView
             'Endre navn for å gi en bedre visuell opplevelse
@@ -100,65 +89,58 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkel i databasen
-        Dim sql As String = "INSERT INTO sykkel VALUES('" & txtRammenr.Text & "', " & CInt(cbxType.SelectedValue) & ", " &
-                            cbxHjul.Text & ", " & cbxRamme.Text & ", '" & cbxStatus.Text & "', '" & txtAvvik.Text &
-                            "', " & CInt(cbxPosisjon.SelectedValue) & ", " & CInt(cbxTilhorer.SelectedValue) & ")"
+        Dim sykkel As New sykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
 
-        If validerSykkel() Then
-            db.query(sql)
+        Try
+            sykkelDAO.leggTilSykkel(sykkel)
+            MsgBox("Sykkel lagt til.", MsgBoxStyle.Exclamation)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        Finally
             oppdaterGridView()
             oppdaterTxtbox()
-        Else
-            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
-        End If
-
+        End Try
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
-        Dim sql As String = "UPDATE sykkel SET rammenr = '" & txtRammenr.Text & "', sykkeltype = " & CInt(cbxType.SelectedValue) & _
-                            ", hjulstr = " & cbxHjul.Text & ", rammestr = " & cbxRamme.Text & ", s_status = '" & cbxStatus.Text & _
-                            "', avviksmelding = '" & txtAvvik.Text & "', posisjon = " & CInt(cbxPosisjon.SelectedValue) & _
-                            ", virksomhet_id = " & CInt(cbxTilhorer.SelectedValue) & " WHERE rammenr = '" & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & "'"
+        Dim sykkel As New sykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+        Dim sykkel_navn As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
 
-        Dim sykkel As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
-        'Oppdater bruker
-
-        If validerSykkel() then
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
-                payload = db.query(sql)
-                oppdaterGridView()
-                oppdaterTxtbox()
-            End Select
-        Else
-            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
-        End If
+                Try
+                    sykkelDAO.oppdaterSykkel(sykkel)
+                    MsgBox("Sykkel oppdatert.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    oppdaterGridView()
+                    oppdaterTxtbox()
+                End Try
+        End Select
 
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
-        Dim sql As String = "DELETE FROM sykkelmaster2015.sykkel WHERE rammenr = '" & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & "'"
+        Dim sykkel As New sykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value, txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
 
-        Dim sykkel As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
+        Dim sykkel_navn As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
         'Slett sykkel
 
-        If validerSykkel() Then
-            Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel & "?", MsgBoxStyle.YesNo, "caption")
-                Case MsgBoxResult.Yes
-                    Try
-                        payload = db.query(sql)
-                    Catch
-                        MsgBox("Du kan ikke slette sykkel")
-                    End Try
-            End Select
-        Else
-            MsgBox(valider_feilmelding, MsgBoxStyle.Critical)
-        End If
-        oppdaterGridView()
+        Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                Try
+                    sykkelDAO.fjernSykkel(sykkel)
+                    MsgBox("Sykkel lagt til.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    oppdaterGridView()
+                End Try
+        End Select
     End Sub
-
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
         oppdaterGridView(sok:=txtSok.Text)
@@ -171,46 +153,4 @@
     Private Sub cbxSokStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxSokStatus.SelectedIndexChanged
         oppdaterGridView(status:=cbxSokStatus.Text)
     End Sub
-
-    Function validerSykkel() As Boolean
-        valider_feilmelding = ""
-
-        If cbxTilhorer.Text = "" Then
-            valider_feilmelding &= "Feil input: Tilhører (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If cbxPosisjon.Text = "" Then
-            valider_feilmelding &= "Feil input: Posisjon (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If cbxType.Text = "" Then
-            valider_feilmelding &= "Feil input: Type (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If txtRammenr.Text = "" Or txtRammenr.Text.Contains(" ") = True Then
-            valider_feilmelding &= "Feil input: Rammenr (Kan ikke være tom eller inneholde mellomrom)" & vbCrLf
-        End If
-
-
-        If cbxHjul.Text = "" Then
-            valider_feilmelding &= "Feil input: Hjul (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If cbxRamme.Text = "" Then
-            valider_feilmelding &= "Feil input: Ramme (Kan ikke være tom)" & vbCrLf
-        End If
-
-
-
-        If cbxStatus.Text = "" Then
-            valider_feilmelding &= "Feil input: Status (Kan ikke være tom)" & vbCrLf
-        End If
-
-        If valider_feilmelding = "" Then
-            Return True
-        End If
-
-        Return False
-    End Function
-
 End Class

@@ -30,7 +30,7 @@ Partial Class hoved
         Me.cbxPlassering = New System.Windows.Forms.ComboBox()
         Me.btnVis_Brukere = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblNavn = New System.Windows.Forms.Label()
         Me.btnVis_innlevering = New System.Windows.Forms.Button()
         Me.btnBytt_Passord = New System.Windows.Forms.Button()
         Me.btnLogg_ut = New System.Windows.Forms.Button()
@@ -117,7 +117,7 @@ Partial Class hoved
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.lblNavn)
         Me.GroupBox1.Location = New System.Drawing.Point(15, 15)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
@@ -129,12 +129,12 @@ Partial Class hoved
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 28)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(101, 20)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Velkommen, "
+        Me.lblNavn.AutoSize = True
+        Me.lblNavn.Location = New System.Drawing.Point(8, 28)
+        Me.lblNavn.Name = "Label1"
+        Me.lblNavn.Size = New System.Drawing.Size(101, 20)
+        Me.lblNavn.TabIndex = 0
+        Me.lblNavn.Text = "Velkommen, "
         '
         'btnVis_innlevering
         '
@@ -211,7 +211,7 @@ Partial Class hoved
     Friend WithEvents cbxPlassering As System.Windows.Forms.ComboBox
     Friend WithEvents btnVis_Brukere As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblNavn As System.Windows.Forms.Label
     Friend WithEvents btnVis_innlevering As System.Windows.Forms.Button
     Friend WithEvents btnBytt_Passord As System.Windows.Forms.Button
     Friend WithEvents btnLogg_ut As System.Windows.Forms.Button

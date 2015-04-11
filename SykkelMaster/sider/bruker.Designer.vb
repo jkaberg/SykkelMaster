@@ -27,7 +27,7 @@ Partial Class bruker
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cbxArbedidssted = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.provisjon = New System.Windows.Forms.Label()
         Me.ProvisjonBar = New System.Windows.Forms.HScrollBar()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cbxStilling = New System.Windows.Forms.ComboBox()
@@ -35,7 +35,7 @@ Partial Class bruker
         Me.btnSlett_Bruker = New System.Windows.Forms.Button()
         Me.btnOppdater_Bruker = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtPostSted = New System.Windows.Forms.TextBox()
         Me.btnLegg_til_Bruker = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtMail = New System.Windows.Forms.TextBox()
@@ -84,7 +84,7 @@ Partial Class bruker
         '
         Me.GroupBox1.Controls.Add(Me.cbxArbedidssted)
         Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.provisjon)
         Me.GroupBox1.Controls.Add(Me.ProvisjonBar)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.cbxStilling)
@@ -92,7 +92,7 @@ Partial Class bruker
         Me.GroupBox1.Controls.Add(Me.btnSlett_Bruker)
         Me.GroupBox1.Controls.Add(Me.btnOppdater_Bruker)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.TextBox8)
+        Me.GroupBox1.Controls.Add(Me.txtPostSted)
         Me.GroupBox1.Controls.Add(Me.btnLegg_til_Bruker)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.txtMail)
@@ -136,12 +136,12 @@ Partial Class bruker
         '
         'Label10
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(77, 249)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(28, 17)
-        Me.Label10.TabIndex = 4
-        Me.Label10.Text = "0%"
+        Me.provisjon.AutoSize = True
+        Me.provisjon.Location = New System.Drawing.Point(77, 249)
+        Me.provisjon.Name = "Label10"
+        Me.provisjon.Size = New System.Drawing.Size(28, 17)
+        Me.provisjon.TabIndex = 4
+        Me.provisjon.Text = "0%"
         '
         'ProvisjonBar
         '
@@ -209,15 +209,15 @@ Partial Class bruker
         Me.Label8.TabIndex = 33
         Me.Label8.Text = "Poststed"
         '
-        'TextBox8
+        'txtPostSted
         '
-        Me.TextBox8.Enabled = False
-        Me.TextBox8.Location = New System.Drawing.Point(80, 186)
-        Me.TextBox8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TextBox8.MaxLength = 4
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(167, 22)
-        Me.TextBox8.TabIndex = 32
+        Me.txtPostSted.Enabled = False
+        Me.txtPostSted.Location = New System.Drawing.Point(80, 186)
+        Me.txtPostSted.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtPostSted.MaxLength = 4
+        Me.txtPostSted.Name = "txtPostSted"
+        Me.txtPostSted.Size = New System.Drawing.Size(167, 22)
+        Me.txtPostSted.TabIndex = 32
         '
         'btnLegg_til_Bruker
         '
@@ -370,13 +370,13 @@ Partial Class bruker
     Friend WithEvents btnSlett_Bruker As System.Windows.Forms.Button
     Friend WithEvents btnOppdater_Bruker As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPostSted As System.Windows.Forms.TextBox
     Friend WithEvents btnLegg_til_Bruker As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents cbxStilling As System.Windows.Forms.ComboBox
     Friend WithEvents ProvisjonBar As System.Windows.Forms.HScrollBar
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents provisjon As System.Windows.Forms.Label
     Friend WithEvents cbxArbedidssted As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
 End Class

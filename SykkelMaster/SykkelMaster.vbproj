@@ -22,6 +22,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>SykkelMaster.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -74,6 +75,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dao\ansatt.vb" />
+    <Compile Include="dao\delt.vb" />
+    <Compile Include="dao\endre_passord.vb" />
+    <Compile Include="dao\start.vb" />
+    <Compile Include="dao\sykkel.vb" />
+    <Compile Include="dao\sykkel_utstyr.vb" />
     <Compile Include="sider\bruker.Designer.vb">
       <DependentUpon>bruker.vb</DependentUpon>
     </Compile>
@@ -86,13 +93,14 @@
     <Compile Include="sider\endrepassord.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="dao\person.vb" />
     <Compile Include="sider\statistikk.Designer.vb">
       <DependentUpon>statistikk.vb</DependentUpon>
     </Compile>
     <Compile Include="sider\statistikk.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="verktoy\db.vb" />
+    <Compile Include="verktoy\database.vb" />
     <Compile Include="sider\hoved.Designer.vb">
       <DependentUpon>hoved.vb</DependentUpon>
     </Compile>
@@ -117,8 +125,8 @@
     <Compile Include="sider\lokasjon.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="klasser\person\ansatt.vb" />
-    <Compile Include="klasser\person\person.vb" />
+    <Compile Include="klasser\ansatt.vb" />
+    <Compile Include="klasser\person.vb" />
     <Compile Include="start.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -147,15 +155,15 @@
     <Compile Include="sider\sykkeledit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="klasser\sykkel\sykkel.vb" />
-    <Compile Include="klasser\sykkel\utstyr.vb" />
+    <Compile Include="klasser\sykkel.vb" />
+    <Compile Include="klasser\sykkel_utstyr.vb" />
     <Compile Include="sider\utleie.Designer.vb">
       <DependentUpon>utleie.vb</DependentUpon>
     </Compile>
     <Compile Include="sider\utleie.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="verktoy\util.vb" />
+    <Compile Include="verktoy\verktoy.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="sider\bruker.resx">

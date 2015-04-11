@@ -1,9 +1,6 @@
 ﻿Imports System.Net.Mail
-Imports System.Configuration
 
-Public Class util
-    Public Shared payload As DataTable
-
+Public Class verktoy
     Public Shared Function validerEpost(ByVal epost As String) As Boolean
         Dim regx As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
         Dim ep As System.Text.RegularExpressions.Match = regx.Match(epost)
@@ -20,22 +17,17 @@ Public Class util
     End Function
 
 
-    Public Shared Function validerStreng(ByVal Streng As String) As Boolean
-        If Streng = "" Then
+    Public Shared Function validerStreng(ByVal streng As String) As Boolean
+        If streng = "" Then
             Return False
         Else
-            For i = 0 To Streng.Length - 1
-                If Not Char.IsLetter(Streng.Chars(i)) Then
+            For i = 0 To streng.Length - 1
+                If Not Char.IsLetter(streng.Chars(i)) Then
                     Return False
                 End If
             Next
             Return True
         End If
-    End Function
-
-    Public Shared Function validerRammenr(ByVal rammenr As String) As Boolean
-
-
     End Function
 
     Public Shared Function tilfeldigStreng() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
@@ -58,7 +50,6 @@ Public Class util
     End Function
 
     Public Shared Function sendMail(ByVal mottaker As String, ByVal emne As String, ByVal hovedtekst As String)
-
         Dim epostmelding As New MailMessage()
         Try
             epostmelding.From = New MailAddress("Granlieirik3@gmail.com")
@@ -79,39 +70,4 @@ Public Class util
         End Try
         Return False
     End Function
-
-
-    Public Shared Function Finn_Poststed(sender As Object, e As EventArgs) As String
-        Dim poststed_sql As New DataTable
-        Dim post_sted As String = ""
-        Dim postnr As String = ""
-        poststed_sql = db.query("SELECT post_sted FROM sted WHERE sted.post_nr = '" & postnr & "'")
-        'Oppdaterer poststedet når post nummer blir skrevet inn
-        Return post_sted
-
-    End Function
-
-    Public Shared Function sjekkBrukerEksisterer(ByVal epost As String)
-        Dim payload As New DataTable
-        Dim sql As String = "SELECT COUNT(mail) FROM person WHERE mail = '" & epost & "'"
-        payload = db.query(sql)
-
-        If payload.Rows.Count > 0 And CInt(payload.Rows(0)(0)) >= 1 Then
-            Return True
-        End If
-        Return False
-    End Function
-
-    Public Shared Function sokTlfNummer(ByVal kunde_id As Integer) As Integer
-        Dim sql As String = "SELECT telefon FROM person WHERE id = " & kunde_id & ";"
-
-        payload = db.query(sql)
-
-        If payload.Rows.Count >= 0 Then
-            Return payload.Rows(0).Item(0) 'returnerer telefon nummer til Kunde
-        End If
-
-        Return vbEmpty
-    End Function
-
 End Class
