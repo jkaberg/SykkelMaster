@@ -7,9 +7,7 @@
     End Sub
 
     Private Sub oppdaterGridView()
-        Dim sql As String = "SELECT * FROM sykkeltype"
-        payload = db.query(sql)
-        sykkeltypeGrid.DataSource = payload
+        sykkeltypeGrid.DataSource = delt.hentSykkeltype
 
         With Me.sykkeltypeGrid
             .Columns("id").Visible = False
@@ -32,9 +30,7 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkeltype i systemet
-        Dim sql As String = "INSERT INTO sykkeltype (sykkeltype) VALUES('" & txtNavn.Text & "')"
-
-        db.query(sql)
+        database.query("INSERT INTO sykkeltype (sykkeltype) VALUES('" & txtNavn.Text & "');")
         oppdaterGridView()
         oppdaterTxtbox()
     End Sub
@@ -47,7 +43,7 @@
         'Oppdater sykkeltype
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkeltype & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
-                payload = db.query(sql)
+                payload = database.dt_query(sql)
                 oppdaterGridView()
                 oppdaterTxtbox()
         End Select
@@ -61,7 +57,7 @@
         'Slett sykkeltype
         Select Case MsgBox("Er du sikker på at du vil fjern " & sykkeltype & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
-                    payload = db.query(sql)
+                database.query(sql)
         End Select
         oppdaterGridView()
     End Sub

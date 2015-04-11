@@ -28,13 +28,6 @@
         End With
         cbxLokasjon.SelectedIndex = -1
 
-        With cbxType
-            .DisplayMember = "sykkeltype"
-            .ValueMember = "id"
-            .DataSource = delt.hentSykkeltype
-        End With
-        cbxType.SelectedIndex = -1
-
     End Sub
 
     Private Sub SykkelGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles SykkelGridView.CellClick
