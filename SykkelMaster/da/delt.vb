@@ -2,15 +2,15 @@
     Public Shared payload As DataTable
     Public Shared sql As String
     Public Shared Function hentStillinger() As DataTable
-        Return database.dt_query("SELECT * FROM stilling")
+        Return database.dt_query("SELECT * FROM stilling;")
     End Function
 
     Public Shared Function hentVirksomhet() As DataTable
-        Return database.dt_query("SELECT * FROM virksomhet")
+        Return database.dt_query("SELECT * FROM virksomhet;")
     End Function
 
     Public Shared Function hentSykkeltype() As DataTable
-        Return database.dt_query("SELECT * FROM sykkeltype")
+        Return database.dt_query("SELECT * FROM sykkeltype;")
     End Function
 
     Public Shared Function finnTlfNummer(ByVal kunde_id As Integer) As String
@@ -19,18 +19,27 @@
         If payload.Rows.Count > 0 Then
             Return payload.Rows(0).Item(0) 'returnerer telefon nummer til Kunde
         Else
-            Return vbEmpty
+            Return vbNullChar
         End If
     End Function
 
     Public Shared Function finnPostSted(ByVal postnr As String) As String
         payload = database.dt_query("SELECT post_sted FROM sted WHERE sted.post_nr = " & postnr & ";")
 
-        If payload.Rows.Count > 0 Then
+        If payload.Rows.Count = 1 Then
             Return payload.Rows(0).Item(0)
         Else
-            Return ""
+            Return vbNullChar
         End If
+    End Function
+
+    Public Shared Function finnKunde(ByVal sok As String) As DataTable
+        sql = "SELECT id, fornavn, etternavn, telefon FROM person " &
+              "WHERE fornavn LIKE '" & sok & "%' " &
+              "OR etternavn LIKE '" & sok & "%' " &
+              "OR telefon LIKE '" & sok & "%';"
+
+        Return database.dt_query(sql)
     End Function
 
     Public Shared Function sjekkMailEksisterer(ByVal epost As String)

@@ -77,9 +77,11 @@
     <Compile Include="da\ansatt.vb" />
     <Compile Include="da\delt.vb" />
     <Compile Include="da\endre_passord.vb" />
+    <Compile Include="da\innlevering.vb" />
     <Compile Include="da\lokasjon.vb" />
     <Compile Include="da\person.vb" />
     <Compile Include="da\start.vb" />
+    <Compile Include="da\statistikk.vb" />
     <Compile Include="da\sykkel.vb" />
     <Compile Include="da\sykkel_utstyr.vb" />
     <Compile Include="klasser\ansatt.vb" />

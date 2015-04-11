@@ -20,20 +20,13 @@ Public Class innlevering
     End Sub
 
     Private Sub cbxKunde_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxKunde.SelectedIndexChanged
-        Dim payload As DataTable
         Dim kunde_id As String = cbxKunde.SelectedValue
 
         If kunde_id > 0 Then
-            Dim sql As String = "SELECT ordre_nr " &
-                                "FROM salg_leie " &
-                                "WHERE salg_leie.person_id_kunde = " & cbxKunde.SelectedValue
-
-            payload = database.dt_query(sql)
-
             With cbxLeieAvtaler
                 .DisplayMember = "ordre_nr"
                 .ValueMember = "ordre_nr"
-                .DataSource = payload
+                .DataSource = innleveringDAO.hentLeieAvtaler(kunde_id)
             End With
 
             txtTelefon.Text = delt.finnTlfNummer(kunde_id)
@@ -41,42 +34,23 @@ Public Class innlevering
     End Sub
 
     Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
-        Dim id As Integer = Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
         If lokasjoner.SelectedValue <> 0 Then
-            Dim sql As String = "START TRANSACTION;" &
-                                "UPDATE salg_leie SET s_l_status = 'Innlevert' " &
-                                "WHERE ordre_nr = " & id & ";" &
-                                "UPDATE sykkel_leid_ut SET s_l_u_status = 'Levert' " &
-                                "WHERE ordre_nr = " & id & ";" &
-                                "UPDATE utstyr_leid_ut SET u_l_u_status = 'Levert' " &
-                                "WHERE ordre_nr = " & id & ";" &
-                                "UPDATE sykkel " &
-                                "JOIN sykkel_leid_ut ON sykkel.rammenr = sykkel_leid_ut.rammenr AND sykkel_leid_ut.ordre_nr = " & id & " " &
-                                "SET sykkel.posisjon = " & lokasjoner.SelectedValue & ";" &
-                                "COMMIT;"
-            Console.WriteLine(sql)
-            payload = database.dt_query(sql)
-
-            MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
-            avtaleInnehold()
+            Try
+                innleveringDAO.avsluttLeieAvtale(Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value, lokasjoner.SelectedValue)
+                MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical)
+            Finally
+                avtaleInnehold()
+            End Try
         Else
             MsgBox("Du må velge en plass å levere inn ordren på.", MsgBoxStyle.Critical)
         End If
     End Sub
 
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
-        Dim sql As String = "SELECT utstyr_leid_ut.ordre_nr, " &
-                            "sykkelutstyr.navn " &
-                            "FROM utstyr_leid_ut " &
-                            "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
-                            "WHERE utstyr_leid_ut.ordre_nr = " & Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
-
-        payload = database.dt_query(sql)
-
-        tilbehorGrid.DataSource = payload
-
         With tilbehorGrid
-            'Endrer navn på headere for å gi en bedre visuell opplevelse
+            .DataSource = innleveringDAO.hentTilbehor(Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value)
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("navn").HeaderText = "Navn"
         End With
@@ -87,16 +61,11 @@ Public Class innlevering
     End Sub
 
     Private Sub sokKunde(ByVal sok As String)
-        Dim sql As String = "SELECT id, fornavn, etternavn, telefon FROM person " &
-                            "WHERE fornavn LIKE '" & sok & "%' " &
-                            "OR etternavn LIKE '" & sok & "%' " &
-                            "OR telefon LIKE '" & sok & "%' "
-
-        payload = database.dt_query(sql)
+        payload = delt.finnKunde(sok)
 
         payload.Columns.Add("kunde_navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
 
-        If payload.Rows.Count >= 1 Then
+        If payload.Rows.Count > 0 Then
             With cbxKunde
                 .DisplayMember = "kunde_navn"
                 .ValueMember = "id"
@@ -110,40 +79,14 @@ Public Class innlevering
     End Sub
 
     Private Sub avtaleInnehold(Optional ByVal id As Integer = Nothing)
-        Dim sql As String
-
-        Me.oversiktGrid.DataSource = Nothing
-
-        If id Then
-            sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
-                  "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
-                  "sykkeltype.sykkeltype , person.id " &
-                  "FROM salg_leie " &
-                  "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
-                  "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
-                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
-                  "JOIN person ON salg_leie.person_id_kunde = person.id " &
-                  "WHERE salg_leie.ordre_nr = " & id
-        Else
-            sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
-                  "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
-                  "sykkeltype.sykkeltype, person.id " &
-                  "FROM salg_leie " &
-                  "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
-                  "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
-                  "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
-                  "JOIN person ON salg_leie.person_id_kunde = person.id " &
-                  "WHERE s_l_status <> 'Innlevert';"
-
+        If id = Nothing Then
             cbxKunde.DataSource = Nothing
             cbxLeieAvtaler.DataSource = Nothing
             txtSokKunde.Text = ""
         End If
 
-        payload = database.dt_query(sql)
-        oversiktGrid.DataSource = payload 'Ordrene til kunden som er valgt blir lagt ut i DataGrid
-
         With Me.oversiktGrid
+            .DataSource = innleveringDAO.hentAvtaleInnehold(id)
             'Endrer navn på headere for å gi en bedre visuell opplevelse
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("frist").HeaderText = "Frist"
@@ -162,31 +105,21 @@ Public Class innlevering
     End Sub
 
     Private Sub cbxStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStatus.SelectedIndexChanged
-        If cbxStatus.Text = "Leid ut" Then
-            avtaleInnehold()
-        ElseIf cbxStatus.Text = "Tidsfrist gått ut" Then
-            fristGattUt("<")
-        ElseIf cbxStatus.Text = "Tidsfrist ikke gått ut" Then
-            fristGattUt(">=")
-        End If
+        Select Case cbxStatus.Text
+            Case "Leid ut"
+                avtaleInnehold()
+            Case "Tidsfrist gått ut"
+                fristGattUt("<")
+            Case "Tidsfrist ikke gått ut"
+                fristGattUt(">=")
+        End Select
+
     End Sub
 
-    Public Sub fristGattUt(sok As String)
+    Public Sub fristGattUt(ByVal sok As String)
         'Får opp de som ikke har levert inn sykkelen innen fristen
-        Dim sql As String = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
-                            "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
-                            "sykkeltype.sykkeltype, person.id " &
-                            "FROM salg_leie " &
-                            "JOIN sykkel_leid_ut ON salg_leie.ordre_nr = sykkel_leid_ut.ordre_nr " &
-                            "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
-                            "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
-                            "JOIN person ON salg_leie.person_id_kunde = person.id " &
-                            "WHERE DATE(frist) " & sok & " DATE(NOW()) AND s_l_status = 'Leid ut'"
-
-        payload = database.dt_query(sql)
-        oversiktGrid.DataSource = payload
-
         With Me.oversiktGrid
+            .DataSource = innleveringDAO.hentLeieFrister(sok)
             'Endre navn for å gi en bedre visuell opplevelse
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("frist").HeaderText = "Frist"
