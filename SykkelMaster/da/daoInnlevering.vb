@@ -1,4 +1,4 @@
-﻿Public Class innleveringDAO
+﻿Public Class daoInnlevering
     Public Shared sql As String
 
     Public Shared Function hentTilbehor(ByVal ordre_nr As Integer) As DataTable

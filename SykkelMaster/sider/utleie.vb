@@ -44,7 +44,7 @@
                 .DataSource = payload
             End With
 
-            txtTelefon.Text = delt.finnTlfNummer(cbxNavn.SelectedValue)
+            txtTelefon.Text = daoDelt.finnTlfNummer(cbxNavn.SelectedValue)
         Else
             Me.cbxNavn.DataSource = Nothing
         End If

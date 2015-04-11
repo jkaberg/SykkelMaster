@@ -36,7 +36,7 @@
 
         'Hent ut å vis frem alle lokasjoner (virksomheter) i ComboBox1
         virksomheter = New DataTable
-        virksomheter = delt.hentVirksomhet
+        virksomheter = daoDelt.hentVirksomhet
 
         With cbxPlassering
             .DisplayMember = "navn"

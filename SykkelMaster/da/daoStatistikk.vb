@@ -1,4 +1,4 @@
-﻿Public Class statistikkDAO
+﻿Public Class daoStatistikk
     Public Shared sql As String
 
     Public Shared Function hentStats(ByVal index As Integer) As DataTable

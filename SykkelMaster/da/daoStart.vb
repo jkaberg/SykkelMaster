@@ -1,6 +1,6 @@
-﻿Public Class startDAO
+﻿Public Class daoStart
     Public Shared sql As String
-    Public Shared Function sjekkLogin(ByVal epost As String, ByVal passord As String) As ansatt
+    Public Shared Function sjekkLogin(ByVal epost As String, ByVal passord As String) As clsAnsatt
         sql = "SELECT " &
               "person.id, person.fornavn, person.etternavn, person.telefon, person.mail, person.adresse, person.post_nr, " &
               "ansatt.provisjon, ansatt.stilling, ansatt.passord, ansatt.virksomhet_id, " &
@@ -17,7 +17,7 @@
         If payload.Rows.Count = 1 Then
             Dim d As DataRow = payload.Rows(0)
 
-            Dim bruker As New ansatt(d("id"),
+            Dim bruker As New clsAnsatt(d("id"),
                                      d("fornavn"),
                                      d("etternavn"),
                                      d("post_nr"),

@@ -7,9 +7,8 @@
     End Sub
 
     Private Sub oppdaterGridView()
-        sykkeltypeGrid.DataSource = delt.hentSykkeltype
-
         With Me.sykkeltypeGrid
+            .DataSource = daoDelt.hentSykkeltype
             .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
             .Columns("sykkeltype").HeaderText = "Sykkletype"
@@ -23,9 +22,7 @@
 
     Private Sub oppdaterTxtbox()
         'Setter inn datane fra Grid Viewn i Textboksen
-        With Me.sykkeltypeGrid
-            txtNavn.Text = .Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("sykkeltype").Value
-        End With
+        txtNavn = Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("sykkeltype").Value
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click

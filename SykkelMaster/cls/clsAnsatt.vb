@@ -1,5 +1,5 @@
-﻿Public Class ansatt
-    Inherits person
+﻿Public Class clsAnsatt
+    Inherits clsPerson
     Private stilling As Integer ' Daglig leder
     Private provisjon As Integer ' 10 | (%) - burde kanskje vurdere Double med 2 decimaler
     Private passord As String

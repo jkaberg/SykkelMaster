@@ -8,7 +8,7 @@
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
-            .DataSource = delt.hentStillinger()
+            .DataSource = daoDelt.hentStillinger()
         End With
 
         With cbxArbedidssted
@@ -36,7 +36,7 @@
     End Sub
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
-        Dim sok As String = delt.finnPostSted(txtPostnr.Text)
+        Dim sok As String = daoDelt.finnPostSted(txtPostnr.Text)
 
         If sok <> "" Then
             txtPostSted.Text = sok
@@ -62,7 +62,7 @@
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
-            .DataSource = delt.hentStillinger()
+            .DataSource = daoDelt.hentStillinger()
         End With
 
         'oppdaterer stillling fra databasen i combobox
@@ -91,7 +91,7 @@
     End Sub
 
     Private Sub oppdaterGridView()
-        brukerGridView.DataSource = ansattDAO.hentAnsatte()
+        brukerGridView.DataSource = daoAnsatt.hentAnsatte()
 
         With Me.brukerGridView
             'Vis ikke enkelte kolonner 
@@ -116,7 +116,7 @@
     Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
         Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
         Dim passord As String = verktoy.tilfeldigStreng()
-        Dim ansatt As New ansatt(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), passord, cbxArbedidssted.SelectedValue)
+        Dim ansatt As New clsAnsatt(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), passord, cbxArbedidssted.SelectedValue)
 
         Dim body As String = "Hei " & bruker & ", og velkommen til Sykkelmaster." & vbNewLine &
                              "Det er opprettet en ny bruker til deg med følgende opplysninger" & vbNewLine & vbNewLine &
@@ -124,13 +124,13 @@
                              "Passord: " & passord & vbNewLine & vbNewLine &
                              "Hilsen, SykkelMaster"
 
-        If delt.sjekkBrukerEksisterer(txtMail.Text) Then
+        If daoDelt.sjekkBrukerEksisterer(txtMail.Text) Then
             MsgBox("Det eksisterer allerede en bruker med mail adresse " & txtMail.Text & ", vennligt velg noe annet.", MsgBoxStyle.Critical)
         Else
             Select Case MsgBox("Er du sikker på at du vil legg til " & bruker & "?", MsgBoxStyle.YesNo)
                 Case MsgBoxResult.Yes
                     Try
-                        ansattDAO.leggTilAnsatt(ansatt)
+                        daoAnsatt.leggTilAnsatt(ansatt)
                         verktoy.sendMail(txtMail.Text, "Ny bruker i Sykkelmaster", body)
                         MsgBox(bruker & " lagt til.", MsgBoxStyle.Exclamation)
                     Catch ex As Exception
@@ -144,13 +144,13 @@
 
     Private Sub Slett_Bruker(sender As Object, e As EventArgs) Handles btnSlett_Bruker.Click
         Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
-        Dim ansatt As New ansatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), cbxArbedidssted.SelectedValue)
+        Dim ansatt As New clsAnsatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), cbxArbedidssted.SelectedValue)
 
         'Slett bruker
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
-                    ansattDAO.fjernAnsatt(ansatt)
+                    daoAnsatt.fjernAnsatt(ansatt)
                     MsgBox(bruker & " er fjernet.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -162,13 +162,13 @@
 
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
         Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
-        Dim ansatt As New ansatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), cbxArbedidssted.SelectedValue)
+        Dim ansatt As New clsAnsatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), cbxArbedidssted.SelectedValue)
 
         'Oppdater bruker
         Select Case MsgBox("Er du sikker på at du vil oppdater " & bruker & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
-                    ansattDAO.oppdaterAnsatt(ansatt)
+                    daoAnsatt.oppdaterAnsatt(ansatt)
                     MsgBox(bruker & " er oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)

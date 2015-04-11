@@ -1,6 +1,6 @@
-﻿Public Class ansattDAO
+﻿Public Class daoAnsatt
     Public Shared sql As String
-    Public Shared Function leggTilAnsatt(ByVal ansatt As ansatt) As Boolean
+    Public Shared Function leggTilAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         sql = "START TRANSACTION;" &
               "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
               "VALUES ('" & ansatt.pFnavn & "', '" & ansatt.pFnavn & "', " & ansatt.pTlfnr & ", '" & ansatt.pEpost & "', '" & ansatt.pGate & "', " & ansatt.pPostnr & ");" &
@@ -11,7 +11,7 @@
         Return database.query(sql)
     End Function
 
-    Public Shared Function oppdaterAnsatt(ByVal ansatt As ansatt) As Boolean
+    Public Shared Function oppdaterAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         sql = "START TRANSACTION;" &
               "UPDATE person SET fornavn = '" & ansatt.pFnavn & "', etternavn = '" & ansatt.pEnavn & "', telefon = " & ansatt.pTlfnr & ", mail = '" & ansatt.pEpost & "', adresse = '" & ansatt.pGate & "', post_nr = " & ansatt.pGate & " " &
               "WHERE id = " & ansatt.pID & ";" &
@@ -22,7 +22,7 @@
         Return database.query(sql)
     End Function
 
-    Public Shared Function fjernAnsatt(ByVal ansatt As ansatt) As Boolean
+    Public Shared Function fjernAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         Return database.query("DELETE FROM ansatt WHERE ansatt.person_id = " & ansatt.pID & ";")
     End Function
 

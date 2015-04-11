@@ -1,7 +1,7 @@
-﻿Public Class sykkelDAO
+﻿Public Class daoSykkel
     Public Shared sql As String
 
-    Public Shared Function leggTilSykkel(ByVal sykkel As sykkel) As Boolean
+    Public Shared Function leggTilSykkel(ByVal sykkel As clsSykkel) As Boolean
         sql = "INSERT INTO sykkel VALUES('" & sykkel.pRammenr & "', " & sykkel.pSykkeltype & ", " &
               sykkel.pHjulstr & ", " & sykkel.pRammestr & ", '" & sykkel.pStatus & "', '" &
               sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
@@ -9,7 +9,7 @@
         Return database.query(sql)
     End Function
 
-    Public Shared Function oppdaterSykkel(ByVal sykkel As sykkel) As Boolean
+    Public Shared Function oppdaterSykkel(ByVal sykkel As clsSykkel) As Boolean
         sql = "UPDATE sykkel SET rammenr = '" & sykkel.pRammenr & "', sykkeltype = " & sykkel.pSykkeltype &
               ", hjulstr = " & sykkel.pHjulstr & ", rammestr = " & sykkel.pRammestr & ", s_status = '" & sykkel.pStatus &
               "', avviksmelding = '" & sykkel.pAvviksmld & "', posisjon = " & sykkel.pPosisjon &
@@ -18,7 +18,7 @@
         Return database.query(sql)
     End Function
 
-    Public Shared Function fjernSykkel(ByVal sykkel As sykkel) As Boolean
+    Public Shared Function fjernSykkel(ByVal sykkel As clsSykkel) As Boolean
         Return database.query("DELETE FROM sykkel WHERE rammenr = '" & sykkel.pID & "';")
     End Function
 

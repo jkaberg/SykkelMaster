@@ -1,4 +1,4 @@
-﻿Public Class delt
+﻿Public Class daoDelt
     Public Shared payload As DataTable
     Public Shared sql As String
     Public Shared Function hentStillinger() As DataTable

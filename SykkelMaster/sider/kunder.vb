@@ -1,5 +1,5 @@
 ﻿Public Class kunder
-    Private person As person
+    Private person As clsPerson
 
     Private Sub kunder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
@@ -12,7 +12,7 @@
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
         'Henter opp poststed i textboxen
-        Dim sok As String = delt.finnPostSted(txtPostnr.Text)
+        Dim sok As String = daoDelt.finnPostSted(txtPostnr.Text)
 
         If sok <> "" Then
             txtPoststed.Text = sok
@@ -26,11 +26,11 @@
         Dim payload As DataTable
 
         If Not id = Nothing Then
-            payload = personDAO.hentPersoner(id:=id)
+            payload = daoPerson.hentPersoner(id:=id)
         ElseIf sok = Nothing Then
-            payload = personDAO.hentPersoner()
+            payload = daoPerson.hentPersoner()
         Else
-            payload = personDAO.hentPersoner(sok:=sok)
+            payload = daoPerson.hentPersoner(sok:=sok)
         End If
 
         With Me.kundeGridView
@@ -70,10 +70,10 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny person
-        Dim person As New person(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txttelefon.Text, txtAdresse.Text, txtPoststed.Text, txtMail.Text)
+        Dim person As New clsPerson(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txttelefon.Text, txtAdresse.Text, txtPoststed.Text, txtMail.Text)
 
         Try
-            personDAO.leggTilPerson(person)
+            daoPerson.leggTilPerson(person)
             MsgBox("Kunde lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -84,13 +84,13 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdater bruker
-        Dim person As New person(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txttelefon.Text, txtAdresse.Text, txtPoststed.Text, txtMail.Text)
+        Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txttelefon.Text, txtAdresse.Text, txtPoststed.Text, txtMail.Text)
         Dim bruker As String = Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("fornavn").Value & " " & Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("etternavn").Value
 
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    personDAO.oppdaterPerson(person)
+                    daoPerson.oppdaterPerson(person)
                     MsgBox(bruker & " er oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -109,7 +109,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    personDAO.fjernPerson(person_id)
+                    daoPerson.fjernPerson(person_id)
                     MsgBox(bruker & " fjernet.", MsgBoxStyle.Information)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)

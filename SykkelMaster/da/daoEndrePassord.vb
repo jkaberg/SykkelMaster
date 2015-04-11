@@ -1,4 +1,4 @@
-﻿Public Class endrePassordDAO
+﻿Public Class daoEndrePassord
     Public Shared sql As String
 
     Public Shared Function endrePassord(ByVal passord As String, ByVal epost As String) As Boolean

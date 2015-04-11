@@ -26,17 +26,17 @@ Public Class innlevering
             With cbxLeieAvtaler
                 .DisplayMember = "ordre_nr"
                 .ValueMember = "ordre_nr"
-                .DataSource = innleveringDAO.hentLeieAvtaler(kunde_id)
+                .DataSource = daoInnlevering.hentLeieAvtaler(kunde_id)
             End With
 
-            txtTelefon.Text = delt.finnTlfNummer(kunde_id)
+            txtTelefon.Text = daoDelt.finnTlfNummer(kunde_id)
         End If
     End Sub
 
     Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
         If lokasjoner.SelectedValue <> 0 Then
             Try
-                innleveringDAO.avsluttLeieAvtale(Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value, lokasjoner.SelectedValue)
+                daoInnlevering.avsluttLeieAvtale(Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value, lokasjoner.SelectedValue)
                 MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -50,7 +50,7 @@ Public Class innlevering
 
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
         With tilbehorGrid
-            .DataSource = innleveringDAO.hentTilbehor(Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value)
+            .DataSource = daoInnlevering.hentTilbehor(Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value)
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("navn").HeaderText = "Navn"
         End With
@@ -61,7 +61,7 @@ Public Class innlevering
     End Sub
 
     Private Sub sokKunde(ByVal sok As String)
-        payload = delt.finnKunde(sok)
+        payload = daoDelt.finnKunde(sok)
 
         payload.Columns.Add("kunde_navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
 
@@ -86,7 +86,7 @@ Public Class innlevering
         End If
 
         With Me.oversiktGrid
-            .DataSource = innleveringDAO.hentAvtaleInnehold(id)
+            .DataSource = daoInnlevering.hentAvtaleInnehold(id)
             'Endrer navn på headere for å gi en bedre visuell opplevelse
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("frist").HeaderText = "Frist"
@@ -119,7 +119,7 @@ Public Class innlevering
     Public Sub fristGattUt(ByVal sok As String)
         'Får opp de som ikke har levert inn sykkelen innen fristen
         With Me.oversiktGrid
-            .DataSource = innleveringDAO.hentLeieFrister(sok)
+            .DataSource = daoInnlevering.hentLeieFrister(sok)
             'Endre navn for å gi en bedre visuell opplevelse
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("frist").HeaderText = "Frist"

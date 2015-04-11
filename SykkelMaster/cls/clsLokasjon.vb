@@ -1,4 +1,4 @@
-﻿Public Class lokasjon
+﻿Public Class clsLokasjon
     Private navn, mail, adresse As String
     Private id, telefon, post_nr As Integer
 

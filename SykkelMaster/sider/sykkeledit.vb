@@ -1,5 +1,5 @@
 ﻿Public Class sykkelEdit
-    Private sykkel As sykkel
+    Private sykkel As clsSykkel
 
     Private Sub sykkelEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
@@ -17,14 +17,14 @@
         With cbxPosisjon
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = delt.hentVirksomhet
+            .DataSource = daoDelt.hentVirksomhet
         End With
         cbxPosisjon.SelectedIndex = -1
 
         With cbxLokasjon
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = delt.hentVirksomhet
+            .DataSource = daoDelt.hentVirksomhet
         End With
         cbxLokasjon.SelectedIndex = -1
 
@@ -36,7 +36,7 @@
 
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing, Optional ByVal status As String = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        SykkelGridView.DataSource = sykkelDAO.hentSykkler(sok, posisjon, status)
+        SykkelGridView.DataSource = daoSykkel.hentSykkler(sok, posisjon, status)
 
         With Me.SykkelGridView
             'Endre navn for å gi en bedre visuell opplevelse
@@ -81,10 +81,10 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkel i databasen
-        Dim sykkel As New sykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+        Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
 
         Try
-            sykkelDAO.leggTilSykkel(sykkel)
+            daoSykkel.leggTilSykkel(sykkel)
             MsgBox("Sykkel lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -97,13 +97,13 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
-        Dim sykkel As New sykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+        Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
         Dim sykkel_navn As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
 
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    sykkelDAO.oppdaterSykkel(sykkel)
+                    daoSykkel.oppdaterSykkel(sykkel)
                     MsgBox("Sykkel oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -116,7 +116,7 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
-        Dim sykkel As New sykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value, txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+        Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value, txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
 
         Dim sykkel_navn As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
         'Slett sykkel
@@ -124,7 +124,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    sykkelDAO.fjernSykkel(sykkel)
+                    daoSykkel.fjernSykkel(sykkel)
                     MsgBox("Sykkel lagt til.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -154,7 +154,7 @@
         With cbxType
             .DisplayMember = "sykkeltype"
             .ValueMember = "id"
-            .DataSource = delt.hentSykkeltype
+            .DataSource = daoDelt.hentSykkeltype
         End With
         cbxType.SelectedIndex = -1
     End Sub

@@ -8,7 +8,7 @@
         graf.Series(0).Points.Clear()
         graf.DataSource = ""
 
-        graf.DataSource = statistikkDAO.hentStats(cbxStats.SelectedIndex)
+        graf.DataSource = daoStatistikk.hentStats(cbxStats.SelectedIndex)
 
         graf.Series("Series1").XValueMember = "navn"
         graf.Series("Series1").YValueMembers = "num"

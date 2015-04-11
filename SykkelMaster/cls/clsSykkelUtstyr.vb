@@ -1,4 +1,4 @@
-﻿Public Class sykkel_utstyr
+﻿Public Class clsSykkelUtstyr
     Private id, passer_sykkel_id As Integer
     Private navn As String
     Sub New(ByVal id As Integer, ByVal passer_sykkel_id As Integer, ByVal navn As String)

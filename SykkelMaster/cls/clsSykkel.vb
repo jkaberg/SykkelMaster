@@ -1,4 +1,4 @@
-﻿Public Class sykkel
+﻿Public Class clsSykkel
     Private rammenr, avviksmelding, status As String
     Private id, sykkeltype, hjulstr, rammestr, posisjon, virksomhet As Integer
 

@@ -1,7 +1,7 @@
-﻿Public Class personDAO
+﻿Public Class daoPerson
     Public Shared sql As String
 
-    Public Shared Function leggTilPerson(ByVal person As person) As Boolean
+    Public Shared Function leggTilPerson(ByVal person As clsPerson) As Boolean
         sql = "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) VALUES('" &
               person.pFnavn & "', '" & person.pEnavn & "', " & person.pTlfnr & ", '" & person.pEpost & "', '" & person.pGate & "', " & person.pPostnr & ");"
 
@@ -12,7 +12,7 @@
         Return database.query("DELETE FROM sykkelmaster2015.person WHERE person.id = " & id & ";")
     End Function
 
-    Public Shared Function oppdaterPerson(ByVal person As person) As Boolean
+    Public Shared Function oppdaterPerson(ByVal person As clsPerson) As Boolean
         sql = "UPDATE person SET " &
               "fornavn = '" & person.pFnavn & "', " &
               "etternavn = '" & person.pEnavn & "', " &

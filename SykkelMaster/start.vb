@@ -1,5 +1,5 @@
 ﻿Public Class start
-    Public bruker As ansatt
+    Public bruker As clsAnsatt
 
     Private Sub start_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtEpost.Text = "ddd@ddd"
@@ -8,7 +8,7 @@
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Try
-            bruker = startDAO.sjekkLogin(txtEpost.Text, txtPassord.Text)
+            bruker = daoStart.sjekkLogin(txtEpost.Text, txtPassord.Text)
             Me.Hide()
             hoved.Show()
         Catch ex As Exception
@@ -20,8 +20,8 @@
         Dim passord As String = verktoy.tilfeldigStreng()
 
         If verktoy.validerEpost(byttEpost.Text) Then
-            If delt.sjekkMailEksisterer(byttEpost.Text) Then
-                If startDAO.oppdaterPassord(passord, byttEpost.Text) Then
+            If daoDelt.sjekkMailEksisterer(byttEpost.Text) Then
+                If daoStart.oppdaterPassord(passord, byttEpost.Text) Then
                     verktoy.sendMail(byttEpost.Text, "Nytt Passord", "Her er ditt nye passord: " & passord)
                     MsgBox("Ditt nye passord er sendt til deg på mail.", MsgBoxStyle.Information)
                 End If

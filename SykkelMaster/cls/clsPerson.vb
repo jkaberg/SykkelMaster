@@ -1,4 +1,4 @@
-﻿Public Class person
+﻿Public Class clsPerson
     Private fornavn, etternavn, epost, gate, sted As String ' Ola | Nordmann | ola.nordmann@epost.com | Olav Tryggvasonsgate 10 | Trondheim
     Private id, postnr, telefonnr As Integer ' 1 | 7070 | 12345678
 
