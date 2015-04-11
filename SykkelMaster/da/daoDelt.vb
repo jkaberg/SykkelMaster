@@ -9,7 +9,7 @@
         Return database.dt_query("SELECT * FROM virksomhet;")
     End Function
 
-    Public Shared Function hentSykkeltype() As DataTable
+    Public Shared Function hentSykkelType() As DataTable
         Return database.dt_query("SELECT * FROM sykkeltype;")
     End Function
 

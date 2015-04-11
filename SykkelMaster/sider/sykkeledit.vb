@@ -154,7 +154,7 @@
         With cbxType
             .DisplayMember = "sykkeltype"
             .ValueMember = "id"
-            .DataSource = daoDelt.hentSykkeltype
+            .DataSource = daoDelt.hentSykkelType
         End With
         cbxType.SelectedIndex = -1
     End Sub
