@@ -5,14 +5,7 @@
         oppdaterGridView()
     End Sub
     Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
-        Dim sql As String
-        If Not sok = Nothing Then
-            sql = "SELECT * FROM virksomhet WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%'"
-        Else
-            sql = "SELECT * FROM virksomhet"
-        End If
-        payload = database.dt_query(sql)
-        Oppdaterlokasjon.DataSource = payload
+        Oppdaterlokasjon.DataSource = lokasjonDAO.hentLokasjoner(sok)
 
         With Me.Oppdaterlokasjon
             ' Kolonne vises ikke 
@@ -27,77 +20,77 @@
         End With
     End Sub
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Oppdaterlokasjon.CellClick
-        Dim sql As String = "SELECT * FROM virksomhet WHERE id = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value & "'"
-        payload = database.dt_query(sql)
-
         With Me.Oppdaterlokasjon
-            txtLokasjon.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
+            txtNavn.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
             txtTelefon.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("telefon").Value
             txtMail.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("mail").Value
             txtAdresse.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("adresse").Value
-            txtpostnr.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("post_nr").Value
+            txtPostnr.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("post_nr").Value
         End With
     End Sub
 
 
     Private Sub btnAddlocation_Click(sender As Object, e As EventArgs) Handles btnAddLocation.Click
-        Dim sql As String
-        sql = "INSERT INTO virksomhet(navn, telefon, mail, adresse, post_nr) VALUES ('" & txtLokasjon.Text & "', '" & txtTelefon.Text & "', '" & txtMail.Text & "', '" & txtAdresse.Text & "', " & txtpostnr.Text & ")"
+        Dim lokasjon As New lokasjon(txtNavn.Text, txtMail.Text, txtAdresse.Text, txtTelefon.Text, txtPostnr.Text)
 
-        payload = database.dt_query(sql)
-        Oppdaterlokasjon.DataSource = payload
-        oppdaterGridView()
+        Try
+            lokasjonDAO.leggTilLokasjon(lokasjon)
+            MsgBox(txtNavn.Text & " lagt til.", MsgBoxStyle.Exclamation)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        Finally
+            oppdaterGridView()
+        End Try
     End Sub
 
 
-    Private Sub txtpostnr_TextChanged(sender As Object, e As EventArgs) Handles txtpostnr.TextChanged
-        If IsNumeric(txtpostnr.Text) Then
-            payload = database.dt_query("SELECT post_sted FROM sted WHERE sted.post_nr = " & txtpostnr.Text)
-            'Oppdaterer poststedet når post nummer blir skrevet inn
-            If payload.Rows.Count = 1 Then
-                txtPoststed.Text = payload.Rows(0).Item(0)
-            Else
-                txtPoststed.Text = ""
-            End If
+    Private Sub txtpostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
+        If IsNumeric(txtPostnr.Text) Then
+            txtPoststed.Text = delt.finnPostSted(txtPostnr.Text)
         End If
     End Sub
 
     Private Sub btnUpdateLocation_Click(sender As Object, e As EventArgs) Handles btnUpdateLocation.Click
-        Dim sql As String
-        sql = "UPDATE virksomhet SET navn = '" & txtLokasjon.Text & "', telefon = '" & txtTelefon.Text & "', mail = '" & txtMail.Text & "', adresse = '" & txtAdresse.Text & "', post_nr = '" & txtpostnr.Text & "' WHERE id = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value & "'"
-        Dim lokasjon As String = Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
+        Dim lokasjon As New lokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtMail.Text, txtAdresse.Text, txtTelefon.Text, txtPostnr.Text)
+        Dim lokasjon_navn As String = Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
 
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
-                payload = database.dt_query(sql)
-                oppdaterGridView()
+                Try
+                    lokasjonDAO.leggTilLokasjon(lokasjon)
+                    MsgBox(lokasjon_navn & " oppdatert.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    oppdaterGridView()
+                End Try
         End Select
     End Sub
 
     Private Sub BtnDeleteLocation_Click(sender As Object, e As EventArgs) Handles BtnDeleteLocation.Click
         'Slette en lokasjon i databasen
-        Dim sql As String = "DELETE FROM sykkelmaster2015.virksomhet WHERE virksomhet.id = '" & Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value & "'"
+        Dim lokasjon As New lokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtMail.Text, txtAdresse.Text, txtTelefon.Text, txtPostnr.Text)
+        Dim lokasjon_navn As String = Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
 
-        Dim virksomhet As String = Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
-        'Slett virksomhet
-
-        Select Case MsgBox("Er du sikker på at du vil fjern " & virksomhet & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjern " & lokasjon_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    payload = database.dt_query(sql)
-                Catch
-                    MsgBox("Du kan ikke slette lokasjon")
+                    lokasjonDAO.leggTilLokasjon(lokasjon)
+                    MsgBox(lokasjon_navn & " fjernet.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    oppdaterGridView()
                 End Try
         End Select
-        oppdaterGridView()
     End Sub
 
     Private Sub btnTom_Click(sender As Object, e As EventArgs) Handles btnTom.Click
-        txtLokasjon.Text = ""
+        txtNavn.Text = ""
         txtTelefon.Text = ""
         txtAdresse.Text = ""
         txtMail.Text = ""
-        txtpostnr.Text = ""
+        txtPostnr.Text = ""
         txtPoststed.Text = ""
         oppdaterGridView()
     End Sub

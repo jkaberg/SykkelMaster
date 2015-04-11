@@ -19,7 +19,7 @@
     End Sub
 
     Private Sub Vis_Brukere(sender As Object, e As EventArgs) Handles btnVis_Brukere.Click
-        bruker.Show()
+        ansatte.Show()
     End Sub
 
     Private Sub Vis_Innelvering(sender As Object, e As EventArgs) Handles btnVis_innlevering.Click

@@ -1,4 +1,4 @@
-﻿Public Class bruker
+﻿Public Class ansatte
     Private payload As New DataTable
 
     Private Sub bruker_Load(sender As Object, e As EventArgs) Handles MyBase.Load

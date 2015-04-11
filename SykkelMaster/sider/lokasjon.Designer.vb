@@ -34,12 +34,12 @@ Partial Class lokasjoner
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtPoststed = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtpostnr = New System.Windows.Forms.TextBox()
+        Me.txtPostnr = New System.Windows.Forms.TextBox()
         Me.txtAdresse = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtTelefon = New System.Windows.Forms.TextBox()
-        Me.txtLokasjon = New System.Windows.Forms.TextBox()
+        Me.txtNavn = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Oppdaterlokasjon, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,12 +81,12 @@ Partial Class lokasjoner
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtPoststed)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.txtpostnr)
+        Me.GroupBox1.Controls.Add(Me.txtPostnr)
         Me.GroupBox1.Controls.Add(Me.txtAdresse)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtTelefon)
-        Me.GroupBox1.Controls.Add(Me.txtLokasjon)
+        Me.GroupBox1.Controls.Add(Me.txtNavn)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -183,11 +183,11 @@ Partial Class lokasjoner
         '
         'txtpostnr
         '
-        Me.txtpostnr.Location = New System.Drawing.Point(80, 134)
-        Me.txtpostnr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtpostnr.Name = "txtpostnr"
-        Me.txtpostnr.Size = New System.Drawing.Size(167, 22)
-        Me.txtpostnr.TabIndex = 9
+        Me.txtPostnr.Location = New System.Drawing.Point(80, 134)
+        Me.txtPostnr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtPostnr.Name = "txtpostnr"
+        Me.txtPostnr.Size = New System.Drawing.Size(167, 22)
+        Me.txtPostnr.TabIndex = 9
         '
         'txtAdresse
         '
@@ -223,13 +223,14 @@ Partial Class lokasjoner
         Me.txtTelefon.Size = New System.Drawing.Size(167, 22)
         Me.txtTelefon.TabIndex = 4
         '
-        'txtLokasjon
+        'txtNavn
         '
-        Me.txtLokasjon.Location = New System.Drawing.Point(80, 18)
-        Me.txtLokasjon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtLokasjon.Name = "txtLokasjon"
-        Me.txtLokasjon.Size = New System.Drawing.Size(167, 22)
-        Me.txtLokasjon.TabIndex = 2
+        Me.txtNavn.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtNavn.Location = New System.Drawing.Point(80, 18)
+        Me.txtNavn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtNavn.Name = "txtNavn"
+        Me.txtNavn.Size = New System.Drawing.Size(167, 22)
+        Me.txtNavn.TabIndex = 2
         '
         'Label1
         '
@@ -240,7 +241,7 @@ Partial Class lokasjoner
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Navn"
         '
-        'lokasjon
+        'lokasjoner
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -249,7 +250,7 @@ Partial Class lokasjoner
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Name = "lokasjon"
+        Me.Name = "lokasjoner"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Lokasjon"
         Me.GroupBox2.ResumeLayout(False)
@@ -263,12 +264,12 @@ Partial Class lokasjoner
     Friend WithEvents Oppdaterlokasjon As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtpostnr As System.Windows.Forms.TextBox
+    Friend WithEvents txtPostnr As System.Windows.Forms.TextBox
     Friend WithEvents txtAdresse As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtTelefon As System.Windows.Forms.TextBox
-    Friend WithEvents txtLokasjon As System.Windows.Forms.TextBox
+    Friend WithEvents txtNavn As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtPoststed As System.Windows.Forms.TextBox

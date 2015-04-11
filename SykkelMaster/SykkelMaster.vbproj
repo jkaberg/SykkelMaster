@@ -87,10 +87,10 @@
     <Compile Include="klasser\person.vb" />
     <Compile Include="klasser\sykkel.vb" />
     <Compile Include="klasser\sykkel_utstyr.vb" />
-    <Compile Include="sider\bruker.Designer.vb">
-      <DependentUpon>bruker.vb</DependentUpon>
+    <Compile Include="sider\ansatt.Designer.vb">
+      <DependentUpon>ansatt.vb</DependentUpon>
     </Compile>
-    <Compile Include="sider\bruker.vb">
+    <Compile Include="sider\ansatt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sider\endrepassord.Designer.vb">
@@ -173,8 +173,8 @@
     <Compile Include="verktoy\verktoy.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="sider\bruker.resx">
-      <DependentUpon>bruker.vb</DependentUpon>
+    <EmbeddedResource Include="sider\ansatt.resx">
+      <DependentUpon>ansatt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\endrepassord.resx">
       <DependentUpon>endrepassord.vb</DependentUpon>
