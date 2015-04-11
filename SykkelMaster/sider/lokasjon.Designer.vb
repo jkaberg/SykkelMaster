@@ -67,6 +67,7 @@ Partial Class lokasjoner
         Me.Oppdaterlokasjon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Oppdaterlokasjon.Name = "Oppdaterlokasjon"
         Me.Oppdaterlokasjon.RowTemplate.Height = 24
+        Me.Oppdaterlokasjon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Oppdaterlokasjon.Size = New System.Drawing.Size(725, 300)
         Me.Oppdaterlokasjon.TabIndex = 18
         '
@@ -181,11 +182,11 @@ Partial Class lokasjoner
         Me.Label5.TabIndex = 10
         Me.Label5.Text = "Postnr"
         '
-        'txtpostnr
+        'txtPostnr
         '
         Me.txtPostnr.Location = New System.Drawing.Point(80, 134)
         Me.txtPostnr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtPostnr.Name = "txtpostnr"
+        Me.txtPostnr.Name = "txtPostnr"
         Me.txtPostnr.Size = New System.Drawing.Size(167, 22)
         Me.txtPostnr.TabIndex = 9
         '

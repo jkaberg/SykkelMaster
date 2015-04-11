@@ -91,6 +91,7 @@
     <Compile Include="cls\clsSykkel.vb" />
     <Compile Include="cls\clsSykkelType.vb" />
     <Compile Include="cls\clsSykkelUtstyr.vb" />
+    <Compile Include="da\daoUtleie.vb" />
     <Compile Include="sider\ansatt.Designer.vb">
       <DependentUpon>ansatt.vb</DependentUpon>
     </Compile>
