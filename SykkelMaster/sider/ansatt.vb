@@ -116,9 +116,9 @@
     End Sub
 
     Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
-        Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
         Dim passord As String = verktoy.tilfeldigStreng()
         Dim ansatt As New clsAnsatt(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), passord, cbxArbedidssted.SelectedValue)
+        Dim bruker As String = ansatt.pFnavn & ansatt.pEnavn
 
         Dim body As String = "Hei " & bruker & ", og velkommen til Sykkelmaster." & vbNewLine &
                              "Det er opprettet en ny bruker til deg med følgende opplysninger" & vbNewLine & vbNewLine &
@@ -145,8 +145,8 @@
     End Sub
 
     Private Sub Slett_Bruker(sender As Object, e As EventArgs) Handles btnSlett_Bruker.Click
-        Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
-        Dim ansatt As New clsAnsatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), cbxArbedidssted.SelectedValue)
+        Dim ansatt As New clsAnsatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text)
+        Dim bruker As String = ansatt.pFnavn & ansatt.pEnavn
 
         'Slett bruker
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo)
@@ -163,8 +163,8 @@
     End Sub
 
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
-        Dim bruker As String = txtNavn.Text & " " & txtEtternavn.Text
         Dim ansatt As New clsAnsatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtPostSted.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), cbxArbedidssted.SelectedValue)
+        Dim bruker As String = ansatt.pFnavn & ansatt.pEnavn
 
         'Oppdater bruker
         Select Case MsgBox("Er du sikker på at du vil oppdater " & bruker & "?", MsgBoxStyle.YesNo)

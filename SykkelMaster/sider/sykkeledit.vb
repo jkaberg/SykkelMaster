@@ -84,10 +84,11 @@
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkel i databasen
         Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+        Dim sykkel_navn As String = sykkel.pRammenr & " " & sykkel.pSykkeltype
 
         Try
             daoSykkel.leggTilSykkel(sykkel)
-            MsgBox("Sykkel lagt til.", MsgBoxStyle.Exclamation)
+            MsgBox(sykkel_navn & " lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -100,7 +101,7 @@
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
         Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
-        Dim sykkel_navn As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
+        Dim sykkel_navn As String = sykkel.pRammenr & " " & sykkel.pSykkeltype
 
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
@@ -118,10 +119,8 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
-        Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value, txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
-
-        Dim sykkel_navn As String = Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value & " " & Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
-        'Slett sykkel
+        Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value)
+        Dim sykkel_navn As String = sykkel.pRammenr & " " & sykkel.pSykkeltype
 
         Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes

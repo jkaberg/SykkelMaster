@@ -2,6 +2,7 @@
     Private fornavn, etternavn, epost, gate, sted As String ' Ola | Nordmann | ola.nordmann@epost.com | Olav Tryggvasonsgate 10 | Trondheim
     Private id, postnr, telefonnr As Integer ' 1 | 7070 | 12345678
 
+    'oppdater
     Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
         Me.pID = id
         Me.pFnavn = fnavn
@@ -13,6 +14,7 @@
         Me.pEpost = epost
     End Sub
 
+    'legg til
     Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
         Me.pFnavn = fnavn
         Me.pEnavn = enavn
@@ -21,6 +23,13 @@
         Me.pGate = gate
         Me.pSted = sted
         Me.pEpost = epost
+    End Sub
+
+    'fjern
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String)
+        Me.pID = id
+        Me.pFnavn = fnavn
+        Me.pEnavn = enavn
     End Sub
 
     Public Property pID() As Integer

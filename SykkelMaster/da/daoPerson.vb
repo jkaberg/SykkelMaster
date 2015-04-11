@@ -8,8 +8,8 @@
         Return database.query(sql)
     End Function
 
-    Public Shared Function fjernPerson(ByVal id As Integer) As Boolean
-        Return database.query("DELETE FROM sykkelmaster2015.person WHERE person.id = " & id & ";")
+    Public Shared Function fjernPerson(ByVal person As clsPerson) As Boolean
+        Return database.query("DELETE FROM person WHERE person.id = " & person.pID & ";")
     End Function
 
     Public Shared Function oppdaterPerson(ByVal person As clsPerson) As Boolean

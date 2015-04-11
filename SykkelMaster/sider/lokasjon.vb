@@ -35,7 +35,7 @@
 
         Try
             daoLokasjon.leggTilLokasjon(lokasjon)
-            MsgBox(txtNavn.Text & " lagt til.", MsgBoxStyle.Exclamation)
+            MsgBox(lokasjon.pNavn & " lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -52,7 +52,7 @@
 
     Private Sub btnUpdateLocation_Click(sender As Object, e As EventArgs) Handles btnUpdateLocation.Click
         Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtMail.Text, txtAdresse.Text, txtTelefon.Text, txtPostnr.Text)
-        Dim lokasjon_navn As String = Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
+        Dim lokasjon_navn As String = lokasjon.pNavn
 
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
@@ -69,8 +69,8 @@
 
     Private Sub BtnDeleteLocation_Click(sender As Object, e As EventArgs) Handles BtnDeleteLocation.Click
         'Slette en lokasjon i databasen
-        Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtMail.Text, txtAdresse.Text, txtTelefon.Text, txtPostnr.Text)
-        Dim lokasjon_navn As String = Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
+        Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
+        Dim lokasjon_navn As String = lokasjon.pNavn
 
         Select Case MsgBox("Er du sikker på at du vil fjern " & lokasjon_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes

@@ -2,6 +2,7 @@
     Private rammenr, avviksmelding, status As String
     Private id, sykkeltype, hjulstr, rammestr, posisjon, virksomhet As Integer
 
+    'oppdater
     Sub New(ByVal id As Integer, ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer, ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal status As String, ByVal posisjon As Integer, ByVal virksomhet As Integer)
         Me.pID = id
         Me.pRammenr = rammenr
@@ -13,6 +14,8 @@
         Me.pPosisjon = posisjon
         Me.pVirksomhet = virksomhet
     End Sub
+
+    'legg til
     Sub New(ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer, ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal status As String, ByVal posisjon As Integer, ByVal virksomhet As Integer)
         Me.pRammenr = rammenr
         Me.pAvviksmld = avviksmelding
@@ -23,6 +26,12 @@
         Me.pPosisjon = posisjon
         Me.pVirksomhet = virksomhet
     End Sub
+
+    'fjern
+    Sub New(ByVal id As Integer)
+        Me.pID = id
+    End Sub
+
     Public Property pID() As Integer
         Get
             Return id

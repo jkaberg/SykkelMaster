@@ -6,6 +6,7 @@
     Private arbeidssted As Integer
     Private tilgangsniva As Integer
 
+    'oppdater
     Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String, ByVal stilling As Integer, ByVal tilgngniva As Integer, ByVal provisjon As Integer, ByVal passord As String, ByVal arbeidssted As Integer)
         MyBase.New(id, fnavn, enavn, pnr, tnr, gate, sted, epost)
         Me.pStilling = stilling
@@ -15,6 +16,7 @@
         Me.pArbeidssted = arbeidssted
     End Sub
 
+    'legg til
     Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal passord As String, ByVal arbsted As Integer)
         MyBase.New(fnavn, enavn, pnr, tnr, gate, sted, epost)
         Me.pStilling = stilling
@@ -23,6 +25,10 @@
         Me.pArbeidssted = arbsted
     End Sub
 
+    'fjern
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String)
+        MyBase.New(id, fnavn, enavn)
+    End Sub
 
     Public Property pStilling() As Integer
         Get

@@ -25,7 +25,7 @@
         'Legge til en ny sykkeltype i systemet
         Try
             daoSykkelType.leggTilSykkelType(st)
-            MsgBox(txtNavn.Text & " lagt til.", MsgBoxStyle.Exclamation)
+            MsgBox(st.pNavn & " lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -36,14 +36,13 @@
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere person i databasen
         Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
-        Dim sykkeltype As String = Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("sykkeltype").Value
 
         'Oppdater sykkeltype
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkeltype & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & st.pNavn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
                     daoSykkelType.oppdaterSykkelType(st)
-                    MsgBox(sykkeltype & " oppdatert.", MsgBoxStyle.Exclamation)
+                    MsgBox(st.pNavn & " oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
@@ -56,13 +55,12 @@
         'Slette en sykkeltype i databasen
         Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
 
-        Dim sykkeltype As String = Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("sykkeltype").Value
         'Slett sykkeltype
-        Select Case MsgBox("Er du sikker på at du vil fjern " & sykkeltype & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjern " & st.pNavn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
                     daoSykkelType.fjernSykkelType(st)
-                    MsgBox(sykkeltype & " fjernet.", MsgBoxStyle.Exclamation)
+                    MsgBox(st.pNavn & " fjernet.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally

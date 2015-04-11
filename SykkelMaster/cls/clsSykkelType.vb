@@ -2,11 +2,13 @@
     Private navn As String
     Private id As Integer
 
+    'oppdater/fjern
     Sub New(ByVal id As Integer, ByVal navn As String)
         Me.pID = id
         Me.pNavn = navn
     End Sub
 
+    'legg til
     Sub New(ByVal navn As String)
         Me.pNavn = navn
     End Sub
