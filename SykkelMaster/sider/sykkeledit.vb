@@ -5,11 +5,13 @@
         'Laster inn data fra databasen til gridView
         oppdaterGridView()
 
+        Dim payload As DataTable = daoDelt.hentVirksomhet
+
         'Laster inn data til comboBox'ene
         With cbxTilhorer
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = hoved.virksomheter
+            .DataSource = payload
         End With
         'Gjør at comboBox'en er tom når programmet starter
         cbxTilhorer.SelectedIndex = -1
@@ -17,14 +19,14 @@
         With cbxPosisjon
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = daoDelt.hentVirksomhet
+            .DataSource = payload
         End With
         cbxPosisjon.SelectedIndex = -1
 
         With cbxLokasjon
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = daoDelt.hentVirksomhet
+            .DataSource = payload
         End With
         cbxLokasjon.SelectedIndex = -1
 
@@ -104,7 +106,7 @@
             Case MsgBoxResult.Yes
                 Try
                     daoSykkel.oppdaterSykkel(sykkel)
-                    MsgBox("Sykkel oppdatert.", MsgBoxStyle.Exclamation)
+                    MsgBox(sykkel_navn & " er oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
@@ -125,7 +127,7 @@
             Case MsgBoxResult.Yes
                 Try
                     daoSykkel.fjernSykkel(sykkel)
-                    MsgBox("Sykkel lagt til.", MsgBoxStyle.Exclamation)
+                    MsgBox(sykkel_navn & " er fjernet.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally

@@ -1,7 +1,4 @@
 ﻿Public Class hoved
-
-    Public virksomheter As DataTable
-
     Private Sub Vis_Kunder(sender As Object, e As EventArgs) Handles btnVis_Kunder.Click
         kunder.Show()
     End Sub
@@ -30,18 +27,24 @@
         statistikk.Show()
     End Sub
 
+    Private Sub Bytt_Passord(sender As Object, e As EventArgs) Handles btnBytt_Passord.Click
+        EndrePassord.Show()
+    End Sub
+
+    Private Sub Logg_ut(sender As Object, e As EventArgs) Handles btnLogg_ut.Click
+        Me.Close()
+        start.bruker = Nothing
+        start.Show()
+    End Sub
+
     Private Sub hoved_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Vis navnet på den ansatte som logger inn i Label1 (eksempel: Velkommen, Joel Kåberg)
         lblNavn.Text += start.bruker.pFnavn & " " & start.bruker.pEnavn
 
-        'Hent ut å vis frem alle lokasjoner (virksomheter) i ComboBox1
-        virksomheter = New DataTable
-        virksomheter = daoDelt.hentVirksomhet
-
         With cbxPlassering
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = virksomheter
+            .DataSource = daoDelt.hentVirksomhet
         End With
 
         ' Rettighetsnivå (integer):
@@ -58,17 +61,6 @@
             Case Is >= 2
                 btnVis_Kunder.Enabled = True
                 btnVis_Utleie.Enabled = True
-
         End Select
-    End Sub
-
-    Private Sub Bytt_Passord(sender As Object, e As EventArgs) Handles btnBytt_Passord.Click
-        EndrePassord.Show()
-    End Sub
-
-    Private Sub Logg_ut(sender As Object, e As EventArgs) Handles btnLogg_ut.Click
-        Me.Close()
-        start.bruker = Nothing
-        start.Show()
     End Sub
 End Class

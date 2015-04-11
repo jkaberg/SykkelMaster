@@ -7,7 +7,7 @@ Public Class innlevering
         With lokasjoner
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = hoved.virksomheter
+            .DataSource = daoDelt.hentVirksomhet
         End With
     End Sub
 
@@ -113,7 +113,6 @@ Public Class innlevering
             Case "Tidsfrist ikke gått ut"
                 fristGattUt(">=")
         End Select
-
     End Sub
 
     Public Sub fristGattUt(ByVal sok As String)

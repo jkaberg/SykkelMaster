@@ -8,13 +8,13 @@
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
-            .DataSource = daoDelt.hentStillinger()
+            .DataSource = daoDelt.hentStillinger
         End With
 
         With cbxArbedidssted
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = hoved.virksomheter
+            .DataSource = daoDelt.hentVirksomhet
         End With
     End Sub
 
@@ -55,14 +55,16 @@
         If Not ProvisjonBar.Value = p Then
             ProvisjonBar.Value = p
         End If
-        provisjon.Text = p & "%"
+        lblProvisjon.Text = p & "%"
     End Sub
 
     Private Sub stilling()
+        payload = daoDelt.hentStillinger()
+
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
-            .DataSource = daoDelt.hentStillinger()
+            .DataSource = payload
         End With
 
         'oppdaterer stillling fra databasen i combobox
@@ -74,7 +76,7 @@
     End Sub
 
     Private Sub arbeidssted()
-        Dim lokasjon As DataTable = hoved.virksomheter
+        Dim lokasjon As DataTable = daoDelt.hentVirksomhet
 
         With cbxArbedidssted
             .DisplayMember = "navn"

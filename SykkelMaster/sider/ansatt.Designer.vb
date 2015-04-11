@@ -27,7 +27,7 @@ Partial Class ansatte
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cbxArbedidssted = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.provisjon = New System.Windows.Forms.Label()
+        Me.lblProvisjon = New System.Windows.Forms.Label()
         Me.ProvisjonBar = New System.Windows.Forms.HScrollBar()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cbxStilling = New System.Windows.Forms.ComboBox()
@@ -84,7 +84,7 @@ Partial Class ansatte
         '
         Me.GroupBox1.Controls.Add(Me.cbxArbedidssted)
         Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.provisjon)
+        Me.GroupBox1.Controls.Add(Me.lblProvisjon)
         Me.GroupBox1.Controls.Add(Me.ProvisjonBar)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.cbxStilling)
@@ -136,12 +136,12 @@ Partial Class ansatte
         '
         'Label10
         '
-        Me.provisjon.AutoSize = True
-        Me.provisjon.Location = New System.Drawing.Point(77, 249)
-        Me.provisjon.Name = "Label10"
-        Me.provisjon.Size = New System.Drawing.Size(28, 17)
-        Me.provisjon.TabIndex = 4
-        Me.provisjon.Text = "0%"
+        Me.lblProvisjon.AutoSize = True
+        Me.lblProvisjon.Location = New System.Drawing.Point(77, 249)
+        Me.lblProvisjon.Name = "Label10"
+        Me.lblProvisjon.Size = New System.Drawing.Size(28, 17)
+        Me.lblProvisjon.TabIndex = 4
+        Me.lblProvisjon.Text = "0%"
         '
         'ProvisjonBar
         '
@@ -376,7 +376,7 @@ Partial Class ansatte
     Friend WithEvents cbxStilling As System.Windows.Forms.ComboBox
     Friend WithEvents ProvisjonBar As System.Windows.Forms.HScrollBar
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents provisjon As System.Windows.Forms.Label
+    Friend WithEvents lblProvisjon As System.Windows.Forms.Label
     Friend WithEvents cbxArbedidssted As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
 End Class
