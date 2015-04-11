@@ -147,7 +147,7 @@
     End Sub
 
     Private Sub btnSykkeltype_Click(sender As Object, e As EventArgs) Handles btnSykkeltype.Click
-        'sykkeltype.Show()
+        sykkeltype.Show()
     End Sub
 
     Private Sub cbxType_Click(sender As Object, e As EventArgs) Handles cbxType.Click
