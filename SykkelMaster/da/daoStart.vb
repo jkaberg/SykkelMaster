@@ -17,20 +17,13 @@
         If payload.Rows.Count = 1 Then
             Dim d As DataRow = payload.Rows(0)
 
-            Dim bruker As New clsAnsatt(d("id"),
-                                     d("fornavn"),
-                                     d("etternavn"),
-                                     d("post_nr"),
-                                     d("telefon"),
-                                     d("adresse"),
-                                     d("post_sted"),
-                                     d("mail"),
-                                     d("stilling"),
-                                     d("tilgangsniva"),
-                                     d("provisjon"),
-                                     d("passord"),
-                                     d("virksomhet_id"))
-            Return bruker
+            Return New clsAnsatt(d("id"),
+                                 d("fornavn"),
+                                 d("etternavn"),
+                                 d("mail"),
+                                 d("stilling"),
+                                 d("virksomhet_id"),
+                                 d("passord"))
         Else
             Throw New Exception("Feil E-post/passord.")
         End If

@@ -36,7 +36,7 @@ Partial Class kunder
         Me.txtAdresse = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txttelefon = New System.Windows.Forms.TextBox()
+        Me.txtTelefon = New System.Windows.Forms.TextBox()
         Me.txtEtternavn = New System.Windows.Forms.TextBox()
         Me.txtNavn = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -65,7 +65,7 @@ Partial Class kunder
         Me.GroupBox1.Controls.Add(Me.txtAdresse)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.txttelefon)
+        Me.GroupBox1.Controls.Add(Me.txtTelefon)
         Me.GroupBox1.Controls.Add(Me.txtEtternavn)
         Me.GroupBox1.Controls.Add(Me.txtNavn)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -200,12 +200,12 @@ Partial Class kunder
         '
         'txttelefon
         '
-        Me.txttelefon.Location = New System.Drawing.Point(80, 74)
-        Me.txttelefon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txttelefon.MaxLength = 8
-        Me.txttelefon.Name = "txttelefon"
-        Me.txttelefon.Size = New System.Drawing.Size(166, 22)
-        Me.txttelefon.TabIndex = 2
+        Me.txtTelefon.Location = New System.Drawing.Point(80, 74)
+        Me.txtTelefon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtTelefon.MaxLength = 8
+        Me.txtTelefon.Name = "txttelefon"
+        Me.txtTelefon.Size = New System.Drawing.Size(166, 22)
+        Me.txtTelefon.TabIndex = 2
         '
         'txtEtternavn
         '
@@ -310,7 +310,7 @@ Partial Class kunder
     Friend WithEvents txtAdresse As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents txttelefon As System.Windows.Forms.TextBox
+    Friend WithEvents txtTelefon As System.Windows.Forms.TextBox
     Friend WithEvents txtEtternavn As System.Windows.Forms.TextBox
     Friend WithEvents txtNavn As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label

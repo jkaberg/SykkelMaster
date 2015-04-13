@@ -3,7 +3,7 @@
 
     Public Shared Function leggTilPerson(ByVal person As clsPerson) As Boolean
         sql = "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) VALUES('" &
-              person.pFnavn & "', '" & person.pEnavn & "', " & person.pTlfnr & ", '" & person.pEpost & "', '" & person.pGate & "', " & person.pPostnr & ");"
+              person.pFnavn & "', '" & person.pEnavn & "', " & person.pTlfnr & ", '" & person.pEpost & "', '" & person.pAdresse & "', " & person.pPostnr & ");"
 
         Return database.query(sql)
     End Function
@@ -18,6 +18,7 @@
               "etternavn = '" & person.pEnavn & "', " &
               "telefon = " & person.pTlfnr & ", " &
               "mail = '" & person.pEpost & "', " &
+              "adresse = '" & person.pAdresse & "', " &
               "post_nr = " & person.pPostnr & " " &
               "WHERE id = " & person.pID & ";"
 

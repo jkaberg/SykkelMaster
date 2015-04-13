@@ -3,25 +3,30 @@
     Private id, postnr, telefonnr As Integer ' 1 | 7070 | 12345678
 
     'oppdater
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal adresse As String, ByVal epost As String)
         Me.pID = id
         Me.pFnavn = fnavn
         Me.pEnavn = enavn
         Me.pPostnr = pnr
         Me.pTlfnr = tnr
-        Me.pGate = gate
-        Me.pSted = sted
+        Me.pAdresse = adresse
         Me.pEpost = epost
     End Sub
 
     'legg til
-    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String)
+    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal adresse As String, ByVal epost As String)
         Me.pFnavn = fnavn
         Me.pEnavn = enavn
         Me.pPostnr = pnr
         Me.pTlfnr = tnr
-        Me.pGate = gate
-        Me.pSted = sted
+        Me.pAdresse = adresse
+        Me.pEpost = epost
+    End Sub
+
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal epost As String)
+        Me.pID = id
+        Me.pFnavn = fnavn
+        Me.pEnavn = enavn
         Me.pEpost = epost
     End Sub
 
@@ -97,7 +102,7 @@
         End Set
     End Property
 
-    Public Property pGate() As String
+    Public Property pAdresse() As String
         Get
             Return gate
         End Get
@@ -107,15 +112,6 @@
             Else
                 gate = value
             End If
-        End Set
-    End Property
-
-    Public Property pSted() As String
-        Get
-            Return sted
-        End Get
-        Set(ByVal value As String)
-            sted = value
         End Set
     End Property
 

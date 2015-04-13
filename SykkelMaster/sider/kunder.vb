@@ -57,7 +57,7 @@
         With Me.kundeGridView
             txtNavn.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("fornavn").Value
             txtEtternavn.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("etternavn").Value
-            txttelefon.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("telefon").Value
+            txtTelefon.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("telefon").Value
             txtAdresse.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("adresse").Value
             txtMail.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("mail").Value
             txtPostnr.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("post_nr").Value
@@ -70,8 +70,8 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legg til en ny person
-        Dim person As New clsPerson(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txttelefon.Text, txtAdresse.Text, txtPoststed.Text, txtMail.Text)
-        Dim bruker As String = person.pFnavn & person.pEnavn
+        Dim person As New clsPerson(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text)
+        Dim bruker As String = person.pFnavn & " " & person.pEnavn
 
         Try
             daoPerson.leggTilPerson(person)
@@ -85,8 +85,8 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdater bruker
-        Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txttelefon.Text, txtAdresse.Text, txtPoststed.Text, txtMail.Text)
-        Dim bruker As String = person.pFnavn & person.pEnavn
+        Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text)
+        Dim bruker As String = person.pFnavn & " " & person.pEnavn
 
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
@@ -105,7 +105,7 @@
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slett bruker
         Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text)
-        Dim bruker As String = person.pFnavn & person.pEnavn
+        Dim bruker As String = person.pFnavn & " " & person.pEnavn
 
         Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
@@ -127,7 +127,7 @@
         txtAdresse.Text = ""
         txtMail.Text = ""
         txtPostnr.Text = ""
-        txttelefon.Text = ""
+        txtTelefon.Text = ""
         oppdaterGridView()
     End Sub
 End Class

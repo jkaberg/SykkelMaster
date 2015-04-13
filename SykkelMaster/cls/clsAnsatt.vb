@@ -6,23 +6,29 @@
     Private arbeidssted As Integer
     Private tilgangsniva As Integer
 
-    'oppdater
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String, ByVal stilling As Integer, ByVal tilgngniva As Integer, ByVal provisjon As Integer, ByVal passord As String, ByVal arbeidssted As Integer)
-        MyBase.New(id, fnavn, enavn, pnr, tnr, gate, sted, epost)
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal epost As String, ByVal stilling As Integer, ByVal arbeidssted As Integer, ByVal passord As String)
+        MyBase.New(id, fnavn, enavn, epost)
         Me.pStilling = stilling
-        Me.pTilgangsniva = tilgngniva
-        Me.pProvisjon = provisjon
+        Me.pArbeidssted = arbeidssted
         Me.pPassord = passord
+    End Sub
+
+    'oppdater
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal arbeidssted As Integer)
+        MyBase.New(id, fnavn, enavn, pnr, tnr, gate, epost)
+        Me.pStilling = stilling
+        Me.pProvisjon = provisjon
+
         Me.pArbeidssted = arbeidssted
     End Sub
 
     'legg til
-    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal sted As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal passord As String, ByVal arbsted As Integer)
-        MyBase.New(fnavn, enavn, pnr, tnr, gate, sted, epost)
+    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal passord As String, ByVal arbeidssted As Integer)
+        MyBase.New(fnavn, enavn, pnr, tnr, gate, epost)
         Me.pStilling = stilling
         Me.pProvisjon = provisjon
         Me.pPassord = passord
-        Me.pArbeidssted = arbsted
+        Me.pArbeidssted = arbeidssted
     End Sub
 
     'fjern

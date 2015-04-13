@@ -3,7 +3,7 @@
     Public Shared Function leggTilAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         sql = "START TRANSACTION;" &
               "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
-              "VALUES ('" & ansatt.pFnavn & "', '" & ansatt.pEnavn & "', " & ansatt.pTlfnr & ", '" & ansatt.pEpost & "', '" & ansatt.pGate & "', " & ansatt.pPostnr & ");" &
+              "VALUES ('" & ansatt.pFnavn & "', '" & ansatt.pEnavn & "', " & ansatt.pTlfnr & ", '" & ansatt.pEpost & "', '" & ansatt.pAdresse & "', " & ansatt.pPostnr & ");" &
               "INSERT INTO ansatt (person_id, stilling, provisjon, passord, virksomhet_id) " &
               "VALUES (LAST_INSERT_ID(), " & ansatt.pStilling & ", " & ansatt.pProvisjon & ", '" & ansatt.pPassord & "', " & ansatt.pArbeidssted & ");" &
               "COMMIT;"
@@ -13,7 +13,7 @@
 
     Public Shared Function oppdaterAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         sql = "START TRANSACTION;" &
-              "UPDATE person SET fornavn = '" & ansatt.pFnavn & "', etternavn = '" & ansatt.pEnavn & "', telefon = " & ansatt.pTlfnr & ", mail = '" & ansatt.pEpost & "', adresse = '" & ansatt.pGate & "', post_nr = " & ansatt.pGate & " " &
+              "UPDATE person SET fornavn = '" & ansatt.pFnavn & "', etternavn = '" & ansatt.pEnavn & "', telefon = " & ansatt.pTlfnr & ", mail = '" & ansatt.pEpost & "', adresse = '" & ansatt.pAdresse & "', post_nr = " & ansatt.pAdresse & " " &
               "WHERE id = " & ansatt.pID & ";" &
               "UPDATE ansatt SET stilling = " & ansatt.pStilling & ", provisjon = " & ansatt.pProvisjon & ", virksomhet_id = " & ansatt.pArbeidssted & " " &
               "WHERE person_id = " & ansatt.pID & ";" &
