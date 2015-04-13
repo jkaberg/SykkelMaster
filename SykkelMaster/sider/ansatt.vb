@@ -36,10 +36,8 @@
     End Sub
 
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
-        Dim sok As String = daoDelt.finnPostSted(txtPostnr.Text)
-
-        If sok <> "" Then
-            txtPostSted.Text = sok
+        If txtPostnr.Text <> "" Then
+            txtPostSted.Text = daoDelt.finnPostSted(txtPostnr.Text)
         Else
             txtPostSted.Text = ""
         End If
