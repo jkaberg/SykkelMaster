@@ -3,7 +3,7 @@
 
     Private Sub start_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtEpost.Text = "ddd@ddd"
-        txtPassord.Text = "d"
+        txtPassord.Text = "dddd"
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
