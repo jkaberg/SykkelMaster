@@ -56,17 +56,7 @@
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
-        Dim sykkel As DataRow
-        sykkel = kundevogn_sykkler.NewRow()
-
-        sykkel.Item("fratid") = fraTid.Value
-        sykkel.Item("tiltid") = tilTid.Value
-        sykkel.Item("sykkeltype") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("sykkeltype").Value
-        sykkel.Item("hjulstr") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("hjulstr").Value
-        sykkel.Item("rammestr") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammestr").Value
-
-        kundevogn_sykkler.Rows.Add(sykkel)
-        vognGrid.DataSource = kundevogn_sykkler
+        leggTilSykkelKundevogn()
     End Sub
 
     Private Sub btnRedigere_Click(sender As Object, e As EventArgs) Handles btnRedigere.Click
@@ -80,6 +70,21 @@
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
 
     End Sub
+
+    Private Sub leggTilSykkelKundevogn()
+        Dim sykkel As DataRow
+        sykkel = kundevogn_sykkler.NewRow()
+
+        sykkel.Item("fratid") = fraTid.Value
+        sykkel.Item("tiltid") = tilTid.Value
+        sykkel.Item("sykkeltype") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("sykkeltype").Value
+        sykkel.Item("hjulstr") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("hjulstr").Value
+        sykkel.Item("rammestr") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammestr").Value
+
+        kundevogn_sykkler.Rows.Add(sykkel)
+        vognGrid.DataSource = kundevogn_sykkler
+    End Sub
+
 
     Private Sub lagSykkelDataTable()
         kundevogn_sykkler = New DataTable("sykkler")

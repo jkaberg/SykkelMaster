@@ -68,6 +68,7 @@ Partial Class lokasjoner
         Me.Oppdaterlokasjon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Oppdaterlokasjon.Name = "Oppdaterlokasjon"
         Me.Oppdaterlokasjon.ReadOnly = True
+        Me.Oppdaterlokasjon.RowHeadersVisible = False
         Me.Oppdaterlokasjon.RowTemplate.Height = 24
         Me.Oppdaterlokasjon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Oppdaterlokasjon.Size = New System.Drawing.Size(725, 300)

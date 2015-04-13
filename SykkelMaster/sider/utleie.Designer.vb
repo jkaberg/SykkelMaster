@@ -91,6 +91,7 @@ Partial Class utleie
         Me.sykkelGrid.Location = New System.Drawing.Point(9, 161)
         Me.sykkelGrid.MultiSelect = False
         Me.sykkelGrid.Name = "sykkelGrid"
+        Me.sykkelGrid.RowHeadersVisible = False
         Me.sykkelGrid.RowTemplate.Height = 24
         Me.sykkelGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.sykkelGrid.Size = New System.Drawing.Size(446, 78)

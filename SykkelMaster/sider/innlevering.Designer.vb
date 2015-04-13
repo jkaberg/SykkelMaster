@@ -158,6 +158,7 @@ Partial Class innlevering
         Me.oversiktGrid.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.oversiktGrid.Name = "oversiktGrid"
         Me.oversiktGrid.ReadOnly = True
+        Me.oversiktGrid.RowHeadersVisible = False
         Me.oversiktGrid.RowTemplate.Height = 24
         Me.oversiktGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.oversiktGrid.Size = New System.Drawing.Size(857, 196)
@@ -267,6 +268,7 @@ Partial Class innlevering
         Me.tilbehorGrid.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tilbehorGrid.Name = "tilbehorGrid"
         Me.tilbehorGrid.ReadOnly = True
+        Me.tilbehorGrid.RowHeadersVisible = False
         Me.tilbehorGrid.RowTemplate.Height = 24
         Me.tilbehorGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tilbehorGrid.Size = New System.Drawing.Size(855, 144)

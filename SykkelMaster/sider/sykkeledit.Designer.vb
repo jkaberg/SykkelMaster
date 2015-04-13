@@ -346,6 +346,7 @@ Partial Class sykkelEdit
         Me.SykkelGridView.Location = New System.Drawing.Point(9, 46)
         Me.SykkelGridView.Name = "SykkelGridView"
         Me.SykkelGridView.ReadOnly = True
+        Me.SykkelGridView.RowHeadersVisible = False
         Me.SykkelGridView.RowTemplate.Height = 24
         Me.SykkelGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.SykkelGridView.Size = New System.Drawing.Size(1124, 375)

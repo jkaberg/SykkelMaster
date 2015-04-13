@@ -102,6 +102,7 @@ Partial Class sykkeltype
         Me.sykkeltypeGrid.Location = New System.Drawing.Point(15, 22)
         Me.sykkeltypeGrid.Name = "sykkeltypeGrid"
         Me.sykkeltypeGrid.ReadOnly = True
+        Me.sykkeltypeGrid.RowHeadersVisible = False
         Me.sykkeltypeGrid.RowTemplate.Height = 24
         Me.sykkeltypeGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.sykkeltypeGrid.Size = New System.Drawing.Size(191, 186)

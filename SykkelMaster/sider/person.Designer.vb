@@ -265,6 +265,7 @@ Partial Class person
         Me.kundeGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.kundeGridView.Name = "kundeGridView"
         Me.kundeGridView.ReadOnly = True
+        Me.kundeGridView.RowHeadersVisible = False
         Me.kundeGridView.RowTemplate.Height = 24
         Me.kundeGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.kundeGridView.Size = New System.Drawing.Size(858, 306)
