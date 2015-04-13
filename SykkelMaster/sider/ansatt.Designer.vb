@@ -62,11 +62,8 @@ Partial Class ansatte
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-<<<<<<< HEAD
-        Me.GroupBox2.Size = New System.Drawing.Size(899, 410)
-=======
         Me.GroupBox2.Size = New System.Drawing.Size(1011, 519)
->>>>>>> origin/master
+
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Oversikt"
@@ -82,11 +79,7 @@ Partial Class ansatte
         Me.brukerGridView.RowTemplate.Height = 24
         Me.brukerGridView.RowTemplate.ReadOnly = True
         Me.brukerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-<<<<<<< HEAD
-        Me.brukerGridView.Size = New System.Drawing.Size(887, 383)
-=======
         Me.brukerGridView.Size = New System.Drawing.Size(998, 486)
->>>>>>> origin/master
         Me.brukerGridView.TabIndex = 18
         '
         'GroupBox1
@@ -100,11 +93,8 @@ Partial Class ansatte
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.cbxStilling)
         Me.GroupBox1.Controls.Add(Me.Label9)
-<<<<<<< HEAD
         Me.GroupBox1.Controls.Add(Me.btnSlett_Bruker)
         Me.GroupBox1.Controls.Add(Me.btnOppdater_Bruker)
-=======
->>>>>>> origin/master
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtPostSted)
         Me.GroupBox1.Controls.Add(Me.btnLegg_til_Bruker)
@@ -124,11 +114,7 @@ Partial Class ansatte
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-<<<<<<< HEAD
-        Me.GroupBox1.Size = New System.Drawing.Size(264, 410)
-=======
         Me.GroupBox1.Size = New System.Drawing.Size(297, 519)
->>>>>>> origin/master
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger ansatt"
@@ -155,15 +141,9 @@ Partial Class ansatte
         'Label10
         '
         Me.lblProvisjon.AutoSize = True
-<<<<<<< HEAD
-        Me.lblProvisjon.Location = New System.Drawing.Point(77, 249)
-        Me.lblProvisjon.Name = "Label10"
-        Me.lblProvisjon.Size = New System.Drawing.Size(28, 17)
-=======
         Me.lblProvisjon.Location = New System.Drawing.Point(87, 311)
         Me.lblProvisjon.Name = "lblProvisjon"
         Me.lblProvisjon.Size = New System.Drawing.Size(32, 20)
->>>>>>> origin/master
         Me.lblProvisjon.TabIndex = 4
         Me.lblProvisjon.Text = "0%"
         '
@@ -216,11 +196,7 @@ Partial Class ansatte
         '
         'btnOppdater_Bruker
         '
-<<<<<<< HEAD
-        Me.btnOppdater_Bruker.Location = New System.Drawing.Point(6, 337)
-=======
         Me.btnOppdater_Bruker.Location = New System.Drawing.Point(10, 470)
->>>>>>> origin/master
         Me.btnOppdater_Bruker.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnOppdater_Bruker.Name = "btnOppdater_Bruker"
         Me.btnOppdater_Bruker.Size = New System.Drawing.Size(267, 38)
@@ -361,9 +337,7 @@ Partial Class ansatte
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Fornavn"
         '
-<<<<<<< HEAD
-        'bruker
-=======
+
         'btnTom
         '
         Me.btnTom.Location = New System.Drawing.Point(10, 385)
@@ -375,15 +349,8 @@ Partial Class ansatte
         Me.btnTom.UseVisualStyleBackColor = True
         '
         'ansatte
->>>>>>> origin/master
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(1189, 432)
-=======
         Me.ClientSize = New System.Drawing.Size(1338, 547)
->>>>>>> origin/master
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
