@@ -1,4 +1,4 @@
-﻿Public Class kunder
+﻿Public Class person
     Private person As clsPerson
 
     Private Sub kunder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
