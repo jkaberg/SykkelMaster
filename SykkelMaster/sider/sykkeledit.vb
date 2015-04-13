@@ -28,6 +28,13 @@
         End With
         cbxLokasjon.SelectedIndex = -1
 
+        With cbxType
+            .DisplayMember = "sykkeltype"
+            .ValueMember = "id"
+            .DataSource = daoDelt.hentSykkelType
+        End With
+        cbxType.SelectedIndex = -1
+
     End Sub
 
     Private Sub SykkelGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles SykkelGridView.CellClick
@@ -107,17 +114,17 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
-        Dim sykkel As New clsSykkel(txtRammenr.Text,
-                                                txtAvvik.Text,
-                                                cbxType.SelectedValue,
-                                                cbxHjul.Text, cbxRamme.Text,
-                                                cbxStatus.Text,
-                                                cbxPosisjon.SelectedValue,
-                                                cbxTilhorer.SelectedValue)
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-
+                    Dim sykkel As New clsSykkel(txtRammenr.Text,
+                                                txtAvvik.Text,
+                                                cbxType.SelectedValue,
+                                                cbxHjul.Text,
+                                                cbxRamme.Text,
+                                                cbxStatus.Text,
+                                                cbxPosisjon.SelectedValue,
+                                                cbxTilhorer.SelectedValue)
 
                     daoSykkel.oppdaterSykkel(sykkel)
                     MsgBox(sykkel_navn() & " er oppdatert.", MsgBoxStyle.Exclamation)
@@ -161,15 +168,6 @@
 
     Private Sub btnSykkeltype_Click(sender As Object, e As EventArgs) Handles btnSykkeltype.Click
         sykkeltype.Show()
-    End Sub
-
-    Private Sub cbxType_Click(sender As Object, e As EventArgs) Handles cbxType.Click
-        With cbxType
-            .DisplayMember = "sykkeltype"
-            .ValueMember = "id"
-            .DataSource = daoDelt.hentSykkelType
-        End With
-        cbxType.SelectedIndex = -1
     End Sub
 
     Private Function sykkel_navn() As String
