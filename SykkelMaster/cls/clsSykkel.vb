@@ -3,7 +3,16 @@
     Private id, sykkeltype, hjulstr, rammestr, posisjon, virksomhet As Integer
 
     'oppdater
-    Sub New(ByVal id As Integer, ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer, ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal status As String, ByVal posisjon As Integer, ByVal virksomhet As Integer)
+    Sub New(ByVal id As Integer,
+            ByVal rammenr As Integer,
+            ByVal avviksmld As String,
+            ByVal sykkeltype As Integer,
+            ByVal hjulstr As Integer,
+            ByVal rammestr As Integer,
+            ByVal status As String,
+            ByVal posisjon As Integer,
+            ByVal virksomhet As Integer)
+
         Me.pID = id
         Me.pRammenr = rammenr
         Me.pAvviksmld = avviksmelding
@@ -16,7 +25,10 @@
     End Sub
 
     'legg til
-    Sub New(ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer, ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal status As String, ByVal posisjon As Integer, ByVal virksomhet As Integer)
+    Sub New(ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer,
+            ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal status As String,
+            ByVal posisjon As Integer, ByVal virksomhet As Integer)
+
         Me.pRammenr = rammenr
         Me.pAvviksmld = avviksmelding
         Me.pSykkeltype = sykkeltype
@@ -45,7 +57,11 @@
             Return rammenr
         End Get
         Set(ByVal value As Integer)
-            rammenr = value
+            If IsNothing(value) Then
+                Throw New Exception("Du må angi et rammenummer.")
+            Else
+                rammenr = value
+            End If
         End Set
     End Property
     Public Property pAvviksmld() As String
