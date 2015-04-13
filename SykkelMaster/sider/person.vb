@@ -114,7 +114,6 @@
         txtMail.Text = ""
         txtPostnr.Text = ""
         txtTelefon.Text = ""
-        oppdaterGridView()
     End Sub
 
     Private Function navn() As String

@@ -135,10 +135,10 @@
     <Compile Include="sider\innlevering.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sider\kunder.Designer.vb">
-      <DependentUpon>kunder.vb</DependentUpon>
+    <Compile Include="sider\person.Designer.vb">
+      <DependentUpon>person.vb</DependentUpon>
     </Compile>
-    <Compile Include="sider\kunder.vb">
+    <Compile Include="sider\person.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="start.vb">
@@ -190,8 +190,8 @@
     <EmbeddedResource Include="sider\innlevering.resx">
       <DependentUpon>innlevering.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sider\kunder.resx">
-      <DependentUpon>kunder.vb</DependentUpon>
+    <EmbeddedResource Include="sider\person.resx">
+      <DependentUpon>person.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\lokasjon.resx">
       <DependentUpon>lokasjon.vb</DependentUpon>
