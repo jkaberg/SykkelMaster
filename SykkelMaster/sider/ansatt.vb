@@ -116,6 +116,7 @@
     End Sub
 
     Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
+        'legg til ansatt
         Dim passord As String = verktoy.tilfeldigStreng()
 
         Dim body As String = "Hei " & navn() & ", og velkommen til Sykkelmaster." & vbNewLine &
@@ -130,7 +131,16 @@
             Select Case MsgBox("Er du sikker på at du vil legg til " & navn() & "?", MsgBoxStyle.YesNo)
                 Case MsgBoxResult.Yes
                     Try
-                        Dim ansatt As New clsAnsatt(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text, CInt(cbxStilling.SelectedValue), CInt(ProvisjonBar.Value), CInt(cbxArbedidssted.SelectedValue), passord)
+                        Dim ansatt As New clsAnsatt(fnavn:=txtNavn.Text,
+                                                    enavn:=txtEtternavn.Text,
+                                                    pnr:=txtPostnr.Text,
+                                                    tnr:=txtTelefon.Text,
+                                                    adresse:=txtAdresse.Text,
+                                                    epost:=txtMail.Text,
+                                                    stilling:=cbxStilling.SelectedValue,
+                                                    provisjon:=ProvisjonBar.Value,
+                                                    arbeidssted:=cbxArbedidssted.SelectedValue,
+                                                    passord:=passord)
 
                         daoAnsatt.leggTilAnsatt(ansatt)
                         verktoy.sendMail(txtMail.Text, "Ny bruker i Sykkelmaster", body)
@@ -149,7 +159,9 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
-                    Dim ansatt As New clsAnsatt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text)
+                    Dim ansatt As New clsAnsatt(id:=Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value,
+                                                fnavn:=txtNavn.Text,
+                                                enavn:=txtEtternavn.Text)
 
                     daoAnsatt.fjernAnsatt(ansatt)
                     MsgBox(navn() & " er fjernet.", MsgBoxStyle.Exclamation)
@@ -166,7 +178,16 @@
         Select Case MsgBox("Er du sikker på at du vil oppdater " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
-                    Dim ansatt As New clsAnsatt(CInt(Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value), txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text, cbxStilling.SelectedValue, ProvisjonBar.Value, cbxArbedidssted.SelectedValue)
+                    Dim ansatt As New clsAnsatt(id:=Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value,
+                                                fnavn:=txtNavn.Text,
+                                                enavn:=txtEtternavn.Text,
+                                                pnr:=txtPostnr.Text,
+                                                tnr:=txtTelefon.Text,
+                                                adresse:=txtAdresse.Text,
+                                                epost:=txtMail.Text,
+                                                stilling:=cbxStilling.SelectedValue,
+                                                provisjon:=ProvisjonBar.Value,
+                                                arbeidssted:=cbxArbedidssted.SelectedValue)
 
                     daoAnsatt.oppdaterAnsatt(ansatt)
                     MsgBox(navn() & " er oppdatert.", MsgBoxStyle.Exclamation)

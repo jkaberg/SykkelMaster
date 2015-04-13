@@ -1,5 +1,4 @@
-﻿
-Public Class innlevering
+﻿Public Class innlevering
     Private payload As DataTable
     Private Sub innlevering_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         avtaleInnehold()
@@ -34,10 +33,14 @@ Public Class innlevering
     End Sub
 
     Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
+        Dim ordre_nr As Integer = Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value
+
         If lokasjoner.SelectedValue <> 0 Then
             Try
-                daoInnlevering.avsluttLeieAvtale(Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value, lokasjoner.SelectedValue)
-                MsgBox("Ordren er levert inn!", MsgBoxStyle.Information)
+                daoInnlevering.avsluttLeieAvtale(ordre_nr,
+                                                 lokasjoner.SelectedValue)
+
+                MsgBox(ordre_nr & " er levert inn!", MsgBoxStyle.Information)
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Critical)
             Finally

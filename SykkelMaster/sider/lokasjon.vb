@@ -54,7 +54,12 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtMail.Text, txtAdresse.Text, txtTelefon.Text, txtPostnr.Text)
+                    Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value,
+                                                    txtNavn.Text,
+                                                    txtMail.Text,
+                                                    txtAdresse.Text,
+                                                    txtTelefon.Text,
+                                                    txtPostnr.Text)
 
                     daoLokasjon.oppdaterLokasjon(lokasjon)
                     MsgBox(txtNavn.Text & " oppdatert.", MsgBoxStyle.Exclamation)
@@ -71,7 +76,8 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
+                    Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value,
+                                                    txtNavn.Text)
 
                     daoLokasjon.leggTilLokasjon(lokasjon)
                     MsgBox(txtNavn.Text & " fjernet.", MsgBoxStyle.Exclamation)

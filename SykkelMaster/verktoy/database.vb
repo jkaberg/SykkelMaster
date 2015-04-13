@@ -34,7 +34,7 @@ Public Class database
             conn.Dispose()
         End Try
 
-        If status > 0 Then
+        If Not IsNothing(status) Then
             Return True
         Else
             Return False

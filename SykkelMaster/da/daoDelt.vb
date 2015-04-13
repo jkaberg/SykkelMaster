@@ -47,6 +47,6 @@
     End Function
 
     Public Shared Function sjekkBrukerEksisterer(ByVal epost As String) As Boolean
-        Return database.query("SELECT COUNT(id) FROM person WHERE mail = '" & epost & "';")
+        Return database.query("SELECT id FROM person WHERE mail = '" & epost & "';")
     End Function
 End Class

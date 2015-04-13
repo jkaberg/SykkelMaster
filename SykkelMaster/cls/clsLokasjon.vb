@@ -3,7 +3,13 @@
     Private id, telefon, post_nr As Integer
 
     'oppdater
-    Sub New(ByVal id As Integer, ByVal navn As String, ByVal mail As String, ByVal adresse As String, ByVal telefon As Integer, ByVal post_nr As String)
+    Sub New(ByVal id As Integer,
+            ByVal navn As String,
+            ByVal mail As String,
+            ByVal adresse As String,
+            ByVal telefon As Integer,
+            ByVal post_nr As String)
+
         Me.pID = id
         Me.pNavn = navn
         Me.pMail = mail
@@ -13,7 +19,12 @@
     End Sub
 
     'legg til
-    Sub New(ByVal navn As String, ByVal mail As String, ByVal adresse As String, ByVal telefon As Integer, ByVal post_nr As String)
+    Sub New(ByVal navn As String,
+            ByVal mail As String,
+            ByVal adresse As String,
+            ByVal telefon As Integer,
+            ByVal post_nr As String)
+
         Me.pNavn = navn
         Me.pMail = mail
         Me.pAdresse = adresse
@@ -22,7 +33,8 @@
     End Sub
 
     'fjern
-    Sub New(ByVal id As Integer, ByVal navn As String)
+    Sub New(ByVal id As Integer,
+            ByVal navn As String)
         Me.pID = id
         Me.pNavn = navn
     End Sub

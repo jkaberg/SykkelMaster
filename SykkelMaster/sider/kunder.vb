@@ -84,11 +84,16 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdater bruker
-
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text)
+                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value,
+                                                txtNavn.Text,
+                                                txtEtternavn.Text,
+                                                txtPostnr.Text,
+                                                txtTelefon.Text,
+                                                txtAdresse.Text,
+                                                txtMail.Text)
 
                     daoPerson.oppdaterPerson(person)
                     MsgBox(navn() & " er oppdatert.", MsgBoxStyle.Exclamation)
@@ -106,7 +111,9 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text)
+                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value,
+                                                txtNavn.Text,
+                                                txtEtternavn.Text)
 
                     daoPerson.fjernPerson(person)
                     MsgBox(navn() & " fjernet.", MsgBoxStyle.Information)

@@ -3,7 +3,14 @@
     Private id, postnr, telefonnr As Integer ' 1 | 7070 | 12345678
 
     'oppdater
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal adresse As String, ByVal epost As String)
+    Sub New(ByVal id As Integer,
+            ByVal fnavn As String,
+            ByVal enavn As String,
+            ByVal pnr As Integer,
+            ByVal tnr As Integer,
+            ByVal adresse As String,
+            ByVal epost As String)
+
         Me.pID = id
         Me.pFnavn = fnavn
         Me.pEnavn = enavn
@@ -14,7 +21,9 @@
     End Sub
 
     'legg til
-    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal adresse As String, ByVal epost As String)
+    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer,
+            ByVal tnr As Integer, ByVal adresse As String, ByVal epost As String)
+
         Me.pFnavn = fnavn
         Me.pEnavn = enavn
         Me.pPostnr = pnr

@@ -3,7 +3,8 @@
     Private id As Integer
 
     'oppdater/fjern
-    Sub New(ByVal id As Integer, ByVal navn As String)
+    Sub New(ByVal id As Integer,
+            ByVal navn As String)
         Me.pID = id
         Me.pNavn = navn
     End Sub

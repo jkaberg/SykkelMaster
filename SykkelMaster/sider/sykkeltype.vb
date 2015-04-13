@@ -39,7 +39,8 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
+                    Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value,
+                                                txtNavn.Text)
 
                     daoSykkelType.oppdaterSykkelType(st)
                     MsgBox(txtNavn.Text & " oppdatert.", MsgBoxStyle.Exclamation)
@@ -56,7 +57,8 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
+                    Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value,
+                                                txtNavn.Text)
 
                     daoSykkelType.fjernSykkelType(st)
                     MsgBox(txtNavn.Text & " fjernet.", MsgBoxStyle.Exclamation)

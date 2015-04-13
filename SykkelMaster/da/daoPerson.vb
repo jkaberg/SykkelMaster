@@ -9,7 +9,12 @@
     End Function
 
     Public Shared Function fjernPerson(ByVal person As clsPerson) As Boolean
-        Return database.query("DELETE FROM person WHERE person.id = " & person.pID & ";")
+        Dim navn As String = person.pFnavn & " " & person.pEnavn
+        If database.query("SELECT person_id FROM ansatt WHERE person_id = " & person.pID & ";") Then ' kan ikke fjern fra kunde før man fjernet i ansatt/brukere
+            Throw New Exception("Du må slett " & navn & " fra ansatt først.")
+        Else
+            Return database.query("DELETE FROM person WHERE person.id = " & person.pID & ";")
+        End If
     End Function
 
     Public Shared Function oppdaterPerson(ByVal person As clsPerson) As Boolean
@@ -31,7 +36,10 @@
         ElseIf sok = Nothing Then
             sql = "SELECT * FROM person"
         Else
-            sql = "SELECT * FROM person WHERE fornavn LIKE '%" & sok & "%' OR telefon LIKE '%" & sok & "%' OR etternavn LIKE '%" & sok & "%';"
+            sql = "SELECT * FROM person " &
+                  "WHERE fornavn LIKE '%" & sok & "%'" &
+                  "OR telefon LIKE '%" & sok & "%'" &
+                  "OR etternavn LIKE '%" & sok & "%';"
         End If
 
         Return database.dt_query(sql)

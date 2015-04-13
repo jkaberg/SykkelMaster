@@ -34,7 +34,10 @@
         oppdaterTxtbox()
     End Sub
 
-    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing, Optional ByVal status As String = Nothing)
+    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing,
+                                 Optional ByVal posisjon As String = Nothing,
+                                 Optional ByVal status As String = Nothing)
+
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
         SykkelGridView.DataSource = daoSykkel.hentSykkler(sok, posisjon, status)
 
@@ -82,7 +85,14 @@
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkel i databasen
         Try
-            Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+            Dim sykkel As New clsSykkel(txtRammenr.Text,
+                                        txtAvvik.Text,
+                                        cbxType.SelectedValue,
+                                        cbxHjul.Text,
+                                        cbxRamme.Text,
+                                        cbxStatus.Text,
+                                        cbxPosisjon.SelectedValue,
+                                        cbxTilhorer.SelectedValue)
 
             daoSykkel.leggTilSykkel(sykkel)
             MsgBox(sykkel_navn() & " lagt til.", MsgBoxStyle.Exclamation)
@@ -100,7 +110,13 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+                    Dim sykkel As New clsSykkel(txtRammenr.Text,
+                                                txtAvvik.Text,
+                                                cbxType.SelectedValue,
+                                                cbxHjul.Text, cbxRamme.Text,
+                                                cbxStatus.Text,
+                                                cbxPosisjon.SelectedValue,
+                                                cbxTilhorer.SelectedValue)
 
                     daoSykkel.oppdaterSykkel(sykkel)
                     MsgBox(sykkel_navn() & " er oppdatert.", MsgBoxStyle.Exclamation)
