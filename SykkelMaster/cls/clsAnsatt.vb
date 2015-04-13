@@ -59,11 +59,6 @@
         Me.pArbeidssted = arbeidssted
     End Sub
 
-    'fjern
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String)
-        MyBase.New(id, fnavn, enavn)
-    End Sub
-
     Public Property pStilling() As Integer
         Get
             Return stilling
