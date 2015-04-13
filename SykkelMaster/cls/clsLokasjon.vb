@@ -7,7 +7,7 @@
             ByVal navn As String,
             ByVal mail As String,
             ByVal adresse As String,
-            ByVal telefon As Integer,
+            ByVal telefon As String,
             ByVal post_nr As String)
 
         Me.pID = id
@@ -22,7 +22,7 @@
     Sub New(ByVal navn As String,
             ByVal mail As String,
             ByVal adresse As String,
-            ByVal telefon As Integer,
+            ByVal telefon As String,
             ByVal post_nr As String)
 
         Me.pNavn = navn
@@ -52,7 +52,11 @@
             Return navn
         End Get
         Set(ByVal value As String)
-            navn = value
+            If value.Length < 3 Then
+                Throw New Exception("Navn må være minst 3 tegn langt.")
+            Else
+                navn = value
+            End If
         End Set
     End Property
     Public Property pMail() As String
@@ -60,7 +64,11 @@
             Return mail
         End Get
         Set(ByVal value As String)
-            mail = value
+            If Not verktoy.validerEpost(value) Then
+                Throw New Exception("Du må angi en korrekt e-post adresse.")
+            Else
+                mail = value
+            End If
         End Set
     End Property
     Public Property pAdresse() As String
@@ -68,23 +76,39 @@
             Return adresse
         End Get
         Set(ByVal value As String)
-            adresse = value
+            If value.Length < 3 Then
+                Throw New Exception("Adress må være minst 3 tegn langt.")
+            Else
+                adresse = value
+            End If
         End Set
     End Property
-    Public Property pTlfnr() As Integer
+    Public Property pTlfnr() As String
         Get
             Return telefon
         End Get
-        Set(ByVal value As Integer)
-            telefon = value
+        Set(ByVal value As String)
+            If Not value.ToString.Length = 8 Then
+                Throw New Exception("Telefon nummeret må bestå av 8 tall.")
+            ElseIf Not IsNumeric(value) Then
+                Throw New Exception("Telefon nummeret kan kun bestå av tall.")
+            Else
+                telefon = value
+            End If
         End Set
     End Property
-    Public Property pPostnr() As Integer
+    Public Property pPostnr() As String
         Get
             Return post_nr
         End Get
-        Set(ByVal value As Integer)
-            post_nr = value
+        Set(ByVal value As String)
+            If Not value.Length = 4 Then
+                Throw New Exception("Post nummeret kan kun bestå av 4 tall.")
+            ElseIf Not IsNumeric(value) Then
+                Throw New Exception("Post nummeret må bestå av kun tall.")
+            Else
+                post_nr = value
+            End If
         End Set
     End Property
 End Class

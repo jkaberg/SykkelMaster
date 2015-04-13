@@ -129,7 +129,7 @@
         End Get
         Set(ByVal value As String)
             If value.Length < 3 Then
-                Throw New Exception("Gate må være minst 3 tegn langt.")
+                Throw New Exception("Adress må være minst 3 tegn langt.")
             Else
                 gate = value
             End If
