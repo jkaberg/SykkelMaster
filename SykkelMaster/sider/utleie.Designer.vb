@@ -24,6 +24,7 @@ Partial Class utleie
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.sykkelGrid = New System.Windows.Forms.DataGridView()
         Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.btnLeggTil = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -53,13 +54,12 @@ Partial Class utleie
         Me.btnSlett = New System.Windows.Forms.Button()
         Me.btnRedigere = New System.Windows.Forms.Button()
         Me.vognGrid = New System.Windows.Forms.DataGridView()
-        Me.sykkelGrid = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.vognGrid, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -82,6 +82,19 @@ Partial Class utleie
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Utleie"
+        '
+        'sykkelGrid
+        '
+        Me.sykkelGrid.AllowUserToAddRows = False
+        Me.sykkelGrid.AllowUserToDeleteRows = False
+        Me.sykkelGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.sykkelGrid.Location = New System.Drawing.Point(9, 161)
+        Me.sykkelGrid.MultiSelect = False
+        Me.sykkelGrid.Name = "sykkelGrid"
+        Me.sykkelGrid.RowTemplate.Height = 24
+        Me.sykkelGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.sykkelGrid.Size = New System.Drawing.Size(446, 78)
+        Me.sykkelGrid.TabIndex = 23
         '
         'CheckedListBox1
         '
@@ -347,6 +360,7 @@ Partial Class utleie
         '
         Me.vognGrid.AllowUserToAddRows = False
         Me.vognGrid.AllowUserToDeleteRows = False
+        Me.vognGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.vognGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vognGrid.Location = New System.Drawing.Point(7, 22)
         Me.vognGrid.Name = "vognGrid"
@@ -354,18 +368,6 @@ Partial Class utleie
         Me.vognGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.vognGrid.Size = New System.Drawing.Size(598, 280)
         Me.vognGrid.TabIndex = 0
-        '
-        'sykkelGrid
-        '
-        Me.sykkelGrid.AllowUserToAddRows = False
-        Me.sykkelGrid.AllowUserToDeleteRows = False
-        Me.sykkelGrid.Location = New System.Drawing.Point(9, 161)
-        Me.sykkelGrid.MultiSelect = False
-        Me.sykkelGrid.Name = "sykkelGrid"
-        Me.sykkelGrid.RowTemplate.Height = 24
-        Me.sykkelGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.sykkelGrid.Size = New System.Drawing.Size(446, 78)
-        Me.sykkelGrid.TabIndex = 23
         '
         'utleie
         '
@@ -382,13 +384,13 @@ Partial Class utleie
         Me.Text = "Utleie"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         CType(Me.vognGrid, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

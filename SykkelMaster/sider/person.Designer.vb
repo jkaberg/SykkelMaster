@@ -198,12 +198,12 @@ Partial Class person
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Telefonnr"
         '
-        'txttelefon
+        'txtTelefon
         '
         Me.txtTelefon.Location = New System.Drawing.Point(80, 74)
         Me.txtTelefon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtTelefon.MaxLength = 8
-        Me.txtTelefon.Name = "txttelefon"
+        Me.txtTelefon.Name = "txtTelefon"
         Me.txtTelefon.Size = New System.Drawing.Size(166, 22)
         Me.txtTelefon.TabIndex = 2
         '
@@ -259,6 +259,7 @@ Partial Class person
         '
         Me.kundeGridView.AllowUserToAddRows = False
         Me.kundeGridView.AllowUserToDeleteRows = False
+        Me.kundeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.kundeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.kundeGridView.Location = New System.Drawing.Point(11, 46)
         Me.kundeGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -286,7 +287,7 @@ Partial Class person
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Navn/telefonnr"
         '
-        'kunder
+        'person
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -295,7 +296,7 @@ Partial Class person
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Name = "kunder"
+        Me.Name = "person"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Kunde"
         Me.GroupBox1.ResumeLayout(False)

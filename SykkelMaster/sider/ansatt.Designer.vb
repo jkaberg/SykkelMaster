@@ -25,6 +25,7 @@ Partial Class ansatte
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.brukerGridView = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnSlett = New System.Windows.Forms.Button()
         Me.btnTom = New System.Windows.Forms.Button()
         Me.cbxArbedidssted = New System.Windows.Forms.ComboBox()
         Me.btnOppdater_Bruker = New System.Windows.Forms.Button()
@@ -49,7 +50,6 @@ Partial Class ansatte
         Me.txtNavn = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnSlett = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         CType(Me.brukerGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -71,6 +71,7 @@ Partial Class ansatte
         '
         Me.brukerGridView.AllowUserToAddRows = False
         Me.brukerGridView.AllowUserToDeleteRows = False
+        Me.brukerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.brukerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.brukerGridView.Location = New System.Drawing.Point(5, 18)
         Me.brukerGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -116,6 +117,16 @@ Partial Class ansatte
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger ansatt"
+        '
+        'btnSlett
+        '
+        Me.btnSlett.Location = New System.Drawing.Point(9, 393)
+        Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSlett.Name = "btnSlett"
+        Me.btnSlett.Size = New System.Drawing.Size(237, 30)
+        Me.btnSlett.TabIndex = 42
+        Me.btnSlett.Text = "Slett"
+        Me.btnSlett.UseVisualStyleBackColor = True
         '
         'btnTom
         '
@@ -334,16 +345,6 @@ Partial Class ansatte
         Me.Label1.Size = New System.Drawing.Size(60, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Fornavn"
-        '
-        'btnSlett
-        '
-        Me.btnSlett.Location = New System.Drawing.Point(9, 393)
-        Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnSlett.Name = "btnSlett"
-        Me.btnSlett.Size = New System.Drawing.Size(237, 30)
-        Me.btnSlett.TabIndex = 42
-        Me.btnSlett.Text = "Slett"
-        Me.btnSlett.UseVisualStyleBackColor = True
         '
         'ansatte
         '

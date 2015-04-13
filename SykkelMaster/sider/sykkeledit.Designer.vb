@@ -341,6 +341,7 @@ Partial Class sykkelEdit
         '
         Me.SykkelGridView.AllowUserToAddRows = False
         Me.SykkelGridView.AllowUserToDeleteRows = False
+        Me.SykkelGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.SykkelGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SykkelGridView.Location = New System.Drawing.Point(9, 46)
         Me.SykkelGridView.Name = "SykkelGridView"

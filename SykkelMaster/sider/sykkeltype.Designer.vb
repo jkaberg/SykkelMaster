@@ -97,6 +97,7 @@ Partial Class sykkeltype
         '
         Me.sykkeltypeGrid.AllowUserToAddRows = False
         Me.sykkeltypeGrid.AllowUserToDeleteRows = False
+        Me.sykkeltypeGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.sykkeltypeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.sykkeltypeGrid.Location = New System.Drawing.Point(15, 22)
         Me.sykkeltypeGrid.Name = "sykkeltypeGrid"
