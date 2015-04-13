@@ -164,7 +164,7 @@ Partial Class ansatte
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(5, 250)
+        Me.Label11.Location = New System.Drawing.Point(6, 265)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(83, 17)
         Me.Label11.TabIndex = 39
@@ -173,7 +173,7 @@ Partial Class ansatte
         'lblProvisjon
         '
         Me.lblProvisjon.AutoSize = True
-        Me.lblProvisjon.Location = New System.Drawing.Point(76, 234)
+        Me.lblProvisjon.Location = New System.Drawing.Point(77, 234)
         Me.lblProvisjon.Name = "lblProvisjon"
         Me.lblProvisjon.Size = New System.Drawing.Size(28, 17)
         Me.lblProvisjon.TabIndex = 4
@@ -191,7 +191,7 @@ Partial Class ansatte
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(5, 222)
+        Me.Label6.Location = New System.Drawing.Point(6, 234)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(66, 17)
         Me.Label6.TabIndex = 4
@@ -210,7 +210,7 @@ Partial Class ansatte
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(5, 190)
+        Me.Label9.Location = New System.Drawing.Point(6, 205)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(49, 17)
         Me.Label9.TabIndex = 37
@@ -219,7 +219,7 @@ Partial Class ansatte
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(5, 166)
+        Me.Label8.Location = New System.Drawing.Point(6, 179)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(63, 17)
         Me.Label8.TabIndex = 33
@@ -248,7 +248,7 @@ Partial Class ansatte
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(5, 97)
+        Me.Label7.Location = New System.Drawing.Point(6, 100)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(49, 17)
         Me.Label7.TabIndex = 26
@@ -265,7 +265,7 @@ Partial Class ansatte
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(5, 142)
+        Me.Label5.Location = New System.Drawing.Point(6, 153)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(49, 17)
         Me.Label5.TabIndex = 10
@@ -291,7 +291,7 @@ Partial Class ansatte
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(4, 118)
+        Me.Label4.Location = New System.Drawing.Point(5, 126)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 17)
         Me.Label4.TabIndex = 7
@@ -300,7 +300,7 @@ Partial Class ansatte
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(5, 73)
+        Me.Label3.Location = New System.Drawing.Point(6, 73)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(69, 17)
         Me.Label3.TabIndex = 5
@@ -334,7 +334,7 @@ Partial Class ansatte
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(5, 46)
+        Me.Label2.Location = New System.Drawing.Point(6, 47)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 17)
         Me.Label2.TabIndex = 1
@@ -343,7 +343,7 @@ Partial Class ansatte
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 20)
+        Me.Label1.Location = New System.Drawing.Point(6, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 17)
         Me.Label1.TabIndex = 0
