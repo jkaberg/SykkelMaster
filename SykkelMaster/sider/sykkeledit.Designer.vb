@@ -287,7 +287,7 @@ Partial Class sykkelEdit
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Location = New System.Drawing.Point(336, 13)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1138, 428)
+        Me.GroupBox2.Size = New System.Drawing.Size(881, 428)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -341,6 +341,7 @@ Partial Class sykkelEdit
         '
         Me.SykkelGridView.AllowUserToAddRows = False
         Me.SykkelGridView.AllowUserToDeleteRows = False
+        Me.SykkelGridView.AllowUserToResizeRows = False
         Me.SykkelGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.SykkelGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SykkelGridView.Location = New System.Drawing.Point(9, 46)
@@ -349,7 +350,7 @@ Partial Class sykkelEdit
         Me.SykkelGridView.RowHeadersVisible = False
         Me.SykkelGridView.RowTemplate.Height = 24
         Me.SykkelGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SykkelGridView.Size = New System.Drawing.Size(1124, 375)
+        Me.SykkelGridView.Size = New System.Drawing.Size(866, 375)
         Me.SykkelGridView.TabIndex = 18
         '
         'Label6
@@ -365,7 +366,7 @@ Partial Class sykkelEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1484, 449)
+        Me.ClientSize = New System.Drawing.Size(1229, 449)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow

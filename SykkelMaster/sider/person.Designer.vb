@@ -259,6 +259,7 @@ Partial Class person
         '
         Me.kundeGridView.AllowUserToAddRows = False
         Me.kundeGridView.AllowUserToDeleteRows = False
+        Me.kundeGridView.AllowUserToResizeRows = False
         Me.kundeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.kundeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.kundeGridView.Location = New System.Drawing.Point(11, 46)

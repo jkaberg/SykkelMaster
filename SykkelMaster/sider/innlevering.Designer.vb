@@ -152,6 +152,7 @@ Partial Class innlevering
         '
         Me.oversiktGrid.AllowUserToAddRows = False
         Me.oversiktGrid.AllowUserToDeleteRows = False
+        Me.oversiktGrid.AllowUserToResizeRows = False
         Me.oversiktGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.oversiktGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.oversiktGrid.Location = New System.Drawing.Point(5, 17)
@@ -262,6 +263,7 @@ Partial Class innlevering
         '
         Me.tilbehorGrid.AllowUserToAddRows = False
         Me.tilbehorGrid.AllowUserToDeleteRows = False
+        Me.tilbehorGrid.AllowUserToResizeRows = False
         Me.tilbehorGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tilbehorGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tilbehorGrid.Location = New System.Drawing.Point(7, 18)

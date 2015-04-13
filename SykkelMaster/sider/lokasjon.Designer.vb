@@ -62,6 +62,7 @@ Partial Class lokasjoner
         '
         Me.Oppdaterlokasjon.AllowUserToAddRows = False
         Me.Oppdaterlokasjon.AllowUserToDeleteRows = False
+        Me.Oppdaterlokasjon.AllowUserToResizeRows = False
         Me.Oppdaterlokasjon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.Oppdaterlokasjon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Oppdaterlokasjon.Location = New System.Drawing.Point(9, 21)

@@ -62,7 +62,7 @@ Partial Class ansatte
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(899, 431)
+        Me.GroupBox2.Size = New System.Drawing.Size(967, 431)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Oversikt"
@@ -71,15 +71,17 @@ Partial Class ansatte
         '
         Me.brukerGridView.AllowUserToAddRows = False
         Me.brukerGridView.AllowUserToDeleteRows = False
+        Me.brukerGridView.AllowUserToResizeRows = False
         Me.brukerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.brukerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.brukerGridView.Location = New System.Drawing.Point(5, 18)
         Me.brukerGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.brukerGridView.Name = "brukerGridView"
+        Me.brukerGridView.RowHeadersVisible = False
         Me.brukerGridView.RowTemplate.Height = 24
         Me.brukerGridView.RowTemplate.ReadOnly = True
         Me.brukerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.brukerGridView.Size = New System.Drawing.Size(887, 405)
+        Me.brukerGridView.Size = New System.Drawing.Size(956, 405)
         Me.brukerGridView.TabIndex = 18
         '
         'GroupBox1
@@ -350,7 +352,7 @@ Partial Class ansatte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1189, 450)
+        Me.ClientSize = New System.Drawing.Size(1254, 450)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow

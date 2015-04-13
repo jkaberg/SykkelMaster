@@ -25,7 +25,6 @@ Partial Class utleie
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.sykkelGrid = New System.Windows.Forms.DataGridView()
-        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.btnLeggTil = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -36,6 +35,7 @@ Partial Class utleie
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.rbTime = New System.Windows.Forms.RadioButton()
+        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cbxRabattAvtale = New System.Windows.Forms.ComboBox()
@@ -88,6 +88,7 @@ Partial Class utleie
         '
         Me.sykkelGrid.AllowUserToAddRows = False
         Me.sykkelGrid.AllowUserToDeleteRows = False
+        Me.sykkelGrid.AllowUserToResizeRows = False
         Me.sykkelGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.sykkelGrid.Location = New System.Drawing.Point(9, 161)
         Me.sykkelGrid.MultiSelect = False
@@ -97,18 +98,6 @@ Partial Class utleie
         Me.sykkelGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.sykkelGrid.Size = New System.Drawing.Size(446, 139)
         Me.sykkelGrid.TabIndex = 23
-        '
-        'CheckedListBox1
-        '
-        Me.CheckedListBox1.AllowDrop = True
-        Me.CheckedListBox1.CheckOnClick = True
-        Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Items.AddRange(New Object() {"Barnehenger", "Barnesete", "Beskytter", "Hjelm", "Lappesaker", "Lastehenger", "Lås", "Sykkelpompe", "Sykkelvekse"})
-        Me.CheckedListBox1.Location = New System.Drawing.Point(6, 21)
-        Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(296, 89)
-        Me.CheckedListBox1.Sorted = True
-        Me.CheckedListBox1.TabIndex = 14
         '
         'btnLeggTil
         '
@@ -201,6 +190,18 @@ Partial Class utleie
         Me.rbTime.TabStop = True
         Me.rbTime.Text = "Time"
         Me.rbTime.UseVisualStyleBackColor = True
+        '
+        'CheckedListBox1
+        '
+        Me.CheckedListBox1.AllowDrop = True
+        Me.CheckedListBox1.CheckOnClick = True
+        Me.CheckedListBox1.FormattingEnabled = True
+        Me.CheckedListBox1.Items.AddRange(New Object() {"Barnehenger", "Barnesete", "Beskytter", "Hjelm", "Lappesaker", "Lastehenger", "Lås", "Sykkelpompe", "Sykkelvekse"})
+        Me.CheckedListBox1.Location = New System.Drawing.Point(6, 21)
+        Me.CheckedListBox1.Name = "CheckedListBox1"
+        Me.CheckedListBox1.Size = New System.Drawing.Size(296, 89)
+        Me.CheckedListBox1.Sorted = True
+        Me.CheckedListBox1.TabIndex = 14
         '
         'GroupBox2
         '
@@ -362,6 +363,7 @@ Partial Class utleie
         '
         Me.vognGrid.AllowUserToAddRows = False
         Me.vognGrid.AllowUserToDeleteRows = False
+        Me.vognGrid.AllowUserToResizeRows = False
         Me.vognGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.vognGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vognGrid.Location = New System.Drawing.Point(7, 22)
