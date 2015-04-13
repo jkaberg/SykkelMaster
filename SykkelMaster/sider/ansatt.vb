@@ -152,7 +152,7 @@
         End If
     End Sub
 
-    Private Sub Slett_Bruker(sender As Object, e As EventArgs)
+    Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slett bruker
         Select Case MsgBox("Er du sikker på at du vil fjerne " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes

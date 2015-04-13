@@ -6,8 +6,8 @@
     Sub New(ByVal id As Integer,
             ByVal fnavn As String,
             ByVal enavn As String,
-            ByVal pnr As Integer,
-            ByVal tnr As Integer,
+            ByVal pnr As String,
+            ByVal tnr As String,
             ByVal adresse As String,
             ByVal epost As String)
 
@@ -23,8 +23,8 @@
     'legg til
     Sub New(ByVal fnavn As String,
             ByVal enavn As String,
-            ByVal pnr As Integer,
-            ByVal tnr As Integer,
+            ByVal pnr As String,
+            ByVal tnr As String,
             ByVal adresse As String,
             ByVal epost As String)
 
@@ -93,12 +93,12 @@
         End Set
     End Property
 
-    Public Property pPostnr() As Integer
+    Public Property pPostnr() As String
         Get
             Return postnr
         End Get
-        Set(ByVal value As Integer)
-            If value.ToString.Length <> 4 Then
+        Set(ByVal value As String)
+            If Not value.Length = 4 Then
                 Throw New Exception("Post nummeret kan kun bestå av 4 tall.")
             ElseIf Not IsNumeric(value) Then
                 Throw New Exception("Post nummeret må bestå av kun tall.")
@@ -141,10 +141,7 @@
             Return epost
         End Get
         Set(ByVal value As String)
-            Dim regx As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
-            Dim ep As System.Text.RegularExpressions.Match = regx.Match(value)
-
-            If Not ep.Success Then
+            If Not verktoy.validerEpost(value) Then
                 Throw New Exception("Du må angi en korrekt e-post adresse.")
             Else
                 epost = value
