@@ -105,7 +105,7 @@ Partial Class lokasjoner
         Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnTom.Name = "btnTom"
         Me.btnTom.Size = New System.Drawing.Size(267, 38)
-        Me.btnTom.TabIndex = 36
+        Me.btnTom.TabIndex = 6
         Me.btnTom.Text = "Tøm"
         Me.btnTom.UseVisualStyleBackColor = True
         '
@@ -115,7 +115,7 @@ Partial Class lokasjoner
         Me.txtMail.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtMail.Name = "txtMail"
         Me.txtMail.Size = New System.Drawing.Size(187, 26)
-        Me.txtMail.TabIndex = 35
+        Me.txtMail.TabIndex = 4
         '
         'Label6
         '
@@ -132,7 +132,7 @@ Partial Class lokasjoner
         Me.BtnDeleteLocation.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.BtnDeleteLocation.Name = "BtnDeleteLocation"
         Me.BtnDeleteLocation.Size = New System.Drawing.Size(267, 38)
-        Me.BtnDeleteLocation.TabIndex = 33
+        Me.BtnDeleteLocation.TabIndex = 8
         Me.BtnDeleteLocation.Text = "Slett"
         Me.BtnDeleteLocation.UseVisualStyleBackColor = True
         '
@@ -152,7 +152,7 @@ Partial Class lokasjoner
         Me.btnAddLocation.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAddLocation.Name = "btnAddLocation"
         Me.btnAddLocation.Size = New System.Drawing.Size(267, 38)
-        Me.btnAddLocation.TabIndex = 31
+        Me.btnAddLocation.TabIndex = 7
         Me.btnAddLocation.Text = "Legg til"
         Me.btnAddLocation.UseVisualStyleBackColor = True
         '
@@ -189,7 +189,7 @@ Partial Class lokasjoner
         Me.txtPostnr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtPostnr.Name = "txtPostnr"
         Me.txtPostnr.Size = New System.Drawing.Size(187, 26)
-        Me.txtPostnr.TabIndex = 9
+        Me.txtPostnr.TabIndex = 5
         '
         'txtAdresse
         '
@@ -197,7 +197,7 @@ Partial Class lokasjoner
         Me.txtAdresse.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtAdresse.Name = "txtAdresse"
         Me.txtAdresse.Size = New System.Drawing.Size(187, 26)
-        Me.txtAdresse.TabIndex = 8
+        Me.txtAdresse.TabIndex = 3
         '
         'Label4
         '
@@ -223,7 +223,7 @@ Partial Class lokasjoner
         Me.txtTelefon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtTelefon.Name = "txtTelefon"
         Me.txtTelefon.Size = New System.Drawing.Size(187, 26)
-        Me.txtTelefon.TabIndex = 4
+        Me.txtTelefon.TabIndex = 2
         '
         'txtNavn
         '
@@ -232,7 +232,7 @@ Partial Class lokasjoner
         Me.txtNavn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtNavn.Name = "txtNavn"
         Me.txtNavn.Size = New System.Drawing.Size(187, 26)
-        Me.txtNavn.TabIndex = 2
+        Me.txtNavn.TabIndex = 1
         '
         'Label1
         '
