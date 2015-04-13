@@ -157,6 +157,7 @@ Partial Class innlevering
         Me.oversiktGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.oversiktGrid.Location = New System.Drawing.Point(5, 17)
         Me.oversiktGrid.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.oversiktGrid.MultiSelect = False
         Me.oversiktGrid.Name = "oversiktGrid"
         Me.oversiktGrid.ReadOnly = True
         Me.oversiktGrid.RowHeadersVisible = False
@@ -268,6 +269,7 @@ Partial Class innlevering
         Me.tilbehorGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tilbehorGrid.Location = New System.Drawing.Point(7, 18)
         Me.tilbehorGrid.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tilbehorGrid.MultiSelect = False
         Me.tilbehorGrid.Name = "tilbehorGrid"
         Me.tilbehorGrid.ReadOnly = True
         Me.tilbehorGrid.RowHeadersVisible = False

@@ -76,6 +76,7 @@ Partial Class ansatte
         Me.brukerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.brukerGridView.Location = New System.Drawing.Point(5, 18)
         Me.brukerGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.brukerGridView.MultiSelect = False
         Me.brukerGridView.Name = "brukerGridView"
         Me.brukerGridView.RowHeadersVisible = False
         Me.brukerGridView.RowTemplate.Height = 24

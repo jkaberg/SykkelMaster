@@ -264,6 +264,7 @@ Partial Class person
         Me.kundeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.kundeGridView.Location = New System.Drawing.Point(11, 46)
         Me.kundeGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.kundeGridView.MultiSelect = False
         Me.kundeGridView.Name = "kundeGridView"
         Me.kundeGridView.ReadOnly = True
         Me.kundeGridView.RowHeadersVisible = False

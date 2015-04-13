@@ -367,6 +367,7 @@ Partial Class utleie
         Me.vognGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.vognGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vognGrid.Location = New System.Drawing.Point(7, 22)
+        Me.vognGrid.MultiSelect = False
         Me.vognGrid.Name = "vognGrid"
         Me.vognGrid.RowHeadersVisible = False
         Me.vognGrid.RowTemplate.Height = 24

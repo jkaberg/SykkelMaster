@@ -67,6 +67,7 @@ Partial Class lokasjoner
         Me.Oppdaterlokasjon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Oppdaterlokasjon.Location = New System.Drawing.Point(9, 21)
         Me.Oppdaterlokasjon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Oppdaterlokasjon.MultiSelect = False
         Me.Oppdaterlokasjon.Name = "Oppdaterlokasjon"
         Me.Oppdaterlokasjon.ReadOnly = True
         Me.Oppdaterlokasjon.RowHeadersVisible = False
