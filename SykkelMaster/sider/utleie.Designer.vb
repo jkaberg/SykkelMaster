@@ -199,7 +199,7 @@ Partial Class utleie
         Me.CheckedListBox1.Items.AddRange(New Object() {"Barnehenger", "Barnesete", "Beskytter", "Hjelm", "Lappesaker", "Lastehenger", "Lås", "Sykkelpompe", "Sykkelvekse"})
         Me.CheckedListBox1.Location = New System.Drawing.Point(6, 21)
         Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(296, 89)
+        Me.CheckedListBox1.Size = New System.Drawing.Size(296, 106)
         Me.CheckedListBox1.Sorted = True
         Me.CheckedListBox1.TabIndex = 14
         '
@@ -209,7 +209,7 @@ Partial Class utleie
         Me.GroupBox2.Controls.Add(Me.cbxRabattAvtale)
         Me.GroupBox2.Location = New System.Drawing.Point(13, 184)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(309, 68)
+        Me.GroupBox2.Size = New System.Drawing.Size(309, 53)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Rabatt"
@@ -217,7 +217,7 @@ Partial Class utleie
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(11, 24)
+        Me.Label7.Location = New System.Drawing.Point(11, 20)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(47, 17)
         Me.Label7.TabIndex = 1
@@ -228,7 +228,7 @@ Partial Class utleie
         Me.cbxRabattAvtale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxRabattAvtale.FormattingEnabled = True
         Me.cbxRabattAvtale.Items.AddRange(New Object() {"10% Enkeltperson", "20% Enkeltperson", "99% Gruppe"})
-        Me.cbxRabattAvtale.Location = New System.Drawing.Point(87, 21)
+        Me.cbxRabattAvtale.Location = New System.Drawing.Point(87, 17)
         Me.cbxRabattAvtale.Name = "cbxRabattAvtale"
         Me.cbxRabattAvtale.Size = New System.Drawing.Size(215, 24)
         Me.cbxRabattAvtale.TabIndex = 6
@@ -378,9 +378,9 @@ Partial Class utleie
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.CheckedListBox1)
-        Me.GroupBox5.Location = New System.Drawing.Point(13, 258)
+        Me.GroupBox5.Location = New System.Drawing.Point(13, 243)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(309, 125)
+        Me.GroupBox5.Size = New System.Drawing.Size(309, 140)
         Me.GroupBox5.TabIndex = 5
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Utstyr"
