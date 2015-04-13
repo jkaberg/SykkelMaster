@@ -200,4 +200,17 @@
     Private Function navn() As String
         Return txtNavn.Text & " " & txtEtternavn.Text
     End Function
+
+    Private Sub btnTom_Click(sender As Object, e As EventArgs) Handles btnTom.Click
+        txtNavn.Text = ""
+        txtEtternavn.Text = ""
+        txtTelefon.Text = ""
+        txtMail.Text = ""
+        txtAdresse.Text = ""
+        txtPostnr.Text = ""
+        cbxStilling.SelectedIndex = -1
+        cbxArbedidssted.SelectedIndex = -1
+        ProvisjonBar.Value = 0
+
+    End Sub
 End Class
