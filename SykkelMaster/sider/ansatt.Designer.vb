@@ -32,6 +32,7 @@ Partial Class ansatte
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cbxStilling = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.btnSlett_Bruker = New System.Windows.Forms.Button()
         Me.btnOppdater_Bruker = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtPostSted = New System.Windows.Forms.TextBox()
@@ -60,7 +61,7 @@ Partial Class ansatte
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(899, 377)
+        Me.GroupBox2.Size = New System.Drawing.Size(899, 410)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Oversikt"
@@ -76,7 +77,7 @@ Partial Class ansatte
         Me.brukerGridView.RowTemplate.Height = 24
         Me.brukerGridView.RowTemplate.ReadOnly = True
         Me.brukerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.brukerGridView.Size = New System.Drawing.Size(887, 349)
+        Me.brukerGridView.Size = New System.Drawing.Size(887, 383)
         Me.brukerGridView.TabIndex = 18
         '
         'GroupBox1
@@ -88,6 +89,7 @@ Partial Class ansatte
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.cbxStilling)
         Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.btnSlett_Bruker)
         Me.GroupBox1.Controls.Add(Me.btnOppdater_Bruker)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtPostSted)
@@ -108,7 +110,7 @@ Partial Class ansatte
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(264, 377)
+        Me.GroupBox1.Size = New System.Drawing.Size(264, 410)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger ansatt"
@@ -132,11 +134,11 @@ Partial Class ansatte
         Me.Label11.TabIndex = 39
         Me.Label11.Text = "Arbeidssted"
         '
-        'lblProvisjon
+        'Label10
         '
         Me.lblProvisjon.AutoSize = True
         Me.lblProvisjon.Location = New System.Drawing.Point(77, 249)
-        Me.lblProvisjon.Name = "lblProvisjon"
+        Me.lblProvisjon.Name = "Label10"
         Me.lblProvisjon.Size = New System.Drawing.Size(28, 17)
         Me.lblProvisjon.TabIndex = 4
         Me.lblProvisjon.Text = "0%"
@@ -178,9 +180,19 @@ Partial Class ansatte
         Me.Label9.TabIndex = 37
         Me.Label9.Text = "Stilling"
         '
+        'btnSlett_Bruker
+        '
+        Me.btnSlett_Bruker.Location = New System.Drawing.Point(7, 371)
+        Me.btnSlett_Bruker.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSlett_Bruker.Name = "btnSlett_Bruker"
+        Me.btnSlett_Bruker.Size = New System.Drawing.Size(240, 30)
+        Me.btnSlett_Bruker.TabIndex = 35
+        Me.btnSlett_Bruker.Text = "Slett"
+        Me.btnSlett_Bruker.UseVisualStyleBackColor = True
+        '
         'btnOppdater_Bruker
         '
-        Me.btnOppdater_Bruker.Location = New System.Drawing.Point(8, 337)
+        Me.btnOppdater_Bruker.Location = New System.Drawing.Point(6, 337)
         Me.btnOppdater_Bruker.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnOppdater_Bruker.Name = "btnOppdater_Bruker"
         Me.btnOppdater_Bruker.Size = New System.Drawing.Size(240, 30)
@@ -321,16 +333,16 @@ Partial Class ansatte
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Fornavn"
         '
-        'ansatte
+        'bruker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1189, 398)
+        Me.ClientSize = New System.Drawing.Size(1189, 432)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Name = "ansatte"
+        Me.Name = "bruker"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Brukere"
         Me.GroupBox2.ResumeLayout(False)
@@ -355,6 +367,7 @@ Partial Class ansatte
     Friend WithEvents txtNavn As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnSlett_Bruker As System.Windows.Forms.Button
     Friend WithEvents btnOppdater_Bruker As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtPostSted As System.Windows.Forms.TextBox

@@ -22,6 +22,10 @@
         Return database.query(sql)
     End Function
 
+    Public Shared Function fjernAnsatt(ByVal ansatt As clsAnsatt) As Boolean
+        Return database.query("DELETE FROM ansatt WHERE ansatt.person_id = " & ansatt.pID & ";")
+    End Function
+
     Public Shared Function hentAnsatte() As DataTable
         sql = "SELECT " &
               "person.id, person.fornavn, person.etternavn, person.telefon, person.mail, person.adresse, person.post_nr, " &

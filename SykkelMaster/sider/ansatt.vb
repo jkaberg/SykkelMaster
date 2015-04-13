@@ -152,6 +152,25 @@
         End If
     End Sub
 
+    Private Sub Slett_Bruker(sender As Object, e As EventArgs) Handles btnSlett_Bruker.Click
+        'Slett bruker
+        Select Case MsgBox("Er du sikker på at du vil fjern " & navn() & "?", MsgBoxStyle.YesNo)
+            Case MsgBoxResult.Yes
+                Try
+                    Dim ansatt As New clsAnsatt(id:=Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value,
+                                                fnavn:=txtNavn.Text,
+                                                enavn:=txtEtternavn.Text)
+
+                    daoAnsatt.fjernAnsatt(ansatt)
+                    MsgBox(navn() & " er fjernet.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    oppdaterGridView()
+                End Try
+        End Select
+    End Sub
+
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
         'Oppdater bruker
         Select Case MsgBox("Er du sikker på at du vil oppdater " & navn() & "?", MsgBoxStyle.YesNo)
