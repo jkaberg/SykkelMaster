@@ -27,7 +27,11 @@
             Return navn
         End Get
         Set(ByVal value As String)
-            navn = value
+            If value.Length < 3 Then
+                Throw New ArgumentException("Navn må være minst 3 tegn langt.")
+            Else
+                navn = value
+            End If
         End Set
     End Property
 End Class

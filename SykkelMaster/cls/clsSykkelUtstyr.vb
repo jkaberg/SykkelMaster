@@ -38,12 +38,16 @@
             passer_sykkel_id = value
         End Set
     End Property
-    Public Property pNavn() As Integer
+    Public Property pNavn() As String
         Get
             Return navn
         End Get
-        Set(ByVal value As Integer)
-            navn = value
+        Set(ByVal value As String)
+            If value.Length < 3 Then
+                Throw New ArgumentException("Navn må være minst 3 tegn langt.")
+            Else
+                navn = value
+            End If
         End Set
     End Property
 End Class

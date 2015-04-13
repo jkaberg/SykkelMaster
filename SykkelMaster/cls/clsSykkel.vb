@@ -69,7 +69,11 @@
             Return avviksmelding
         End Get
         Set(ByVal value As String)
-            avviksmelding = value
+            If Not IsNothing(value) And value.Length < 10 Then
+                Throw New Exception("Skriv en mer utdybdende avviksmeldning.")
+            Else
+                avviksmelding = value
+            End If
         End Set
     End Property
     Public Property pSykkeltype() As Integer
@@ -109,7 +113,11 @@
             Return posisjon
         End Get
         Set(ByVal value As Integer)
-            posisjon = value
+            If IsNothing(value) Then
+                Throw New Exception("Du må angi posisjon.")
+            Else
+                posisjon = value
+            End If
         End Set
     End Property
     Public Property pVirksomhet() As Integer
@@ -117,7 +125,11 @@
             Return virksomhet
         End Get
         Set(ByVal value As Integer)
-            virksomhet = value
+            If IsNothing(value) Then
+                Throw New Exception("Du må angi virksomhet.")
+            Else
+                virksomhet = value
+            End If
         End Set
     End Property
 End Class
