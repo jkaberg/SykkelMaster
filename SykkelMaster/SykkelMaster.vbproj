@@ -104,6 +104,12 @@
     <Compile Include="sider\endrePassord.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sider\person.Designer.vb">
+      <DependentUpon>person.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sider\person.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="sider\lokasjon.Designer.vb">
       <DependentUpon>lokasjon.vb</DependentUpon>
     </Compile>
@@ -133,12 +139,6 @@
       <DependentUpon>innlevering.vb</DependentUpon>
     </Compile>
     <Compile Include="sider\innlevering.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sider\person.Designer.vb">
-      <DependentUpon>person.vb</DependentUpon>
-    </Compile>
-    <Compile Include="sider\person.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="start.vb">

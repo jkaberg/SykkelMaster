@@ -21,8 +21,12 @@
     End Sub
 
     'legg til
-    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer,
-            ByVal tnr As Integer, ByVal adresse As String, ByVal epost As String)
+    Sub New(ByVal fnavn As String,
+            ByVal enavn As String,
+            ByVal pnr As Integer,
+            ByVal tnr As Integer,
+            ByVal adresse As String,
+            ByVal epost As String)
 
         Me.pFnavn = fnavn
         Me.pEnavn = enavn
@@ -32,7 +36,12 @@
         Me.pEpost = epost
     End Sub
 
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal epost As String)
+    'start (login)
+    Sub New(ByVal id As Integer,
+            ByVal fnavn As String,
+            ByVal enavn As String,
+            ByVal epost As String)
+
         Me.pID = id
         Me.pFnavn = fnavn
         Me.pEnavn = enavn
@@ -40,7 +49,10 @@
     End Sub
 
     'fjern
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String)
+    Sub New(ByVal id As Integer,
+            ByVal fnavn As String,
+            ByVal enavn As String)
+
         Me.pID = id
         Me.pFnavn = fnavn
         Me.pEnavn = enavn

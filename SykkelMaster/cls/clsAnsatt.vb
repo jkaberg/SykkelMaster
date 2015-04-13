@@ -36,7 +36,6 @@
         MyBase.New(id, fnavn, enavn, pnr, tnr, adresse, epost)
         Me.pStilling = stilling
         Me.pProvisjon = provisjon
-
         Me.pArbeidssted = arbeidssted
     End Sub
 
@@ -77,15 +76,6 @@
         End Set
     End Property
 
-    Public Property pTilgangsniva() As Integer
-        Get
-            Return tilgangsniva
-        End Get
-        Set(ByVal value As Integer)
-            tilgangsniva = value
-        End Set
-    End Property
-
     Public Property pProvisjon() As Integer
         Get
             Return provisjon
@@ -104,7 +94,12 @@
             Return passord
         End Get
         Set(ByVal value As String)
-            passord = value
+            If value.Length <= 3 Then
+                Throw New Exception("Passord kan ikke være mindre enn 3 tegn langt.")
+            Else
+                passord = value
+            End If
+
         End Set
     End Property
 
