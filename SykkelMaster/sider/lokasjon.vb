@@ -79,7 +79,7 @@
                     Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value,
                                                     txtNavn.Text)
 
-                    daoLokasjon.leggTilLokasjon(lokasjon)
+                    daoLokasjon.fjernLokasjon(lokasjon)
                     MsgBox(txtNavn.Text & " fjernet.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
