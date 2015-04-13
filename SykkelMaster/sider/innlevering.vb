@@ -103,8 +103,8 @@
     End Sub
 
     Private Sub Rediger_kunde_Click(sender As Object, e As EventArgs) Handles Rediger_kunde.Click
-        kunder.Show()
-        kunder.oppdaterGridView(id:=cbxKunde.SelectedValue)
+        person.Show()
+        person.oppdaterGridView(id:=cbxKunde.SelectedValue)
     End Sub
 
     Private Sub cbxStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStatus.SelectedIndexChanged

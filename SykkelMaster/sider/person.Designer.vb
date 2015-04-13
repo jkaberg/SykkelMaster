@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class kunder
+Partial Class person
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,7 +24,6 @@ Partial Class kunder
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnTom = New System.Windows.Forms.Button()
-        Me.btnSlett = New System.Windows.Forms.Button()
         Me.btnOppdater = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtPoststed = New System.Windows.Forms.TextBox()
@@ -53,7 +52,6 @@ Partial Class kunder
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.btnTom)
-        Me.GroupBox1.Controls.Add(Me.btnSlett)
         Me.GroupBox1.Controls.Add(Me.btnOppdater)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtPoststed)
@@ -74,7 +72,7 @@ Partial Class kunder
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(264, 358)
+        Me.GroupBox1.Size = New System.Drawing.Size(264, 323)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ny/rediger kunde"
@@ -88,16 +86,6 @@ Partial Class kunder
         Me.btnTom.TabIndex = 6
         Me.btnTom.Text = "Tøm"
         Me.btnTom.UseVisualStyleBackColor = True
-        '
-        'btnSlett
-        '
-        Me.btnSlett.Location = New System.Drawing.Point(9, 324)
-        Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btnSlett.Name = "btnSlett"
-        Me.btnSlett.Size = New System.Drawing.Size(240, 30)
-        Me.btnSlett.TabIndex = 9
-        Me.btnSlett.Text = "Slett"
-        Me.btnSlett.UseVisualStyleBackColor = True
         '
         'btnOppdater
         '
@@ -198,12 +186,12 @@ Partial Class kunder
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Telefonnr"
         '
-        'txttelefon
+        'txtTelefon
         '
         Me.txtTelefon.Location = New System.Drawing.Point(80, 74)
         Me.txtTelefon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtTelefon.MaxLength = 8
-        Me.txtTelefon.Name = "txttelefon"
+        Me.txtTelefon.Name = "txtTelefon"
         Me.txtTelefon.Size = New System.Drawing.Size(166, 22)
         Me.txtTelefon.TabIndex = 2
         '
@@ -250,7 +238,7 @@ Partial Class kunder
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(883, 358)
+        Me.GroupBox2.Size = New System.Drawing.Size(883, 323)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -266,7 +254,7 @@ Partial Class kunder
         Me.kundeGridView.ReadOnly = True
         Me.kundeGridView.RowTemplate.Height = 24
         Me.kundeGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.kundeGridView.Size = New System.Drawing.Size(858, 306)
+        Me.kundeGridView.Size = New System.Drawing.Size(858, 269)
         Me.kundeGridView.TabIndex = 18
         '
         'sokKunde
@@ -286,16 +274,16 @@ Partial Class kunder
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Navn/telefonnr"
         '
-        'kunder
+        'person
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1173, 379)
+        Me.ClientSize = New System.Drawing.Size(1173, 343)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Name = "kunder"
+        Me.Name = "person"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Kunde"
         Me.GroupBox1.ResumeLayout(False)
@@ -324,7 +312,6 @@ Partial Class kunder
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtMail As System.Windows.Forms.TextBox
-    Friend WithEvents btnSlett As System.Windows.Forms.Button
     Friend WithEvents btnOppdater As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtPoststed As System.Windows.Forms.TextBox

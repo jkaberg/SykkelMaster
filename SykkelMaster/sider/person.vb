@@ -1,4 +1,4 @@
-﻿Public Class kunder
+﻿Public Class person
     Private person As clsPerson
 
     Private Sub kunder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -102,25 +102,6 @@
                 Finally
                     oppdaterGridView()
                     oppdaterTxtbox()
-                End Try
-        End Select
-    End Sub
-
-    Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
-        'Slett bruker
-        Select Case MsgBox("Er du sikker på at du vil fjern " & navn() & "?", MsgBoxStyle.YesNo, "caption")
-            Case MsgBoxResult.Yes
-                Try
-                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value,
-                                                txtNavn.Text,
-                                                txtEtternavn.Text)
-
-                    daoPerson.fjernPerson(person)
-                    MsgBox(navn() & " fjernet.", MsgBoxStyle.Information)
-                Catch ex As Exception
-                    MsgBox(ex.Message, MsgBoxStyle.Critical)
-                Finally
-                    oppdaterGridView()
                 End Try
         End Select
     End Sub
