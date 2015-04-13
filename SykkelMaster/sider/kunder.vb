@@ -70,12 +70,11 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legg til en ny person
-        Dim person As New clsPerson(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text)
-        Dim bruker As String = person.pFnavn & " " & person.pEnavn
-
         Try
+            Dim person As New clsPerson(txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text)
+
             daoPerson.leggTilPerson(person)
-            MsgBox(bruker & " lagt til.", MsgBoxStyle.Exclamation)
+            MsgBox(navn() & " lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -85,14 +84,14 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdater bruker
-        Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text)
-        Dim bruker As String = person.pFnavn & " " & person.pEnavn
 
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & bruker & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
+                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text, txtPostnr.Text, txtTelefon.Text, txtAdresse.Text, txtMail.Text)
+
                     daoPerson.oppdaterPerson(person)
-                    MsgBox(bruker & " er oppdatert.", MsgBoxStyle.Exclamation)
+                    MsgBox(navn() & " er oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
@@ -104,14 +103,13 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slett bruker
-        Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text)
-        Dim bruker As String = person.pFnavn & " " & person.pEnavn
-
-        Select Case MsgBox("Er du sikker på at du vil fjern " & bruker & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjern " & navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
+                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value, txtNavn.Text, txtEtternavn.Text)
+
                     daoPerson.fjernPerson(person)
-                    MsgBox(bruker & " fjernet.", MsgBoxStyle.Information)
+                    MsgBox(navn() & " fjernet.", MsgBoxStyle.Information)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
@@ -130,4 +128,8 @@
         txtTelefon.Text = ""
         oppdaterGridView()
     End Sub
+
+    Private Function navn() As String
+        Return txtNavn.Text & " " & txtEtternavn.Text
+    End Function
 End Class

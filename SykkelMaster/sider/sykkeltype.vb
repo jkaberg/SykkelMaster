@@ -21,9 +21,10 @@
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
-        Dim st As New clsSykkelType(txtNavn.Text)
         'Legge til en ny sykkeltype i systemet
         Try
+            Dim st As New clsSykkelType(txtNavn.Text)
+
             daoSykkelType.leggTilSykkelType(st)
             MsgBox(st.pNavn & " lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
@@ -34,15 +35,14 @@
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
-        'Oppdatere person i databasen
-        Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
-
         'Oppdater sykkeltype
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & st.pNavn & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
+                    Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
+
                     daoSykkelType.oppdaterSykkelType(st)
-                    MsgBox(st.pNavn & " oppdatert.", MsgBoxStyle.Exclamation)
+                    MsgBox(txtNavn.Text & " oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
@@ -52,15 +52,14 @@
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
-        'Slette en sykkeltype i databasen
-        Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
-
         'Slett sykkeltype
-        Select Case MsgBox("Er du sikker på at du vil fjern " & st.pNavn & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjern " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
+                    Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value, txtNavn.Text)
+
                     daoSykkelType.fjernSykkelType(st)
-                    MsgBox(st.pNavn & " fjernet.", MsgBoxStyle.Exclamation)
+                    MsgBox(txtNavn.Text & " fjernet.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally

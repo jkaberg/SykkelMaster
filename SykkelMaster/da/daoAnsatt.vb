@@ -13,7 +13,7 @@
 
     Public Shared Function oppdaterAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         sql = "START TRANSACTION;" &
-              "UPDATE person SET fornavn = '" & ansatt.pFnavn & "', etternavn = '" & ansatt.pEnavn & "', telefon = " & ansatt.pTlfnr & ", mail = '" & ansatt.pEpost & "', adresse = '" & ansatt.pAdresse & "', post_nr = " & ansatt.pAdresse & " " &
+              "UPDATE person SET fornavn = '" & ansatt.pFnavn & "', etternavn = '" & ansatt.pEnavn & "', telefon = " & ansatt.pTlfnr & ", mail = '" & ansatt.pEpost & "', adresse = '" & ansatt.pAdresse & "', post_nr = " & ansatt.pPostnr & " " &
               "WHERE id = " & ansatt.pID & ";" &
               "UPDATE ansatt SET stilling = " & ansatt.pStilling & ", provisjon = " & ansatt.pProvisjon & ", virksomhet_id = " & ansatt.pArbeidssted & " " &
               "WHERE person_id = " & ansatt.pID & ";" &

@@ -81,12 +81,11 @@
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkel i databasen
-        Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
-        Dim sykkel_navn As String = sykkel.pRammenr & " " & sykkel.pSykkeltype
-
         Try
+            Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+
             daoSykkel.leggTilSykkel(sykkel)
-            MsgBox(sykkel_navn & " lagt til.", MsgBoxStyle.Exclamation)
+            MsgBox(sykkel_navn() & " lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -98,14 +97,13 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
-        Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
-        Dim sykkel_navn As String = sykkel.pRammenr & " " & sykkel.pSykkeltype
-
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
+                    Dim sykkel As New clsSykkel(txtRammenr.Text, txtAvvik.Text, cbxType.SelectedValue, cbxHjul.Text, cbxRamme.Text, cbxStatus.Text, cbxPosisjon.SelectedValue, cbxTilhorer.SelectedValue)
+
                     daoSykkel.oppdaterSykkel(sykkel)
-                    MsgBox(sykkel_navn & " er oppdatert.", MsgBoxStyle.Exclamation)
+                    MsgBox(sykkel_navn() & " er oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
@@ -117,14 +115,13 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
-        Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value)
-        Dim sykkel_navn As String = sykkel.pRammenr & " " & sykkel.pSykkeltype
-
-        Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel_navn & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
+                    Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value)
+
                     daoSykkel.fjernSykkel(sykkel)
-                    MsgBox(sykkel_navn & " er fjernet.", MsgBoxStyle.Exclamation)
+                    MsgBox(sykkel_navn() & " er fjernet.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
@@ -157,4 +154,8 @@
         End With
         cbxType.SelectedIndex = -1
     End Sub
+
+    Private Function sykkel_navn() As String
+        Return sykkel.pRammenr & " " & sykkel.pSykkeltype
+    End Function
 End Class

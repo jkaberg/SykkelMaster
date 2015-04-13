@@ -65,7 +65,7 @@
         End Get
         Set(ByVal value As String)
             If value.Length < 3 Then
-                Throw New Exception("Etternavn må være minst 3 tegn langt.")
+                Throw New ArgumentException("Etternavn må være minst 3 tegn langt.")
             Else
                 etternavn = value
             End If
