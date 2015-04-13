@@ -4,7 +4,7 @@
 
     'oppdater
     Sub New(ByVal id As Integer,
-            ByVal rammenr As Integer,
+            ByVal rammenr As String,
             ByVal avviksmld As String,
             ByVal sykkeltype As Integer,
             ByVal hjulstr As Integer,
@@ -16,7 +16,7 @@
         Me.pID = id
         Me.pRammenr = rammenr
         Me.pAvviksmld = avviksmelding
-        Me.pSykkeltype = sykkeltype
+        Me.pSykkelType = sykkeltype
         Me.pHjulstr = hjulstr
         Me.pRammestr = rammestr
         Me.pStatus = status
@@ -25,13 +25,18 @@
     End Sub
 
     'legg til
-    Sub New(ByVal rammenr As Integer, ByVal avviksmld As String, ByVal sykkeltype As Integer,
-            ByVal hjulstr As Integer, ByVal rammestr As Integer, ByVal status As String,
-            ByVal posisjon As Integer, ByVal virksomhet As Integer)
+    Sub New(ByVal rammenr As String,
+            ByVal avviksmld As String,
+            ByVal sykkeltype As Integer,
+            ByVal hjulstr As Integer,
+            ByVal rammestr As Integer,
+            ByVal status As String,
+            ByVal posisjon As Integer,
+            ByVal virksomhet As Integer)
 
         Me.pRammenr = rammenr
         Me.pAvviksmld = avviksmelding
-        Me.pSykkeltype = sykkeltype
+        Me.pSykkelType = sykkeltype
         Me.pHjulstr = hjulstr
         Me.pRammestr = rammestr
         Me.pStatus = status
@@ -52,11 +57,11 @@
             id = value
         End Set
     End Property
-    Public Property pRammenr() As Integer
+    Public Property pRammenr() As String
         Get
             Return rammenr
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             If IsNothing(value) Then
                 Throw New Exception("Du må angi et rammenummer.")
             Else
@@ -69,14 +74,10 @@
             Return avviksmelding
         End Get
         Set(ByVal value As String)
-            If Not IsNothing(value) And value.Length < 10 Then
-                Throw New Exception("Skriv en mer utdybdende avviksmeldning.")
-            Else
-                avviksmelding = value
-            End If
+            avviksmelding = value
         End Set
     End Property
-    Public Property pSykkeltype() As Integer
+    Public Property pSykkelType() As Integer
         Get
             Return sykkeltype
         End Get
@@ -100,11 +101,11 @@
             rammestr = value
         End Set
     End Property
-    Public Property pStatus() As Integer
+    Public Property pStatus() As String
         Get
             Return status
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             status = value
         End Set
     End Property

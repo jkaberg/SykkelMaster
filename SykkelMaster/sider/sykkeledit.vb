@@ -107,16 +107,17 @@
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
         'Oppdatere sykkel i databasen
-        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
-            Case MsgBoxResult.Yes
-                Try
-                    Dim sykkel As New clsSykkel(txtRammenr.Text,
+        Dim sykkel As New clsSykkel(txtRammenr.Text,
                                                 txtAvvik.Text,
                                                 cbxType.SelectedValue,
                                                 cbxHjul.Text, cbxRamme.Text,
                                                 cbxStatus.Text,
                                                 cbxPosisjon.SelectedValue,
                                                 cbxTilhorer.SelectedValue)
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                Try
+
 
                     daoSykkel.oppdaterSykkel(sykkel)
                     MsgBox(sykkel_navn() & " er oppdatert.", MsgBoxStyle.Exclamation)
@@ -172,6 +173,6 @@
     End Sub
 
     Private Function sykkel_navn() As String
-        Return sykkel.pRammenr & " " & sykkel.pSykkeltype
+        Return txtRammenr.Text & " " & cbxType.SelectedText
     End Function
 End Class

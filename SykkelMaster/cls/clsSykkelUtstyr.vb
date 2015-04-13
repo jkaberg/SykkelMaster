@@ -6,6 +6,7 @@
     Sub New(ByVal id As Integer,
             ByVal passer_sykkel_id As Integer,
             ByVal navn As String)
+
         Me.pID = id
         Me.pPasserSykkelID = passer_sykkel_id
         Me.pNavn = navn
@@ -14,6 +15,7 @@
     'legg til
     Sub New(ByVal passer_sykkel_id As Integer,
             ByVal navn As String)
+
         Me.pPasserSykkelID = passer_sykkel_id
         Me.pNavn = navn
     End Sub

@@ -2,7 +2,7 @@
     Public Shared sql As String
 
     Public Shared Function leggTilSykkel(ByVal sykkel As clsSykkel) As Boolean
-        sql = "INSERT INTO sykkel VALUES('" & sykkel.pRammenr & "', " & sykkel.pSykkeltype & ", " &
+        sql = "INSERT INTO sykkel VALUES('" & sykkel.pRammenr & "', " & sykkel.pSykkelType & ", " &
               sykkel.pHjulstr & ", " & sykkel.pRammestr & ", '" & sykkel.pStatus & "', '" &
               sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
 
@@ -10,10 +10,11 @@
     End Function
 
     Public Shared Function oppdaterSykkel(ByVal sykkel As clsSykkel) As Boolean
-        sql = "UPDATE sykkel SET rammenr = '" & sykkel.pRammenr & "', sykkeltype = " & sykkel.pSykkeltype &
+        sql = "UPDATE sykkel SET rammenr = '" & sykkel.pRammenr & "', sykkeltype = " & sykkel.pSykkelType &
               ", hjulstr = " & sykkel.pHjulstr & ", rammestr = " & sykkel.pRammestr & ", s_status = '" & sykkel.pStatus &
               "', avviksmelding = '" & sykkel.pAvviksmld & "', posisjon = " & sykkel.pPosisjon &
               ", virksomhet_id = " & sykkel.pVirksomhet & " WHERE rammenr = '" & sykkel.pRammenr & "';"
+        Console.WriteLine(sql)
 
         Return database.query(sql)
     End Function

@@ -44,59 +44,57 @@ Partial Class start
         Me.GroupBox1.Controls.Add(Me.txtEpost)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(10, 11)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Location = New System.Drawing.Point(13, 14)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(182, 106)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(243, 130)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Log inn"
         '
-        'Button1
+        'btnLogin
         '
-        Me.btnLogin.Location = New System.Drawing.Point(8, 62)
-        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.btnLogin.Name = "Button1"
-        Me.btnLogin.Size = New System.Drawing.Size(170, 37)
+        Me.btnLogin.Location = New System.Drawing.Point(11, 76)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnLogin.Name = "btnLogin"
+        Me.btnLogin.Size = New System.Drawing.Size(227, 46)
         Me.btnLogin.TabIndex = 4
         Me.btnLogin.Text = "Logg inn"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
         'txtPassord
         '
-        Me.txtPassord.Location = New System.Drawing.Point(70, 39)
-        Me.txtPassord.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPassord.Location = New System.Drawing.Point(93, 48)
+        Me.txtPassord.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtPassord.Name = "txtPassord"
-        Me.txtPassord.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassord.Size = New System.Drawing.Size(108, 20)
+        Me.txtPassord.Size = New System.Drawing.Size(143, 22)
         Me.txtPassord.TabIndex = 3
+        Me.txtPassord.UseSystemPasswordChar = True
         '
         'txtEpost
         '
-        Me.txtEpost.Location = New System.Drawing.Point(70, 15)
-        Me.txtEpost.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtEpost.Location = New System.Drawing.Point(93, 18)
+        Me.txtEpost.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtEpost.Name = "txtEpost"
-        Me.txtEpost.Size = New System.Drawing.Size(108, 20)
+        Me.txtEpost.Size = New System.Drawing.Size(143, 22)
         Me.txtEpost.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(5, 41)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(7, 50)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(45, 13)
+        Me.Label2.Size = New System.Drawing.Size(60, 17)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Passord"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 18)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(7, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(37, 13)
+        Me.Label1.Size = New System.Drawing.Size(49, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "E-post"
         '
@@ -106,62 +104,60 @@ Partial Class start
         Me.GroupBox2.Controls.Add(Me.byttEpost)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Location = New System.Drawing.Point(10, 122)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Location = New System.Drawing.Point(13, 150)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(182, 117)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(243, 144)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Glemt passord"
         '
         'SendNyttPassord
         '
-        Me.SendNyttPassord.Location = New System.Drawing.Point(8, 73)
-        Me.SendNyttPassord.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SendNyttPassord.Location = New System.Drawing.Point(11, 90)
+        Me.SendNyttPassord.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SendNyttPassord.Name = "SendNyttPassord"
-        Me.SendNyttPassord.Size = New System.Drawing.Size(170, 37)
+        Me.SendNyttPassord.Size = New System.Drawing.Size(227, 46)
         Me.SendNyttPassord.TabIndex = 5
         Me.SendNyttPassord.Text = "Send Nytt Passord"
         Me.SendNyttPassord.UseVisualStyleBackColor = True
         '
         'byttEpost
         '
-        Me.byttEpost.Location = New System.Drawing.Point(70, 50)
-        Me.byttEpost.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.byttEpost.Location = New System.Drawing.Point(93, 62)
+        Me.byttEpost.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.byttEpost.Name = "byttEpost"
-        Me.byttEpost.Size = New System.Drawing.Size(108, 20)
+        Me.byttEpost.Size = New System.Drawing.Size(143, 22)
         Me.byttEpost.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(5, 18)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(7, 22)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(168, 26)
+        Me.Label3.Size = New System.Drawing.Size(226, 34)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Passord blir sendt til e-mail" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "adressen tilhørende brukernavnet." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(4, 53)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Location = New System.Drawing.Point(5, 65)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.Size = New System.Drawing.Size(49, 17)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "E-post"
         '
         'start
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(196, 244)
+        Me.ClientSize = New System.Drawing.Size(261, 300)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.Name = "start"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
