@@ -5,13 +5,11 @@
         'Laster inn data fra databasen til gridView
         oppdaterGridView()
 
-        Dim payload As DataTable = daoDelt.hentVirksomhet
-
         'Laster inn data til comboBox'ene
         With cbxTilhorer
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = daoDelt.hentVirksomhet
         End With
         'Gjør at comboBox'en er tom når programmet starter
         cbxTilhorer.SelectedIndex = -1
@@ -19,14 +17,14 @@
         With cbxPosisjon
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = daoDelt.hentVirksomhet
         End With
         cbxPosisjon.SelectedIndex = -1
 
         With cbxLokasjon
             .DisplayMember = "navn"
             .ValueMember = "id"
-            .DataSource = payload
+            .DataSource = daoDelt.hentVirksomhet
         End With
         cbxLokasjon.SelectedIndex = -1
 
