@@ -18,6 +18,7 @@
               "etternavn = '" & person.pEnavn & "', " &
               "telefon = " & person.pTlfnr & ", " &
               "mail = '" & person.pEpost & "', " &
+              "adresse = '" & person.pGate & "', " &
               "post_nr = " & person.pPostnr & " " &
               "WHERE id = " & person.pID & ";"
 
