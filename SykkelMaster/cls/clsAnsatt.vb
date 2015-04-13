@@ -6,6 +6,7 @@
     Private arbeidssted As Integer
     Private tilgangsniva As Integer
 
+    'start
     Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal epost As String, ByVal stilling As Integer, ByVal arbeidssted As Integer, ByVal passord As String)
         MyBase.New(id, fnavn, enavn, epost)
         Me.pStilling = stilling
@@ -14,8 +15,8 @@
     End Sub
 
     'oppdater
-    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal arbeidssted As Integer)
-        MyBase.New(id, fnavn, enavn, pnr, tnr, gate, epost)
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal adresse As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal arbeidssted As Integer)
+        MyBase.New(id, fnavn, enavn, pnr, tnr, adresse, epost)
         Me.pStilling = stilling
         Me.pProvisjon = provisjon
 
@@ -23,13 +24,13 @@
     End Sub
 
     'legg til
-    Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal passord As String, ByVal arbeidssted As Integer)
-        MyBase.New(fnavn, enavn, pnr, tnr, gate, epost)
-        Me.pStilling = stilling
-        Me.pProvisjon = provisjon
-        Me.pPassord = passord
-        Me.pArbeidssted = arbeidssted
-    End Sub
+    'Sub New(ByVal fnavn As String, ByVal enavn As String, ByVal pnr As Integer, ByVal tnr As Integer, ByVal gate As String, ByVal epost As String, ByVal stilling As Integer, ByVal provisjon As Integer, ByVal passord As String, ByVal arbeidssted As Integer)
+    '    MyBase.New(fnavn, enavn, pnr, tnr, gate, epost)
+    '    Me.pStilling = stilling
+    '    Me.pProvisjon = provisjon
+    '    Me.pPassord = passord
+    '    Me.pArbeidssted = arbeidssted
+    'End Sub
 
     'fjern
     Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String)
