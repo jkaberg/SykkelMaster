@@ -82,9 +82,10 @@
         sykkel.Item("rammestr") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammestr").Value
 
         kundevogn_sykkler.Rows.Add(sykkel)
-        vognGrid.DataSource = kundevogn_sykkler
-    End Sub
 
+        vognGrid.DataSource = kundevogn_sykkler
+        sykkelGrid.DataSource = daoUtleie.hentSykkler
+    End Sub
 
     Private Sub lagSykkelDataTable()
         kundevogn_sykkler = New DataTable("sykkler")

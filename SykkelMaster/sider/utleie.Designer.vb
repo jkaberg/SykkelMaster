@@ -54,18 +54,19 @@ Partial Class utleie
         Me.btnSlett = New System.Windows.Forms.Button()
         Me.btnRedigere = New System.Windows.Forms.Button()
         Me.vognGrid = New System.Windows.Forms.DataGridView()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.vognGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.sykkelGrid)
-        Me.GroupBox1.Controls.Add(Me.CheckedListBox1)
         Me.GroupBox1.Controls.Add(Me.btnLeggTil)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
@@ -94,7 +95,7 @@ Partial Class utleie
         Me.sykkelGrid.RowHeadersVisible = False
         Me.sykkelGrid.RowTemplate.Height = 24
         Me.sykkelGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.sykkelGrid.Size = New System.Drawing.Size(446, 78)
+        Me.sykkelGrid.Size = New System.Drawing.Size(446, 139)
         Me.sykkelGrid.TabIndex = 23
         '
         'CheckedListBox1
@@ -103,9 +104,9 @@ Partial Class utleie
         Me.CheckedListBox1.CheckOnClick = True
         Me.CheckedListBox1.FormattingEnabled = True
         Me.CheckedListBox1.Items.AddRange(New Object() {"Barnehenger", "Barnesete", "Beskytter", "Hjelm", "Lappesaker", "Lastehenger", "Lås", "Sykkelpompe", "Sykkelvekse"})
-        Me.CheckedListBox1.Location = New System.Drawing.Point(9, 245)
+        Me.CheckedListBox1.Location = New System.Drawing.Point(6, 21)
         Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(446, 55)
+        Me.CheckedListBox1.Size = New System.Drawing.Size(296, 89)
         Me.CheckedListBox1.Sorted = True
         Me.CheckedListBox1.TabIndex = 14
         '
@@ -124,9 +125,9 @@ Partial Class utleie
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(6, 140)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(124, 17)
+        Me.Label10.Size = New System.Drawing.Size(55, 17)
         Me.Label10.TabIndex = 22
-        Me.Label10.Text = "Sykkel og utstyr"
+        Me.Label10.Text = "Sykkel"
         '
         'Label9
         '
@@ -207,7 +208,7 @@ Partial Class utleie
         Me.GroupBox2.Controls.Add(Me.cbxRabattAvtale)
         Me.GroupBox2.Location = New System.Drawing.Point(13, 184)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(309, 199)
+        Me.GroupBox2.Size = New System.Drawing.Size(309, 68)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Rabatt"
@@ -365,16 +366,28 @@ Partial Class utleie
         Me.vognGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vognGrid.Location = New System.Drawing.Point(7, 22)
         Me.vognGrid.Name = "vognGrid"
+        Me.vognGrid.RowHeadersVisible = False
         Me.vognGrid.RowTemplate.Height = 24
         Me.vognGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.vognGrid.Size = New System.Drawing.Size(598, 280)
         Me.vognGrid.TabIndex = 0
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.CheckedListBox1)
+        Me.GroupBox5.Location = New System.Drawing.Point(13, 258)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(309, 125)
+        Me.GroupBox5.TabIndex = 5
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Utstyr"
         '
         'utleie
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 710)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -392,6 +405,7 @@ Partial Class utleie
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         CType(Me.vognGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -426,4 +440,5 @@ Partial Class utleie
     Friend WithEvents btnSlett As System.Windows.Forms.Button
     Friend WithEvents btnRedigere As System.Windows.Forms.Button
     Friend WithEvents sykkelGrid As System.Windows.Forms.DataGridView
+    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
 End Class
