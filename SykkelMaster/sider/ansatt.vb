@@ -154,7 +154,7 @@
 
     Private Sub Slett_Bruker(sender As Object, e As EventArgs)
         'Slett bruker
-        Select Case MsgBox("Er du sikker på at du vil fjern " & navn() & "?", MsgBoxStyle.YesNo)
+        Select Case MsgBox("Er du sikker på at du vil fjerne " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
                     Dim ansatt As New clsAnsatt(id:=Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value,
@@ -173,7 +173,7 @@
 
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
         'Oppdater bruker
-        Select Case MsgBox("Er du sikker på at du vil oppdater " & navn() & "?", MsgBoxStyle.YesNo)
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
                     Dim ansatt As New clsAnsatt(id:=Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value,

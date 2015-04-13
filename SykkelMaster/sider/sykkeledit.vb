@@ -131,7 +131,7 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slette en sykkel i databasen
-        Select Case MsgBox("Er du sikker på at du vil fjern " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjerne " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
                     Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value)

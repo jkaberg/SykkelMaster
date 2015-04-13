@@ -106,7 +106,7 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         'Slett bruker
-        Select Case MsgBox("Er du sikker på at du vil fjern " & navn() & "?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Er du sikker på at du vil fjerne " & navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
                     Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value,
