@@ -211,6 +211,6 @@
         cbxStilling.SelectedIndex = -1
         cbxArbedidssted.SelectedIndex = -1
         ProvisjonBar.Value = 0
-
+        oppdaterGridView()
     End Sub
 End Class
