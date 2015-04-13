@@ -8,6 +8,15 @@
         Return database.query(sql)
     End Function
 
+    Public Shared Function fjernPerson(ByVal person As clsPerson) As Boolean
+        Dim navn As String = person.pFnavn & " " & person.pEnavn
+        If database.query("SELECT person_id FROM ansatt WHERE person_id = " & person.pID & ";") Then ' kan ikke fjern fra kunde før man fjernet i ansatt/brukere
+            Throw New Exception("Du må slett " & navn & " fra ansatt først.")
+        Else
+            Return database.query("DELETE FROM person WHERE person.id = " & person.pID & ";")
+        End If
+    End Function
+
     Public Shared Function oppdaterPerson(ByVal person As clsPerson) As Boolean
         sql = "UPDATE person SET " &
               "fornavn = '" & person.pFnavn & "', " &

@@ -18,11 +18,11 @@
     End Sub
 
     Private Sub btnKunde_Click(sender As Object, e As EventArgs) Handles btnKunde.Click
-        person.Show()
+        kunder.Show()
     End Sub
     Private Sub btnRedigerKunde_Click(sender As Object, e As EventArgs) Handles btnRedigerKunde.Click
-        person.Show()
-        person.oppdaterGridView(id:=cbxNavn.SelectedValue)
+        kunder.Show()
+        kunder.oppdaterGridView(id:=cbxNavn.SelectedValue)
     End Sub
 
     Private Sub txtSokKunde_TextChanged(sender As Object, e As EventArgs) Handles txtSokKunde.TextChanged

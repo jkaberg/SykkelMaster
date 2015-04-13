@@ -1,6 +1,6 @@
 ﻿Public Class hoved
     Private Sub Vis_Kunder(sender As Object, e As EventArgs) Handles btnVis_Kunder.Click
-        person.Show()
+        kunder.Show()
     End Sub
 
     Private Sub Vis_Utleie(sender As Object, e As EventArgs) Handles btnVis_Utleie.Click

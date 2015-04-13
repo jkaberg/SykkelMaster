@@ -39,6 +39,13 @@
         Me.pEpost = epost
     End Sub
 
+    'fjern
+    Sub New(ByVal id As Integer, ByVal fnavn As String, ByVal enavn As String)
+        Me.pID = id
+        Me.pFnavn = fnavn
+        Me.pEnavn = enavn
+    End Sub
+
     Public Property pID() As Integer
         Get
             Return id
