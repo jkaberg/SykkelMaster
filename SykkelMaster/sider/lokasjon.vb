@@ -57,7 +57,7 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & lokasjon_navn & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    daoLokasjon.leggTilLokasjon(lokasjon)
+                    daoLokasjon.oppdaterLokasjon(lokasjon)
                     MsgBox(lokasjon_navn & " oppdatert.", MsgBoxStyle.Exclamation)
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
