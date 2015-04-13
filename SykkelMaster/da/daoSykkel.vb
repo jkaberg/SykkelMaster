@@ -22,7 +22,10 @@
         Return database.query("DELETE FROM sykkel WHERE rammenr = '" & sykkel.pID & "';")
     End Function
 
-    Public Shared Function hentSykkler(Optional ByVal sok As String = Nothing, Optional ByVal posisjon As String = Nothing, Optional ByVal status As String = Nothing) As DataTable
+    Public Shared Function hentSykkler(Optional ByVal sok As String = Nothing,
+                                       Optional ByVal posisjon As String = Nothing,
+                                       Optional ByVal status As String = Nothing) As DataTable
+
         sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, s_status, sykkel.hjulstr, sykkel.rammestr, " &
               "sykkel.avviksmelding, v1.navn posisjon, v2.navn " &
               "FROM sykkel " &

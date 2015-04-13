@@ -88,8 +88,8 @@
                     Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value,
                                                 txtNavn.Text,
                                                 txtEtternavn.Text,
-                                                txtPostnr.Text,
-                                                txtTelefon.Text,
+                                                CInt(txtPostnr.Text),
+                                                CInt(txtTelefon.Text),
                                                 txtAdresse.Text,
                                                 txtMail.Text)
 

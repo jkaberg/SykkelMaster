@@ -23,18 +23,19 @@ Public Class database
 
     Public Shared Function query(ByVal sql As String) As Boolean
         conn.ConnectionString = config
-        Dim status As Integer
+        Dim status As Object
         Try
             conn.Open()
             Dim cmd As MySqlCommand = New MySqlCommand(sql, conn)
-            status = cmd.ExecuteNonQuery()
+            'status = cmd.ExecuteNonQuery()
+            status = cmd.ExecuteScalar()
         Catch ex As Exception
             MsgBox("Database feil: " & ex.Message, MsgBoxStyle.Critical)
         Finally
             conn.Dispose()
         End Try
 
-        If status > 0 Then
+        If status IsNot Nothing Then
             Return True
         Else
             Return False
