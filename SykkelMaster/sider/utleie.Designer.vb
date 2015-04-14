@@ -52,7 +52,6 @@ Partial Class utleie
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.btnOprettAvtale = New System.Windows.Forms.Button()
         Me.btnSlett = New System.Windows.Forms.Button()
-        Me.btnRedigere = New System.Windows.Forms.Button()
         Me.vognGrid = New System.Windows.Forms.DataGridView()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
@@ -323,7 +322,6 @@ Partial Class utleie
         '
         Me.GroupBox4.Controls.Add(Me.btnOprettAvtale)
         Me.GroupBox4.Controls.Add(Me.btnSlett)
-        Me.GroupBox4.Controls.Add(Me.btnRedigere)
         Me.GroupBox4.Controls.Add(Me.vognGrid)
         Me.GroupBox4.Location = New System.Drawing.Point(13, 389)
         Me.GroupBox4.Name = "GroupBox4"
@@ -343,21 +341,12 @@ Partial Class utleie
         '
         'btnSlett
         '
-        Me.btnSlett.Location = New System.Drawing.Point(611, 89)
+        Me.btnSlett.Location = New System.Drawing.Point(611, 175)
         Me.btnSlett.Name = "btnSlett"
         Me.btnSlett.Size = New System.Drawing.Size(133, 61)
         Me.btnSlett.TabIndex = 17
         Me.btnSlett.Text = "Slett"
         Me.btnSlett.UseVisualStyleBackColor = True
-        '
-        'btnRedigere
-        '
-        Me.btnRedigere.Location = New System.Drawing.Point(612, 22)
-        Me.btnRedigere.Name = "btnRedigere"
-        Me.btnRedigere.Size = New System.Drawing.Size(132, 61)
-        Me.btnRedigere.TabIndex = 16
-        Me.btnRedigere.Text = "Redigere"
-        Me.btnRedigere.UseVisualStyleBackColor = True
         '
         'vognGrid
         '
@@ -441,7 +430,6 @@ Partial Class utleie
     Friend WithEvents cbxRabattAvtale As System.Windows.Forms.ComboBox
     Friend WithEvents btnOprettAvtale As System.Windows.Forms.Button
     Friend WithEvents btnSlett As System.Windows.Forms.Button
-    Friend WithEvents btnRedigere As System.Windows.Forms.Button
     Friend WithEvents sykkelGrid As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
 End Class

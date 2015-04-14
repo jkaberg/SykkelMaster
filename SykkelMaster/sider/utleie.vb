@@ -59,12 +59,12 @@
         leggTilSykkelKundevogn()
     End Sub
 
-    Private Sub btnRedigere_Click(sender As Object, e As EventArgs) Handles btnRedigere.Click
-
-    End Sub
-
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
-
+        If Not IsNothing(Me.vognGrid.CurrentRow) Then
+            Me.vognGrid.Rows.Remove(Me.vognGrid.CurrentRow)
+        Else
+            MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
+        End If
     End Sub
 
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
