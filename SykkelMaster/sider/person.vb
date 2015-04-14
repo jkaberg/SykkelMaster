@@ -136,4 +136,15 @@
     Private Function navn() As String
         Return txtNavn.Text & " " & txtEtternavn.Text
     End Function
+
+
+    Private Sub btnHistorie_Click(sender As Object, e As EventArgs) Handles btnHistorie.Click
+        If Not IsNothing(Me.kundeGridView.CurrentRow) Then
+            historie.Show()
+            historie.avtaleInnehold(id:=Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value)
+        Else
+            MsgBox("Velg person")
+        End If
+
+    End Sub
 End Class

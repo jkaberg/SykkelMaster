@@ -98,6 +98,12 @@
     <Compile Include="sider\ansatt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sider\historie.Designer.vb">
+      <DependentUpon>historie.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sider\historie.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="sider\endrePassord.Designer.vb">
       <DependentUpon>endrePassord.vb</DependentUpon>
     </Compile>
@@ -180,6 +186,9 @@
   <ItemGroup>
     <EmbeddedResource Include="sider\ansatt.resx">
       <DependentUpon>ansatt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sider\historie.resx">
+      <DependentUpon>historie.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\endrePassord.resx">
       <DependentUpon>endrePassord.vb</DependentUpon>
