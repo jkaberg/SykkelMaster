@@ -14,7 +14,7 @@
     Public Shared Function hentLeieAvtaler(ByVal kunde_id As Integer) As DataTable
         sql = "SELECT ordre_nr " &
               "FROM salg_leie " &
-              "WHERE salg_leie.person_id_kunde = " & kunde_id & ";"
+              "WHERE salg_leie.person_id_kunde = " & kunde_id & " AND s_l_status = 'Leid ut';"
 
         Return database.dt_query(sql)
     End Function
@@ -29,7 +29,7 @@
                   "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
                   "JOIN person ON salg_leie.person_id_kunde = person.id " &
-                  "WHERE salg_leie.ordre_nr = " & id
+                  "WHERE salg_leie.ordre_nr = " & id & " AND salg_leie.s_l_status = 'Leid ut'"
         Else
             sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
@@ -69,7 +69,7 @@
               "WHERE ordre_nr = " & ordre_nr & ";" &
               "UPDATE sykkel " &
               "JOIN sykkel_leid_ut ON sykkel.rammenr = sykkel_leid_ut.rammenr AND sykkel_leid_ut.ordre_nr = " & ordre_nr & " " &
-              "SET sykkel.posisjon = " & lokasjon & ";" &
+              "SET sykkel.s_status = 'Innlevert', sykkel.posisjon = " & lokasjon & ";" &
               "COMMIT;"
 
         Return database.query(sql)
