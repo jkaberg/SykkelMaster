@@ -67,7 +67,7 @@ Partial Class historie
         'cbxStatus
         '
         Me.cbxStatus.FormattingEnabled = True
-        Me.cbxStatus.Items.AddRange(New Object() {"Leid ut", "Tidsfrist gått ut", "Tidsfrist ikke gått ut"})
+        Me.cbxStatus.Items.AddRange(New Object() {"Leid ut", "Innlevert"})
         Me.cbxStatus.Location = New System.Drawing.Point(796, 7)
         Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbxStatus.Name = "cbxStatus"

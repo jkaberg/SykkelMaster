@@ -13,18 +13,16 @@
     End Sub
 
     Private Sub cbxStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStatus.SelectedIndexChanged
-        Select Case cbxStatus.Text
-            Case "Allt"
-                avtaleInnehold()
-            Case "Tidsfrist gått ut"
-                fristGattUt("<")
-            Case "Tidsfrist ikke gått ut"
-                fristGattUt(">=")
+        Select Case cbxStatus.SelectedIndex
+            Case 0
+                avtaleInnehold(sok:="Leid ut")
+            Case 1
+                avtaleInnehold(sok:="Innlevert")
         End Select
     End Sub
 
-    Public Sub avtaleInnehold(Optional ByVal id As Integer = Nothing)
-        payload = daoHistorie.hentAvtaleHistorie(id)
+    Public Sub avtaleInnehold(Optional ByVal id As Integer = Nothing, Optional ByVal sok As String = Nothing)
+        payload = daoHistorie.hentAvtaleHistorie(id, sok)
 
         With Me.oversiktGrid
             .DataSource = payload
@@ -35,15 +33,16 @@
             .Columns("rammenr").HeaderText = "Rammenummer"
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
             .Columns("rammestr").HeaderText = "Rammestørrelse"
+            .Columns("s_l_status").HeaderText = "Status"
             .Columns("id").Visible = False
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
 
-    Public Sub fristGattUt(ByVal sok As String)
+    Public Sub fristGattUt(Optional ByVal id As Integer = Nothing, Optional ByVal sok As String = Nothing)
         'Får opp de som ikke har levert inn sykkelen innen fristen
         With Me.oversiktGrid
-            .DataSource = daoInnlevering.hentLeieFrister(sok)
+            .DataSource = daoHistorie.hentLeieFrister(id, sok)
             'Endre navn for å gi en bedre visuell opplevelse
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("frist").HeaderText = "Frist"
