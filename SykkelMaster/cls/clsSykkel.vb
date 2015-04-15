@@ -98,6 +98,7 @@
             Return posisjon
         End Get
         Set(ByVal value As Integer)
+            value = posisjon
             If IsNothing(value) Then
                 Throw New Exception("Du må angi posisjon.")
             Else

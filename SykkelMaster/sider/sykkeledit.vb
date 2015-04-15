@@ -87,6 +87,7 @@
         cbxRamme.SelectedIndex = -1
         cbxStatus.SelectedIndex = -1
         txtRammenr.Text = ""
+        txtPris.Text = ""
         txtAvvik.Text = ""
         oppdaterGridView()
     End Sub

@@ -117,6 +117,7 @@ Partial Class sykkelEdit
         '
         'cbxPosisjon
         '
+        Me.cbxPosisjon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxPosisjon.FormattingEnabled = True
         Me.cbxPosisjon.Location = New System.Drawing.Point(90, 62)
         Me.cbxPosisjon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -261,6 +262,7 @@ Partial Class sykkelEdit
         '
         'cbxTilhorer
         '
+        Me.cbxTilhorer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTilhorer.FormattingEnabled = True
         Me.cbxTilhorer.Location = New System.Drawing.Point(90, 28)
         Me.cbxTilhorer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -279,6 +281,7 @@ Partial Class sykkelEdit
         '
         'cbxType
         '
+        Me.cbxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxType.FormattingEnabled = True
         Me.cbxType.Location = New System.Drawing.Point(90, 98)
         Me.cbxType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
