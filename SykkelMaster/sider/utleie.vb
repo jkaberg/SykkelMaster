@@ -53,17 +53,29 @@
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
-        kundevogn_sykkler = daoUtleie.leggTilSykkelKundevogn(kundevogn_sykkler,
-                                                             fraTid.Value,
-                                                             tilTid.Value,
-                                                             sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("sykkeltype").Value,
-                                                             sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("hjulstr").Value,
-                                                             sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammestr").Value)
+        If Not IsNothing(Me.sykkelGrid.CurrentRow) Then
+            kundevogn_sykkler = daoUtleie.leggTilSykkelKundevogn(kundevogn_sykkler,
+                                                                 sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammenr").Value,
+                                                                 fraTid.Value,
+                                                                 tilTid.Value,
+                                                                 sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("sykkeltype").Value,
+                                                                 sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("hjulstr").Value,
+                                                                 sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammestr").Value)
+
+            sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Reservert",
+                                                               Me.sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammenr").Value)
+        Else
+            MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
+        End If
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         If Not IsNothing(Me.vognGrid.CurrentRow) Then
-            Me.vognGrid.Rows.Remove(Me.vognGrid.CurrentRow)
+            'Me.vognGrid.Rows.Remove(Me.vognGrid.CurrentRow)
+            kundevogn_sykkler = daoUtleie.fjernSykkelKundevogn(Me.vognGrid.CurrentRow.Index, kundevogn_sykkler)
+
+            sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Tilgjengelig",
+                                                               Me.vognGrid.Rows(Me.vognGrid.CurrentRow.Index).Cells("rammenr").Value)
         Else
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If
