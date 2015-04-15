@@ -1,36 +1,15 @@
 ﻿Public Class clsSykkel
     Private rammenr, avviksmelding, status As String
-    Private id, sykkeltype, hjulstr, rammestr, posisjon, virksomhet As Integer
+    Private sykkeltype, hjulstr, rammestr, pris, posisjon, virksomhet As Integer
 
-    'oppdater
-    Sub New(ByVal id As Integer,
-            ByVal rammenr As String,
-            ByVal avviksmld As String,
-            ByVal sykkeltype As Integer,
-            ByVal hjulstr As Integer,
-            ByVal rammestr As Integer,
-            ByVal status As String,
-            ByVal posisjon As Integer,
-            ByVal virksomhet As Integer)
-
-        Me.pID = id
-        Me.pRammenr = rammenr
-        Me.pAvviksmld = avviksmelding
-        Me.pSykkelType = sykkeltype
-        Me.pHjulstr = hjulstr
-        Me.pRammestr = rammestr
-        Me.pStatus = status
-        Me.pPosisjon = posisjon
-        Me.pVirksomhet = virksomhet
-    End Sub
-
-    'legg til
+    'Oppdater/legg til
     Sub New(ByVal rammenr As String,
             ByVal avviksmld As String,
             ByVal sykkeltype As Integer,
             ByVal hjulstr As Integer,
             ByVal rammestr As Integer,
             ByVal status As String,
+            ByVal pris As Integer,
             ByVal posisjon As Integer,
             ByVal virksomhet As Integer)
 
@@ -40,23 +19,16 @@
         Me.pHjulstr = hjulstr
         Me.pRammestr = rammestr
         Me.pStatus = status
+        Me.pPris = pris
         Me.pPosisjon = posisjon
         Me.pVirksomhet = virksomhet
     End Sub
 
     'fjern
-    Sub New(ByVal id As Integer)
-        Me.pID = id
+    Sub New(ByVal rammenr As String)
+        Me.pRammenr = rammenr
     End Sub
 
-    Public Property pID() As Integer
-        Get
-            Return id
-        End Get
-        Set(ByVal value As Integer)
-            id = value
-        End Set
-    End Property
     Public Property pRammenr() As String
         Get
             Return rammenr
@@ -107,6 +79,18 @@
         End Get
         Set(ByVal value As String)
             status = value
+        End Set
+    End Property
+    Public Property pPris() As Integer
+        Get
+            Return pris
+        End Get
+        Set(ByVal value As Integer)
+            If IsNumeric(value) Then
+                pris = value
+            Else
+                Throw New Exception("Pris kan kun bestå av tall.")
+            End If
         End Set
     End Property
     Public Property pPosisjon() As Integer

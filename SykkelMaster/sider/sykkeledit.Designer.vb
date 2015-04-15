@@ -52,6 +52,9 @@ Partial Class sykkelEdit
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
         Me.SykkelGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtPris = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SykkelGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,10 +62,13 @@ Partial Class sykkelEdit
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.btnSykkeltype)
         Me.GroupBox1.Controls.Add(Me.btnTom)
+        Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.cbxPosisjon)
         Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.txtPris)
         Me.GroupBox1.Controls.Add(Me.btnSlett)
         Me.GroupBox1.Controls.Add(Me.btnOppdater)
         Me.GroupBox1.Controls.Add(Me.btnLeggTil)
@@ -84,7 +90,7 @@ Partial Class sykkelEdit
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(357, 535)
+        Me.GroupBox1.Size = New System.Drawing.Size(357, 570)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
@@ -101,7 +107,7 @@ Partial Class sykkelEdit
         '
         'btnTom
         '
-        Me.btnTom.Location = New System.Drawing.Point(11, 352)
+        Me.btnTom.Location = New System.Drawing.Point(11, 386)
         Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnTom.Name = "btnTom"
         Me.btnTom.Size = New System.Drawing.Size(333, 38)
@@ -129,7 +135,7 @@ Partial Class sykkelEdit
         '
         'btnSlett
         '
-        Me.btnSlett.Location = New System.Drawing.Point(11, 489)
+        Me.btnSlett.Location = New System.Drawing.Point(11, 523)
         Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnSlett.Name = "btnSlett"
         Me.btnSlett.Size = New System.Drawing.Size(333, 38)
@@ -139,7 +145,7 @@ Partial Class sykkelEdit
         '
         'btnOppdater
         '
-        Me.btnOppdater.Location = New System.Drawing.Point(11, 442)
+        Me.btnOppdater.Location = New System.Drawing.Point(11, 476)
         Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnOppdater.Name = "btnOppdater"
         Me.btnOppdater.Size = New System.Drawing.Size(333, 38)
@@ -149,7 +155,7 @@ Partial Class sykkelEdit
         '
         'btnLeggTil
         '
-        Me.btnLeggTil.Location = New System.Drawing.Point(9, 398)
+        Me.btnLeggTil.Location = New System.Drawing.Point(9, 432)
         Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnLeggTil.Name = "btnLeggTil"
         Me.btnLeggTil.Size = New System.Drawing.Size(333, 38)
@@ -159,7 +165,7 @@ Partial Class sykkelEdit
         '
         'txtAvvik
         '
-        Me.txtAvvik.Location = New System.Drawing.Point(90, 240)
+        Me.txtAvvik.Location = New System.Drawing.Point(90, 274)
         Me.txtAvvik.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtAvvik.Multiline = True
         Me.txtAvvik.Name = "txtAvvik"
@@ -169,7 +175,7 @@ Partial Class sykkelEdit
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(4, 242)
+        Me.Label8.Location = New System.Drawing.Point(4, 276)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(78, 20)
         Me.Label8.TabIndex = 30
@@ -180,7 +186,7 @@ Partial Class sykkelEdit
         Me.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStatus.FormattingEnabled = True
         Me.cbxStatus.Items.AddRange(New Object() {"Tilgjengelig", "Leid ut", "Reparasjon", "Reservert"})
-        Me.cbxStatus.Location = New System.Drawing.Point(90, 204)
+        Me.cbxStatus.Location = New System.Drawing.Point(90, 238)
         Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxStatus.Name = "cbxStatus"
         Me.cbxStatus.Size = New System.Drawing.Size(252, 28)
@@ -189,7 +195,7 @@ Partial Class sykkelEdit
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 208)
+        Me.Label7.Location = New System.Drawing.Point(7, 242)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(56, 20)
         Me.Label7.TabIndex = 28
@@ -200,7 +206,7 @@ Partial Class sykkelEdit
         Me.cbxHjul.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxHjul.FormattingEnabled = True
         Me.cbxHjul.Items.AddRange(New Object() {"12", "14", "16", "18", "20", "24"})
-        Me.cbxHjul.Location = New System.Drawing.Point(90, 168)
+        Me.cbxHjul.Location = New System.Drawing.Point(90, 202)
         Me.cbxHjul.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxHjul.Name = "cbxHjul"
         Me.cbxHjul.Size = New System.Drawing.Size(77, 28)
@@ -209,7 +215,7 @@ Partial Class sykkelEdit
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(7, 171)
+        Me.Label5.Location = New System.Drawing.Point(7, 205)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(54, 20)
         Me.Label5.TabIndex = 8
@@ -220,7 +226,7 @@ Partial Class sykkelEdit
         Me.cbxRamme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxRamme.FormattingEnabled = True
         Me.cbxRamme.Items.AddRange(New Object() {"13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"})
-        Me.cbxRamme.Location = New System.Drawing.Point(264, 168)
+        Me.cbxRamme.Location = New System.Drawing.Point(264, 202)
         Me.cbxRamme.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxRamme.Name = "cbxRamme"
         Me.cbxRamme.Size = New System.Drawing.Size(78, 28)
@@ -230,7 +236,7 @@ Partial Class sykkelEdit
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(173, 171)
+        Me.Label4.Location = New System.Drawing.Point(173, 205)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 20)
         Me.Label4.TabIndex = 6
@@ -238,7 +244,7 @@ Partial Class sykkelEdit
         '
         'txtRammenr
         '
-        Me.txtRammenr.Location = New System.Drawing.Point(90, 134)
+        Me.txtRammenr.Location = New System.Drawing.Point(90, 168)
         Me.txtRammenr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtRammenr.Name = "txtRammenr"
         Me.txtRammenr.Size = New System.Drawing.Size(252, 26)
@@ -247,7 +253,7 @@ Partial Class sykkelEdit
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 138)
+        Me.Label3.Location = New System.Drawing.Point(7, 172)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(79, 20)
         Me.Label3.TabIndex = 4
@@ -302,7 +308,7 @@ Partial Class sykkelEdit
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(991, 535)
+        Me.GroupBox2.Size = New System.Drawing.Size(991, 570)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -369,7 +375,7 @@ Partial Class sykkelEdit
         Me.SykkelGridView.RowHeadersVisible = False
         Me.SykkelGridView.RowTemplate.Height = 24
         Me.SykkelGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SykkelGridView.Size = New System.Drawing.Size(974, 469)
+        Me.SykkelGridView.Size = New System.Drawing.Size(974, 503)
         Me.SykkelGridView.TabIndex = 18
         '
         'Label6
@@ -381,11 +387,36 @@ Partial Class sykkelEdit
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Posisjon"
         '
+        'txtPris
+        '
+        Me.txtPris.Location = New System.Drawing.Point(90, 133)
+        Me.txtPris.Name = "txtPris"
+        Me.txtPris.Size = New System.Drawing.Size(137, 26)
+        Me.txtPris.TabIndex = 5
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(7, 136)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(35, 20)
+        Me.Label12.TabIndex = 5
+        Me.Label12.Text = "Pris"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(233, 136)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(24, 20)
+        Me.Label13.TabIndex = 31
+        Me.Label13.Text = "Kr"
+        '
         'sykkelEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1383, 561)
+        Me.ClientSize = New System.Drawing.Size(1383, 594)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -431,4 +462,7 @@ Partial Class sykkelEdit
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents cbxSokStatus As System.Windows.Forms.ComboBox
     Friend WithEvents btnSykkeltype As System.Windows.Forms.Button
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents txtPris As System.Windows.Forms.TextBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
 End Class

@@ -53,6 +53,7 @@
             .Columns("rammenr").HeaderText = "Rammenr"
             .Columns("sykkeltype").HeaderText = "Sykkeltype"
             .Columns("s_status").HeaderText = "Status"
+            .Columns("pris").HeaderText = "Pris"
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
             .Columns("rammestr").HeaderText = "Rammestørrelse"
             .Columns("avviksmelding").HeaderText = "Avviksmelding"
@@ -72,6 +73,7 @@
             cbxHjul.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("hjulstr").Value
             cbxRamme.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammestr").Value
             cbxStatus.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("s_status").Value
+            txtPris.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("pris").Value
             txtAvvik.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("avviksmelding").Value
         End With
     End Sub
@@ -98,6 +100,7 @@
                                         cbxHjul.Text,
                                         cbxRamme.Text,
                                         cbxStatus.Text,
+                                        txtPris.Text,
                                         cbxPosisjon.SelectedValue,
                                         cbxTilhorer.SelectedValue)
 
@@ -123,6 +126,7 @@
                                                 cbxHjul.Text,
                                                 cbxRamme.Text,
                                                 cbxStatus.Text,
+                                                txtPris.Text,
                                                 cbxPosisjon.SelectedValue,
                                                 cbxTilhorer.SelectedValue)
 
@@ -142,7 +146,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjerne " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("id").Value)
+                    Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value)
 
                     daoSykkel.fjernSykkel(sykkel)
                     MsgBox(sykkel_navn() & " er fjernet.", MsgBoxStyle.Exclamation)
