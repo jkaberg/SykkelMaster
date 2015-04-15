@@ -14,7 +14,7 @@
 
     Private Sub cbxStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStatus.SelectedIndexChanged
         Select Case cbxStatus.Text
-            Case "Leid ut"
+            Case "Allt"
                 avtaleInnehold()
             Case "Tidsfrist gått ut"
                 fristGattUt("<")
@@ -24,7 +24,7 @@
     End Sub
 
     Public Sub avtaleInnehold(Optional ByVal id As Integer = Nothing)
-        payload = daoInnlevering.hentAvtaleHistorie(id)
+        payload = daoHistorie.hentAvtaleHistorie(id)
 
         With Me.oversiktGrid
             .DataSource = payload

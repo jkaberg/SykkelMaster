@@ -74,6 +74,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dao\daoHistorie.vb" />
     <Compile Include="dao\daoAnsatt.vb" />
     <Compile Include="dao\daoDelt.vb" />
     <Compile Include="dao\daoEndrePassord.vb" />
