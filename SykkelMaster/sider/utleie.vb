@@ -76,6 +76,7 @@
                                                                  sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammenr").Value,
                                                                  fraTid.Value,
                                                                  tilTid.Value,
+                                                                 sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("sykkelnavn").Value,
                                                                  sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("sykkeltype").Value,
                                                                  sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("hjulstr").Value,
                                                                  sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammestr").Value)
@@ -83,7 +84,7 @@
             sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Reservert",
                                                                Me.sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammenr").Value)
         Else
-            MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
+            MsgBox("Du må velg en gyldig rad i sykkel oversikten.", MsgBoxStyle.Exclamation)
         End If
     End Sub
 

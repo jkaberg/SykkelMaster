@@ -78,6 +78,7 @@ Partial Class ansatte
         Me.brukerGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.brukerGridView.MultiSelect = False
         Me.brukerGridView.Name = "brukerGridView"
+        Me.brukerGridView.ReadOnly = True
         Me.brukerGridView.RowHeadersVisible = False
         Me.brukerGridView.RowTemplate.Height = 24
         Me.brukerGridView.RowTemplate.ReadOnly = True

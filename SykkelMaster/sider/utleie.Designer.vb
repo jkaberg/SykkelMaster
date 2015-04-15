@@ -92,6 +92,7 @@ Partial Class utleie
         Me.sykkelGrid.Location = New System.Drawing.Point(9, 161)
         Me.sykkelGrid.MultiSelect = False
         Me.sykkelGrid.Name = "sykkelGrid"
+        Me.sykkelGrid.ReadOnly = True
         Me.sykkelGrid.RowHeadersVisible = False
         Me.sykkelGrid.RowTemplate.Height = 24
         Me.sykkelGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -358,6 +359,7 @@ Partial Class utleie
         Me.vognGrid.Location = New System.Drawing.Point(7, 22)
         Me.vognGrid.MultiSelect = False
         Me.vognGrid.Name = "vognGrid"
+        Me.vognGrid.ReadOnly = True
         Me.vognGrid.RowHeadersVisible = False
         Me.vognGrid.RowTemplate.Height = 24
         Me.vognGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
