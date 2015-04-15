@@ -23,10 +23,13 @@ Partial Class sykkelEdit
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.btnSykkeltype = New System.Windows.Forms.Button()
         Me.btnTom = New System.Windows.Forms.Button()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.cbxPosisjon = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtPris = New System.Windows.Forms.TextBox()
         Me.btnSlett = New System.Windows.Forms.Button()
         Me.btnOppdater = New System.Windows.Forms.Button()
         Me.btnLeggTil = New System.Windows.Forms.Button()
@@ -52,9 +55,6 @@ Partial Class sykkelEdit
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
         Me.SykkelGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtPris = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SykkelGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,99 +86,129 @@ Partial Class sykkelEdit
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.cbxType)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 16)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 10)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(357, 570)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.GroupBox1.Size = New System.Drawing.Size(238, 370)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(155, 88)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(17, 13)
+        Me.Label13.TabIndex = 31
+        Me.Label13.Text = "Kr"
+        '
         'btnSykkeltype
         '
-        Me.btnSykkeltype.Location = New System.Drawing.Point(233, 96)
-        Me.btnSykkeltype.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSykkeltype.Location = New System.Drawing.Point(155, 62)
+        Me.btnSykkeltype.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.btnSykkeltype.Name = "btnSykkeltype"
-        Me.btnSykkeltype.Size = New System.Drawing.Size(109, 32)
+        Me.btnSykkeltype.Size = New System.Drawing.Size(73, 21)
         Me.btnSykkeltype.TabIndex = 22
         Me.btnSykkeltype.Text = "Legg til"
         Me.btnSykkeltype.UseVisualStyleBackColor = True
         '
         'btnTom
         '
-        Me.btnTom.Location = New System.Drawing.Point(11, 386)
-        Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnTom.Location = New System.Drawing.Point(7, 251)
+        Me.btnTom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnTom.Name = "btnTom"
-        Me.btnTom.Size = New System.Drawing.Size(333, 38)
+        Me.btnTom.Size = New System.Drawing.Size(222, 25)
         Me.btnTom.TabIndex = 9
         Me.btnTom.Text = "Tøm"
         Me.btnTom.UseVisualStyleBackColor = True
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(5, 88)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(24, 13)
+        Me.Label12.TabIndex = 5
+        Me.Label12.Text = "Pris"
         '
         'cbxPosisjon
         '
         Me.cbxPosisjon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxPosisjon.FormattingEnabled = True
-        Me.cbxPosisjon.Location = New System.Drawing.Point(90, 62)
-        Me.cbxPosisjon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cbxPosisjon.Location = New System.Drawing.Point(60, 40)
+        Me.cbxPosisjon.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.cbxPosisjon.Name = "cbxPosisjon"
-        Me.cbxPosisjon.Size = New System.Drawing.Size(252, 28)
+        Me.cbxPosisjon.Size = New System.Drawing.Size(169, 21)
         Me.cbxPosisjon.TabIndex = 2
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(7, 66)
+        Me.Label10.Location = New System.Drawing.Point(5, 43)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(68, 20)
+        Me.Label10.Size = New System.Drawing.Size(46, 13)
         Me.Label10.TabIndex = 20
         Me.Label10.Text = "Posisjon"
         '
+        'txtPris
+        '
+        Me.txtPris.Location = New System.Drawing.Point(60, 86)
+        Me.txtPris.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPris.Name = "txtPris"
+        Me.txtPris.Size = New System.Drawing.Size(93, 20)
+        Me.txtPris.TabIndex = 5
+        '
         'btnSlett
         '
-        Me.btnSlett.Location = New System.Drawing.Point(11, 523)
-        Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnSlett.Location = New System.Drawing.Point(7, 340)
+        Me.btnSlett.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSlett.Name = "btnSlett"
-        Me.btnSlett.Size = New System.Drawing.Size(333, 38)
+        Me.btnSlett.Size = New System.Drawing.Size(222, 25)
         Me.btnSlett.TabIndex = 12
         Me.btnSlett.Text = "Slett"
         Me.btnSlett.UseVisualStyleBackColor = True
         '
         'btnOppdater
         '
-        Me.btnOppdater.Location = New System.Drawing.Point(11, 476)
-        Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnOppdater.Location = New System.Drawing.Point(7, 309)
+        Me.btnOppdater.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnOppdater.Name = "btnOppdater"
-        Me.btnOppdater.Size = New System.Drawing.Size(333, 38)
+        Me.btnOppdater.Size = New System.Drawing.Size(222, 25)
         Me.btnOppdater.TabIndex = 11
         Me.btnOppdater.Text = "Oppdater"
         Me.btnOppdater.UseVisualStyleBackColor = True
         '
         'btnLeggTil
         '
-        Me.btnLeggTil.Location = New System.Drawing.Point(9, 432)
-        Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnLeggTil.Location = New System.Drawing.Point(6, 281)
+        Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnLeggTil.Name = "btnLeggTil"
-        Me.btnLeggTil.Size = New System.Drawing.Size(333, 38)
+        Me.btnLeggTil.Size = New System.Drawing.Size(222, 25)
         Me.btnLeggTil.TabIndex = 10
         Me.btnLeggTil.Text = "Legg til"
         Me.btnLeggTil.UseVisualStyleBackColor = True
         '
         'txtAvvik
         '
-        Me.txtAvvik.Location = New System.Drawing.Point(90, 274)
-        Me.txtAvvik.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtAvvik.Location = New System.Drawing.Point(60, 178)
+        Me.txtAvvik.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtAvvik.Multiline = True
         Me.txtAvvik.Name = "txtAvvik"
-        Me.txtAvvik.Size = New System.Drawing.Size(252, 105)
+        Me.txtAvvik.Size = New System.Drawing.Size(169, 70)
         Me.txtAvvik.TabIndex = 8
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(4, 276)
+        Me.Label8.Location = New System.Drawing.Point(3, 179)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(78, 20)
+        Me.Label8.Size = New System.Drawing.Size(55, 13)
         Me.Label8.TabIndex = 30
         Me.Label8.Text = "Avviksmld"
         '
@@ -187,18 +217,19 @@ Partial Class sykkelEdit
         Me.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStatus.FormattingEnabled = True
         Me.cbxStatus.Items.AddRange(New Object() {"Tilgjengelig", "Leid ut", "Reparasjon", "Reservert"})
-        Me.cbxStatus.Location = New System.Drawing.Point(90, 238)
-        Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxStatus.Location = New System.Drawing.Point(60, 155)
+        Me.cbxStatus.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbxStatus.Name = "cbxStatus"
-        Me.cbxStatus.Size = New System.Drawing.Size(252, 28)
+        Me.cbxStatus.Size = New System.Drawing.Size(169, 21)
         Me.cbxStatus.TabIndex = 7
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 242)
+        Me.Label7.Location = New System.Drawing.Point(5, 157)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(56, 20)
+        Me.Label7.Size = New System.Drawing.Size(37, 13)
         Me.Label7.TabIndex = 28
         Me.Label7.Text = "Status"
         '
@@ -207,18 +238,19 @@ Partial Class sykkelEdit
         Me.cbxHjul.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxHjul.FormattingEnabled = True
         Me.cbxHjul.Items.AddRange(New Object() {"12", "14", "16", "18", "20", "24"})
-        Me.cbxHjul.Location = New System.Drawing.Point(90, 202)
-        Me.cbxHjul.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxHjul.Location = New System.Drawing.Point(60, 131)
+        Me.cbxHjul.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbxHjul.Name = "cbxHjul"
-        Me.cbxHjul.Size = New System.Drawing.Size(77, 28)
+        Me.cbxHjul.Size = New System.Drawing.Size(53, 21)
         Me.cbxHjul.TabIndex = 5
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(7, 205)
+        Me.Label5.Location = New System.Drawing.Point(5, 133)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(54, 20)
+        Me.Label5.Size = New System.Drawing.Size(36, 13)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Hjulstr"
         '
@@ -227,36 +259,38 @@ Partial Class sykkelEdit
         Me.cbxRamme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxRamme.FormattingEnabled = True
         Me.cbxRamme.Items.AddRange(New Object() {"13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"})
-        Me.cbxRamme.Location = New System.Drawing.Point(264, 202)
-        Me.cbxRamme.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxRamme.Location = New System.Drawing.Point(176, 131)
+        Me.cbxRamme.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbxRamme.Name = "cbxRamme"
-        Me.cbxRamme.Size = New System.Drawing.Size(78, 28)
+        Me.cbxRamme.Size = New System.Drawing.Size(53, 21)
         Me.cbxRamme.TabIndex = 6
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(173, 205)
+        Me.Label4.Location = New System.Drawing.Point(115, 133)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(83, 20)
+        Me.Label4.Size = New System.Drawing.Size(54, 13)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Rammestr"
         '
         'txtRammenr
         '
-        Me.txtRammenr.Location = New System.Drawing.Point(90, 168)
-        Me.txtRammenr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtRammenr.Location = New System.Drawing.Point(60, 109)
+        Me.txtRammenr.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtRammenr.Name = "txtRammenr"
-        Me.txtRammenr.Size = New System.Drawing.Size(252, 26)
+        Me.txtRammenr.Size = New System.Drawing.Size(169, 20)
         Me.txtRammenr.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 172)
+        Me.Label3.Location = New System.Drawing.Point(5, 112)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 20)
+        Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Rammenr"
         '
@@ -264,18 +298,19 @@ Partial Class sykkelEdit
         '
         Me.cbxTilhorer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTilhorer.FormattingEnabled = True
-        Me.cbxTilhorer.Location = New System.Drawing.Point(90, 28)
-        Me.cbxTilhorer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxTilhorer.Location = New System.Drawing.Point(60, 18)
+        Me.cbxTilhorer.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbxTilhorer.Name = "cbxTilhorer"
-        Me.cbxTilhorer.Size = New System.Drawing.Size(252, 28)
+        Me.cbxTilhorer.Size = New System.Drawing.Size(169, 21)
         Me.cbxTilhorer.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(7, 31)
+        Me.Label2.Location = New System.Drawing.Point(5, 20)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 20)
+        Me.Label2.Size = New System.Drawing.Size(42, 13)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Tilhører"
         '
@@ -283,18 +318,19 @@ Partial Class sykkelEdit
         '
         Me.cbxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxType.FormattingEnabled = True
-        Me.cbxType.Location = New System.Drawing.Point(90, 98)
-        Me.cbxType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxType.Location = New System.Drawing.Point(60, 64)
+        Me.cbxType.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbxType.Name = "cbxType"
-        Me.cbxType.Size = New System.Drawing.Size(137, 28)
+        Me.cbxType.Size = New System.Drawing.Size(93, 21)
         Me.cbxType.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 101)
+        Me.Label1.Location = New System.Drawing.Point(5, 66)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 20)
+        Me.Label1.Size = New System.Drawing.Size(31, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Type"
         '
@@ -307,11 +343,11 @@ Partial Class sykkelEdit
         Me.GroupBox2.Controls.Add(Me.cbxLokasjon)
         Me.GroupBox2.Controls.Add(Me.SykkelGridView)
         Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Location = New System.Drawing.Point(378, 16)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox2.Location = New System.Drawing.Point(252, 10)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(991, 570)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.GroupBox2.Size = New System.Drawing.Size(661, 370)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -319,9 +355,10 @@ Partial Class sykkelEdit
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(512, 22)
+        Me.Label11.Location = New System.Drawing.Point(341, 14)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(60, 20)
+        Me.Label11.Size = New System.Drawing.Size(40, 13)
         Me.Label11.TabIndex = 21
         Me.Label11.Text = "Status:"
         '
@@ -329,27 +366,28 @@ Partial Class sykkelEdit
         '
         Me.cbxSokStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSokStatus.FormattingEnabled = True
-        Me.cbxSokStatus.Items.AddRange(New Object() {"Innlevert", "Leid ut", "Reparasjon"})
-        Me.cbxSokStatus.Location = New System.Drawing.Point(578, 20)
-        Me.cbxSokStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxSokStatus.Items.AddRange(New Object() {"Innlevert", "Leid ut", "Reparasjon", "Reservert"})
+        Me.cbxSokStatus.Location = New System.Drawing.Point(385, 13)
+        Me.cbxSokStatus.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbxSokStatus.Name = "cbxSokStatus"
-        Me.cbxSokStatus.Size = New System.Drawing.Size(147, 28)
+        Me.cbxSokStatus.Size = New System.Drawing.Size(99, 21)
         Me.cbxSokStatus.TabIndex = 20
         '
         'txtSok
         '
-        Me.txtSok.Location = New System.Drawing.Point(341, 20)
-        Me.txtSok.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtSok.Location = New System.Drawing.Point(227, 13)
+        Me.txtSok.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtSok.Name = "txtSok"
-        Me.txtSok.Size = New System.Drawing.Size(148, 26)
+        Me.txtSok.Size = New System.Drawing.Size(100, 20)
         Me.txtSok.TabIndex = 14
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(252, 22)
+        Me.Label9.Location = New System.Drawing.Point(168, 14)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(83, 20)
+        Me.Label9.Size = New System.Drawing.Size(55, 13)
         Me.Label9.TabIndex = 19
         Me.Label9.Text = "Rammenr:"
         '
@@ -357,10 +395,10 @@ Partial Class sykkelEdit
         '
         Me.cbxLokasjon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxLokasjon.FormattingEnabled = True
-        Me.cbxLokasjon.Location = New System.Drawing.Point(87, 20)
-        Me.cbxLokasjon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cbxLokasjon.Location = New System.Drawing.Point(58, 13)
+        Me.cbxLokasjon.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbxLokasjon.Name = "cbxLokasjon"
-        Me.cbxLokasjon.Size = New System.Drawing.Size(147, 28)
+        Me.cbxLokasjon.Size = New System.Drawing.Size(99, 21)
         Me.cbxLokasjon.TabIndex = 13
         '
         'SykkelGridView
@@ -370,60 +408,36 @@ Partial Class sykkelEdit
         Me.SykkelGridView.AllowUserToResizeRows = False
         Me.SykkelGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.SykkelGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SykkelGridView.Location = New System.Drawing.Point(10, 58)
-        Me.SykkelGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SykkelGridView.Location = New System.Drawing.Point(7, 38)
+        Me.SykkelGridView.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.SykkelGridView.MultiSelect = False
         Me.SykkelGridView.Name = "SykkelGridView"
         Me.SykkelGridView.ReadOnly = True
         Me.SykkelGridView.RowHeadersVisible = False
         Me.SykkelGridView.RowTemplate.Height = 24
         Me.SykkelGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SykkelGridView.Size = New System.Drawing.Size(974, 503)
+        Me.SykkelGridView.Size = New System.Drawing.Size(649, 327)
         Me.SykkelGridView.TabIndex = 18
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(14, 22)
+        Me.Label6.Location = New System.Drawing.Point(9, 14)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(68, 20)
+        Me.Label6.Size = New System.Drawing.Size(46, 13)
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Posisjon"
         '
-        'txtPris
-        '
-        Me.txtPris.Location = New System.Drawing.Point(90, 133)
-        Me.txtPris.Name = "txtPris"
-        Me.txtPris.Size = New System.Drawing.Size(137, 26)
-        Me.txtPris.TabIndex = 5
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(7, 136)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(35, 20)
-        Me.Label12.TabIndex = 5
-        Me.Label12.Text = "Pris"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(233, 136)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(24, 20)
-        Me.Label13.TabIndex = 31
-        Me.Label13.Text = "Kr"
-        '
         'sykkelEdit
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1383, 594)
+        Me.ClientSize = New System.Drawing.Size(922, 386)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Name = "sykkelEdit"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sykkel"
