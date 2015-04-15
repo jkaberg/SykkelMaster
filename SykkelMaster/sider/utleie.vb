@@ -91,10 +91,15 @@
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         If Not IsNothing(Me.vognGrid.CurrentRow) Then
             'Me.vognGrid.Rows.Remove(Me.vognGrid.CurrentRow)
-            kundevogn_sykkler = daoUtleie.fjernSykkelKundevogn(Me.vognGrid.CurrentRow.Index, kundevogn_sykkler)
+            Dim rammenr As String = Me.vognGrid.Rows(Me.vognGrid.CurrentRow.Index).Cells("rammenr").Value
 
-            sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Tilgjengelig",
-                                                               Me.vognGrid.Rows(Me.vognGrid.CurrentRow.Index - 1).Cells("rammenr").Value)
+            kundevogn_sykkler = daoUtleie.fjernSykkelKundevogn(rammenr,
+                                                               kundevogn_sykkler)
+
+            daoUtleie.settSykkelStatus("Tilgjengelig",
+                                       rammenr)
+
+            sykkelGrid.DataSource = daoUtleie.hentSykkler
         Else
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If

@@ -19,7 +19,6 @@
                                             ByVal rammenr As String) As DataTable
 
         database.query("UPDATE sykkel SET s_status = '" & status & "' WHERE rammenr = '" & rammenr & "';")
-
         Return hentSykkler()
     End Function
 
@@ -75,10 +74,15 @@
         Return dt
     End Function
 
-    Public Shared Function fjernSykkelKundevogn(ByVal rad As Integer,
+    Public Shared Function fjernSykkelKundevogn(ByVal rammenr As String,
                                                 ByVal dt As DataTable) As DataTable
 
-        dt.Rows(rad).Delete()
+        For i As Integer = 0 To dt.Rows.Count - 1
+            If dt.Rows(i).Item(0).ToString() = rammenr Then
+                dt.Rows(i).Delete()
+            End If
+        Next
+
         Return dt
     End Function
 End Class
