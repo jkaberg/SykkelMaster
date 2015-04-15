@@ -179,7 +179,7 @@ Partial Class sykkelEdit
         '
         Me.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStatus.FormattingEnabled = True
-        Me.cbxStatus.Items.AddRange(New Object() {"Tilgjengelig", "Leid ut", "Reparasjon"})
+        Me.cbxStatus.Items.AddRange(New Object() {"Tilgjengelig", "Leid ut", "Reparasjon", "Reservert"})
         Me.cbxStatus.Location = New System.Drawing.Point(90, 204)
         Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxStatus.Name = "cbxStatus"
