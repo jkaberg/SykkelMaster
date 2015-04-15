@@ -94,7 +94,7 @@
             kundevogn_sykkler = daoUtleie.fjernSykkelKundevogn(Me.vognGrid.CurrentRow.Index, kundevogn_sykkler)
 
             sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Tilgjengelig",
-                                                               Me.vognGrid.Rows(Me.vognGrid.CurrentRow.Index).Cells("rammenr").Value)
+                                                               Me.vognGrid.Rows(Me.vognGrid.CurrentRow.Index - 1).Cells("rammenr").Value)
         Else
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If

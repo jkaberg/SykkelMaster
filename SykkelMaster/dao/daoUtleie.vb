@@ -75,7 +75,9 @@
         Return dt
     End Function
 
-    Public Shared Function fjernSykkelKundevogn(ByVal rad As Integer, ByVal dt As DataTable) As DataTable
+    Public Shared Function fjernSykkelKundevogn(ByVal rad As Integer,
+                                                ByVal dt As DataTable) As DataTable
+
         dt.Rows(rad).Delete()
         Return dt
     End Function
