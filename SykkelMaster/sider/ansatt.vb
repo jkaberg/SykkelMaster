@@ -123,7 +123,7 @@
                              "Passord: " & passord & vbNewLine & vbNewLine &
                              "Hilsen, SykkelMaster"
 
-        If daoDelt.sjekkBrukerEksisterer(txtMail.Text) Then
+        If daoDelt.sjekkMailEksisterer(txtMail.Text) Then
             MsgBox("Det eksisterer allerede en bruker med mail adresse " & txtMail.Text & ", vennligt velg noe annet.", MsgBoxStyle.Critical)
         Else
             Select Case MsgBox("Er du sikker på at du vil legg til " & navn() & "?", MsgBoxStyle.YesNo)

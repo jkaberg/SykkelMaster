@@ -45,8 +45,4 @@
     Public Shared Function sjekkMailEksisterer(ByVal epost As String)
         Return database.query("SELECT mail FROM person WHERE mail = '" & epost & "';")
     End Function
-
-    Public Shared Function sjekkBrukerEksisterer(ByVal epost As String) As Boolean
-        Return database.query("SELECT id FROM person WHERE mail = '" & epost & "';")
-    End Function
 End Class
