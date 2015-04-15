@@ -45,4 +45,9 @@
     Public Shared Function sjekkMailEksisterer(ByVal epost As String)
         Return database.query("SELECT mail FROM person WHERE mail = '" & epost & "';")
     End Function
+
+    Public Shared Function finnDGWVerdi(ByVal dgw As DataGridView, ByVal kolonne As String) As Object
+        Return dgw.Rows(dgw.CurrentRow.Index).Cells(kolonne).Value
+    End Function
+
 End Class

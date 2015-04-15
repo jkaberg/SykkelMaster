@@ -53,12 +53,12 @@
     Private Sub oppdaterTxtbox()
         'Setter inn datane fra Grid Viewn i Textboksene
         With Me.kundeGridView
-            txtNavn.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("fornavn").Value
-            txtEtternavn.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("etternavn").Value
-            txtTelefon.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("telefon").Value
-            txtAdresse.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("adresse").Value
-            txtMail.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("mail").Value
-            txtPostnr.Text = .Rows(Me.kundeGridView.CurrentRow.Index).Cells("post_nr").Value
+            txtNavn.Text = daoDelt.finnDGWVerdi(kundeGridView, "fornavn")
+            txtEtternavn.Text = daoDelt.finnDGWVerdi(kundeGridView, "etternavn")
+            txtTelefon.Text = daoDelt.finnDGWVerdi(kundeGridView, "telefon")
+            txtAdresse.Text = daoDelt.finnDGWVerdi(kundeGridView, "adresse")
+            txtMail.Text = daoDelt.finnDGWVerdi(kundeGridView, "mail")
+            txtPostnr.Text = daoDelt.finnDGWVerdi(kundeGridView, "post_nr")
         End With
     End Sub
 
@@ -85,7 +85,7 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value,
+                    Dim person As New clsPerson(daoDelt.finnDGWVerdi(kundeGridView, "id"),
                                                 txtNavn.Text,
                                                 txtEtternavn.Text,
                                                 txtPostnr.Text,
@@ -109,7 +109,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjerne " & navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim person As New clsPerson(Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value,
+                    Dim person As New clsPerson(daoDelt.finnDGWVerdi(kundeGridView, "id"),
                                                 txtNavn.Text,
                                                 txtEtternavn.Text)
 
@@ -141,7 +141,7 @@
     Private Sub btnHistorie_Click(sender As Object, e As EventArgs) Handles btnHistorie.Click
         If Not IsNothing(Me.kundeGridView.CurrentRow) Then
             historie.Show()
-            historie.avtaleInnehold(id:=Me.kundeGridView.Rows(Me.kundeGridView.CurrentRow.Index).Cells("id").Value)
+            historie.avtaleInnehold(id:=daoDelt.finnDGWVerdi(kundeGridView, "id"))
         Else
             MsgBox("Velg person")
         End If

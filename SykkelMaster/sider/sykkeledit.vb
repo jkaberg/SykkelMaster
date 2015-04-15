@@ -66,15 +66,15 @@
     Private Sub oppdaterTxtbox()
         'Setter inn datane fra Grid Viewn i Textboksene
         With Me.SykkelGridView
-            cbxTilhorer.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("navn").Value
-            cbxPosisjon.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("posisjon").Value
-            cbxType.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("sykkeltype").Value
-            txtRammenr.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value
-            cbxHjul.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("hjulstr").Value
-            cbxRamme.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammestr").Value
-            cbxStatus.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("s_status").Value
-            txtPris.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("pris").Value
-            txtAvvik.Text = .Rows(Me.SykkelGridView.CurrentRow.Index).Cells("avviksmelding").Value
+            cbxTilhorer.Text = daoDelt.finnDGWVerdi(SykkelGridView, "navn")
+            cbxPosisjon.Text = daoDelt.finnDGWVerdi(SykkelGridView, "posisjon")
+            cbxType.Text = daoDelt.finnDGWVerdi(SykkelGridView, "sykkeltype")
+            txtRammenr.Text = daoDelt.finnDGWVerdi(SykkelGridView, "rammenr")
+            cbxHjul.Text = daoDelt.finnDGWVerdi(SykkelGridView, "hjulstr")
+            cbxRamme.Text = daoDelt.finnDGWVerdi(SykkelGridView, "rammestr")
+            cbxStatus.Text = daoDelt.finnDGWVerdi(SykkelGridView, "s_status")
+            txtPris.Text = daoDelt.finnDGWVerdi(SykkelGridView, "pris")
+            txtAvvik.Text = daoDelt.finnDGWVerdi(SykkelGridView, "avviksmelding")
         End With
     End Sub
 
@@ -146,7 +146,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjerne " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim sykkel As New clsSykkel(Me.SykkelGridView.Rows(Me.SykkelGridView.CurrentRow.Index).Cells("rammenr").Value)
+                    Dim sykkel As New clsSykkel(daoDelt.finnDGWVerdi(SykkelGridView, "rammenr"))
 
                     daoSykkel.fjernSykkel(sykkel)
                     MsgBox(sykkel_navn() & " er fjernet.", MsgBoxStyle.Exclamation)

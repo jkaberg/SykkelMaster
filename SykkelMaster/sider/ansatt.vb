@@ -21,15 +21,15 @@
     Private Sub Vis_bruker(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
         'Setter inn dataen fra Grid Viewn i Textboksene
         With Me.brukerGridView
-            txtNavn.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("fornavn").Value
-            txtEtternavn.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("etternavn").Value
-            txtTelefon.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("telefon").Value
-            txtAdresse.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("adresse").Value
-            txtMail.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("mail").Value
-            txtPostnr.Text = .Rows(Me.brukerGridView.CurrentRow.Index).Cells("post_nr").Value
+            txtNavn.Text = daoDelt.finnDGWVerdi(brukerGridView, "fornavn")
+            txtEtternavn.Text = daoDelt.finnDGWVerdi(brukerGridView, "etternavn")
+            txtTelefon.Text = daoDelt.finnDGWVerdi(brukerGridView, "telefon")
+            txtAdresse.Text = daoDelt.finnDGWVerdi(brukerGridView, "adresse")
+            txtMail.Text = daoDelt.finnDGWVerdi(brukerGridView, "mail")
+            txtPostnr.Text = daoDelt.finnDGWVerdi(brukerGridView, "post_nr")
 
             'Sett provisjonen
-            provisjonLabel(.Rows(Me.brukerGridView.CurrentRow.Index).Cells("provisjon").Value)
+            provisjonLabel(daoDelt.finnDGWVerdi(brukerGridView, "provisjon"))
         End With
         stilling()
         arbeidssted()
@@ -84,7 +84,7 @@
 
         'oppdaterer stillling fra databasen i combobox
         For i As Integer = 0 To lokasjon.Rows.Count - 1
-            If lokasjon.Rows(i)(cbxArbedidssted.DisplayMember).ToString() = Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("navn").Value Then
+            If lokasjon.Rows(i)(cbxArbedidssted.DisplayMember).ToString() = daoDelt.finnDGWVerdi(brukerGridView, "navn") Then
                 Me.cbxArbedidssted.SelectedIndex = i
             End If
         Next
@@ -157,7 +157,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjerne " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
-                    Dim ansatt As New clsAnsatt(id:=Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value,
+                    Dim ansatt As New clsAnsatt(id:=daoDelt.finnDGWVerdi(brukerGridView, "id"),
                                                 fnavn:=txtNavn.Text,
                                                 enavn:=txtEtternavn.Text)
 
@@ -176,7 +176,7 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
-                    Dim ansatt As New clsAnsatt(id:=Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("id").Value,
+                    Dim ansatt As New clsAnsatt(id:=daoDelt.finnDGWVerdi(brukerGridView, "id"),
                                                 fnavn:=txtNavn.Text,
                                                 enavn:=txtEtternavn.Text,
                                                 pnr:=txtPostnr.Text,

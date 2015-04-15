@@ -17,7 +17,7 @@
     End Sub
 
     Private Sub SykkelGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles sykkeltypeGrid.CellClick
-        txtNavn.Text = Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("sykkeltype").Value
+        txtNavn.Text = daoDelt.finnDGWVerdi(sykkeltypeGrid, "sykkeltype")
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
@@ -39,7 +39,7 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value,
+                    Dim st As New clsSykkelType(daoDelt.finnDGWVerdi(sykkeltypeGrid, "id"),
                                                 txtNavn.Text)
 
                     daoSykkelType.oppdaterSykkelType(st)
@@ -57,7 +57,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim st As New clsSykkelType(Me.sykkeltypeGrid.Rows(Me.sykkeltypeGrid.CurrentRow.Index).Cells("id").Value,
+                    Dim st As New clsSykkelType(daoDelt.finnDGWVerdi(sykkeltypeGrid, "id"),
                                                 txtNavn.Text)
 
                     daoSykkelType.fjernSykkelType(st)

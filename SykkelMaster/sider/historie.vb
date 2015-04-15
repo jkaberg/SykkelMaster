@@ -6,7 +6,7 @@
 
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
         With tilbehorGrid
-            .DataSource = daoInnlevering.hentTilbehor(Me.oversiktGrid.Rows(Me.oversiktGrid.CurrentRow.Index).Cells("ordre_nr").Value)
+            .DataSource = daoInnlevering.hentTilbehor(daoDelt.finnDGWVerdi(oversiktGrid, "ordre_nr"))
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("navn").HeaderText = "Navn"
         End With

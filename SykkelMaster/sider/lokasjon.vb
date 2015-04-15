@@ -21,11 +21,11 @@
     End Sub
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Oppdaterlokasjon.CellClick
         With Me.Oppdaterlokasjon
-            txtNavn.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("navn").Value
-            txtTelefon.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("telefon").Value
-            txtMail.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("mail").Value
-            txtAdresse.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("adresse").Value
-            txtPostnr.Text = .Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("post_nr").Value
+            txtNavn.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "navn")
+            txtTelefon.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "telefon")
+            txtMail.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "mail")
+            txtAdresse.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "adresse")
+            txtPostnr.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "post_nr")
         End With
     End Sub
 
@@ -54,7 +54,7 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value,
+                    Dim lokasjon As New clsLokasjon(daoDelt.finnDGWVerdi(Oppdaterlokasjon, "id"),
                                                     txtNavn.Text,
                                                     txtMail.Text,
                                                     txtAdresse.Text,
@@ -76,7 +76,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim lokasjon As New clsLokasjon(Me.Oppdaterlokasjon.Rows(Me.Oppdaterlokasjon.CurrentRow.Index).Cells("id").Value,
+                    Dim lokasjon As New clsLokasjon(daoDelt.finnDGWVerdi(Oppdaterlokasjon, "id"),
                                                     txtNavn.Text)
 
                     daoLokasjon.fjernLokasjon(lokasjon)
