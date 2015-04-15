@@ -90,22 +90,29 @@
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
         If Not IsNothing(Me.vognGrid.CurrentRow) Then
-            'Me.vognGrid.Rows.Remove(Me.vognGrid.CurrentRow)
-            Dim rammenr As String = Me.vognGrid.Rows(Me.vognGrid.CurrentRow.Index).Cells("rammenr").Value
+            sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Tilgjengelig",
+                                                               Me.vognGrid.Rows(Me.vognGrid.CurrentRow.Index).Cells("rammenr").Value)
 
-            kundevogn_sykkler = daoUtleie.fjernSykkelKundevogn(rammenr,
+            kundevogn_sykkler = daoUtleie.fjernSykkelKundevogn(Me.vognGrid.CurrentRow.Index,
                                                                kundevogn_sykkler)
-
-            daoUtleie.settSykkelStatus("Tilgjengelig",
-                                       rammenr)
-
-            sykkelGrid.DataSource = daoUtleie.hentSykkler
         Else
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If
     End Sub
 
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
+        If cbxNavn.SelectedValue Then
+            If kundevogn_sykkler.Rows.Count > 0 Then
+                MsgBox("yey!")
+            Else
+                MsgBox("Du må legg til sykkler i kundevognen.", MsgBoxStyle.Exclamation)
+            End If
+        Else
+            MsgBox("Du må velge en kunde.", MsgBoxStyle.Exclamation)
+        End If
+    End Sub
+
+    Private Sub nullStillOrdre()
 
     End Sub
 End Class

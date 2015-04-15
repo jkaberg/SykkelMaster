@@ -74,14 +74,11 @@
         Return dt
     End Function
 
-    Public Shared Function fjernSykkelKundevogn(ByVal rammenr As String,
+    Public Shared Function fjernSykkelKundevogn(ByVal id As Integer,
                                                 ByVal dt As DataTable) As DataTable
 
-        For i As Integer = 0 To dt.Rows.Count - 1
-            If dt.Rows(i).Item(0).ToString() = rammenr Then
-                dt.Rows(i).Delete()
-            End If
-        Next
+
+        dt.Rows(id).Delete()
 
         Return dt
     End Function

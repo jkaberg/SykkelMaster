@@ -139,6 +139,7 @@ Partial Class utleie
         '
         'tilTid
         '
+        Me.tilTid.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.tilTid.Location = New System.Drawing.Point(102, 107)
         Me.tilTid.Name = "tilTid"
         Me.tilTid.Size = New System.Drawing.Size(353, 22)
@@ -146,6 +147,7 @@ Partial Class utleie
         '
         'fraTid
         '
+        Me.fraTid.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.fraTid.Location = New System.Drawing.Point(102, 77)
         Me.fraTid.Name = "fraTid"
         Me.fraTid.Size = New System.Drawing.Size(353, 22)
