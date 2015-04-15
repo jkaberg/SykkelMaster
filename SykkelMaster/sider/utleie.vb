@@ -12,6 +12,24 @@
             .ValueMember = "id"
             .DataSource = daoUtleie.hentRabattAvtaler
         End With
+
+        With Me.sykkelGrid
+            .Columns("sykkeltype").Visible = False
+            .Columns("rammenr").HeaderText = "Rammenr"
+            .Columns("sykkelnavn").HeaderText = "Type"
+            .Columns("hjulstr").HeaderText = "Hjulstr"
+            .Columns("rammestr").HeaderText = "Rammestr"
+        End With
+
+        With Me.vognGrid
+            .Columns("sykkeltype").Visible = False
+            .Columns("rammenr").HeaderText = "Rammenr"
+            .Columns("fratid").HeaderText = "Fra"
+            .Columns("tiltid").HeaderText = "Til"
+            .Columns("sykkelnavn").HeaderText = "Type"
+            .Columns("hjulstr").HeaderText = "Hjulstr"
+            .Columns("rammestr").HeaderText = "Rammestr"
+        End With
     End Sub
 
     Private Sub btnKunde_Click(sender As Object, e As EventArgs) Handles btnKunde.Click

@@ -6,7 +6,13 @@
     End Function
 
     Public Shared Function hentSykkler() As DataTable
-        Return database.dt_query("SELECT rammenr, sykkeltype, hjulstr, rammestr FROM sykkel WHERE s_status = 'Tilgjengelig';")
+        sql = "SELECT sykkel.rammenr, sykkel.hjulstr, sykkel.sykkeltype, sykkel.rammestr, " &
+              "sykkeltype.sykkeltype AS sykkelnavn " &
+              "FROM sykkel " &
+              "JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.sykkeltype " &
+              "WHERE s_status = 'Tilgjengelig';"
+
+        Return database.dt_query(sql)
     End Function
 
     Public Shared Function settSykkelStatus(ByVal status As String, ByVal rammenr As String) As DataTable
@@ -20,6 +26,7 @@
         Dim rammenr As DataColumn = New DataColumn("rammenr")
         Dim fraTid As DataColumn = New DataColumn("fratid")
         Dim tilTid As DataColumn = New DataColumn("tiltid")
+        Dim sykkelNavn As DataColumn = New DataColumn("sykkelnavn")
         Dim sykkelType As DataColumn = New DataColumn("sykkeltype")
         Dim hjulStr As DataColumn = New DataColumn("hjulstr")
         Dim rammeStr As DataColumn = New DataColumn("rammestr")
