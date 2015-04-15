@@ -104,7 +104,6 @@
                                         txtPris.Text,
                                         cbxPosisjon.SelectedValue,
                                         cbxTilhorer.SelectedValue)
-            MsgBox(cbxPosisjon.SelectedValue)
             daoSykkel.leggTilSykkel(sykkel)
             MsgBox(sykkel_navn() & " lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
