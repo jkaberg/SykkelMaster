@@ -69,7 +69,7 @@
               "WHERE ordre_nr = " & ordre_nr & ";" &
               "UPDATE sykkel " &
               "JOIN sykkel_leid_ut ON sykkel.rammenr = sykkel_leid_ut.rammenr AND sykkel_leid_ut.ordre_nr = " & ordre_nr & " " &
-              "SET sykkel.s_status = 'Innlevert', sykkel.posisjon = " & lokasjon & ";" &
+              "SET sykkel.s_status = 'Tilgjengelig', sykkel.posisjon = " & lokasjon & ";" &
               "COMMIT;"
 
         Return database.query(sql)

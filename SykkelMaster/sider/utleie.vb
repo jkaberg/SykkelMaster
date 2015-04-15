@@ -1,11 +1,8 @@
 ﻿Public Class utleie
     Private payload As DataTable
-    Private kundevogn_sykkler As DataTable
-    'Private kundevogn_utstyr As DataTable
+    Private kundevogn_sykkler As DataTable = daoUtleie.lagSykklerDataTable
 
     Private Sub utleie_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'kundevogn_utstyr = New DataTable("utstyr")
-        lagSykkelDataTable()
         vognGrid.DataSource = kundevogn_sykkler
 
         sykkelGrid.DataSource = daoUtleie.hentSykkler
@@ -56,7 +53,12 @@
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
-        leggTilSykkelKundevogn()
+        kundevogn_sykkler = daoUtleie.leggTilSykkelKundevogn(kundevogn_sykkler,
+                                                             fraTid.Value,
+                                                             tilTid.Value,
+                                                             sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("sykkeltype").Value,
+                                                             sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("hjulstr").Value,
+                                                             sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammestr").Value)
     End Sub
 
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
@@ -69,42 +71,5 @@
 
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
 
-    End Sub
-
-    Private Sub leggTilSykkelKundevogn()
-        Dim sykkel As DataRow
-        sykkel = kundevogn_sykkler.NewRow()
-
-        sykkel.Item("fratid") = fraTid.Value
-        sykkel.Item("tiltid") = tilTid.Value
-        sykkel.Item("sykkeltype") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("sykkeltype").Value
-        sykkel.Item("hjulstr") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("hjulstr").Value
-        sykkel.Item("rammestr") = sykkelGrid.Rows(Me.sykkelGrid.CurrentRow.Index).Cells("rammestr").Value
-
-        kundevogn_sykkler.Rows.Add(sykkel)
-
-        vognGrid.DataSource = kundevogn_sykkler
-        sykkelGrid.DataSource = daoUtleie.hentSykkler
-    End Sub
-
-    Private Sub lagSykkelDataTable()
-        kundevogn_sykkler = New DataTable("sykkler")
-
-        Dim fraTid As DataColumn = New DataColumn("fratid")
-        fraTid.DataType = System.Type.GetType("System.String")
-        Dim tilTid As DataColumn = New DataColumn("tiltid")
-        tilTid.DataType = System.Type.GetType("System.String")
-        Dim sykkelType As DataColumn = New DataColumn("sykkeltype")
-        sykkelType.DataType = System.Type.GetType("System.Int32")
-        Dim hjulStr As DataColumn = New DataColumn("hjulstr")
-        hjulStr.DataType = System.Type.GetType("System.Int32")
-        Dim rammeStr As DataColumn = New DataColumn("rammestr")
-        rammeStr.DataType = System.Type.GetType("System.Int32")
-
-        kundevogn_sykkler.Columns.Add(fraTid)
-        kundevogn_sykkler.Columns.Add(tilTid)
-        kundevogn_sykkler.Columns.Add(sykkelType)
-        kundevogn_sykkler.Columns.Add(hjulStr)
-        kundevogn_sykkler.Columns.Add(rammeStr)
     End Sub
 End Class
