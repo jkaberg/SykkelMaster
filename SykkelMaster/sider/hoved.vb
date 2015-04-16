@@ -15,6 +15,10 @@
         sykkelEdit.Show()
     End Sub
 
+    Private Sub btnUtstyr_Click(sender As Object, e As EventArgs) Handles btnUtstyr.Click
+        utstyr.Show()
+    End Sub
+
     Private Sub Vis_Brukere(sender As Object, e As EventArgs) Handles btnVis_Brukere.Click
         ansatte.Show()
     End Sub

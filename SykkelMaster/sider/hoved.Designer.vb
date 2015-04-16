@@ -35,6 +35,7 @@ Partial Class hoved
         Me.btnBytt_Passord = New System.Windows.Forms.Button()
         Me.btnLogg_ut = New System.Windows.Forms.Button()
         Me.btnStatistikk = New System.Windows.Forms.Button()
+        Me.btnUtstyr = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -42,7 +43,7 @@ Partial Class hoved
         'btnVis_Kunder
         '
         Me.btnVis_Kunder.Enabled = False
-        Me.btnVis_Kunder.Location = New System.Drawing.Point(294, 161)
+        Me.btnVis_Kunder.Location = New System.Drawing.Point(294, 231)
         Me.btnVis_Kunder.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnVis_Kunder.Name = "btnVis_Kunder"
         Me.btnVis_Kunder.Size = New System.Drawing.Size(161, 61)
@@ -107,7 +108,7 @@ Partial Class hoved
         'btnVis_Brukere
         '
         Me.btnVis_Brukere.Enabled = False
-        Me.btnVis_Brukere.Location = New System.Drawing.Point(294, 231)
+        Me.btnVis_Brukere.Location = New System.Drawing.Point(294, 299)
         Me.btnVis_Brukere.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnVis_Brukere.Name = "btnVis_Brukere"
         Me.btnVis_Brukere.Size = New System.Drawing.Size(161, 61)
@@ -127,11 +128,11 @@ Partial Class hoved
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Informasjon"
         '
-        'Label1
+        'lblNavn
         '
         Me.lblNavn.AutoSize = True
         Me.lblNavn.Location = New System.Drawing.Point(8, 28)
-        Me.lblNavn.Name = "Label1"
+        Me.lblNavn.Name = "lblNavn"
         Me.lblNavn.Size = New System.Drawing.Size(101, 20)
         Me.lblNavn.TabIndex = 0
         Me.lblNavn.Text = "Velkommen, "
@@ -158,7 +159,7 @@ Partial Class hoved
         '
         'btnLogg_ut
         '
-        Me.btnLogg_ut.Location = New System.Drawing.Point(294, 299)
+        Me.btnLogg_ut.Location = New System.Drawing.Point(294, 364)
         Me.btnLogg_ut.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnLogg_ut.Name = "btnLogg_ut"
         Me.btnLogg_ut.Size = New System.Drawing.Size(161, 61)
@@ -176,11 +177,23 @@ Partial Class hoved
         Me.btnStatistikk.Text = "Statistikk"
         Me.btnStatistikk.UseVisualStyleBackColor = True
         '
+        'btnUtstyr
+        '
+        Me.btnUtstyr.Enabled = False
+        Me.btnUtstyr.Location = New System.Drawing.Point(294, 161)
+        Me.btnUtstyr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnUtstyr.Name = "btnUtstyr"
+        Me.btnUtstyr.Size = New System.Drawing.Size(161, 61)
+        Me.btnUtstyr.TabIndex = 10
+        Me.btnUtstyr.Text = "Utstyr"
+        Me.btnUtstyr.UseVisualStyleBackColor = True
+        '
         'hoved
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(464, 428)
+        Me.Controls.Add(Me.btnUtstyr)
         Me.Controls.Add(Me.btnStatistikk)
         Me.Controls.Add(Me.btnLogg_ut)
         Me.Controls.Add(Me.btnBytt_Passord)
@@ -216,4 +229,5 @@ Partial Class hoved
     Friend WithEvents btnBytt_Passord As System.Windows.Forms.Button
     Friend WithEvents btnLogg_ut As System.Windows.Forms.Button
     Friend WithEvents btnStatistikk As System.Windows.Forms.Button
+    Friend WithEvents btnUtstyr As System.Windows.Forms.Button
 End Class

@@ -99,6 +99,12 @@
     <Compile Include="sider\ansatt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sider\utstyr.Designer.vb">
+      <DependentUpon>utstyr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sider\utstyr.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="sider\historie.Designer.vb">
       <DependentUpon>historie.vb</DependentUpon>
     </Compile>
@@ -187,6 +193,9 @@
   <ItemGroup>
     <EmbeddedResource Include="sider\ansatt.resx">
       <DependentUpon>ansatt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sider\utstyr.resx">
+      <DependentUpon>utstyr.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\historie.resx">
       <DependentUpon>historie.vb</DependentUpon>
