@@ -54,13 +54,10 @@
         ' Sjekk hvilke tillatelser innloggetburker har ved å enable knapper
         Select Case start.bruker.pStilling
             Case Is = 1
-                btnVis_Kunder.Enabled = True
-                btnVis_Utleie.Enabled = True
-                btnVis_Lokasjoner.Enabled = True
-                btnVis_Brukere.Enabled = True
+                grpVirksomhet.Enabled = True
+                grpOrdre.Enabled = True
             Case Is = 2
-                btnVis_Kunder.Enabled = True
-                btnVis_Utleie.Enabled = True
+                grpOrdre.Enabled = True
         End Select
     End Sub
 
