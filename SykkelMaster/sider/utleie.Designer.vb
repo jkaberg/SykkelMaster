@@ -56,6 +56,7 @@ Partial Class utleie
         Me.fjernUtstyrKundevogn = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FjernToolStripMenuUtstyr = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.btnTomKundevogn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -329,9 +330,9 @@ Partial Class utleie
         '
         'btnOprettAvtale
         '
-        Me.btnOprettAvtale.Location = New System.Drawing.Point(123, 108)
+        Me.btnOprettAvtale.Location = New System.Drawing.Point(138, 108)
         Me.btnOprettAvtale.Name = "btnOprettAvtale"
-        Me.btnOprettAvtale.Size = New System.Drawing.Size(132, 49)
+        Me.btnOprettAvtale.Size = New System.Drawing.Size(117, 49)
         Me.btnOprettAvtale.TabIndex = 40
         Me.btnOprettAvtale.Text = "Opprett avtale"
         Me.btnOprettAvtale.UseVisualStyleBackColor = True
@@ -396,6 +397,7 @@ Partial Class utleie
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.btnTomKundevogn)
         Me.GroupBox6.Controls.Add(Me.btnOprettAvtale)
         Me.GroupBox6.Location = New System.Drawing.Point(593, 13)
         Me.GroupBox6.Name = "GroupBox6"
@@ -403,6 +405,15 @@ Partial Class utleie
         Me.GroupBox6.TabIndex = 41
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Informasjon"
+        '
+        'btnTomKundevogn
+        '
+        Me.btnTomKundevogn.Location = New System.Drawing.Point(6, 108)
+        Me.btnTomKundevogn.Name = "btnTomKundevogn"
+        Me.btnTomKundevogn.Size = New System.Drawing.Size(126, 49)
+        Me.btnTomKundevogn.TabIndex = 41
+        Me.btnTomKundevogn.Text = "Tøm kundevogner"
+        Me.btnTomKundevogn.UseVisualStyleBackColor = True
         '
         'utleie
         '
@@ -470,4 +481,5 @@ Partial Class utleie
     Friend WithEvents fjernUtstyrKundevogn As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents FjernToolStripMenuUtstyr As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
+    Friend WithEvents btnTomKundevogn As System.Windows.Forms.Button
 End Class

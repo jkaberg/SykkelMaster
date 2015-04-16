@@ -39,7 +39,7 @@
             Return rammenr
         End Get
         Set(ByVal value As String)
-            If IsNothing(value) Then
+            If value = "" Then
                 Throw New Exception("Du må angi et rammenummer.")
             Else
                 rammenr = value

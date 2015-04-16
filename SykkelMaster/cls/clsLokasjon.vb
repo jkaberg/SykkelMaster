@@ -88,7 +88,7 @@
             Return telefon
         End Get
         Set(ByVal value As String)
-            If Not value.ToString.Length = 8 Then
+            If Not value.Length = 8 Then
                 Throw New Exception("Telefon nummeret må bestå av 8 tall.")
             ElseIf Not IsNumeric(value) Then
                 Throw New Exception("Telefon nummeret kan kun bestå av tall.")
