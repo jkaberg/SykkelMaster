@@ -4,7 +4,7 @@
     Public Shared Function leggTilSykkel(ByVal sykkel As clsSykkel) As Boolean
         sql = "INSERT INTO sykkel VALUES('" & sykkel.pRammenr & "', " & sykkel.pSykkelType & ", " &
               sykkel.pHjulstr & ", " & sykkel.pRammestr & ", '" & sykkel.pStatus & "', '" & sykkel.pPris & "', '" &
-              sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
+              sykkel.pInnkjopspris & "', '" & sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
 
         Return database.query(sql)
     End Function
@@ -12,7 +12,7 @@
     Public Shared Function oppdaterSykkel(ByVal sykkel As clsSykkel) As Boolean
         sql = "UPDATE sykkel SET rammenr = '" & sykkel.pRammenr & "', sykkeltype = " & sykkel.pSykkelType &
               ", hjulstr = " & sykkel.pHjulstr & ", rammestr = " & sykkel.pRammestr & ", s_status = '" & sykkel.pStatus &
-              "', pris = " & sykkel.pPris & ", avviksmelding = '" & sykkel.pAvviksmld & "', posisjon = " & sykkel.pPosisjon &
+              "', pris = " & sykkel.pPris & "', innkjopspris = " & sykkel.pInnkjopspris & ", avviksmelding = '" & sykkel.pAvviksmld & "', posisjon = " & sykkel.pPosisjon &
               ", virksomhet_id = " & sykkel.pVirksomhet & " WHERE rammenr = '" & sykkel.pRammenr & "';"
         Console.WriteLine(sql)
 
@@ -27,7 +27,7 @@
                                        Optional ByVal posisjon As String = Nothing,
                                        Optional ByVal status As String = Nothing) As DataTable
 
-        sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, s_status, sykkel.pris, sykkel.hjulstr, sykkel.rammestr, " &
+        sql = "SELECT sykkel.rammenr, sykkeltype.sykkeltype, s_status, sykkel.pris, sykkel.innkjopspris, sykkel.hjulstr, sykkel.rammestr, " &
               "sykkel.avviksmelding, v1.navn posisjon, v2.navn " &
               "FROM sykkel " &
               "JOIN sykkeltype ON sykkel.sykkeltype = sykkeltype.id " &

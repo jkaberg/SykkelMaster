@@ -1,5 +1,4 @@
-﻿
-Public Class sykkelutstyr
+﻿Public Class utstyrEdit
     Private utstyr As clsSykkelUtstyr
 
     Private Sub sykkelutstyr_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -78,12 +77,9 @@ Public Class sykkelutstyr
         cbxTilhorer.SelectedIndex = -1
         cbxPosisjon.SelectedIndex = -1
         cbxType.SelectedIndex = -1
-        cbxHjul.SelectedIndex = -1
-        cbxRamme.SelectedIndex = -1
         cbxStatus.SelectedIndex = -1
         txtRammenr.Text = ""
         txtPris.Text = ""
-        txtAvvik.Text = ""
         oppdaterGridView()
     End Sub
 

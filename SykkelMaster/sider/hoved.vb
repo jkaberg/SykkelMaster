@@ -62,6 +62,6 @@
     End Sub
 
     Private Sub btnUtstyr_Click(sender As Object, e As EventArgs) Handles btnUtstyr.Click
-        sykkelutstyr.Show()
+        utstyrEdit.Show()
     End Sub
 End Class
