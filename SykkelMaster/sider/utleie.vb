@@ -156,7 +156,7 @@
                                                                 daoDelt.finnDGWVerdi(utstyrGrid, "navn"),
                                                                 daoDelt.finnDGWVerdi(utstyrGrid, "pris"))
 
-            sykkelGrid.DataSource = daoUtleie.settUtstyrStatus("Reservert",
+            utstyrGrid.DataSource = daoUtleie.settUtstyrStatus("Reservert",
                                                                daoDelt.finnDGWVerdi(utstyrGrid, "id"))
 
         Else
@@ -166,7 +166,7 @@
 
     Private Sub FjernToolStripMenuUtstyr_Click(sender As Object, e As EventArgs) Handles FjernToolStripMenuUtstyr.Click
         If Not IsNothing(Me.vognStyr.CurrentRow) Then
-            vognStyr.DataSource = daoUtleie.settUtstyrStatus("Tilgjengelig",
+            utstyrGrid.DataSource = daoUtleie.settUtstyrStatus("Tilgjengelig",
                                                              daoDelt.finnDGWVerdi(vognStyr, "id"))
 
             kundevogn_utstyr = daoUtleie.fjernFraKundevogn(Me.vognStyr.CurrentRow.Index,

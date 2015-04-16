@@ -55,6 +55,7 @@ Partial Class utleie
         Me.vognStyr = New System.Windows.Forms.DataGridView()
         Me.fjernUtstyrKundevogn = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FjernToolStripMenuUtstyr = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -66,6 +67,7 @@ Partial Class utleie
         CType(Me.utstyrGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vognStyr, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.fjernUtstyrKundevogn.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -192,9 +194,9 @@ Partial Class utleie
         Me.cbxRabattAvtale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxRabattAvtale.FormattingEnabled = True
         Me.cbxRabattAvtale.Items.AddRange(New Object() {"10% Enkeltperson", "20% Enkeltperson", "99% Gruppe"})
-        Me.cbxRabattAvtale.Location = New System.Drawing.Point(87, 17)
+        Me.cbxRabattAvtale.Location = New System.Drawing.Point(64, 17)
         Me.cbxRabattAvtale.Name = "cbxRabattAvtale"
-        Me.cbxRabattAvtale.Size = New System.Drawing.Size(161, 24)
+        Me.cbxRabattAvtale.Size = New System.Drawing.Size(184, 24)
         Me.cbxRabattAvtale.TabIndex = 6
         '
         'txtSokKunde
@@ -294,7 +296,7 @@ Partial Class utleie
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Sykkel"
         '
-        'vognGrid
+        'vognSykkel
         '
         Me.vognSykkel.AllowUserToAddRows = False
         Me.vognSykkel.AllowUserToDeleteRows = False
@@ -304,7 +306,7 @@ Partial Class utleie
         Me.vognSykkel.ContextMenuStrip = Me.fjernSykkelKundevogn
         Me.vognSykkel.Location = New System.Drawing.Point(10, 166)
         Me.vognSykkel.MultiSelect = False
-        Me.vognSykkel.Name = "vognGrid"
+        Me.vognSykkel.Name = "vognSykkel"
         Me.vognSykkel.ReadOnly = True
         Me.vognSykkel.RowHeadersVisible = False
         Me.vognSykkel.RowTemplate.Height = 24
@@ -327,9 +329,9 @@ Partial Class utleie
         '
         'btnOprettAvtale
         '
-        Me.btnOprettAvtale.Location = New System.Drawing.Point(722, 121)
+        Me.btnOprettAvtale.Location = New System.Drawing.Point(123, 108)
         Me.btnOprettAvtale.Name = "btnOprettAvtale"
-        Me.btnOprettAvtale.Size = New System.Drawing.Size(132, 60)
+        Me.btnOprettAvtale.Size = New System.Drawing.Size(132, 49)
         Me.btnOprettAvtale.TabIndex = 40
         Me.btnOprettAvtale.Text = "Opprett avtale"
         Me.btnOprettAvtale.UseVisualStyleBackColor = True
@@ -384,21 +386,31 @@ Partial Class utleie
         Me.fjernUtstyrKundevogn.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.fjernUtstyrKundevogn.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FjernToolStripMenuUtstyr})
         Me.fjernUtstyrKundevogn.Name = "fjernUtstyrKundevogn"
-        Me.fjernUtstyrKundevogn.Size = New System.Drawing.Size(176, 56)
+        Me.fjernUtstyrKundevogn.Size = New System.Drawing.Size(111, 28)
         '
         'FjernToolStripMenuUtstyr
         '
         Me.FjernToolStripMenuUtstyr.Name = "FjernToolStripMenuUtstyr"
-        Me.FjernToolStripMenuUtstyr.Size = New System.Drawing.Size(175, 24)
+        Me.FjernToolStripMenuUtstyr.Size = New System.Drawing.Size(110, 24)
         Me.FjernToolStripMenuUtstyr.Text = "Fjern"
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.btnOprettAvtale)
+        Me.GroupBox6.Location = New System.Drawing.Point(593, 13)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(261, 165)
+        Me.GroupBox6.TabIndex = 41
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Informasjon"
         '
         'utleie
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(862, 527)
+        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
-        Me.Controls.Add(Me.btnOprettAvtale)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -421,6 +433,7 @@ Partial Class utleie
         CType(Me.utstyrGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vognStyr, System.ComponentModel.ISupportInitialize).EndInit()
         Me.fjernUtstyrKundevogn.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -456,4 +469,5 @@ Partial Class utleie
     Friend WithEvents vognStyr As System.Windows.Forms.DataGridView
     Friend WithEvents fjernUtstyrKundevogn As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents FjernToolStripMenuUtstyr As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
 End Class

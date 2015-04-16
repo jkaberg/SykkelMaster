@@ -51,7 +51,7 @@
         ' Daglig leder: 10
         ' Selger: 5
         ' Lagermedarbeider: 3
-        ' Sjekk hvilke tillatelser innloggetburker har ved å enable knapper
+        ' Sjekk hvilke tillatelser innloggetburker har ved å enable groupboxer
         Select Case start.bruker.pStilling
             Case Is = 1
                 grpVirksomhet.Enabled = True
