@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class utstyr
+Partial Class sykkelutstyr
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -53,11 +53,11 @@ Partial Class utstyr
         Me.txtSok = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
-        Me.SykkelGridView = New System.Windows.Forms.DataGridView()
+        Me.utstyrGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.SykkelGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.utstyrGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -330,7 +330,7 @@ Partial Class utstyr
         Me.GroupBox2.Controls.Add(Me.txtSok)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.cbxLokasjon)
-        Me.GroupBox2.Controls.Add(Me.SykkelGridView)
+        Me.GroupBox2.Controls.Add(Me.utstyrGridView)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Location = New System.Drawing.Point(378, 15)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
@@ -388,23 +388,23 @@ Partial Class utstyr
         Me.cbxLokasjon.Size = New System.Drawing.Size(146, 28)
         Me.cbxLokasjon.TabIndex = 13
         '
-        'SykkelGridView
+        'utstyrGridView
         '
-        Me.SykkelGridView.AllowUserToAddRows = False
-        Me.SykkelGridView.AllowUserToDeleteRows = False
-        Me.SykkelGridView.AllowUserToResizeRows = False
-        Me.SykkelGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.SykkelGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SykkelGridView.Location = New System.Drawing.Point(10, 58)
-        Me.SykkelGridView.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.SykkelGridView.MultiSelect = False
-        Me.SykkelGridView.Name = "SykkelGridView"
-        Me.SykkelGridView.ReadOnly = True
-        Me.SykkelGridView.RowHeadersVisible = False
-        Me.SykkelGridView.RowTemplate.Height = 24
-        Me.SykkelGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SykkelGridView.Size = New System.Drawing.Size(974, 503)
-        Me.SykkelGridView.TabIndex = 18
+        Me.utstyrGridView.AllowUserToAddRows = False
+        Me.utstyrGridView.AllowUserToDeleteRows = False
+        Me.utstyrGridView.AllowUserToResizeRows = False
+        Me.utstyrGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.utstyrGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.utstyrGridView.Location = New System.Drawing.Point(10, 58)
+        Me.utstyrGridView.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.utstyrGridView.MultiSelect = False
+        Me.utstyrGridView.Name = "utstyrGridView"
+        Me.utstyrGridView.ReadOnly = True
+        Me.utstyrGridView.RowHeadersVisible = False
+        Me.utstyrGridView.RowTemplate.Height = 24
+        Me.utstyrGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.utstyrGridView.Size = New System.Drawing.Size(974, 503)
+        Me.utstyrGridView.TabIndex = 18
         '
         'Label6
         '
@@ -415,7 +415,7 @@ Partial Class utstyr
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Posisjon"
         '
-        'utstyr
+        'sykkelutstyr
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -424,14 +424,14 @@ Partial Class utstyr
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.Name = "utstyr"
+        Me.Name = "sykkelutstyr"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Utstyr"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.SykkelGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.utstyrGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -448,7 +448,7 @@ Partial Class utstyr
     Friend WithEvents txtRammenr As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents cbxLokasjon As System.Windows.Forms.ComboBox
-    Friend WithEvents SykkelGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents utstyrGridView As System.Windows.Forms.DataGridView
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtAvvik As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label

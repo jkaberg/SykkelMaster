@@ -179,11 +179,9 @@ Partial Class hoved
         '
         'btnUtstyr
         '
-        Me.btnUtstyr.Enabled = False
         Me.btnUtstyr.Location = New System.Drawing.Point(294, 161)
-        Me.btnUtstyr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnUtstyr.Name = "btnUtstyr"
-        Me.btnUtstyr.Size = New System.Drawing.Size(161, 61)
+        Me.btnUtstyr.Size = New System.Drawing.Size(161, 63)
         Me.btnUtstyr.TabIndex = 10
         Me.btnUtstyr.Text = "Utstyr"
         Me.btnUtstyr.UseVisualStyleBackColor = True
