@@ -1,4 +1,4 @@
-﻿Public Class clsSykkelType
+﻿Public Class clsSykkelUtstyrType
     Private navn As String
     Private id As Integer
 

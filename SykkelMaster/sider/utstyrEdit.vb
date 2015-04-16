@@ -49,9 +49,12 @@
         utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr(sok, posisjon, status)
 
         With Me.utstyrGridView
+            .Columns("innkjopspris").Visible = False
+            .Columns("innkjopt").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
             .Columns("id").HeaderText = "Id"
             .Columns("utstyrstype").HeaderText = "Utstyrstype"
+            .Columns("storrelse").HeaderText = "Størrelse"
             .Columns("s_u_status").HeaderText = "Status"
             .Columns("pris").HeaderText = "Pris"
             .Columns("posisjon").HeaderText = "Posisjon"
@@ -69,6 +72,9 @@
             txtRammenr.Text = daoDelt.finnDGWVerdi(utstyrGridView, "id")
             cbxStatus.Text = daoDelt.finnDGWVerdi(utstyrGridView, "s_u_status")
             txtPris.Text = daoDelt.finnDGWVerdi(utstyrGridView, "pris")
+            txtInnkjopspris.Text = daoDelt.finnDGWVerdi(utstyrGridView, "innkjopspris")
+            dtpInnkjop.Text = daoDelt.finnDGWVerdi(utstyrGridView, "innkjopt")
+            cbxStorrelse.Text = daoDelt.finnDGWVerdi(utstyrGridView, "storrelse")
         End With
     End Sub
 
@@ -80,6 +86,9 @@
         cbxStatus.SelectedIndex = -1
         txtRammenr.Text = ""
         txtPris.Text = ""
+        txtInnkjopspris.Text = ""
+        cbxStorrelse.SelectedIndex = -1
+        dtpInnkjop.Value = DateTime.Now
         oppdaterGridView()
     End Sub
 
@@ -97,7 +106,7 @@
     End Sub
 
     Private Sub btnSykkeltype_Click(sender As Object, e As EventArgs) Handles btnSykkeltype.Click
-        sykkeltype.Show()
+        utstyrstype.Show()
     End Sub
 
 End Class

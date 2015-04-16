@@ -74,6 +74,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dao\daoUtstyrstype.vb" />
     <Compile Include="dao\daoHistorie.vb" />
     <Compile Include="dao\daoAnsatt.vb" />
     <Compile Include="dao\daoDelt.vb" />
@@ -90,7 +91,7 @@
     <Compile Include="cls\clsLokasjon.vb" />
     <Compile Include="cls\clsPerson.vb" />
     <Compile Include="cls\clsSykkel.vb" />
-    <Compile Include="cls\clsSykkelType.vb" />
+    <Compile Include="cls\clsSykkelUtstyrType.vb" />
     <Compile Include="cls\clsSykkelUtstyr.vb" />
     <Compile Include="dao\daoUtleie.vb" />
     <Compile Include="sider\ansatt.Designer.vb">
@@ -99,10 +100,18 @@
     <Compile Include="sider\ansatt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sider\sykkelutstyr.Designer.vb">
-      <DependentUpon>sykkelutstyr.vb</DependentUpon>
+    <Compile Include="sider\utstyrstype.Designer.vb">
+      <DependentUpon>utstyrstype.vb</DependentUpon>
     </Compile>
-    <Compile Include="sider\sykkelutstyr.vb" />
+    <Compile Include="sider\utstyrstype.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sider\utstyrEdit.Designer.vb">
+      <DependentUpon>utstyrEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sider\utstyrEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="sider\historie.Designer.vb">
       <DependentUpon>historie.vb</DependentUpon>
     </Compile>
@@ -192,8 +201,11 @@
     <EmbeddedResource Include="sider\ansatt.resx">
       <DependentUpon>ansatt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sider\sykkelutstyr.resx">
-      <DependentUpon>sykkelutstyr.vb</DependentUpon>
+    <EmbeddedResource Include="sider\utstyrstype.resx">
+      <DependentUpon>utstyrstype.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sider\utstyrEdit.resx">
+      <DependentUpon>utstyrEdit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\historie.resx">
       <DependentUpon>historie.vb</DependentUpon>

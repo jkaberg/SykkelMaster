@@ -12,7 +12,7 @@
     Public Shared Function oppdaterSykkel(ByVal sykkel As clsSykkel) As Boolean
         sql = "UPDATE sykkel SET rammenr = '" & sykkel.pRammenr & "', sykkeltype = " & sykkel.pSykkelType &
               ", hjulstr = " & sykkel.pHjulstr & ", rammestr = " & sykkel.pRammestr & ", s_status = '" & sykkel.pStatus &
-              "', pris = " & sykkel.pPris & "', innkjopspris = " & sykkel.pInnkjopspris & ", innkjopt = '" & sykkel.pInnkjopt & ", avviksmelding = '" & sykkel.pAvviksmld &
+              "', pris = " & sykkel.pPris & "', innkjopspris = " & sykkel.pInnkjopspris & ", innkjopt = '" & sykkel.pInnkjopt & "', avviksmelding = '" & sykkel.pAvviksmld &
               "', posisjon = " & sykkel.pPosisjon & ", virksomhet_id = " & sykkel.pVirksomhet & " WHERE rammenr = '" & sykkel.pRammenr & "';"
         Console.WriteLine(sql)
 

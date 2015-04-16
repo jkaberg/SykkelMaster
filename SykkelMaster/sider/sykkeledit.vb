@@ -94,6 +94,7 @@
         txtPris.Text = ""
         txtInnkjopspris.Text = ""
         txtAvvik.Text = ""
+        dtpInnkjop.Value = DateTime.Now
         oppdaterGridView()
     End Sub
 
@@ -135,7 +136,7 @@
                                                 cbxStatus.Text,
                                                 txtPris.Text,
                                                 txtInnkjopspris.Text,
-                                                dtpInnkjop.Text,
+                                                dtpInnkjop.Value.Date.ToString,
                                                 cbxPosisjon.SelectedValue,
                                                 cbxTilhorer.SelectedValue)
 
@@ -144,6 +145,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
+                    MsgBox(dtpInnkjop.Value.Date.ToString)
                     oppdaterGridView()
                     oppdaterTxtbox()
                 End Try

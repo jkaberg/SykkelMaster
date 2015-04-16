@@ -132,9 +132,9 @@ Partial Class sykkelEdit
         '
         'txtInnkjopspris
         '
-        Me.txtInnkjopspris.Location = New System.Drawing.Point(108, 203)
+        Me.txtInnkjopspris.Location = New System.Drawing.Point(116, 203)
         Me.txtInnkjopspris.Name = "txtInnkjopspris"
-        Me.txtInnkjopspris.Size = New System.Drawing.Size(120, 26)
+        Me.txtInnkjopspris.Size = New System.Drawing.Size(112, 26)
         Me.txtInnkjopspris.TabIndex = 5
         '
         'Label14
@@ -205,9 +205,9 @@ Partial Class sykkelEdit
         '
         'txtPris
         '
-        Me.txtPris.Location = New System.Drawing.Point(108, 171)
+        Me.txtPris.Location = New System.Drawing.Point(116, 171)
         Me.txtPris.Name = "txtPris"
-        Me.txtPris.Size = New System.Drawing.Size(120, 26)
+        Me.txtPris.Size = New System.Drawing.Size(112, 26)
         Me.txtPris.TabIndex = 5
         '
         'btnSlett

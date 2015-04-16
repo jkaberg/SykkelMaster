@@ -5,8 +5,8 @@
                                        Optional ByVal posisjon As String = Nothing,
                                        Optional ByVal status As String = Nothing) As DataTable
 
-        sql = "SELECT sykkelutstyr.id, utstyrstype.utstyrstype, s_u_status, sykkelutstyr.pris, " &
-              "v1.navn posisjon, v2.navn " &
+        sql = "SELECT sykkelutstyr.id, utstyrstype.utstyrstype, sykkelutstyr.storrelse, s_u_status, sykkelutstyr.pris, " &
+              "sykkelutstyr.innkjopspris, sykkelutstyr.innkjopt, v1.navn posisjon, v2.navn " &
               "FROM sykkelutstyr " &
               "JOIN utstyrstype ON sykkelutstyr.utstyrstype = utstyrstype.id " &
               "JOIN virksomhet v1 ON sykkelutstyr.posisjon = v1.id " &
