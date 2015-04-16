@@ -14,7 +14,7 @@
     End Function
 
     Public Shared Function fjernLokasjon(ByVal lokasjon As clsLokasjon) As Boolean
-        sql = "DELETE FROM sykkelmaster2015.virksomhet WHERE virksomhet.id = '" & lokasjon.pID & "'"
+        sql = "DELETE FROM virksomhet WHERE virksomhet.id = '" & lokasjon.pID & "'"
 
         Return database.query(sql)
     End Function

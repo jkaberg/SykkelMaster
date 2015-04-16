@@ -4,6 +4,11 @@
     Public Shared Function hentRabattAvtaler() As DataTable
         Return database.dt_query("SELECT id, type_rabatt FROM rabatt")
     End Function
+    Public Shared Function fjernFraKundevogn(ByVal id As Integer, ByVal dt As DataTable) As DataTable
+        dt.Rows(id).Delete()
+
+        Return dt
+    End Function
 #Region "sykkel"
     Public Shared Function hentSykkler() As DataTable
         sql = "SELECT sykkel.rammenr, sykkel.hjulstr, sykkel.sykkeltype, sykkel.rammestr, " &
@@ -61,24 +66,33 @@
 
         Return dt
     End Function
-    Public Shared Function fjernSykkelKundevogn(ByVal id As Integer, ByVal dt As DataTable) As DataTable
-        dt.Rows(id).Delete()
 
-        Return dt
-    End Function
 #End Region
 #Region "utstyr"
     Public Shared Function hentUtstyr() As DataTable
-        Return database.dt_query("SELECT sykkelutstyr.id, sykkelutstyr.navn FROM sykkelutstyr")
+        sql = "SELECT sykkelutstyr.id, sykkelutstyr.pris, utstyrstype.utstyrstype navn " &
+              "FROM sykkelutstyr " &
+              "JOIN utstyrstype ON utstyrstype.id = sykkelutstyr.utstyrstype " &
+              "WHERE sykkelutstyr.s_u_status = 'Tilgjengelig';"
+
+        Return database.dt_query(sql)
+    End Function
+    Public Shared Function settUtstyrStatus(ByVal status As String,
+                                            ByVal id As Integer) As DataTable
+
+        database.query("UPDATE sykkelutstyr SET s_u_status = '" & status & "' WHERE id = '" & id & "';")
+        Return hentUtstyr()
     End Function
     Public Shared Function leggTilUtstyrKundevogn(ByVal dt As DataTable,
                                                   ByVal id As Integer,
-                                                  ByVal navn As String)
+                                                  ByVal navn As String,
+                                                  ByVal pris As Integer)
 
         Dim utstyr As DataRow = dt.NewRow()
 
         utstyr.Item("id") = id
         utstyr.Item("navn") = navn
+        utstyr.Item("pris") = pris
         dt.Rows.Add(utstyr)
 
         Return dt
@@ -88,12 +102,15 @@
 
         Dim id As New DataColumn("id")
         Dim navn As New DataColumn("navn")
+        Dim pris As New DataColumn("pris")
 
         id.DataType = System.Type.GetType("System.Int32")
         navn.DataType = System.Type.GetType("System.String")
+        pris.DataType = System.Type.GetType("System.Int32")
 
         dt.Columns.Add(id)
         dt.Columns.Add(navn)
+        dt.Columns.Add(pris)
 
         Return dt
     End Function

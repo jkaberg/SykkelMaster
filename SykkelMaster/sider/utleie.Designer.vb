@@ -46,23 +46,26 @@ Partial Class utleie
         Me.txtTelefon = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.vognGrid = New System.Windows.Forms.DataGridView()
+        Me.vognSykkel = New System.Windows.Forms.DataGridView()
         Me.fjernSykkelKundevogn = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.FjernToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FjernToolStripMenuSykkel = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnOprettAvtale = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.utstyrGrid = New System.Windows.Forms.DataGridView()
         Me.vognStyr = New System.Windows.Forms.DataGridView()
+        Me.fjernUtstyrKundevogn = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.FjernToolStripMenuUtstyr = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.vognGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vognSykkel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.fjernSykkelKundevogn.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.utstyrGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vognStyr, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.fjernUtstyrKundevogn.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -283,7 +286,7 @@ Partial Class utleie
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.sykkelGrid)
-        Me.GroupBox4.Controls.Add(Me.vognGrid)
+        Me.GroupBox4.Controls.Add(Me.vognSykkel)
         Me.GroupBox4.Location = New System.Drawing.Point(12, 184)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(418, 338)
@@ -293,34 +296,34 @@ Partial Class utleie
         '
         'vognGrid
         '
-        Me.vognGrid.AllowUserToAddRows = False
-        Me.vognGrid.AllowUserToDeleteRows = False
-        Me.vognGrid.AllowUserToResizeRows = False
-        Me.vognGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.vognGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.vognGrid.ContextMenuStrip = Me.fjernSykkelKundevogn
-        Me.vognGrid.Location = New System.Drawing.Point(10, 166)
-        Me.vognGrid.MultiSelect = False
-        Me.vognGrid.Name = "vognGrid"
-        Me.vognGrid.ReadOnly = True
-        Me.vognGrid.RowHeadersVisible = False
-        Me.vognGrid.RowTemplate.Height = 24
-        Me.vognGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.vognGrid.Size = New System.Drawing.Size(401, 161)
-        Me.vognGrid.TabIndex = 0
+        Me.vognSykkel.AllowUserToAddRows = False
+        Me.vognSykkel.AllowUserToDeleteRows = False
+        Me.vognSykkel.AllowUserToResizeRows = False
+        Me.vognSykkel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.vognSykkel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.vognSykkel.ContextMenuStrip = Me.fjernSykkelKundevogn
+        Me.vognSykkel.Location = New System.Drawing.Point(10, 166)
+        Me.vognSykkel.MultiSelect = False
+        Me.vognSykkel.Name = "vognGrid"
+        Me.vognSykkel.ReadOnly = True
+        Me.vognSykkel.RowHeadersVisible = False
+        Me.vognSykkel.RowTemplate.Height = 24
+        Me.vognSykkel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.vognSykkel.Size = New System.Drawing.Size(401, 161)
+        Me.vognSykkel.TabIndex = 0
         '
         'fjernSykkelKundevogn
         '
         Me.fjernSykkelKundevogn.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.fjernSykkelKundevogn.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FjernToolStripMenuItem})
+        Me.fjernSykkelKundevogn.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FjernToolStripMenuSykkel})
         Me.fjernSykkelKundevogn.Name = "ContextMenuStrip1"
         Me.fjernSykkelKundevogn.Size = New System.Drawing.Size(111, 28)
         '
-        'FjernToolStripMenuItem
+        'FjernToolStripMenuSykkel
         '
-        Me.FjernToolStripMenuItem.Name = "FjernToolStripMenuItem"
-        Me.FjernToolStripMenuItem.Size = New System.Drawing.Size(110, 24)
-        Me.FjernToolStripMenuItem.Text = "Fjern"
+        Me.FjernToolStripMenuSykkel.Name = "FjernToolStripMenuSykkel"
+        Me.FjernToolStripMenuSykkel.Size = New System.Drawing.Size(110, 24)
+        Me.FjernToolStripMenuSykkel.Text = "Fjern"
         '
         'btnOprettAvtale
         '
@@ -365,7 +368,7 @@ Partial Class utleie
         Me.vognStyr.AllowUserToResizeRows = False
         Me.vognStyr.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.vognStyr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.vognStyr.ContextMenuStrip = Me.fjernSykkelKundevogn
+        Me.vognStyr.ContextMenuStrip = Me.fjernUtstyrKundevogn
         Me.vognStyr.Location = New System.Drawing.Point(10, 166)
         Me.vognStyr.MultiSelect = False
         Me.vognStyr.Name = "vognStyr"
@@ -375,6 +378,19 @@ Partial Class utleie
         Me.vognStyr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.vognStyr.Size = New System.Drawing.Size(401, 161)
         Me.vognStyr.TabIndex = 0
+        '
+        'fjernUtstyrKundevogn
+        '
+        Me.fjernUtstyrKundevogn.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.fjernUtstyrKundevogn.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FjernToolStripMenuUtstyr})
+        Me.fjernUtstyrKundevogn.Name = "fjernUtstyrKundevogn"
+        Me.fjernUtstyrKundevogn.Size = New System.Drawing.Size(176, 56)
+        '
+        'FjernToolStripMenuUtstyr
+        '
+        Me.FjernToolStripMenuUtstyr.Name = "FjernToolStripMenuUtstyr"
+        Me.FjernToolStripMenuUtstyr.Size = New System.Drawing.Size(175, 24)
+        Me.FjernToolStripMenuUtstyr.Text = "Fjern"
         '
         'utleie
         '
@@ -399,11 +415,12 @@ Partial Class utleie
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        CType(Me.vognGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vognSykkel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.fjernSykkelKundevogn.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.utstyrGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vognStyr, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.fjernUtstyrKundevogn.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -426,15 +443,17 @@ Partial Class utleie
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents rbTime As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents vognGrid As System.Windows.Forms.DataGridView
+    Friend WithEvents vognSykkel As System.Windows.Forms.DataGridView
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents cbxRabattAvtale As System.Windows.Forms.ComboBox
     Friend WithEvents btnOprettAvtale As System.Windows.Forms.Button
     Friend WithEvents sykkelGrid As System.Windows.Forms.DataGridView
     Friend WithEvents rbHelg As System.Windows.Forms.RadioButton
     Friend WithEvents fjernSykkelKundevogn As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents FjernToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FjernToolStripMenuSykkel As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents utstyrGrid As System.Windows.Forms.DataGridView
     Friend WithEvents vognStyr As System.Windows.Forms.DataGridView
+    Friend WithEvents fjernUtstyrKundevogn As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents FjernToolStripMenuUtstyr As System.Windows.Forms.ToolStripMenuItem
 End Class

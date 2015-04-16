@@ -19,7 +19,7 @@
             .Columns("rammestr").HeaderText = "Rammestr"
         End With
 
-        With Me.vognGrid
+        With Me.vognSykkel
             .DataSource = kundevogn_sykkler
             .Columns("sykkeltype").Visible = False
             .Columns("rammenr").HeaderText = "Rammenr"
@@ -29,9 +29,17 @@
         End With
 
         With Me.utstyrGrid
+            .DataSource = daoUtleie.hentUtstyr
+            .Columns("id").Visible = False
+            .Columns("navn").HeaderText = "Navn"
+            .Columns("Pris").HeaderText = "Pris"
+        End With
+
+        With Me.vognStyr
             .DataSource = kundevogn_utstyr
             .Columns("id").Visible = False
             .Columns("navn").HeaderText = "Navn"
+            .Columns("pris").HeaderText = "Pris"
         End With
 
     End Sub
@@ -102,12 +110,12 @@
         End If
     End Sub
 
-    Private Sub FjernToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FjernToolStripMenuItem.Click
-        If Not IsNothing(Me.vognGrid.CurrentRow) Then
+    Private Sub FjernToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FjernToolStripMenuSykkel.Click
+        If Not IsNothing(Me.vognSykkel.CurrentRow) Then
             sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Tilgjengelig",
-                                                               daoDelt.finnDGWVerdi(sykkelGrid, "rammenr"))
+                                                               CStr(daoDelt.finnDGWVerdi(vognSykkel, "rammenr")))
 
-            kundevogn_sykkler = daoUtleie.fjernSykkelKundevogn(Me.vognGrid.CurrentRow.Index,
+            kundevogn_sykkler = daoUtleie.fjernFraKundevogn(Me.vognSykkel.CurrentRow.Index,
                                                                kundevogn_sykkler)
         Else
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
@@ -142,13 +150,29 @@
     End Function
 
     Private Sub utstyrGrid_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles utstyrGrid.MouseDoubleClick
-        If Not IsNothing(Me.sykkelGrid.CurrentRow) Then
-            kundevogn_sykkler = daoUtleie.leggTilUtstyrKundevogn(kundevogn_utstyr,
-                                                                 daoDelt.finnDGWVerdi(utstyrGrid, "id"),
-                                                                 daoDelt.finnDGWVerdi(utstyrGrid, "navn"))
+        If Not IsNothing(Me.utstyrGrid.CurrentRow) Then
+            kundevogn_utstyr = daoUtleie.leggTilUtstyrKundevogn(kundevogn_utstyr,
+                                                                daoDelt.finnDGWVerdi(utstyrGrid, "id"),
+                                                                daoDelt.finnDGWVerdi(utstyrGrid, "navn"),
+                                                                daoDelt.finnDGWVerdi(utstyrGrid, "pris"))
+
+            sykkelGrid.DataSource = daoUtleie.settUtstyrStatus("Reservert",
+                                                               daoDelt.finnDGWVerdi(utstyrGrid, "id"))
 
         Else
-            MsgBox("Du må velg en gyldig rad i sykkel oversikten.", MsgBoxStyle.Exclamation)
+            MsgBox("Du må velg en gyldig rad i utstyr oversikten.", MsgBoxStyle.Exclamation)
+        End If
+    End Sub
+
+    Private Sub FjernToolStripMenuUtstyr_Click(sender As Object, e As EventArgs) Handles FjernToolStripMenuUtstyr.Click
+        If Not IsNothing(Me.vognStyr.CurrentRow) Then
+            vognStyr.DataSource = daoUtleie.settUtstyrStatus("Tilgjengelig",
+                                                             daoDelt.finnDGWVerdi(vognStyr, "id"))
+
+            kundevogn_utstyr = daoUtleie.fjernFraKundevogn(Me.vognStyr.CurrentRow.Index,
+                                                           kundevogn_utstyr)
+        Else
+            MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If
     End Sub
 End Class
