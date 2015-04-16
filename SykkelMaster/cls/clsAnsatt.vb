@@ -94,7 +94,7 @@
             Return passord
         End Get
         Set(ByVal value As String)
-            If value.Length <= 3 Then
+            If value.Length < 3 Then
                 Throw New Exception("Passord kan ikke være mindre enn 3 tegn langt.")
             Else
                 passord = value

@@ -84,10 +84,10 @@
 
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
         If cbxNavn.SelectedValue Then
-            If kundevogn_sykkler.Rows.Count > 0 Then
+            If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
                 MsgBox("yey!")
             Else
-                MsgBox("Du må legg til sykkler i kundevognen.", MsgBoxStyle.Exclamation)
+                MsgBox("Du må legg til produkter i kundevognen.", MsgBoxStyle.Exclamation)
             End If
         Else
             MsgBox("Du må velge en kunde.", MsgBoxStyle.Exclamation)
@@ -174,5 +174,18 @@
         Else
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If
+    End Sub
+
+    Private Sub btnTomKundevogn_Click(sender As Object, e As EventArgs) Handles btnTomKundevogn.Click
+        For Each sykkel As DataRow In kundevogn_sykkler.Rows
+            daoUtleie.settSykkelStatus("Tilgjengelig", sykkel.Item("rammenr"))
+        Next sykkel
+
+        For Each utstyr As DataRow In kundevogn_utstyr.Rows
+            daoUtleie.settUtstyrStatus("Tilgjengelig", utstyr.Item("id"))
+        Next utstyr
+
+        kundevogn_sykkler = Nothing
+        kundevogn_utstyr = Nothing
     End Sub
 End Class

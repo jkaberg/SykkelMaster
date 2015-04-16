@@ -99,10 +99,6 @@
     <Compile Include="sider\ansatt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sider\sykkelutstyr.Designer.vb">
-      <DependentUpon>sykkelutstyr.vb</DependentUpon>
-    </Compile>
-    <Compile Include="sider\sykkelutstyr.vb" />
     <Compile Include="sider\historie.Designer.vb">
       <DependentUpon>historie.vb</DependentUpon>
     </Compile>
@@ -137,6 +133,12 @@
       <DependentUpon>sykkelType.vb</DependentUpon>
     </Compile>
     <Compile Include="sider\sykkelType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sider\utstyrEdit.Designer.vb">
+      <DependentUpon>utstyrEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sider\utstyrEdit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="verktoy\database.vb" />
@@ -192,9 +194,6 @@
     <EmbeddedResource Include="sider\ansatt.resx">
       <DependentUpon>ansatt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sider\sykkelutstyr.resx">
-      <DependentUpon>sykkelutstyr.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="sider\historie.resx">
       <DependentUpon>historie.vb</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sider\sykkelType.resx">
       <DependentUpon>sykkelType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sider\utstyrEdit.resx">
+      <DependentUpon>utstyrEdit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="start.resx">
       <DependentUpon>start.vb</DependentUpon>
