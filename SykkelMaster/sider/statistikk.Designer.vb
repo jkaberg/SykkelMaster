@@ -61,7 +61,8 @@ Partial Class statistikk
         Legend1.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide
         Legend1.TitleBackColor = System.Drawing.Color.Black
         Me.graf.Legends.Add(Legend1)
-        Me.graf.Location = New System.Drawing.Point(12, 12)
+        Me.graf.Location = New System.Drawing.Point(14, 15)
+        Me.graf.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.graf.Name = "graf"
         Series1.BackImageTransparentColor = System.Drawing.Color.Transparent
         Series1.BackSecondaryColor = System.Drawing.Color.Transparent
@@ -81,7 +82,7 @@ Partial Class statistikk
         Series1.ShadowColor = System.Drawing.Color.Beige
         Series1.SmartLabelStyle.Enabled = False
         Me.graf.Series.Add(Series1)
-        Me.graf.Size = New System.Drawing.Size(897, 467)
+        Me.graf.Size = New System.Drawing.Size(1009, 584)
         Me.graf.TabIndex = 0
         Me.graf.Text = "Chart1"
         '
@@ -89,20 +90,22 @@ Partial Class statistikk
         '
         Me.cbxStats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStats.FormattingEnabled = True
-        Me.cbxStats.Items.AddRange(New Object() {"Antal sykkler per sykkeltype", "Mest populære sykklene", "Hvor mange sykkler per ""lagerplass""", "Hvilke type sykkler er ødelagd"})
-        Me.cbxStats.Location = New System.Drawing.Point(12, 485)
+        Me.cbxStats.Items.AddRange(New Object() {"Antal sykkler per sykkeltype", "Mest populære sykklene", "Hvor mange sykkler per ""lagerplass""", "Hvilke type sykkler er ødelagt"})
+        Me.cbxStats.Location = New System.Drawing.Point(14, 606)
+        Me.cbxStats.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxStats.Name = "cbxStats"
-        Me.cbxStats.Size = New System.Drawing.Size(287, 24)
+        Me.cbxStats.Size = New System.Drawing.Size(322, 28)
         Me.cbxStats.TabIndex = 1
         '
         'statistikk
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(921, 526)
+        Me.ClientSize = New System.Drawing.Size(1036, 658)
         Me.Controls.Add(Me.cbxStats)
         Me.Controls.Add(Me.graf)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "statistikk"
         Me.Text = "Statistikk"
         CType(Me.graf, System.ComponentModel.ISupportInitialize).EndInit()
