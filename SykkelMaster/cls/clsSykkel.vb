@@ -9,7 +9,7 @@
             ByVal hjulstr As Integer,
             ByVal rammestr As Integer,
             ByVal status As String,
-            ByVal pris As Integer,
+            ByVal pris As Object,
             ByVal posisjon As Integer,
             ByVal virksomhet As Integer)
 
@@ -81,15 +81,15 @@
             status = value
         End Set
     End Property
-    Public Property pPris() As Integer
+    Public Property pPris() As Object
         Get
             Return pris
         End Get
-        Set(ByVal value As Integer)
-            If IsNumeric(value) Then
-                pris = value
-            Else
+        Set(ByVal value As Object)
+            If Not IsNumeric(value) Then
                 Throw New Exception("Pris kan kun bestå av tall.")
+            Else
+                pris = value
             End If
         End Set
     End Property
