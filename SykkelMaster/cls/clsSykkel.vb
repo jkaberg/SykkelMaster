@@ -1,5 +1,5 @@
 ﻿Public Class clsSykkel
-    Private rammenr, avviksmelding, status As String
+    Private rammenr, avviksmelding, status, innkjopt As String
     Private sykkeltype, hjulstr, rammestr, pris, innkjopspris, posisjon, virksomhet As Integer
 
     'Oppdater/legg til
@@ -9,6 +9,7 @@
             ByVal hjulstr As Integer,
             ByVal rammestr As Integer,
             ByVal status As String,
+            ByVal innkjopt As String,
             ByVal pris As Object,
             ByVal innkjopspris As Object,
             ByVal posisjon As Integer,
@@ -20,6 +21,7 @@
         Me.pHjulstr = hjulstr
         Me.pRammestr = rammestr
         Me.pStatus = status
+        Me.pInnkjopt = innkjopt
         Me.pPris = pris
         Me.pInnkjopspris = innkjopspris
         Me.pPosisjon = posisjon
@@ -81,6 +83,14 @@
         End Get
         Set(ByVal value As String)
             status = value
+        End Set
+    End Property
+    Public Property pInnkjopt() As String
+        Get
+            Return innkjopt
+        End Get
+        Set(ByVal value As String)
+            innkjopt = value
         End Set
     End Property
     Public Property pPris() As Object

@@ -50,6 +50,7 @@
 
         With Me.SykkelGridView
             .Columns("innkjopspris").Visible = False
+            .Columns("innkjopt").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
             .Columns("rammenr").HeaderText = "Rammenr"
             .Columns("sykkeltype").HeaderText = "Sykkeltype"
@@ -76,6 +77,7 @@
             cbxStatus.Text = daoDelt.finnDGWVerdi(SykkelGridView, "s_status")
             txtPris.Text = daoDelt.finnDGWVerdi(SykkelGridView, "pris")
             txtInnkjopspris.Text = daoDelt.finnDGWVerdi(SykkelGridView, "innkjopspris")
+            dtpInnkjop.Text = daoDelt.finnDGWVerdi(SykkelGridView, "innkjopt")
             txtAvvik.Text = daoDelt.finnDGWVerdi(SykkelGridView, "avviksmelding")
         End With
     End Sub
@@ -106,6 +108,7 @@
                                         cbxStatus.Text,
                                         txtPris.Text,
                                         txtInnkjopspris.Text,
+                                        dtpInnkjop.Text,
                                         cbxPosisjon.SelectedValue,
                                         cbxTilhorer.SelectedValue)
             daoSykkel.leggTilSykkel(sykkel)
@@ -132,6 +135,7 @@
                                                 cbxStatus.Text,
                                                 txtPris.Text,
                                                 txtInnkjopspris.Text,
+                                                dtpInnkjop.Text,
                                                 cbxPosisjon.SelectedValue,
                                                 cbxTilhorer.SelectedValue)
 

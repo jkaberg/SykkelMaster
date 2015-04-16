@@ -23,6 +23,11 @@ Partial Class sykkelEdit
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.dtpInnkjop = New System.Windows.Forms.DateTimePicker()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtInnkjopspris = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.btnSykkeltype = New System.Windows.Forms.Button()
         Me.btnTom = New System.Windows.Forms.Button()
@@ -55,11 +60,6 @@ Partial Class sykkelEdit
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
         Me.SykkelGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.txtInnkjopspris = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SykkelGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,7 +67,7 @@ Partial Class sykkelEdit
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.dtpInnkjop)
         Me.GroupBox1.Controls.Add(Me.Label16)
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.txtInnkjopspris)
@@ -104,6 +104,47 @@ Partial Class sykkelEdit
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
+        '
+        'dtpInnkjop
+        '
+        Me.dtpInnkjop.Location = New System.Drawing.Point(116, 235)
+        Me.dtpInnkjop.Name = "dtpInnkjop"
+        Me.dtpInnkjop.Size = New System.Drawing.Size(226, 26)
+        Me.dtpInnkjop.TabIndex = 5
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(9, 240)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(101, 20)
+        Me.Label16.TabIndex = 5
+        Me.Label16.Text = "Innkjøpsdato"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(234, 209)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(24, 20)
+        Me.Label15.TabIndex = 32
+        Me.Label15.Text = "Kr"
+        '
+        'txtInnkjopspris
+        '
+        Me.txtInnkjopspris.Location = New System.Drawing.Point(108, 203)
+        Me.txtInnkjopspris.Name = "txtInnkjopspris"
+        Me.txtInnkjopspris.Size = New System.Drawing.Size(120, 26)
+        Me.txtInnkjopspris.TabIndex = 5
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(8, 206)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(94, 20)
+        Me.Label14.TabIndex = 5
+        Me.Label14.Text = "Innkjøpspris"
         '
         'Label13
         '
@@ -425,47 +466,6 @@ Partial Class sykkelEdit
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Posisjon"
         '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(8, 206)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(94, 20)
-        Me.Label14.TabIndex = 5
-        Me.Label14.Text = "Innkjøpspris"
-        '
-        'txtInnkjopspris
-        '
-        Me.txtInnkjopspris.Location = New System.Drawing.Point(108, 203)
-        Me.txtInnkjopspris.Name = "txtInnkjopspris"
-        Me.txtInnkjopspris.Size = New System.Drawing.Size(120, 26)
-        Me.txtInnkjopspris.TabIndex = 5
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(234, 209)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(24, 20)
-        Me.Label15.TabIndex = 32
-        Me.Label15.Text = "Kr"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(9, 240)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(101, 20)
-        Me.Label16.TabIndex = 5
-        Me.Label16.Text = "Innkjøpsdato"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(116, 235)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(226, 26)
-        Me.DateTimePicker1.TabIndex = 5
-        '
         'sykkelEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -519,7 +519,7 @@ Partial Class sykkelEdit
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents txtPris As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpInnkjop As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents txtInnkjopspris As System.Windows.Forms.TextBox
