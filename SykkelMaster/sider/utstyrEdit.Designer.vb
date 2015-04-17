@@ -111,7 +111,7 @@ Partial Class utstyrEdit
         '
         Me.cbxStorrelse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStorrelse.FormattingEnabled = True
-        Me.cbxStorrelse.Items.AddRange(New Object() {"XXS", "XS", "S", "M", "L", "XL", "XXL"})
+        Me.cbxStorrelse.Items.AddRange(New Object() {"En størrelse", "XXS", "XS", "S", "M", "L", "XL", "XXL"})
         Me.cbxStorrelse.Location = New System.Drawing.Point(90, 307)
         Me.cbxStorrelse.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxStorrelse.Name = "cbxStorrelse"

@@ -65,7 +65,6 @@
             cbxHjul.Text = daoDelt.finnDGWVerdi(SykkelGridView, "hjulstr")
             cbxRamme.Text = daoDelt.finnDGWVerdi(SykkelGridView, "rammestr")
             cbxStatus.Text = daoDelt.finnDGWVerdi(SykkelGridView, "s_status")
-            txtPris.Text = daoDelt.finnDGWVerdi(SykkelGridView, "pris")
             txtInnkjopspris.Text = daoDelt.finnDGWVerdi(SykkelGridView, "innkjopspris")
             dtpInnkjop.Text = daoDelt.finnDGWVerdi(SykkelGridView, "innkjopt")
             txtAvvik.Text = daoDelt.finnDGWVerdi(SykkelGridView, "avviksmelding")
@@ -81,7 +80,6 @@
         cbxRamme.SelectedIndex = -1
         cbxStatus.SelectedIndex = -1
         txtRammenr.Text = ""
-        txtPris.Text = ""
         txtInnkjopspris.Text = ""
         txtAvvik.Text = ""
         dtpInnkjop.Value = Date.Now
@@ -98,7 +96,6 @@
                                         cbxHjul.Text,
                                         cbxRamme.Text,
                                         cbxStatus.Text,
-                                        txtPris.Text,
                                         txtInnkjopspris.Text,
                                         dtpInnkjop.Value,
                                         cbxPosisjon.SelectedValue,
@@ -125,7 +122,6 @@
                                                 cbxHjul.Text,
                                                 cbxRamme.Text,
                                                 cbxStatus.Text,
-                                                txtPris.Text,
                                                 txtInnkjopspris.Text,
                                                 dtpInnkjop.Value,
                                                 cbxPosisjon.SelectedValue,

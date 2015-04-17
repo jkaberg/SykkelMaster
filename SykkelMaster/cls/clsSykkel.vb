@@ -1,6 +1,6 @@
 ﻿Public Class clsSykkel
     Private rammenr, avviksmelding, status, innkjopt As String
-    Private sykkeltype, hjulstr, rammestr, pris, innkjopspris, posisjon, virksomhet As Integer
+    Private sykkeltype, hjulstr, rammestr, innkjopspris, posisjon, virksomhet As Integer
 
     'Oppdater/legg til
     Sub New(ByVal rammenr As String,
@@ -9,7 +9,6 @@
             ByVal hjulstr As Integer,
             ByVal rammestr As Integer,
             ByVal status As String,
-            ByVal pris As Object,
             ByVal innkjopspris As Object,
             ByVal innkjopt As Date,
             ByVal posisjon As Integer,
@@ -22,7 +21,6 @@
         Me.pRammestr = rammestr
         Me.pStatus = status
         Me.pInnkjopt = innkjopt
-        Me.pPris = pris
         Me.pInnkjopspris = innkjopspris
         Me.pPosisjon = posisjon
         Me.pVirksomhet = virksomhet
@@ -91,18 +89,6 @@
         End Get
         Set(ByVal value As Date)
             innkjopt = value
-        End Set
-    End Property
-    Public Property pPris() As Object
-        Get
-            Return pris
-        End Get
-        Set(ByVal value As Object)
-            If Not IsNumeric(value) Then
-                Throw New Exception("Pris kan kun bestå av tall.")
-            Else
-                pris = value
-            End If
         End Set
     End Property
     Public Property pInnkjopspris() As Object
