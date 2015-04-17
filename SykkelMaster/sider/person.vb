@@ -36,7 +36,9 @@
         If id Then
             kundeGridView.DataSource = daoPerson.hentPersoner(id:=id)
             oppdaterTxtbox()
-        ElseIf sok Then
+        ElseIf sok = "" Then
+            kundeGridView.DataSource = daoPerson.hentPersoner
+        ElseIf sok <> "" Then
             kundeGridView.DataSource = daoPerson.hentPersoner(sok:=sok)
         End If
     End Sub
