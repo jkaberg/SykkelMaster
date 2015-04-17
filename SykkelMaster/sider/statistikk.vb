@@ -4,7 +4,7 @@
     End Sub
 
     Private Sub cbxStats_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStats.SelectedIndexChanged
-        ' Rens ut nuvarende informasjon som evt er i grafen
+        ' Rens ut nåværende informasjon som evt er i grafen
         graf.Series(0).Points.Clear()
         graf.DataSource = ""
 
