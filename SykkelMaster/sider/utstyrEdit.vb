@@ -97,8 +97,7 @@
                                                 txtInnkjopspris.Text,
                                                 dtpInnkjop.Value,
                                                 cbxStatus.Text,
-                                                cbxStorrelse.Text,
-                                                txtPasserSykkel.Text)
+                                                cbxStorrelse.Text)
 
                     daoSykkelUtstyr.oppdaterUtstyr(utstyr)
                     MsgBox(utstyr_navn() & " er oppdatert.", MsgBoxStyle.Exclamation)

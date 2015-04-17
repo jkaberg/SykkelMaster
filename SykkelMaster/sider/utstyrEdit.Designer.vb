@@ -56,7 +56,6 @@ Partial Class utstyrEdit
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
         Me.utstyrGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtPasserSykkel = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.utstyrGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -420,20 +419,11 @@ Partial Class utstyrEdit
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Posisjon"
         '
-        'txtPasserSykkel
-        '
-        Me.txtPasserSykkel.Location = New System.Drawing.Point(105, 574)
-        Me.txtPasserSykkel.Name = "txtPasserSykkel"
-        Me.txtPasserSykkel.Size = New System.Drawing.Size(100, 26)
-        Me.txtPasserSykkel.TabIndex = 5
-        Me.txtPasserSykkel.Text = "1"
-        '
         'utstyrEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1383, 644)
-        Me.Controls.Add(Me.txtPasserSykkel)
+        Me.ClientSize = New System.Drawing.Size(1383, 559)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -447,7 +437,6 @@ Partial Class utstyrEdit
         Me.GroupBox2.PerformLayout()
         CType(Me.utstyrGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -484,5 +473,4 @@ Partial Class utstyrEdit
     Friend WithEvents txtPris As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbxStorrelse As System.Windows.Forms.ComboBox
-    Friend WithEvents txtPasserSykkel As System.Windows.Forms.TextBox
 End Class
