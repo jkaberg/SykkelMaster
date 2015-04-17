@@ -80,7 +80,11 @@
             Return innkjopspris
         End Get
         Set(ByVal value As Object)
-            innkjopspris = value
+            If Not IsNumeric(value) Then
+                Throw New Exception("Innkjøpspris kan kun bestå av tall.")
+            Else
+                innkjopspris = value
+            End If
         End Set
     End Property
     Public Property pInnkjopt() As Date

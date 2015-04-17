@@ -7,7 +7,7 @@
             ByVal fnavn As String,
             ByVal enavn As String,
             ByVal pnr As String,
-            ByVal tnr As String,
+            ByVal tnr As Object,
             ByVal adresse As String,
             ByVal epost As String)
 
@@ -24,7 +24,7 @@
     Sub New(ByVal fnavn As String,
             ByVal enavn As String,
             ByVal pnr As String,
-            ByVal tnr As String,
+            ByVal tnr As Object,
             ByVal adresse As String,
             ByVal epost As String)
 
@@ -108,21 +108,20 @@
         End Set
     End Property
 
-    Public Property pTlfnr() As Integer
+    Public Property pTlfnr() As Object
         Get
             Return telefonnr
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As Object)
             If Not value.ToString.Length = 8 Then
                 Throw New Exception("Telefon nummeret må bestå av 8 tall.")
             ElseIf Not IsNumeric(value) Then
-                Throw New Exception("Telefon nummeret kan kun bestå av tall.")
+                Throw New Exception("Telefonnummer kan kun bestå av tall.")
             Else
                 telefonnr = value
             End If
         End Set
     End Property
-
     Public Property pAdresse() As String
         Get
             Return gate
