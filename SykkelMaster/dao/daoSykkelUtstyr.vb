@@ -2,10 +2,10 @@
     Public Shared sql As String
 
     Public Shared Function oppdaterUtstyr(ByVal utstyr As clsSykkelUtstyr) As Boolean
-        sql = "UPDATE sykkelutstyr SET id = " & utstyr.pID & ", utstyrstypr = " & utstyr.pUtstyrstype &
+        sql = "UPDATE sykkelutstyr SET id = " & utstyr.pID & ", utstyrstype = " & utstyr.pUtstyrstype &
               ", storrelse = '" & utstyr.pStorrelse & "', s_u_status = '" & utstyr.pStatus &
               "', pris = " & utstyr.pPris & ", innkjopspris = " & utstyr.pInnkjopspris & ", innkjopt = '" & Format(utstyr.pInnkjopt, "yyyy-MM-dd") &
-              "', posisjon = " & utstyr.pPosisjon & ", virksomhet_id = " & utstyr.pVirksomhet & " WHERE rammenr = " & utstyr.pID & ";"
+              "', posisjon = " & utstyr.pPosisjon & ", virksomhet_id = " & utstyr.pVirksomhet & " WHERE id = " & utstyr.pID & ";"
 
         Return database.query(sql)
     End Function

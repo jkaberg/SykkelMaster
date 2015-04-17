@@ -63,11 +63,11 @@
             utstyrstype = value
         End Set
     End Property
-    Public Property pStorrelse() As Integer
+    Public Property pStorrelse() As String
         Get
             Return storrelse
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             storrelse = value
         End Set
     End Property
