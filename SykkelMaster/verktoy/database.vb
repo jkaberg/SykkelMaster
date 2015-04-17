@@ -23,7 +23,7 @@ Public Class database
 
     Public Shared Function query(ByVal sql As String) As Boolean
         conn.ConnectionString = config
-        Dim status As Object
+        Dim status As Object = Nothing
         Try
             conn.Open()
             Dim cmd As MySqlCommand = New MySqlCommand(sql, conn)
