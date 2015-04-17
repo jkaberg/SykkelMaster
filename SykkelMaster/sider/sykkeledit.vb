@@ -11,7 +11,6 @@
             .Columns("rammenr").HeaderText = "Rammenr"
             .Columns("sykkeltype").HeaderText = "Sykkeltype"
             .Columns("s_status").HeaderText = "Status"
-            .Columns("pris").HeaderText = "Pris"
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
             .Columns("rammestr").HeaderText = "Rammestørrelse"
             .Columns("avviksmelding").HeaderText = "Avviksmelding"
