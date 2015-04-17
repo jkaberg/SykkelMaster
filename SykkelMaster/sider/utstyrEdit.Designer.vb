@@ -30,9 +30,6 @@ Partial Class utstyrEdit
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtInnkjopspris = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.txtPris = New System.Windows.Forms.TextBox()
         Me.btnSykkeltype = New System.Windows.Forms.Button()
         Me.btnTom = New System.Windows.Forms.Button()
         Me.cbxPosisjon = New System.Windows.Forms.ComboBox()
@@ -70,9 +67,6 @@ Partial Class utstyrEdit
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.txtInnkjopspris)
         Me.GroupBox1.Controls.Add(Me.Label14)
-        Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Controls.Add(Me.txtPris)
         Me.GroupBox1.Controls.Add(Me.btnSykkeltype)
         Me.GroupBox1.Controls.Add(Me.btnTom)
         Me.GroupBox1.Controls.Add(Me.cbxPosisjon)
@@ -92,7 +86,7 @@ Partial Class utstyrEdit
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.GroupBox1.Size = New System.Drawing.Size(357, 532)
+        Me.GroupBox1.Size = New System.Drawing.Size(357, 498)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
@@ -100,7 +94,7 @@ Partial Class utstyrEdit
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 310)
+        Me.Label4.Location = New System.Drawing.Point(9, 280)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(73, 20)
         Me.Label4.TabIndex = 42
@@ -111,7 +105,7 @@ Partial Class utstyrEdit
         Me.cbxStorrelse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStorrelse.FormattingEnabled = True
         Me.cbxStorrelse.Items.AddRange(New Object() {"En størrelse", "XXS", "XS", "S", "M", "L", "XL", "XXL"})
-        Me.cbxStorrelse.Location = New System.Drawing.Point(90, 307)
+        Me.cbxStorrelse.Location = New System.Drawing.Point(90, 277)
         Me.cbxStorrelse.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxStorrelse.Name = "cbxStorrelse"
         Me.cbxStorrelse.Size = New System.Drawing.Size(252, 28)
@@ -119,7 +113,7 @@ Partial Class utstyrEdit
         '
         'dtpInnkjop
         '
-        Me.dtpInnkjop.Location = New System.Drawing.Point(116, 235)
+        Me.dtpInnkjop.Location = New System.Drawing.Point(116, 205)
         Me.dtpInnkjop.Name = "dtpInnkjop"
         Me.dtpInnkjop.Size = New System.Drawing.Size(226, 26)
         Me.dtpInnkjop.TabIndex = 33
@@ -127,7 +121,7 @@ Partial Class utstyrEdit
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(9, 240)
+        Me.Label16.Location = New System.Drawing.Point(9, 210)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(101, 20)
         Me.Label16.TabIndex = 34
@@ -136,7 +130,7 @@ Partial Class utstyrEdit
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(234, 209)
+        Me.Label15.Location = New System.Drawing.Point(234, 179)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(24, 20)
         Me.Label15.TabIndex = 40
@@ -144,7 +138,7 @@ Partial Class utstyrEdit
         '
         'txtInnkjopspris
         '
-        Me.txtInnkjopspris.Location = New System.Drawing.Point(116, 203)
+        Me.txtInnkjopspris.Location = New System.Drawing.Point(116, 173)
         Me.txtInnkjopspris.Name = "txtInnkjopspris"
         Me.txtInnkjopspris.Size = New System.Drawing.Size(112, 26)
         Me.txtInnkjopspris.TabIndex = 35
@@ -152,36 +146,11 @@ Partial Class utstyrEdit
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(8, 206)
+        Me.Label14.Location = New System.Drawing.Point(8, 176)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(94, 20)
         Me.Label14.TabIndex = 36
         Me.Label14.Text = "Innkjøpspris"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(234, 174)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(24, 20)
-        Me.Label13.TabIndex = 39
-        Me.Label13.Text = "Kr"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(8, 174)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(35, 20)
-        Me.Label12.TabIndex = 37
-        Me.Label12.Text = "Pris"
-        '
-        'txtPris
-        '
-        Me.txtPris.Location = New System.Drawing.Point(116, 171)
-        Me.txtPris.Name = "txtPris"
-        Me.txtPris.Size = New System.Drawing.Size(112, 26)
-        Me.txtPris.TabIndex = 38
         '
         'btnSykkeltype
         '
@@ -195,7 +164,7 @@ Partial Class utstyrEdit
         '
         'btnTom
         '
-        Me.btnTom.Location = New System.Drawing.Point(13, 345)
+        Me.btnTom.Location = New System.Drawing.Point(13, 315)
         Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnTom.Name = "btnTom"
         Me.btnTom.Size = New System.Drawing.Size(329, 38)
@@ -224,7 +193,7 @@ Partial Class utstyrEdit
         '
         'btnSlett
         '
-        Me.btnSlett.Location = New System.Drawing.Point(13, 482)
+        Me.btnSlett.Location = New System.Drawing.Point(13, 452)
         Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnSlett.Name = "btnSlett"
         Me.btnSlett.Size = New System.Drawing.Size(329, 38)
@@ -234,7 +203,7 @@ Partial Class utstyrEdit
         '
         'btnOppdater
         '
-        Me.btnOppdater.Location = New System.Drawing.Point(13, 434)
+        Me.btnOppdater.Location = New System.Drawing.Point(13, 404)
         Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnOppdater.Name = "btnOppdater"
         Me.btnOppdater.Size = New System.Drawing.Size(329, 38)
@@ -244,7 +213,7 @@ Partial Class utstyrEdit
         '
         'btnLeggTil
         '
-        Me.btnLeggTil.Location = New System.Drawing.Point(12, 391)
+        Me.btnLeggTil.Location = New System.Drawing.Point(12, 361)
         Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnLeggTil.Name = "btnLeggTil"
         Me.btnLeggTil.Size = New System.Drawing.Size(329, 38)
@@ -257,7 +226,7 @@ Partial Class utstyrEdit
         Me.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStatus.FormattingEnabled = True
         Me.cbxStatus.Items.AddRange(New Object() {"Tilgjengelig", "Leid ut", "Reservert"})
-        Me.cbxStatus.Location = New System.Drawing.Point(90, 269)
+        Me.cbxStatus.Location = New System.Drawing.Point(90, 239)
         Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxStatus.Name = "cbxStatus"
         Me.cbxStatus.Size = New System.Drawing.Size(252, 28)
@@ -266,7 +235,7 @@ Partial Class utstyrEdit
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(8, 273)
+        Me.Label7.Location = New System.Drawing.Point(8, 243)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(56, 20)
         Me.Label7.TabIndex = 28
@@ -340,7 +309,7 @@ Partial Class utstyrEdit
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.GroupBox2.Size = New System.Drawing.Size(992, 532)
+        Me.GroupBox2.Size = New System.Drawing.Size(992, 498)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -407,7 +376,7 @@ Partial Class utstyrEdit
         Me.utstyrGridView.RowHeadersVisible = False
         Me.utstyrGridView.RowTemplate.Height = 24
         Me.utstyrGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.utstyrGridView.Size = New System.Drawing.Size(974, 462)
+        Me.utstyrGridView.Size = New System.Drawing.Size(974, 432)
         Me.utstyrGridView.TabIndex = 18
         '
         'Label6
@@ -423,7 +392,7 @@ Partial Class utstyrEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1383, 559)
+        Me.ClientSize = New System.Drawing.Size(1383, 523)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -468,9 +437,6 @@ Partial Class utstyrEdit
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents txtInnkjopspris As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents txtPris As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbxStorrelse As System.Windows.Forms.ComboBox
 End Class

@@ -4,7 +4,7 @@
     Public Shared Function oppdaterUtstyr(ByVal utstyr As clsSykkelUtstyr) As Boolean
         sql = "UPDATE sykkelutstyr SET id = " & utstyr.pID & ", utstyrstype = " & utstyr.pUtstyrstype &
               ", storrelse = '" & utstyr.pStorrelse & "', s_u_status = '" & utstyr.pStatus &
-              "', pris = " & utstyr.pPris & ", innkjopspris = " & utstyr.pInnkjopspris & ", innkjopt = '" & Format(utstyr.pInnkjopt, "yyyy-MM-dd") &
+              "', innkjopspris = " & utstyr.pInnkjopspris & ", innkjopt = '" & Format(utstyr.pInnkjopt, "yyyy-MM-dd") &
               "', posisjon = " & utstyr.pPosisjon & ", virksomhet_id = " & utstyr.pVirksomhet & " WHERE id = " & utstyr.pID & ";"
 
         Return database.query(sql)
@@ -14,7 +14,7 @@
                                        Optional ByVal posisjon As String = Nothing,
                                        Optional ByVal status As String = Nothing) As DataTable
 
-        sql = "SELECT sykkelutstyr.id, utstyrstype.utstyrstype, sykkelutstyr.storrelse, s_u_status, sykkelutstyr.pris, " &
+        sql = "SELECT sykkelutstyr.id, utstyrstype.utstyrstype, sykkelutstyr.storrelse, s_u_status, " &
               "sykkelutstyr.innkjopspris, sykkelutstyr.innkjopt, v1.navn posisjon, v2.navn " &
               "FROM sykkelutstyr " &
               "JOIN utstyrstype ON sykkelutstyr.utstyrstype = utstyrstype.id " &

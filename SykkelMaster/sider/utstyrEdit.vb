@@ -12,7 +12,6 @@
             .Columns("utstyrstype").HeaderText = "Utstyrstype"
             .Columns("storrelse").HeaderText = "Størrelse"
             .Columns("s_u_status").HeaderText = "Status"
-            .Columns("pris").HeaderText = "Pris"
             .Columns("posisjon").HeaderText = "Posisjon"
             .Columns("navn").HeaderText = "Tilhører"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
@@ -62,7 +61,6 @@
             cbxType.Text = daoDelt.finnDGWVerdi(utstyrGridView, "utstyrstype")
             txtId.Text = daoDelt.finnDGWVerdi(utstyrGridView, "id")
             cbxStatus.Text = daoDelt.finnDGWVerdi(utstyrGridView, "s_u_status")
-            txtPris.Text = daoDelt.finnDGWVerdi(utstyrGridView, "pris")
             txtInnkjopspris.Text = daoDelt.finnDGWVerdi(utstyrGridView, "innkjopspris")
             dtpInnkjop.Text = daoDelt.finnDGWVerdi(utstyrGridView, "innkjopt")
             cbxStorrelse.Text = daoDelt.finnDGWVerdi(utstyrGridView, "storrelse")
@@ -76,7 +74,6 @@
         cbxType.SelectedIndex = -1
         cbxStatus.SelectedIndex = -1
         txtId.Text = ""
-        txtPris.Text = ""
         txtInnkjopspris.Text = ""
         cbxStorrelse.SelectedIndex = -1
         dtpInnkjop.Value = DateTime.Now
@@ -93,7 +90,6 @@
                                                 cbxTilhorer.SelectedValue,
                                                 cbxPosisjon.SelectedValue,
                                                 cbxType.SelectedValue,
-                                                txtPris.Text,
                                                 txtInnkjopspris.Text,
                                                 dtpInnkjop.Value,
                                                 cbxStatus.Text,
