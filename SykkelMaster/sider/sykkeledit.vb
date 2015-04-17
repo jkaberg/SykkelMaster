@@ -109,7 +109,7 @@
                                         cbxStatus.Text,
                                         txtPris.Text,
                                         txtInnkjopspris.Text,
-                                        dtpInnkjop.Text,
+                                        dtpInnkjop.Value.Date.ToString,
                                         cbxPosisjon.SelectedValue,
                                         cbxTilhorer.SelectedValue)
             daoSykkel.leggTilSykkel(sykkel)
@@ -145,7 +145,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    MsgBox(dtpInnkjop.Value.Date.ToString)
+                    MsgBox(txtInnkjopspris.Text)
                     oppdaterGridView()
                     oppdaterTxtbox()
                 End Try

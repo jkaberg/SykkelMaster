@@ -1,7 +1,6 @@
 ﻿Public Class clsSykkel
-    Private rammenr, avviksmelding, status As String
+    Private rammenr, avviksmelding, status, innkjopt As String
     Private sykkeltype, hjulstr, rammestr, pris, innkjopspris, posisjon, virksomhet As Integer
-    Private innkjopt As Date
 
     'Oppdater/legg til
     Sub New(ByVal rammenr As String,
@@ -10,9 +9,9 @@
             ByVal hjulstr As Integer,
             ByVal rammestr As Integer,
             ByVal status As String,
-            ByVal innkjopt As Date,
+            ByVal innkjopt As Object,
             ByVal pris As Object,
-            ByVal innkjopspris As Object,
+            ByVal innkjopspris As String,
             ByVal posisjon As Integer,
             ByVal virksomhet As Integer)
 
@@ -86,11 +85,11 @@
             status = value
         End Set
     End Property
-    Public Property pInnkjopt() As Date
+    Public Property pInnkjopt() As String
         Get
             Return innkjopt
         End Get
-        Set(ByVal value As Date)
+        Set(ByVal value As String)
             innkjopt = value
         End Set
     End Property

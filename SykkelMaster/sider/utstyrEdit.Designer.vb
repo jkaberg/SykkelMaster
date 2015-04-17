@@ -23,6 +23,16 @@ Partial Class utstyrEdit
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbxStorrelse = New System.Windows.Forms.ComboBox()
+        Me.dtpInnkjop = New System.Windows.Forms.DateTimePicker()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtInnkjopspris = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtPris = New System.Windows.Forms.TextBox()
         Me.btnSykkeltype = New System.Windows.Forms.Button()
         Me.btnTom = New System.Windows.Forms.Button()
         Me.cbxPosisjon = New System.Windows.Forms.ComboBox()
@@ -46,16 +56,6 @@ Partial Class utstyrEdit
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
         Me.utstyrGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.dtpInnkjop = New System.Windows.Forms.DateTimePicker()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtInnkjopspris = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.txtPris = New System.Windows.Forms.TextBox()
-        Me.cbxStorrelse = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.utstyrGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,6 +96,92 @@ Partial Class utstyrEdit
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(9, 310)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(73, 20)
+        Me.Label4.TabIndex = 42
+        Me.Label4.Text = "Størrelse"
+        '
+        'cbxStorrelse
+        '
+        Me.cbxStorrelse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxStorrelse.FormattingEnabled = True
+        Me.cbxStorrelse.Items.AddRange(New Object() {"XXS", "XS", "S", "M", "L", "XL", "XXL"})
+        Me.cbxStorrelse.Location = New System.Drawing.Point(90, 307)
+        Me.cbxStorrelse.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.cbxStorrelse.Name = "cbxStorrelse"
+        Me.cbxStorrelse.Size = New System.Drawing.Size(252, 28)
+        Me.cbxStorrelse.TabIndex = 41
+        '
+        'dtpInnkjop
+        '
+        Me.dtpInnkjop.Location = New System.Drawing.Point(116, 235)
+        Me.dtpInnkjop.Name = "dtpInnkjop"
+        Me.dtpInnkjop.Size = New System.Drawing.Size(226, 26)
+        Me.dtpInnkjop.TabIndex = 33
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(9, 240)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(101, 20)
+        Me.Label16.TabIndex = 34
+        Me.Label16.Text = "Innkjøpsdato"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(234, 209)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(24, 20)
+        Me.Label15.TabIndex = 40
+        Me.Label15.Text = "Kr"
+        '
+        'txtInnkjopspris
+        '
+        Me.txtInnkjopspris.Location = New System.Drawing.Point(116, 203)
+        Me.txtInnkjopspris.Name = "txtInnkjopspris"
+        Me.txtInnkjopspris.Size = New System.Drawing.Size(112, 26)
+        Me.txtInnkjopspris.TabIndex = 35
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(8, 206)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(94, 20)
+        Me.Label14.TabIndex = 36
+        Me.Label14.Text = "Innkjøpspris"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(234, 174)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(24, 20)
+        Me.Label13.TabIndex = 39
+        Me.Label13.Text = "Kr"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(8, 174)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(35, 20)
+        Me.Label12.TabIndex = 37
+        Me.Label12.Text = "Pris"
+        '
+        'txtPris
+        '
+        Me.txtPris.Location = New System.Drawing.Point(116, 171)
+        Me.txtPris.Name = "txtPris"
+        Me.txtPris.Size = New System.Drawing.Size(112, 26)
+        Me.txtPris.TabIndex = 38
         '
         'btnSykkeltype
         '
@@ -272,7 +358,7 @@ Partial Class utstyrEdit
         '
         Me.cbxSokStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSokStatus.FormattingEnabled = True
-        Me.cbxSokStatus.Items.AddRange(New Object() {"Innlevert", "Leid ut", "Reparasjon", "Reservert"})
+        Me.cbxSokStatus.Items.AddRange(New Object() {"Tilgjengelig", "Leid ut", "Reparasjon", "Reservert"})
         Me.cbxSokStatus.Location = New System.Drawing.Point(578, 20)
         Me.cbxSokStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxSokStatus.Name = "cbxSokStatus"
@@ -332,92 +418,6 @@ Partial Class utstyrEdit
         Me.Label6.Size = New System.Drawing.Size(68, 20)
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Posisjon"
-        '
-        'dtpInnkjop
-        '
-        Me.dtpInnkjop.Location = New System.Drawing.Point(116, 235)
-        Me.dtpInnkjop.Name = "dtpInnkjop"
-        Me.dtpInnkjop.Size = New System.Drawing.Size(226, 26)
-        Me.dtpInnkjop.TabIndex = 33
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(9, 240)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(101, 20)
-        Me.Label16.TabIndex = 34
-        Me.Label16.Text = "Innkjøpsdato"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(234, 209)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(24, 20)
-        Me.Label15.TabIndex = 40
-        Me.Label15.Text = "Kr"
-        '
-        'txtInnkjopspris
-        '
-        Me.txtInnkjopspris.Location = New System.Drawing.Point(116, 203)
-        Me.txtInnkjopspris.Name = "txtInnkjopspris"
-        Me.txtInnkjopspris.Size = New System.Drawing.Size(112, 26)
-        Me.txtInnkjopspris.TabIndex = 35
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(8, 206)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(94, 20)
-        Me.Label14.TabIndex = 36
-        Me.Label14.Text = "Innkjøpspris"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(234, 174)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(24, 20)
-        Me.Label13.TabIndex = 39
-        Me.Label13.Text = "Kr"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(8, 174)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(35, 20)
-        Me.Label12.TabIndex = 37
-        Me.Label12.Text = "Pris"
-        '
-        'txtPris
-        '
-        Me.txtPris.Location = New System.Drawing.Point(116, 171)
-        Me.txtPris.Name = "txtPris"
-        Me.txtPris.Size = New System.Drawing.Size(112, 26)
-        Me.txtPris.TabIndex = 38
-        '
-        'cbxStorrelse
-        '
-        Me.cbxStorrelse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStorrelse.FormattingEnabled = True
-        Me.cbxStorrelse.Items.AddRange(New Object() {"XXS", "XS", "S", "M", "L", "XL", "XXL"})
-        Me.cbxStorrelse.Location = New System.Drawing.Point(90, 307)
-        Me.cbxStorrelse.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.cbxStorrelse.Name = "cbxStorrelse"
-        Me.cbxStorrelse.Size = New System.Drawing.Size(252, 28)
-        Me.cbxStorrelse.TabIndex = 41
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 310)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(73, 20)
-        Me.Label4.TabIndex = 42
-        Me.Label4.Text = "Størrelse"
         '
         'utstyrEdit
         '
