@@ -3,7 +3,22 @@
 
     Private Sub sykkelEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
-        oppdaterGridView()
+        With Me.SykkelGridView
+            .DataSource = daoSykkel.hentSykkler
+            .Columns("innkjopspris").Visible = False
+            .Columns("innkjopt").Visible = False
+            'Endre navn for å gi en bedre visuell opplevelse
+            .Columns("rammenr").HeaderText = "Rammenr"
+            .Columns("sykkeltype").HeaderText = "Sykkeltype"
+            .Columns("s_status").HeaderText = "Status"
+            .Columns("pris").HeaderText = "Pris"
+            .Columns("hjulstr").HeaderText = "Hjulstørrelse"
+            .Columns("rammestr").HeaderText = "Rammestørrelse"
+            .Columns("avviksmelding").HeaderText = "Avviksmelding"
+            .Columns("posisjon").HeaderText = "Posisjon"
+            .Columns("navn").HeaderText = "Tilhører"
+            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        End With
 
         'Laster inn data til comboBox'ene
         With cbxTilhorer
@@ -34,35 +49,10 @@
             .DataSource = daoDelt.hentSykkelType
         End With
         cbxType.SelectedIndex = -1
-
     End Sub
 
     Private Sub SykkelGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles SykkelGridView.CellClick
         oppdaterTxtbox()
-    End Sub
-
-    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing,
-                                 Optional ByVal posisjon As String = Nothing,
-                                 Optional ByVal status As String = Nothing)
-
-        'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        SykkelGridView.DataSource = daoSykkel.hentSykkler(sok, posisjon, status)
-
-        With Me.SykkelGridView
-            .Columns("innkjopspris").Visible = False
-            .Columns("innkjopt").Visible = False
-            'Endre navn for å gi en bedre visuell opplevelse
-            .Columns("rammenr").HeaderText = "Rammenr"
-            .Columns("sykkeltype").HeaderText = "Sykkeltype"
-            .Columns("s_status").HeaderText = "Status"
-            .Columns("pris").HeaderText = "Pris"
-            .Columns("hjulstr").HeaderText = "Hjulstørrelse"
-            .Columns("rammestr").HeaderText = "Rammestørrelse"
-            .Columns("avviksmelding").HeaderText = "Avviksmelding"
-            .Columns("posisjon").HeaderText = "Posisjon"
-            .Columns("navn").HeaderText = "Tilhører"
-            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        End With
     End Sub
 
     Private Sub oppdaterTxtbox()
@@ -95,7 +85,8 @@
         txtInnkjopspris.Text = ""
         txtAvvik.Text = ""
         dtpInnkjop.Value = Date.Now
-        oppdaterGridView()
+
+        SykkelGridView.DataSource = daoSykkel.hentSykkler
     End Sub
 
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
@@ -117,7 +108,7 @@
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
-            oppdaterGridView()
+            SykkelGridView.DataSource = daoSykkel.hentSykkler
             oppdaterTxtbox()
         End Try
 
@@ -145,7 +136,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    SykkelGridView.DataSource = daoSykkel.hentSykkler
                     oppdaterTxtbox()
                 End Try
         End Select
@@ -163,21 +154,21 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    SykkelGridView.DataSource = daoSykkel.hentSykkler
                 End Try
         End Select
     End Sub
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
-        oppdaterGridView(sok:=txtSok.Text)
+        SykkelGridView.DataSource = daoSykkel.hentSykkler(sok:=txtSok.Text)
     End Sub
 
     Private Sub cbxLokasjon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxLokasjon.SelectedIndexChanged
-        oppdaterGridView(posisjon:=cbxLokasjon.Text)
+        SykkelGridView.DataSource = daoSykkel.hentSykkler(posisjon:=cbxLokasjon.Text)
     End Sub
 
     Private Sub cbxSokStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxSokStatus.SelectedIndexChanged
-        oppdaterGridView(status:=cbxSokStatus.Text)
+        SykkelGridView.DataSource = daoSykkel.hentSykkler(status:=cbxSokStatus.Text)
     End Sub
 
     Private Sub btnSykkeltype_Click(sender As Object, e As EventArgs) Handles btnSykkeltype.Click

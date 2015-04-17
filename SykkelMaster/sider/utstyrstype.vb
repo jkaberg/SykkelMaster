@@ -3,10 +3,6 @@
     Private payload As New DataTable
 
     Private Sub utstyrstype_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        oppdaterGridView()
-    End Sub
-
-    Private Sub oppdaterGridView()
         With Me.utstyrstypeGrid
             .DataSource = daoDelt.hentUtstyrsType
             .Columns("id").Visible = False
@@ -30,7 +26,7 @@
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
-            oppdaterGridView()
+            utstyrstypeGrid.DataSource = daoDelt.hentUtstyrsType
         End Try
     End Sub
 
@@ -47,7 +43,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    utstyrstypeGrid.DataSource = daoDelt.hentUtstyrsType
                 End Try
         End Select
     End Sub
@@ -65,7 +61,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    utstyrstypeGrid.DataSource = daoDelt.hentUtstyrsType
                 End Try
         End Select
     End Sub

@@ -2,12 +2,8 @@
     Private payload As New DataTable
 
     Private Sub lokasjon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        oppdaterGridView()
-    End Sub
-    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
-        Oppdaterlokasjon.DataSource = daoLokasjon.hentLokasjoner(sok)
-
-        With Me.Oppdaterlokasjon
+        With lokasjonGrid
+            .DataSource = daoLokasjon.hentLokasjoner()
             ' Kolonne vises ikke 
             .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
@@ -19,27 +15,34 @@
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
-    Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Oppdaterlokasjon.CellClick
-        With Me.Oppdaterlokasjon
-            txtNavn.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "navn")
-            txtTelefon.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "telefon")
-            txtMail.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "mail")
-            txtAdresse.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "adresse")
-            txtPostnr.Text = daoDelt.finnDGWVerdi(Oppdaterlokasjon, "post_nr")
+    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing)
+        lokasjonGrid.DataSource = daoLokasjon.hentLokasjoner(sok)
+    End Sub
+    Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles lokasjonGrid.CellClick
+        With lokasjonGrid
+            txtNavn.Text = daoDelt.finnDGWVerdi(lokasjonGrid, "navn")
+            txtTelefon.Text = daoDelt.finnDGWVerdi(lokasjonGrid, "telefon")
+            txtMail.Text = daoDelt.finnDGWVerdi(lokasjonGrid, "mail")
+            txtAdresse.Text = daoDelt.finnDGWVerdi(lokasjonGrid, "adresse")
+            txtPostnr.Text = daoDelt.finnDGWVerdi(lokasjonGrid, "post_nr")
         End With
     End Sub
 
 
     Private Sub btnAddlocation_Click(sender As Object, e As EventArgs) Handles btnAddLocation.Click
         Try
-            Dim lokasjon As New clsLokasjon(txtNavn.Text, txtMail.Text, txtAdresse.Text, txtTelefon.Text, txtPostnr.Text)
+            Dim lokasjon As New clsLokasjon(txtNavn.Text,
+                                            txtMail.Text,
+                                            txtAdresse.Text,
+                                            txtTelefon.Text,
+                                            txtPostnr.Text)
 
             daoLokasjon.leggTilLokasjon(lokasjon)
             MsgBox(lokasjon.pNavn & " lagt til.", MsgBoxStyle.Exclamation)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
-            oppdaterGridView()
+            lokasjonGrid.DataSource = daoLokasjon.hentLokasjoner
         End Try
     End Sub
 
@@ -54,7 +57,7 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim lokasjon As New clsLokasjon(daoDelt.finnDGWVerdi(Oppdaterlokasjon, "id"),
+                    Dim lokasjon As New clsLokasjon(daoDelt.finnDGWVerdi(lokasjonGrid, "id"),
                                                     txtNavn.Text,
                                                     txtMail.Text,
                                                     txtAdresse.Text,
@@ -66,7 +69,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    lokasjonGrid.DataSource = daoLokasjon.hentLokasjoner
                 End Try
         End Select
     End Sub
@@ -76,7 +79,7 @@
         Select Case MsgBox("Er du sikker på at du vil fjern " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim lokasjon As New clsLokasjon(daoDelt.finnDGWVerdi(Oppdaterlokasjon, "id"),
+                    Dim lokasjon As New clsLokasjon(daoDelt.finnDGWVerdi(lokasjonGrid, "id"),
                                                     txtNavn.Text)
 
                     daoLokasjon.fjernLokasjon(lokasjon)
@@ -84,7 +87,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    lokasjonGrid.DataSource = daoLokasjon.hentLokasjoner
                 End Try
         End Select
     End Sub
@@ -96,6 +99,7 @@
         txtMail.Text = ""
         txtPostnr.Text = ""
         txtPoststed.Text = ""
-        oppdaterGridView()
+
+        lokasjonGrid.DataSource = daoLokasjon.hentLokasjoner
     End Sub
 End Class

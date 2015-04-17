@@ -3,7 +3,20 @@
 
     Private Sub sykkelutstyr_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
-        oppdaterGridView()
+        With Me.utstyrGridView
+            .DataSource = daoSykkelUtstyr.hentUtstyr
+            .Columns("innkjopspris").Visible = False
+            .Columns("innkjopt").Visible = False
+            'Endre navn for å gi en bedre visuell opplevelse
+            .Columns("id").HeaderText = "Id"
+            .Columns("utstyrstype").HeaderText = "Utstyrstype"
+            .Columns("storrelse").HeaderText = "Størrelse"
+            .Columns("s_u_status").HeaderText = "Status"
+            .Columns("pris").HeaderText = "Pris"
+            .Columns("posisjon").HeaderText = "Posisjon"
+            .Columns("navn").HeaderText = "Tilhører"
+            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        End With
 
         'Laster inn data til comboBox'ene
         With cbxTilhorer
@@ -38,33 +51,6 @@
     End Sub
 
     Private Sub utstyrGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles utstyrGridView.CellClick
-        oppdaterTxtbox()
-    End Sub
-
-    Private Sub oppdaterGridView(Optional ByVal sok As String = Nothing,
-                                 Optional ByVal posisjon As String = Nothing,
-                                 Optional ByVal status As String = Nothing)
-
-        'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr(sok, posisjon, status)
-
-        With Me.utstyrGridView
-            .Columns("innkjopspris").Visible = False
-            .Columns("innkjopt").Visible = False
-            'Endre navn for å gi en bedre visuell opplevelse
-            .Columns("id").HeaderText = "Id"
-            .Columns("utstyrstype").HeaderText = "Utstyrstype"
-            .Columns("storrelse").HeaderText = "Størrelse"
-            .Columns("s_u_status").HeaderText = "Status"
-            .Columns("pris").HeaderText = "Pris"
-            .Columns("posisjon").HeaderText = "Posisjon"
-            .Columns("navn").HeaderText = "Tilhører"
-            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        End With
-    End Sub
-
-    Private Sub oppdaterTxtbox()
-        'Setter inn datane fra Grid Viewn i Textboksene
         With Me.utstyrGridView
             cbxTilhorer.Text = daoDelt.finnDGWVerdi(utstyrGridView, "navn")
             cbxPosisjon.Text = daoDelt.finnDGWVerdi(utstyrGridView, "posisjon")
@@ -89,20 +75,20 @@
         txtInnkjopspris.Text = ""
         cbxStorrelse.SelectedIndex = -1
         dtpInnkjop.Value = DateTime.Now
-        oppdaterGridView()
+
+        utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr
     End Sub
 
-
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
-        oppdaterGridView(sok:=txtSok.Text)
+        utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr(sok:=txtSok.Text)
     End Sub
 
     Private Sub cbxLokasjon_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxLokasjon.SelectedIndexChanged
-        oppdaterGridView(posisjon:=cbxLokasjon.Text)
+        utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr(posisjon:=cbxLokasjon.Text)
     End Sub
 
     Private Sub cbxSokStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxSokStatus.SelectedIndexChanged
-        oppdaterGridView(status:=cbxSokStatus.Text)
+        utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr(status:=cbxSokStatus.Text)
     End Sub
 
     Private Sub btnSykkeltype_Click(sender As Object, e As EventArgs) Handles btnSykkeltype.Click

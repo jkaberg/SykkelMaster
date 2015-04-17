@@ -3,10 +3,6 @@
     Private payload As New DataTable
 
     Private Sub sykkeltype_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        oppdaterGridView()
-    End Sub
-
-    Private Sub oppdaterGridView()
         With Me.sykkeltypeGrid
             .DataSource = daoDelt.hentSykkelType
             .Columns("id").Visible = False
@@ -30,7 +26,7 @@
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
-            oppdaterGridView()
+            sykkeltypeGrid.DataSource = daoDelt.hentSykkelType
         End Try
     End Sub
 
@@ -47,7 +43,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    sykkeltypeGrid.DataSource = daoDelt.hentSykkelType
                 End Try
         End Select
     End Sub
@@ -65,7 +61,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    sykkeltypeGrid.DataSource = daoDelt.hentSykkelType
                 End Try
         End Select
     End Sub

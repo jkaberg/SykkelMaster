@@ -23,7 +23,7 @@ Partial Class lokasjoner
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Oppdaterlokasjon = New System.Windows.Forms.DataGridView()
+        Me.lokasjonGrid = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnTom = New System.Windows.Forms.Button()
         Me.txtMail = New System.Windows.Forms.TextBox()
@@ -42,13 +42,13 @@ Partial Class lokasjoner
         Me.txtNavn = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.Oppdaterlokasjon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lokasjonGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Oppdaterlokasjon)
+        Me.GroupBox2.Controls.Add(Me.lokasjonGrid)
         Me.GroupBox2.Location = New System.Drawing.Point(275, 12)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
@@ -60,21 +60,21 @@ Partial Class lokasjoner
         '
         'Oppdaterlokasjon
         '
-        Me.Oppdaterlokasjon.AllowUserToAddRows = False
-        Me.Oppdaterlokasjon.AllowUserToDeleteRows = False
-        Me.Oppdaterlokasjon.AllowUserToResizeRows = False
-        Me.Oppdaterlokasjon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.Oppdaterlokasjon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Oppdaterlokasjon.Location = New System.Drawing.Point(9, 21)
-        Me.Oppdaterlokasjon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Oppdaterlokasjon.MultiSelect = False
-        Me.Oppdaterlokasjon.Name = "Oppdaterlokasjon"
-        Me.Oppdaterlokasjon.ReadOnly = True
-        Me.Oppdaterlokasjon.RowHeadersVisible = False
-        Me.Oppdaterlokasjon.RowTemplate.Height = 24
-        Me.Oppdaterlokasjon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Oppdaterlokasjon.Size = New System.Drawing.Size(725, 300)
-        Me.Oppdaterlokasjon.TabIndex = 18
+        Me.lokasjonGrid.AllowUserToAddRows = False
+        Me.lokasjonGrid.AllowUserToDeleteRows = False
+        Me.lokasjonGrid.AllowUserToResizeRows = False
+        Me.lokasjonGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.lokasjonGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.lokasjonGrid.Location = New System.Drawing.Point(9, 21)
+        Me.lokasjonGrid.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lokasjonGrid.MultiSelect = False
+        Me.lokasjonGrid.Name = "Oppdaterlokasjon"
+        Me.lokasjonGrid.ReadOnly = True
+        Me.lokasjonGrid.RowHeadersVisible = False
+        Me.lokasjonGrid.RowTemplate.Height = 24
+        Me.lokasjonGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.lokasjonGrid.Size = New System.Drawing.Size(725, 300)
+        Me.lokasjonGrid.TabIndex = 18
         '
         'GroupBox1
         '
@@ -261,14 +261,14 @@ Partial Class lokasjoner
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Lokasjon"
         Me.GroupBox2.ResumeLayout(False)
-        CType(Me.Oppdaterlokasjon, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lokasjonGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Oppdaterlokasjon As System.Windows.Forms.DataGridView
+    Friend WithEvents lokasjonGrid As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtPostnr As System.Windows.Forms.TextBox

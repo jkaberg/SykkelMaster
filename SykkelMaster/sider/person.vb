@@ -3,7 +3,19 @@
 
     Private Sub kunder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn data fra databasen til gridView
-        oppdaterGridView()
+        With Me.kundeGridView
+            .DataSource = daoPerson.hentPersoner
+            'Kolonne vises ikke 
+            .Columns("id").Visible = False
+            'Endre navn for å gi en bedre visuell opplevelse
+            .Columns("fornavn").HeaderText = "Fornavn"
+            .Columns("etternavn").HeaderText = "Etternavn"
+            .Columns("telefon").HeaderText = "Telefon"
+            .Columns("mail").HeaderText = "E-post"
+            .Columns("adresse").HeaderText = "Adresse"
+            .Columns("post_nr").HeaderText = "Postnr"
+            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        End With
     End Sub
 
     Private Sub kundeGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles kundeGridView.CellClick
@@ -21,32 +33,11 @@
 
     Public Sub oppdaterGridView(Optional ByVal sok As String = Nothing, Optional ByVal id As Integer = Nothing)
         'Søke på kundens fornavn, etternavn og telefonnr i databasen
-        Dim payload As DataTable
-
-        If Not id = Nothing Then
-            payload = daoPerson.hentPersoner(id:=id)
-        ElseIf sok = Nothing Then
-            payload = daoPerson.hentPersoner()
-        Else
-            payload = daoPerson.hentPersoner(sok:=sok)
-        End If
-
-        With Me.kundeGridView
-            .DataSource = payload
-            'Kolonne vises ikke 
-            .Columns("id").Visible = False
-            'Endre navn for å gi en bedre visuell opplevelse
-            .Columns("fornavn").HeaderText = "Fornavn"
-            .Columns("etternavn").HeaderText = "Etternavn"
-            .Columns("telefon").HeaderText = "Telefon"
-            .Columns("mail").HeaderText = "E-post"
-            .Columns("adresse").HeaderText = "Adresse"
-            .Columns("post_nr").HeaderText = "Postnr"
-            .DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        End With
-
-        If Not id = Nothing Then
+        If id Then
+            kundeGridView.DataSource = daoPerson.hentPersoner(id:=id)
             oppdaterTxtbox()
+        ElseIf sok Then
+            kundeGridView.DataSource = daoPerson.hentPersoner(sok:=sok)
         End If
     End Sub
 
@@ -76,7 +67,7 @@
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
-            oppdaterGridView()
+            kundeGridView.DataSource = daoPerson.hentPersoner
         End Try
     End Sub
 
@@ -98,7 +89,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    kundeGridView.DataSource = daoPerson.hentPersoner
                     oppdaterTxtbox()
                 End Try
         End Select
@@ -118,7 +109,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    kundeGridView.DataSource = daoPerson.hentPersoner
                 End Try
         End Select
     End Sub
@@ -143,8 +134,7 @@
             historie.Show()
             historie.avtaleInnehold(id:=daoDelt.finnDGWVerdi(kundeGridView, "id"))
         Else
-            MsgBox("Velg person")
+            MsgBox("Velg person.")
         End If
-
     End Sub
 End Class
