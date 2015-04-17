@@ -54,6 +54,7 @@
     End Sub
 
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles oversiktGrid.CellClick
+        'Henter frem tilbehør
         With tilbehorGrid
             .DataSource = daoInnlevering.hentTilbehor(daoDelt.finnDGWVerdi(oversiktGrid, "ordre_nr"))
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
@@ -66,6 +67,7 @@
     End Sub
 
     Private Sub sokKunde(ByVal sok As String)
+        'Søker etter kunde
         payload = daoDelt.finnKunde(sok)
 
         payload.Columns.Add("kunde_navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
@@ -110,6 +112,7 @@
     End Sub
 
     Private Sub cbxStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxStatus.SelectedIndexChanged
+        'viser status for utleien
         Select Case cbxStatus.Text
             Case "Leid ut"
                 avtaleInnehold()
