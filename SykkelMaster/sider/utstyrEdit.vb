@@ -7,8 +7,8 @@
             .DataSource = daoSykkelUtstyr.hentUtstyr
             .Columns("innkjopspris").Visible = False
             .Columns("innkjopt").Visible = False
+            .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
-            .Columns("id").HeaderText = "Id"
             .Columns("utstyrstype").HeaderText = "Utstyrstype"
             .Columns("storrelse").HeaderText = "Størrelse"
             .Columns("s_u_status").HeaderText = "Status"
@@ -59,7 +59,6 @@
             cbxTilhorer.Text = daoDelt.finnDGWVerdi(utstyrGridView, "navn")
             cbxPosisjon.Text = daoDelt.finnDGWVerdi(utstyrGridView, "posisjon")
             cbxType.Text = daoDelt.finnDGWVerdi(utstyrGridView, "utstyrstype")
-            txtId.Text = daoDelt.finnDGWVerdi(utstyrGridView, "id")
             cbxStatus.Text = daoDelt.finnDGWVerdi(utstyrGridView, "s_u_status")
             txtInnkjopspris.Text = daoDelt.finnDGWVerdi(utstyrGridView, "innkjopspris")
             dtpInnkjop.Text = daoDelt.finnDGWVerdi(utstyrGridView, "innkjopt")
@@ -73,7 +72,6 @@
         cbxPosisjon.SelectedIndex = -1
         cbxType.SelectedIndex = -1
         cbxStatus.SelectedIndex = -1
-        txtId.Text = ""
         txtInnkjopspris.Text = ""
         cbxStorrelse.SelectedIndex = -1
         dtpInnkjop.Value = DateTime.Now
@@ -84,8 +82,7 @@
     Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
         'Legge til en ny sykkelutstyr i databasen
         Try
-            Dim utstyr As New clsSykkelUtstyr(txtId.Text,
-                                                cbxTilhorer.SelectedValue,
+            Dim utstyr As New clsSykkelUtstyr(cbxTilhorer.SelectedValue,
                                                 cbxPosisjon.SelectedValue,
                                                 cbxType.SelectedValue,
                                                 txtInnkjopspris.Text,
@@ -108,7 +105,7 @@
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & utstyr_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
-                    Dim utstyr As New clsSykkelUtstyr(txtId.Text,
+                    Dim utstyr As New clsSykkelUtstyr(daoDelt.finnDGWVerdi(utstyrGridView, "id"),
                                                 cbxTilhorer.SelectedValue,
                                                 cbxPosisjon.SelectedValue,
                                                 cbxType.SelectedValue,
@@ -161,7 +158,7 @@
         utstyrstype.Show()
     End Sub
     Private Function utstyr_navn() As String
-        Return txtId.Text & " " & cbxType.Text
+        Return cbxType.Text
     End Function
 
 End Class

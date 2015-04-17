@@ -3,7 +3,26 @@
     Private status, storrelse As String
     Private innkjopt As Date
 
-    'oppdater
+    'Oppdater
+    Sub New(ByVal virksomhet As Integer,
+            ByVal posisjon As Integer,
+            ByVal utstyrstype As Integer,
+            ByVal innkjopspris As Object,
+            ByVal innkjopt As Date,
+            ByVal status As String,
+            ByVal storrelse As String)
+
+        Me.pID = id
+        Me.pVirksomhet = virksomhet
+        Me.pPosisjon = posisjon
+        Me.pUtstyrstype = utstyrstype
+        Me.pInnkjopspris = innkjopspris
+        Me.pInnkjopt = innkjopt
+        Me.pStatus = status
+        Me.pStorrelse = storrelse
+    End Sub
+
+    'Legg til
     Sub New(ByVal id As Integer,
             ByVal virksomhet As Integer,
             ByVal posisjon As Integer,
