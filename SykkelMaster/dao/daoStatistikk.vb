@@ -25,6 +25,9 @@
                       "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
                       "WHERE sykkel.s_status = 'Reperasjon' " &
                       "GROUP BY sykkeltype.sykkeltype;"
+            Case 4 ' Hvor stort er overskuddet
+                sql = "SELECT okonomi.tall as num,inntektstype as navn " &
+                    "FROM okonomi;"
         End Select
 
         Return database.dt_query(sql)

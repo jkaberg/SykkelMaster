@@ -90,7 +90,7 @@ Partial Class statistikk
         '
         Me.cbxStats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxStats.FormattingEnabled = true
-        Me.cbxStats.Items.AddRange(New Object() {"Antal sykkler per sykkeltype", "Mest populære syklene", "Hvor mange sykler per ""lagerplass""", "Hvilke type sykler er ødelagt"})
+        Me.cbxStats.Items.AddRange(New Object() {"Antal sykkler per sykkeltype", "Mest populære syklene", "Hvor mange sykler per ""lagerplass""", "Hvilke type sykler er ødelagt", "Hvor stort er overskuddet"})
         Me.cbxStats.Location = New System.Drawing.Point(9, 394)
         Me.cbxStats.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cbxStats.Name = "cbxStats"
