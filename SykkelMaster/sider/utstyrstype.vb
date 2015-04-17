@@ -54,7 +54,7 @@
             Case MsgBoxResult.Yes
                 Try
                     Dim ut As New clsSykkelUtstyrType(daoDelt.finnDGWVerdi(utstyrstypeGrid, "id"),
-                                                txtNavn.Text)
+                                                      txtNavn.Text)
 
                     daoUtstyrstype.fjernUtstyrstype(ut)
                     MsgBox(txtNavn.Text & " fjernet.", MsgBoxStyle.Exclamation)
