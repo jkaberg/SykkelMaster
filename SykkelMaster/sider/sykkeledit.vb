@@ -176,6 +176,6 @@
     End Sub
 
     Private Function sykkel_navn() As String
-        Return txtRammenr.Text & " " & cbxType.SelectedText
+        Return txtRammenr.Text & " " & cbxType.Text
     End Function
 End Class

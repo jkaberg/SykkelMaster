@@ -127,7 +127,7 @@
         utstyrstype.Show()
     End Sub
     Private Function utstyr_navn() As String
-        Return txtId.Text & " " & cbxType.SelectedText
+        Return txtId.Text & " " & cbxType.Text
     End Function
 
 End Class

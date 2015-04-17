@@ -1,6 +1,6 @@
 ﻿Public Class clsSykkelUtstyr
-    Private id, utstyrstype, passer_sykkel_id, pris, innkjopspris, posisjon, virksomhet As Integer
-    Private storrelse, status As String
+    Private id, virksomhet, posisjon, utstyrstype, pris, innkjopspris, passerSykkel As Integer
+    Private status, storrelse As String
     Private innkjopt As Date
 
     'oppdater
@@ -13,7 +13,7 @@
             ByVal innkjopt As Date,
             ByVal status As String,
             ByVal storrelse As String,
-            ByVal passer_sykkel_id As Integer)
+            ByVal passerSykkel As Integer)
 
         Me.pID = id
         Me.pVirksomhet = virksomhet
@@ -24,7 +24,7 @@
         Me.pInnkjopt = innkjopt
         Me.pStatus = status
         Me.pStorrelse = storrelse
-        Me.pPasserSykkelID = passer_sykkel_id
+        Me.pPasserSykkelID = passerSykkel
     End Sub
 
     'fjern
@@ -105,10 +105,10 @@
     End Property
     Public Property pPasserSykkelID() As Integer
         Get
-            Return passer_sykkel_id
+            Return passerSykkel
         End Get
         Set(ByVal value As Integer)
-            passer_sykkel_id = value
+            passerSykkel = value
         End Set
     End Property
 
