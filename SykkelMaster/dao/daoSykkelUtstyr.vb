@@ -1,6 +1,15 @@
 ﻿Public Class daoSykkelUtstyr
     Public Shared sql As String
 
+    Public Shared Function leggTilUtstyr(ByVal utstyr As clsSykkelUtstyr) As Boolean
+        sql = "INSERT INTO sykkelutstyr VALUES(" & utstyr.pID & ", " & utstyr.pUtstyrstype & ", '" &
+              utstyr.pStorrelse & "', '" & utstyr.pStatus & "', '" &
+              utstyr.pInnkjopspris & "', '" & Format(utstyr.pInnkjopt, "yyyy-MM-dd") & "', " & utstyr.pPosisjon & ", " & utstyr.pVirksomhet & ");"
+
+        Return database.query(sql)
+        Return MsgBox(Format(utstyr.pInnkjopt, "yyyy-MM-dd"))
+    End Function
+
     Public Shared Function oppdaterUtstyr(ByVal utstyr As clsSykkelUtstyr) As Boolean
         sql = "UPDATE sykkelutstyr SET id = " & utstyr.pID & ", utstyrstype = " & utstyr.pUtstyrstype &
               ", storrelse = '" & utstyr.pStorrelse & "', s_u_status = '" & utstyr.pStatus &
@@ -8,6 +17,10 @@
               "', posisjon = " & utstyr.pPosisjon & ", virksomhet_id = " & utstyr.pVirksomhet & " WHERE id = " & utstyr.pID & ";"
 
         Return database.query(sql)
+    End Function
+
+    Public Shared Function fjernUtstyr(ByVal utstyr As clsSykkelUtstyr) As Boolean
+        Return database.query("DELETE FROM sykkelutstyr WHERE id = '" & utstyr.pID & "';")
     End Function
 
     Public Shared Function hentUtstyr(Optional ByVal sok As String = Nothing,

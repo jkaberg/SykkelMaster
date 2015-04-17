@@ -81,8 +81,30 @@
         utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr
     End Sub
 
+    Private Sub btnLeggTil_Click(sender As Object, e As EventArgs) Handles btnLeggTil.Click
+        'Legge til en ny sykkelutstyr i databasen
+        Try
+            Dim utstyr As New clsSykkelUtstyr(txtId.Text,
+                                                cbxTilhorer.SelectedValue,
+                                                cbxPosisjon.SelectedValue,
+                                                cbxType.SelectedValue,
+                                                txtInnkjopspris.Text,
+                                                dtpInnkjop.Value,
+                                                cbxStatus.Text,
+                                                cbxStorrelse.Text)
+            daoSykkelUtstyr.leggTilUtstyr(utstyr)
+            MsgBox(utstyr_navn() & " lagt til.", MsgBoxStyle.Exclamation)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        Finally
+            utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr
+            oppdaterTxtbox()
+        End Try
+
+    End Sub
+
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
-        'Oppdatere sykkel i databasen
+        'Oppdatere sykkelutstyr i databasen
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & utstyr_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try
@@ -102,6 +124,23 @@
                 Finally
                     utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr
                     oppdaterTxtbox()
+                End Try
+        End Select
+    End Sub
+
+    Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
+        'Slette en sykkelutstyr i databasen
+        Select Case MsgBox("Er du sikker på at du vil fjerne " & utstyr_navn() & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                Try
+                    Dim utstyr As New clsSykkelUtstyr(daoDelt.finnDGWVerdi(utstyrGridView, "id"))
+
+                    daoSykkelUtstyr.fjernUtstyr(utstyr)
+                    MsgBox(utstyr_navn() & " er fjernet.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr
                 End Try
         End Select
     End Sub
