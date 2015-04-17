@@ -1,25 +1,29 @@
 ﻿Public Class clsSykkelUtstyr
-    Private id, utstyrstype, passer_sykkel_id, pris, innkjopspris As Integer
-    Private storrelse, s_u_status As String
+    Private id, utstyrstype, passer_sykkel_id, pris, innkjopspris, posisjon, virksomhet As Integer
+    Private storrelse, status As String
     Private innkjopt As Date
 
     'oppdater
     Sub New(ByVal id As Integer,
+            ByVal virksomhet As Integer,
+            ByVal posisjon As Integer,
             ByVal utstyrstype As Integer,
             ByVal pris As Object,
             ByVal innkjopspris As Object,
-            ByVal storrelse As String,
-            ByVal s_u_status As String,
             ByVal innkjopt As Date,
+            ByVal status As String,
+            ByVal storrelse As String,
             ByVal passer_sykkel_id As Integer)
 
         Me.pID = id
+        Me.pVirksomhet = virksomhet
+        Me.pPosisjon = posisjon
         Me.pUtstyrstype = utstyrstype
-        Me.pStorrelse = storrelse
-        Me.pS_u_status = s_u_status
         Me.pPris = pris
         Me.pInnkjopspris = innkjopspris
         Me.pInnkjopt = innkjopt
+        Me.pStatus = status
+        Me.pStorrelse = storrelse
         Me.pPasserSykkelID = passer_sykkel_id
     End Sub
 
@@ -33,6 +37,22 @@
         End Get
         Set(ByVal value As Integer)
             id = value
+        End Set
+    End Property
+    Public Property pPosisjon() As Integer
+        Get
+            Return posisjon
+        End Get
+        Set(ByVal value As Integer)
+            posisjon = value
+        End Set
+    End Property
+    Public Property pVirksomhet() As Integer
+        Get
+            Return virksomhet
+        End Get
+        Set(ByVal value As Integer)
+            virksomhet = value
         End Set
     End Property
     Public Property pUtstyrstype() As Integer
@@ -51,12 +71,12 @@
             storrelse = value
         End Set
     End Property
-    Public Property pS_u_status() As String
+    Public Property pStatus() As String
         Get
-            Return s_u_status
+            Return status
         End Get
         Set(ByVal value As String)
-            s_u_status = value
+            status = value
         End Set
     End Property
     Public Property pPris() As Object
