@@ -94,7 +94,7 @@
         txtPris.Text = ""
         txtInnkjopspris.Text = ""
         txtAvvik.Text = ""
-        dtpInnkjop.Value = DateTime.Now
+        dtpInnkjop.Value = Date.Now
         oppdaterGridView()
     End Sub
 
@@ -109,7 +109,7 @@
                                         cbxStatus.Text,
                                         txtPris.Text,
                                         txtInnkjopspris.Text,
-                                        dtpInnkjop.Value.Date.ToString,
+                                        dtpInnkjop.Value,
                                         cbxPosisjon.SelectedValue,
                                         cbxTilhorer.SelectedValue)
             daoSykkel.leggTilSykkel(sykkel)
@@ -124,6 +124,7 @@
     End Sub
 
     Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
+        Dim dato As Date = dtpInnkjop.Value.Date.ToString
         'Oppdatere sykkel i databasen
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & sykkel_navn() & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
@@ -136,7 +137,7 @@
                                                 cbxStatus.Text,
                                                 txtPris.Text,
                                                 txtInnkjopspris.Text,
-                                                dtpInnkjop.Value.Date.ToString,
+                                                dato,
                                                 cbxPosisjon.SelectedValue,
                                                 cbxTilhorer.SelectedValue)
 
@@ -145,7 +146,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    MsgBox(txtInnkjopspris.Text)
+                    MsgBox(dtpInnkjop.Value)
                     oppdaterGridView()
                     oppdaterTxtbox()
                 End Try

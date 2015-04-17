@@ -9,9 +9,9 @@
             ByVal hjulstr As Integer,
             ByVal rammestr As Integer,
             ByVal status As String,
-            ByVal innkjopt As Object,
             ByVal pris As Object,
-            ByVal innkjopspris As String,
+            ByVal innkjopspris As Object,
+            ByVal innkjopt As String,
             ByVal posisjon As Integer,
             ByVal virksomhet As Integer)
 
