@@ -203,7 +203,7 @@
         End If
     End Sub
 
-    Private Sub vognSykkel_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vognSykkel.CellClick, vognStyr.CellClick
+    Private Sub vognSykkel_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vognSykkel.CellClick
         If Not IsNothing(e.RowIndex) Then
             pris.Text = finnPris(daoDelt.finnDGWVerdi(vognSykkel, "innkjopspris"))
         End If
@@ -211,9 +211,9 @@
 
     Private Function finnPris(ByVal pris As Integer) As String
         If rbDag.Checked Then
-            Return "Pris: " & regnPris.dag(pris) & "kr/dag"
+            Return "Pris: " & regnPris.dag(pris) & " kr/dag"
         ElseIf rbTime.Checked Then
-            Return "Pris: " & regnPris.time(pris) & "kr/dag"
+            Return "Pris: " & regnPris.time(pris) & " kr/dag"
         Else
             Return "Du må velg en leie type."
         End If
