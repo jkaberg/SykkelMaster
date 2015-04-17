@@ -42,7 +42,7 @@ Partial Class utstyrEdit
         Me.btnLeggTil = New System.Windows.Forms.Button()
         Me.cbxStatus = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtRammenr = New System.Windows.Forms.TextBox()
+        Me.txtId = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cbxTilhorer = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -56,6 +56,7 @@ Partial Class utstyrEdit
         Me.cbxLokasjon = New System.Windows.Forms.ComboBox()
         Me.utstyrGridView = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtPasserSykkel = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.utstyrGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,7 +83,7 @@ Partial Class utstyrEdit
         Me.GroupBox1.Controls.Add(Me.btnLeggTil)
         Me.GroupBox1.Controls.Add(Me.cbxStatus)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.txtRammenr)
+        Me.GroupBox1.Controls.Add(Me.txtId)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.cbxTilhorer)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -92,7 +93,7 @@ Partial Class utstyrEdit
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.GroupBox1.Size = New System.Drawing.Size(357, 569)
+        Me.GroupBox1.Size = New System.Drawing.Size(357, 532)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Legg til/Redigere"
@@ -195,10 +196,10 @@ Partial Class utstyrEdit
         '
         'btnTom
         '
-        Me.btnTom.Location = New System.Drawing.Point(10, 386)
+        Me.btnTom.Location = New System.Drawing.Point(13, 345)
         Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnTom.Name = "btnTom"
-        Me.btnTom.Size = New System.Drawing.Size(333, 38)
+        Me.btnTom.Size = New System.Drawing.Size(329, 38)
         Me.btnTom.TabIndex = 9
         Me.btnTom.Text = "Tøm"
         Me.btnTom.UseVisualStyleBackColor = True
@@ -224,30 +225,30 @@ Partial Class utstyrEdit
         '
         'btnSlett
         '
-        Me.btnSlett.Location = New System.Drawing.Point(10, 523)
+        Me.btnSlett.Location = New System.Drawing.Point(13, 482)
         Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnSlett.Name = "btnSlett"
-        Me.btnSlett.Size = New System.Drawing.Size(333, 38)
+        Me.btnSlett.Size = New System.Drawing.Size(329, 38)
         Me.btnSlett.TabIndex = 12
         Me.btnSlett.Text = "Slett"
         Me.btnSlett.UseVisualStyleBackColor = True
         '
         'btnOppdater
         '
-        Me.btnOppdater.Location = New System.Drawing.Point(10, 475)
+        Me.btnOppdater.Location = New System.Drawing.Point(13, 434)
         Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnOppdater.Name = "btnOppdater"
-        Me.btnOppdater.Size = New System.Drawing.Size(333, 38)
+        Me.btnOppdater.Size = New System.Drawing.Size(329, 38)
         Me.btnOppdater.TabIndex = 11
         Me.btnOppdater.Text = "Oppdater"
         Me.btnOppdater.UseVisualStyleBackColor = True
         '
         'btnLeggTil
         '
-        Me.btnLeggTil.Location = New System.Drawing.Point(9, 432)
+        Me.btnLeggTil.Location = New System.Drawing.Point(12, 391)
         Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnLeggTil.Name = "btnLeggTil"
-        Me.btnLeggTil.Size = New System.Drawing.Size(333, 38)
+        Me.btnLeggTil.Size = New System.Drawing.Size(329, 38)
         Me.btnLeggTil.TabIndex = 10
         Me.btnLeggTil.Text = "Legg til"
         Me.btnLeggTil.UseVisualStyleBackColor = True
@@ -272,13 +273,13 @@ Partial Class utstyrEdit
         Me.Label7.TabIndex = 28
         Me.Label7.Text = "Status"
         '
-        'txtRammenr
+        'txtId
         '
-        Me.txtRammenr.Location = New System.Drawing.Point(91, 29)
-        Me.txtRammenr.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.txtRammenr.Name = "txtRammenr"
-        Me.txtRammenr.Size = New System.Drawing.Size(252, 26)
-        Me.txtRammenr.TabIndex = 4
+        Me.txtId.Location = New System.Drawing.Point(91, 29)
+        Me.txtId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.txtId.Name = "txtId"
+        Me.txtId.Size = New System.Drawing.Size(252, 26)
+        Me.txtId.TabIndex = 4
         '
         'Label3
         '
@@ -340,7 +341,7 @@ Partial Class utstyrEdit
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 5, 3, 5)
-        Me.GroupBox2.Size = New System.Drawing.Size(992, 569)
+        Me.GroupBox2.Size = New System.Drawing.Size(992, 532)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Søk"
@@ -407,7 +408,7 @@ Partial Class utstyrEdit
         Me.utstyrGridView.RowHeadersVisible = False
         Me.utstyrGridView.RowTemplate.Height = 24
         Me.utstyrGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.utstyrGridView.Size = New System.Drawing.Size(974, 503)
+        Me.utstyrGridView.Size = New System.Drawing.Size(974, 462)
         Me.utstyrGridView.TabIndex = 18
         '
         'Label6
@@ -419,11 +420,20 @@ Partial Class utstyrEdit
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Posisjon"
         '
+        'txtPasserSykkel
+        '
+        Me.txtPasserSykkel.Location = New System.Drawing.Point(105, 574)
+        Me.txtPasserSykkel.Name = "txtPasserSykkel"
+        Me.txtPasserSykkel.Size = New System.Drawing.Size(100, 26)
+        Me.txtPasserSykkel.TabIndex = 5
+        Me.txtPasserSykkel.Text = "1"
+        '
         'utstyrEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1383, 594)
+        Me.ClientSize = New System.Drawing.Size(1383, 644)
+        Me.Controls.Add(Me.txtPasserSykkel)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -437,6 +447,7 @@ Partial Class utstyrEdit
         Me.GroupBox2.PerformLayout()
         CType(Me.utstyrGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -445,7 +456,7 @@ Partial Class utstyrEdit
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbxType As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtRammenr As System.Windows.Forms.TextBox
+    Friend WithEvents txtId As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents cbxLokasjon As System.Windows.Forms.ComboBox
     Friend WithEvents utstyrGridView As System.Windows.Forms.DataGridView
@@ -473,4 +484,5 @@ Partial Class utstyrEdit
     Friend WithEvents txtPris As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbxStorrelse As System.Windows.Forms.ComboBox
+    Friend WithEvents txtPasserSykkel As System.Windows.Forms.TextBox
 End Class

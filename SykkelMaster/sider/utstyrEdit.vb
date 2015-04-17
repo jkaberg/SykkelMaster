@@ -51,11 +51,16 @@
     End Sub
 
     Private Sub utstyrGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles utstyrGridView.CellClick
-        With Me.utstyrGridView
+        oppdaterTxtbox()
+    End Sub
+
+    Private Sub oppdaterTxtbox()
+        'Setter inn datane fra Grid Viewn i Textboksene
+       With Me.utstyrGridView
             cbxTilhorer.Text = daoDelt.finnDGWVerdi(utstyrGridView, "navn")
             cbxPosisjon.Text = daoDelt.finnDGWVerdi(utstyrGridView, "posisjon")
             cbxType.Text = daoDelt.finnDGWVerdi(utstyrGridView, "utstyrstype")
-            txtRammenr.Text = daoDelt.finnDGWVerdi(utstyrGridView, "id")
+            txtId.Text = daoDelt.finnDGWVerdi(utstyrGridView, "id")
             cbxStatus.Text = daoDelt.finnDGWVerdi(utstyrGridView, "s_u_status")
             txtPris.Text = daoDelt.finnDGWVerdi(utstyrGridView, "pris")
             txtInnkjopspris.Text = daoDelt.finnDGWVerdi(utstyrGridView, "innkjopspris")
@@ -70,13 +75,40 @@
         cbxPosisjon.SelectedIndex = -1
         cbxType.SelectedIndex = -1
         cbxStatus.SelectedIndex = -1
-        txtRammenr.Text = ""
+        txtId.Text = ""
         txtPris.Text = ""
         txtInnkjopspris.Text = ""
         cbxStorrelse.SelectedIndex = -1
         dtpInnkjop.Value = DateTime.Now
 
         utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr
+    End Sub
+
+    Private Sub btnOppdater_Click(sender As Object, e As EventArgs) Handles btnOppdater.Click
+        'Oppdatere sykkel i databasen
+        Select Case MsgBox("Er du sikker på at du vil oppdatere " & utstyr_navn() & "?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                Try
+                    Dim utstyr As New clsSykkelUtstyr(txtId.Text,
+                                                cbxTilhorer.SelectedValue,
+                                                cbxPosisjon.SelectedValue,
+                                                cbxType.SelectedValue,
+                                                txtPris.Text,
+                                                txtInnkjopspris.Text,
+                                                dtpInnkjop.Value,
+                                                cbxStatus.Text,
+                                                cbxStorrelse.Text,
+                                                txtPasserSykkel.Text)
+
+                    daoSykkelUtstyr.oppdaterUtstyr(utstyr)
+                    MsgBox(utstyr_navn() & " er oppdatert.", MsgBoxStyle.Exclamation)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                Finally
+                    utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr
+                    oppdaterTxtbox()
+                End Try
+        End Select
     End Sub
 
     Private Sub txtSok_TextChanged(sender As Object, e As EventArgs) Handles txtSok.TextChanged
@@ -94,5 +126,8 @@
     Private Sub btnSykkeltype_Click(sender As Object, e As EventArgs) Handles btnSykkeltype.Click
         utstyrstype.Show()
     End Sub
+    Private Function utstyr_navn() As String
+        Return txtId.Text & " " & cbxType.SelectedText
+    End Function
 
 End Class

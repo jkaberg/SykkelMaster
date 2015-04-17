@@ -1,6 +1,10 @@
 ﻿Public Class daoSykkelUtstyr
     Public Shared sql As String
 
+
+        Return database.query(sql)
+    End Function
+
     Public Shared Function hentUtstyr(Optional ByVal sok As String = Nothing,
                                        Optional ByVal posisjon As String = Nothing,
                                        Optional ByVal status As String = Nothing) As DataTable
