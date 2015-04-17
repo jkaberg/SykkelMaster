@@ -3,7 +3,6 @@
 
     Private Sub bruker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Laster inn daten fra databasen til GridView
-        oppdaterGridView()
 
         With cbxStilling
             .DisplayMember = "stilling"
@@ -16,84 +15,9 @@
             .ValueMember = "id"
             .DataSource = daoDelt.hentVirksomhet
         End With
-    End Sub
 
-    Private Sub Vis_bruker(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
-        'Setter inn dataen fra Grid Viewn i Textboksene
-        With Me.brukerGridView
-            txtNavn.Text = daoDelt.finnDGWVerdi(brukerGridView, "fornavn")
-            txtEtternavn.Text = daoDelt.finnDGWVerdi(brukerGridView, "etternavn")
-            txtTelefon.Text = daoDelt.finnDGWVerdi(brukerGridView, "telefon")
-            txtAdresse.Text = daoDelt.finnDGWVerdi(brukerGridView, "adresse")
-            txtMail.Text = daoDelt.finnDGWVerdi(brukerGridView, "mail")
-            txtPostnr.Text = daoDelt.finnDGWVerdi(brukerGridView, "post_nr")
-
-            'Sett provisjonen
-            provisjonLabel(daoDelt.finnDGWVerdi(brukerGridView, "provisjon"))
-        End With
-        stilling()
-        arbeidssted()
-    End Sub
-
-    Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
-        If txtPostnr.Text <> "" Then
-            txtPostSted.Text = daoDelt.finnPostSted(txtPostnr.Text)
-        Else
-            txtPostSted.Text = ""
-        End If
-    End Sub
-
-    Private Sub ProvisjoBar_Scroll(sender As Object, e As ScrollEventArgs) Handles ProvisjonBar.Scroll
-        'Oppdater provisjonslabel med scrollbar veriden
-        provisjonLabel(ProvisjonBar.Value)
-    End Sub
-
-    Private Sub provisjonLabel(ByVal p As Integer)
-        'Oppdater provisjonslabel med scrollbar veriden
-        If Not ProvisjonBar.Value = p Then
-            ProvisjonBar.Value = p
-        End If
-        lblProvisjon.Text = p & "%"
-    End Sub
-
-    Private Sub stilling()
-        payload = daoDelt.hentStillinger()
-
-        With cbxStilling
-            .DisplayMember = "stilling"
-            .ValueMember = "id"
-            .DataSource = payload
-        End With
-
-        'oppdaterer stillling fra databasen i combobox
-        For i As Integer = 0 To payload.Rows.Count - 1
-            If payload.Rows(i)(cbxStilling.DisplayMember).ToString() = Me.brukerGridView.Rows(Me.brukerGridView.CurrentRow.Index).Cells("stilling").Value Then
-                Me.cbxStilling.SelectedIndex = i
-            End If
-        Next
-    End Sub
-
-    Private Sub arbeidssted()
-        Dim lokasjon As DataTable = daoDelt.hentVirksomhet
-
-        With cbxArbedidssted
-            .DisplayMember = "navn"
-            .ValueMember = "id"
-            .DataSource = lokasjon
-        End With
-
-        'oppdaterer stillling fra databasen i combobox
-        For i As Integer = 0 To lokasjon.Rows.Count - 1
-            If lokasjon.Rows(i)(cbxArbedidssted.DisplayMember).ToString() = daoDelt.finnDGWVerdi(brukerGridView, "navn") Then
-                Me.cbxArbedidssted.SelectedIndex = i
-            End If
-        Next
-    End Sub
-
-    Private Sub oppdaterGridView()
-        brukerGridView.DataSource = daoAnsatt.hentAnsatte()
-
-        With Me.brukerGridView
+        With brukerGridView
+            .DataSource = daoAnsatt.hentAnsatte
             'Vis ikke enkelte kolonner 
             .Columns("id").Visible = False
             'Endre navn for å gi en bedre visuell opplevelse
@@ -111,6 +35,41 @@
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
             .Refresh()
         End With
+    End Sub
+
+    Private Sub Vis_bruker(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
+        'Setter inn dataen fra Grid Viewn i Textboksene
+        With Me.brukerGridView
+            txtNavn.Text = daoDelt.finnDGWVerdi(brukerGridView, "fornavn")
+            txtEtternavn.Text = daoDelt.finnDGWVerdi(brukerGridView, "etternavn")
+            txtTelefon.Text = daoDelt.finnDGWVerdi(brukerGridView, "telefon")
+            txtAdresse.Text = daoDelt.finnDGWVerdi(brukerGridView, "adresse")
+            txtMail.Text = daoDelt.finnDGWVerdi(brukerGridView, "mail")
+            txtPostnr.Text = daoDelt.finnDGWVerdi(brukerGridView, "post_nr")
+            cbxStilling.Text = daoDelt.finnDGWVerdi(brukerGridView, "stilling")
+            cbxArbedidssted.Text = daoDelt.finnDGWVerdi(brukerGridView, "navn")
+
+            'Sett provisjonen
+            provisjonLabel(daoDelt.finnDGWVerdi(brukerGridView, "provisjon"))
+        End With
+    End Sub
+
+    Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
+        If txtPostnr.Text <> "" Then
+            txtPostSted.Text = daoDelt.finnPostSted(txtPostnr.Text)
+        Else
+            txtPostSted.Text = ""
+        End If
+    End Sub
+
+    Private Sub ProvisjoBar_Scroll(sender As Object, e As ScrollEventArgs) Handles ProvisjonBar.Scroll
+        'Oppdater provisjonslabel med scrollbar veriden
+        provisjonLabel(ProvisjonBar.Value)
+    End Sub
+
+    Private Sub provisjonLabel(ByVal p As Integer)
+        'Oppdater provisjonslabel med scrollbar veriden
+        lblProvisjon.Text = p & "%"
     End Sub
 
     Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
@@ -146,7 +105,7 @@
                     Catch ex As Exception
                         MsgBox(ex.Message, MsgBoxStyle.Critical)
                     Finally
-                        oppdaterGridView()
+                        brukerGridView.DataSource = daoAnsatt.hentAnsatte
                     End Try
             End Select
         End If
@@ -166,7 +125,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    brukerGridView.DataSource = daoAnsatt.hentAnsatte
                 End Try
         End Select
     End Sub
@@ -192,7 +151,7 @@
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    oppdaterGridView()
+                    brukerGridView.DataSource = daoAnsatt.hentAnsatte
                 End Try
         End Select
     End Sub
@@ -211,6 +170,7 @@
         cbxStilling.SelectedIndex = -1
         cbxArbedidssted.SelectedIndex = -1
         ProvisjonBar.Value = 0
-        oppdaterGridView()
+
+        brukerGridView.DataSource = daoAnsatt.hentAnsatte
     End Sub
 End Class
