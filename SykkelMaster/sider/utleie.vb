@@ -44,7 +44,7 @@
     End Sub
 
     Private Sub utleie_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        tomKundevogn()
+        tomKundevogn(stengerned:=True)
     End Sub
 
 
@@ -177,7 +177,7 @@
         tomKundevogn()
     End Sub
 
-    Private Sub tomKundevogn()
+    Private Sub tomKundevogn(Optional ByVal stengerned As Boolean = False)
         For Each sykkel As DataRow In kundevogn_sykkler.Rows
             daoUtleie.settSykkelStatus("Tilgjengelig", sykkel.Item("rammenr"))
         Next sykkel
@@ -186,13 +186,18 @@
             daoUtleie.settUtstyrStatus("Tilgjengelig", utstyr.Item("id"))
         Next utstyr
 
-        kundevogn_sykkler = daoUtleie.lagSykklerDataTable
-        kundevogn_utstyr = daoUtleie.lagUtstyrDataTable
+        If Not stengerned Then
+            kundevogn_sykkler = daoUtleie.lagSykklerDataTable
+            kundevogn_utstyr = daoUtleie.lagUtstyrDataTable
 
-        vognSykkel.DataSource = kundevogn_sykkler
-        vognStyr.DataSource = kundevogn_utstyr
+            vognSykkel.DataSource = kundevogn_sykkler
+            vognStyr.DataSource = kundevogn_utstyr
 
-        sykkelGrid.DataSource = daoUtleie.hentSykkler
-        utstyrGrid.DataSource = daoUtleie.hentUtstyr
+            sykkelGrid.DataSource = daoUtleie.hentSykkler
+            utstyrGrid.DataSource = daoUtleie.hentUtstyr
+        Else
+            kundevogn_sykkler = Nothing
+            kundevogn_utstyr = Nothing
+        End If
     End Sub
 End Class
