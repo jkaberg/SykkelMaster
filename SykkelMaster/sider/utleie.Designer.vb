@@ -46,21 +46,22 @@ Partial Class utleie
         Me.txtTelefon = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.vognSykkel = New System.Windows.Forms.DataGridView()
         Me.fjernSykkelKundevogn = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FjernToolStripMenuSykkel = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnOprettAvtale = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.utstyrGrid = New System.Windows.Forms.DataGridView()
         Me.vognStyr = New System.Windows.Forms.DataGridView()
         Me.fjernUtstyrKundevogn = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FjernToolStripMenuUtstyr = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.btnTomKundevogn = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.pris = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -85,9 +86,9 @@ Partial Class utleie
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.rbTime)
         Me.GroupBox1.Location = New System.Drawing.Point(246, 11)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(194, 90)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -97,7 +98,7 @@ Partial Class utleie
         '
         Me.rbHelg.AutoSize = True
         Me.rbHelg.Location = New System.Drawing.Point(100, 16)
-        Me.rbHelg.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbHelg.Margin = New System.Windows.Forms.Padding(2)
         Me.rbHelg.Name = "rbHelg"
         Me.rbHelg.Size = New System.Drawing.Size(47, 17)
         Me.rbHelg.TabIndex = 24
@@ -109,7 +110,7 @@ Partial Class utleie
         '
         Me.tilTid.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.tilTid.Location = New System.Drawing.Point(76, 63)
-        Me.tilTid.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tilTid.Margin = New System.Windows.Forms.Padding(2)
         Me.tilTid.Name = "tilTid"
         Me.tilTid.Size = New System.Drawing.Size(110, 20)
         Me.tilTid.TabIndex = 10
@@ -118,7 +119,7 @@ Partial Class utleie
         '
         Me.fraTid.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.fraTid.Location = New System.Drawing.Point(76, 39)
-        Me.fraTid.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.fraTid.Margin = New System.Windows.Forms.Padding(2)
         Me.fraTid.Name = "fraTid"
         Me.fraTid.Size = New System.Drawing.Size(110, 20)
         Me.fraTid.TabIndex = 9
@@ -127,7 +128,7 @@ Partial Class utleie
         '
         Me.rbDag.AutoSize = True
         Me.rbDag.Location = New System.Drawing.Point(4, 16)
-        Me.rbDag.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbDag.Margin = New System.Windows.Forms.Padding(2)
         Me.rbDag.Name = "rbDag"
         Me.rbDag.Size = New System.Drawing.Size(45, 17)
         Me.rbDag.TabIndex = 8
@@ -159,7 +160,7 @@ Partial Class utleie
         '
         Me.rbTime.AutoSize = True
         Me.rbTime.Location = New System.Drawing.Point(50, 16)
-        Me.rbTime.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbTime.Margin = New System.Windows.Forms.Padding(2)
         Me.rbTime.Name = "rbTime"
         Me.rbTime.Size = New System.Drawing.Size(48, 17)
         Me.rbTime.TabIndex = 7
@@ -174,7 +175,7 @@ Partial Class utleie
         Me.sykkelGrid.AllowUserToResizeRows = False
         Me.sykkelGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.sykkelGrid.Location = New System.Drawing.Point(4, 27)
-        Me.sykkelGrid.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.sykkelGrid.Margin = New System.Windows.Forms.Padding(2)
         Me.sykkelGrid.MultiSelect = False
         Me.sykkelGrid.Name = "sykkelGrid"
         Me.sykkelGrid.ReadOnly = True
@@ -189,9 +190,9 @@ Partial Class utleie
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.cbxRabattAvtale)
         Me.GroupBox2.Location = New System.Drawing.Point(246, 106)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(194, 39)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
@@ -213,7 +214,7 @@ Partial Class utleie
         Me.cbxRabattAvtale.FormattingEnabled = True
         Me.cbxRabattAvtale.Items.AddRange(New Object() {"10% Enkeltperson", "20% Enkeltperson", "99% Gruppe"})
         Me.cbxRabattAvtale.Location = New System.Drawing.Point(48, 14)
-        Me.cbxRabattAvtale.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbxRabattAvtale.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxRabattAvtale.Name = "cbxRabattAvtale"
         Me.cbxRabattAvtale.Size = New System.Drawing.Size(139, 21)
         Me.cbxRabattAvtale.TabIndex = 6
@@ -221,7 +222,7 @@ Partial Class utleie
         'txtSokKunde
         '
         Me.txtSokKunde.Location = New System.Drawing.Point(65, 17)
-        Me.txtSokKunde.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSokKunde.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSokKunde.Name = "txtSokKunde"
         Me.txtSokKunde.Size = New System.Drawing.Size(162, 20)
         Me.txtSokKunde.TabIndex = 1
@@ -241,7 +242,7 @@ Partial Class utleie
         Me.cbxNavn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxNavn.FormattingEnabled = True
         Me.cbxNavn.Location = New System.Drawing.Point(65, 41)
-        Me.cbxNavn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbxNavn.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxNavn.Name = "cbxNavn"
         Me.cbxNavn.Size = New System.Drawing.Size(162, 21)
         Me.cbxNavn.TabIndex = 2
@@ -267,9 +268,9 @@ Partial Class utleie
         Me.GroupBox3.Controls.Add(Me.cbxNavn)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Location = New System.Drawing.Point(10, 11)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Size = New System.Drawing.Size(232, 134)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
@@ -278,7 +279,7 @@ Partial Class utleie
         'btnKunde
         '
         Me.btnKunde.Location = New System.Drawing.Point(10, 88)
-        Me.btnKunde.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnKunde.Margin = New System.Windows.Forms.Padding(2)
         Me.btnKunde.Name = "btnKunde"
         Me.btnKunde.Size = New System.Drawing.Size(112, 40)
         Me.btnKunde.TabIndex = 4
@@ -288,7 +289,7 @@ Partial Class utleie
         'btnRedigerKunde
         '
         Me.btnRedigerKunde.Location = New System.Drawing.Point(128, 88)
-        Me.btnRedigerKunde.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnRedigerKunde.Margin = New System.Windows.Forms.Padding(2)
         Me.btnRedigerKunde.Name = "btnRedigerKunde"
         Me.btnRedigerKunde.Size = New System.Drawing.Size(99, 40)
         Me.btnRedigerKunde.TabIndex = 5
@@ -299,7 +300,7 @@ Partial Class utleie
         '
         Me.txtTelefon.Enabled = False
         Me.txtTelefon.Location = New System.Drawing.Point(65, 65)
-        Me.txtTelefon.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtTelefon.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTelefon.Name = "txtTelefon"
         Me.txtTelefon.Size = New System.Drawing.Size(162, 20)
         Me.txtTelefon.TabIndex = 3
@@ -321,13 +322,31 @@ Partial Class utleie
         Me.GroupBox4.Controls.Add(Me.sykkelGrid)
         Me.GroupBox4.Controls.Add(Me.vognSykkel)
         Me.GroupBox4.Location = New System.Drawing.Point(9, 150)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox4.Size = New System.Drawing.Size(314, 298)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Sykkel"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(1, 12)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(75, 13)
+        Me.Label9.TabIndex = 25
+        Me.Label9.Text = "Ledige sykkler"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(1, 144)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(116, 13)
+        Me.Label4.TabIndex = 24
+        Me.Label4.Text = "Sykkler i kundevognen"
         '
         'vognSykkel
         '
@@ -338,7 +357,7 @@ Partial Class utleie
         Me.vognSykkel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vognSykkel.ContextMenuStrip = Me.fjernSykkelKundevogn
         Me.vognSykkel.Location = New System.Drawing.Point(4, 159)
-        Me.vognSykkel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.vognSykkel.Margin = New System.Windows.Forms.Padding(2)
         Me.vognSykkel.MultiSelect = False
         Me.vognSykkel.Name = "vognSykkel"
         Me.vognSykkel.ReadOnly = True
@@ -363,8 +382,8 @@ Partial Class utleie
         '
         'btnOprettAvtale
         '
-        Me.btnOprettAvtale.Location = New System.Drawing.Point(104, 88)
-        Me.btnOprettAvtale.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnOprettAvtale.Location = New System.Drawing.Point(553, 452)
+        Me.btnOprettAvtale.Margin = New System.Windows.Forms.Padding(2)
         Me.btnOprettAvtale.Name = "btnOprettAvtale"
         Me.btnOprettAvtale.Size = New System.Drawing.Size(88, 40)
         Me.btnOprettAvtale.TabIndex = 40
@@ -378,13 +397,31 @@ Partial Class utleie
         Me.GroupBox5.Controls.Add(Me.utstyrGrid)
         Me.GroupBox5.Controls.Add(Me.vognStyr)
         Me.GroupBox5.Location = New System.Drawing.Point(327, 150)
-        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox5.Size = New System.Drawing.Size(314, 298)
         Me.GroupBox5.TabIndex = 24
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Utstyr"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(1, 12)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(64, 13)
+        Me.Label10.TabIndex = 25
+        Me.Label10.Text = "Ledigt utstyr"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(1, 144)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(108, 13)
+        Me.Label8.TabIndex = 24
+        Me.Label8.Text = "Utstyr i kundevognen"
         '
         'utstyrGrid
         '
@@ -393,7 +430,7 @@ Partial Class utleie
         Me.utstyrGrid.AllowUserToResizeRows = False
         Me.utstyrGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.utstyrGrid.Location = New System.Drawing.Point(4, 27)
-        Me.utstyrGrid.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.utstyrGrid.Margin = New System.Windows.Forms.Padding(2)
         Me.utstyrGrid.MultiSelect = False
         Me.utstyrGrid.Name = "utstyrGrid"
         Me.utstyrGrid.ReadOnly = True
@@ -412,7 +449,7 @@ Partial Class utleie
         Me.vognStyr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vognStyr.ContextMenuStrip = Me.fjernUtstyrKundevogn
         Me.vognStyr.Location = New System.Drawing.Point(4, 159)
-        Me.vognStyr.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.vognStyr.Margin = New System.Windows.Forms.Padding(2)
         Me.vognStyr.MultiSelect = False
         Me.vognStyr.Name = "vognStyr"
         Me.vognStyr.ReadOnly = True
@@ -435,78 +472,51 @@ Partial Class utleie
         Me.FjernToolStripMenuUtstyr.Size = New System.Drawing.Size(100, 22)
         Me.FjernToolStripMenuUtstyr.Text = "Fjern"
         '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.btnTomKundevogn)
-        Me.GroupBox6.Controls.Add(Me.btnOprettAvtale)
-        Me.GroupBox6.Location = New System.Drawing.Point(445, 11)
-        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox6.Size = New System.Drawing.Size(196, 134)
-        Me.GroupBox6.TabIndex = 41
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Informasjon"
-        '
         'btnTomKundevogn
         '
-        Me.btnTomKundevogn.Location = New System.Drawing.Point(4, 88)
-        Me.btnTomKundevogn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnTomKundevogn.Location = New System.Drawing.Point(455, 452)
+        Me.btnTomKundevogn.Margin = New System.Windows.Forms.Padding(2)
         Me.btnTomKundevogn.Name = "btnTomKundevogn"
         Me.btnTomKundevogn.Size = New System.Drawing.Size(94, 40)
         Me.btnTomKundevogn.TabIndex = 41
         Me.btnTomKundevogn.Text = "Tøm kundevogner"
         Me.btnTomKundevogn.UseVisualStyleBackColor = True
         '
-        'Label4
+        'GroupBox6
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(1, 144)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(116, 13)
-        Me.Label4.TabIndex = 24
-        Me.Label4.Text = "Sykkler i kundevognen"
+        Me.GroupBox6.Controls.Add(Me.pris)
+        Me.GroupBox6.Location = New System.Drawing.Point(445, 11)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(196, 134)
+        Me.GroupBox6.TabIndex = 42
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Informasjon"
         '
-        'Label8
+        'pris
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(1, 144)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(108, 13)
-        Me.Label8.TabIndex = 24
-        Me.Label8.Text = "Utstyr i kundevognen"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(1, 12)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(75, 13)
-        Me.Label9.TabIndex = 25
-        Me.Label9.Text = "Ledige sykkler"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(1, 12)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(64, 13)
-        Me.Label10.TabIndex = 25
-        Me.Label10.Text = "Ledigt utstyr"
+        Me.pris.AutoSize = True
+        Me.pris.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pris.Location = New System.Drawing.Point(6, 109)
+        Me.pris.Name = "pris"
+        Me.pris.Size = New System.Drawing.Size(117, 20)
+        Me.pris.TabIndex = 1
+        Me.pris.Text = "Pris: 0 kr / døgn"
         '
         'utleie
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(646, 452)
+        Me.ClientSize = New System.Drawing.Size(648, 497)
         Me.Controls.Add(Me.GroupBox6)
+        Me.Controls.Add(Me.btnOprettAvtale)
+        Me.Controls.Add(Me.btnTomKundevogn)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "utleie"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Utleie"
@@ -527,6 +537,7 @@ Partial Class utleie
         CType(Me.vognStyr, System.ComponentModel.ISupportInitialize).EndInit()
         Me.fjernUtstyrKundevogn.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -562,10 +573,11 @@ Partial Class utleie
     Friend WithEvents vognStyr As System.Windows.Forms.DataGridView
     Friend WithEvents fjernUtstyrKundevogn As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents FjernToolStripMenuUtstyr As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents btnTomKundevogn As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
+    Friend WithEvents pris As System.Windows.Forms.Label
 End Class

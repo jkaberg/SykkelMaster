@@ -17,6 +17,7 @@
             .Columns("sykkelnavn").HeaderText = "Type"
             .Columns("hjulstr").HeaderText = "Hjulstr"
             .Columns("rammestr").HeaderText = "Rammestr"
+            .Columns("innkjopspris").HeaderText = "Pris"
         End With
 
         With Me.vognSykkel
@@ -32,14 +33,14 @@
             .DataSource = daoUtleie.hentUtstyr
             .Columns("id").Visible = False
             .Columns("navn").HeaderText = "Navn"
-            .Columns("Pris").HeaderText = "Pris"
+            .Columns("innkjopspris").HeaderText = "Pris"
         End With
 
         With Me.vognStyr
             .DataSource = kundevogn_utstyr
             .Columns("id").Visible = False
             .Columns("navn").HeaderText = "Navn"
-            .Columns("pris").HeaderText = "Pris"
+            .Columns("innkjopspris").HeaderText = "Pris"
         End With
     End Sub
 
@@ -105,7 +106,8 @@
                                                                  daoDelt.finnDGWVerdi(sykkelGrid, "sykkelnavn"),
                                                                  daoDelt.finnDGWVerdi(sykkelGrid, "sykkeltype"),
                                                                  daoDelt.finnDGWVerdi(sykkelGrid, "hjulstr"),
-                                                                 daoDelt.finnDGWVerdi(sykkelGrid, "rammestr"))
+                                                                 daoDelt.finnDGWVerdi(sykkelGrid, "rammestr"),
+                                                                 daoDelt.finnDGWVerdi(sykkelGrid, "innkjopspris"))
 
             sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Reservert",
                                                                daoDelt.finnDGWVerdi(sykkelGrid, "rammenr"))
@@ -151,7 +153,7 @@
             kundevogn_utstyr = daoUtleie.leggTilUtstyrKundevogn(kundevogn_utstyr,
                                                                 daoDelt.finnDGWVerdi(utstyrGrid, "id"),
                                                                 daoDelt.finnDGWVerdi(utstyrGrid, "navn"),
-                                                                daoDelt.finnDGWVerdi(utstyrGrid, "pris"))
+                                                                daoDelt.finnDGWVerdi(utstyrGrid, "innkjopspris"))
 
             utstyrGrid.DataSource = daoUtleie.settUtstyrStatus("Reservert",
                                                                daoDelt.finnDGWVerdi(utstyrGrid, "id"))
@@ -200,4 +202,20 @@
             kundevogn_utstyr = Nothing
         End If
     End Sub
+
+    Private Sub vognSykkel_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vognSykkel.CellClick, vognStyr.CellClick
+        If Not IsNothing(e.RowIndex) Then
+            pris.Text = finnPris(daoDelt.finnDGWVerdi(vognSykkel, "innkjopspris"))
+        End If
+    End Sub
+
+    Private Function finnPris(ByVal pris As Integer) As String
+        If rbDag.Checked Then
+            Return "Pris: " & regnPris.dag(pris) & "kr/dag"
+        ElseIf rbTime.Checked Then
+            Return "Pris: " & regnPris.time(pris) & "kr/dag"
+        Else
+            Return "Du må velg en leie type."
+        End If
+    End Function
 End Class
