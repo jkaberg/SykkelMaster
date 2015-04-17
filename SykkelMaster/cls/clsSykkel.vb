@@ -11,7 +11,7 @@
             ByVal status As String,
             ByVal pris As Object,
             ByVal innkjopspris As Object,
-            ByVal innkjopt As String,
+            ByVal innkjopt As Date,
             ByVal posisjon As Integer,
             ByVal virksomhet As Integer)
 
@@ -85,11 +85,11 @@
             status = value
         End Set
     End Property
-    Public Property pInnkjopt() As String
+    Public Property pInnkjopt() As Date
         Get
             Return innkjopt
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Date)
             innkjopt = value
         End Set
     End Property

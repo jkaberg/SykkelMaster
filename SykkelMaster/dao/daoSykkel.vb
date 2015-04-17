@@ -4,7 +4,7 @@
     Public Shared Function leggTilSykkel(ByVal sykkel As clsSykkel) As Boolean
         sql = "INSERT INTO sykkel VALUES('" & sykkel.pRammenr & "', " & sykkel.pSykkelType & ", " &
               sykkel.pHjulstr & ", " & sykkel.pRammestr & ", '" & sykkel.pStatus & "', '" & sykkel.pPris & "', '" &
-              sykkel.pInnkjopspris & ", '" & sykkel.pInnkjopt & "', '" & sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
+              sykkel.pInnkjopspris & ", '" & Format(sykkel.pInnkjopt, "yyyy-MM-dd") & "', '" & sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
 
         Return database.query(sql)
     End Function
@@ -12,9 +12,8 @@
     Public Shared Function oppdaterSykkel(ByVal sykkel As clsSykkel) As Boolean
         sql = "UPDATE sykkel SET rammenr = '" & sykkel.pRammenr & "', sykkeltype = " & sykkel.pSykkelType &
               ", hjulstr = " & sykkel.pHjulstr & ", rammestr = " & sykkel.pRammestr & ", s_status = '" & sykkel.pStatus &
-              "', pris = " & sykkel.pPris & ", innkjopspris = " & sykkel.pInnkjopspris & ", innkjopt = '" & sykkel.pInnkjopt & "', avviksmelding = '" & sykkel.pAvviksmld &
+              "', pris = " & sykkel.pPris & ", innkjopspris = " & sykkel.pInnkjopspris & ", innkjopt = '" & Format(sykkel.pInnkjopt, "yyyy-MM-dd") & "', avviksmelding = '" & sykkel.pAvviksmld &
               "', posisjon = " & sykkel.pPosisjon & ", virksomhet_id = " & sykkel.pVirksomhet & " WHERE rammenr = '" & sykkel.pRammenr & "';"
-        Console.WriteLine(sql)
 
         Return database.query(sql)
     End Function
