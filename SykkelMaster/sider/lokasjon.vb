@@ -19,6 +19,7 @@
         lokasjonGrid.DataSource = daoLokasjon.hentLokasjoner(sok)
     End Sub
     Private Sub oversiktGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles lokasjonGrid.CellClick
+        'legger inn info i tekstboksene
         With lokasjonGrid
             txtNavn.Text = daoDelt.finnDGWVerdi(lokasjonGrid, "navn")
             txtTelefon.Text = daoDelt.finnDGWVerdi(lokasjonGrid, "telefon")
@@ -30,6 +31,7 @@
 
 
     Private Sub btnAddlocation_Click(sender As Object, e As EventArgs) Handles btnAddLocation.Click
+        'legger til lokasjon
         Try
             Dim lokasjon As New clsLokasjon(txtNavn.Text,
                                             txtMail.Text,
@@ -48,12 +50,14 @@
 
 
     Private Sub txtpostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
+        'henter frem poststed ut ifra postnummer
         If IsNumeric(txtPostnr.Text) Then
             txtPoststed.Text = daoDelt.finnPostSted(txtPostnr.Text)
         End If
     End Sub
 
     Private Sub btnUpdateLocation_Click(sender As Object, e As EventArgs) Handles btnUpdateLocation.Click
+        'oppdaterer lokasjon
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & txtNavn.Text & "?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 Try

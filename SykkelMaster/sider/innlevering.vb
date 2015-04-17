@@ -19,6 +19,7 @@
     End Sub
 
     Private Sub cbxKunde_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxKunde.SelectedIndexChanged
+        'Henter ordrene til kunden
         Dim kunde_id As String = cbxKunde.SelectedValue
 
         If kunde_id > 0 Then
@@ -33,6 +34,7 @@
     End Sub
 
     Private Sub Avslutt_leie(sender As Object, e As EventArgs) Handles AvsluttLeie.Click
+        'Avslutter leien
         Dim ordre_nr As Integer = daoDelt.finnDGWVerdi(oversiktGrid, "ordre_nr")
 
         If lokasjoner.SelectedValue <> 0 Then
