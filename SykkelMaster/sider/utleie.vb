@@ -41,8 +41,12 @@
             .Columns("navn").HeaderText = "Navn"
             .Columns("pris").HeaderText = "Pris"
         End With
-
     End Sub
+
+    Private Sub utleie_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        tomKundevogn()
+    End Sub
+
 
     Private Sub btnKunde_Click(sender As Object, e As EventArgs) Handles btnKunde.Click
         person.Show()
@@ -122,13 +126,6 @@
         End If
     End Sub
 
-    Private Sub nullStillOrdre()
-
-    End Sub
-
-    Private Function sykkelUtstyr()
-    End Function
-
     Private Function helgLeie(ByVal fra As Date, ByVal til As Date)
         If dagErHelg(fra) And dagErHelg(til) Then
             If DateDiff(DateInterval.Day, fra, til) = 1 Then
@@ -177,6 +174,10 @@
     End Sub
 
     Private Sub btnTomKundevogn_Click(sender As Object, e As EventArgs) Handles btnTomKundevogn.Click
+        tomKundevogn()
+    End Sub
+
+    Private Sub tomKundevogn()
         For Each sykkel As DataRow In kundevogn_sykkler.Rows
             daoUtleie.settSykkelStatus("Tilgjengelig", sykkel.Item("rammenr"))
         Next sykkel
@@ -185,7 +186,13 @@
             daoUtleie.settUtstyrStatus("Tilgjengelig", utstyr.Item("id"))
         Next utstyr
 
-        kundevogn_sykkler = Nothing
-        kundevogn_utstyr = Nothing
+        kundevogn_sykkler = daoUtleie.lagSykklerDataTable
+        kundevogn_utstyr = daoUtleie.lagUtstyrDataTable
+
+        vognSykkel.DataSource = kundevogn_sykkler
+        vognStyr.DataSource = kundevogn_utstyr
+
+        sykkelGrid.DataSource = daoUtleie.hentSykkler
+        utstyrGrid.DataSource = daoUtleie.hentUtstyr
     End Sub
 End Class
