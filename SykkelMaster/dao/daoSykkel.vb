@@ -4,10 +4,9 @@
     Public Shared Function leggTilSykkel(ByVal sykkel As clsSykkel) As Boolean
         sql = "INSERT INTO sykkel VALUES('" & sykkel.pRammenr & "', " & sykkel.pSykkelType & ", " &
               sykkel.pHjulstr & ", " & sykkel.pRammestr & ", '" & sykkel.pStatus & "', '" & sykkel.pPris & "', '" &
-              sykkel.pInnkjopspris & "', '" & Format(sykkel.pInnkjopt, "yyyy-MM-dd") & "', '" & sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
+              sykkel.pInnkjopspris & ", '" & Format(sykkel.pInnkjopt, "yyyy-MM-dd") & "', '" & sykkel.pAvviksmld & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
 
         Return database.query(sql)
-        Return MsgBox(Format(sykkel.pInnkjopt, "yyyy-MM-dd"))
     End Function
 
     Public Shared Function oppdaterSykkel(ByVal sykkel As clsSykkel) As Boolean
