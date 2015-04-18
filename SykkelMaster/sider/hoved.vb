@@ -1,10 +1,5 @@
 ﻿Public Class hoved
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
+
     Private Sub Vis_Kunder(sender As Object, e As EventArgs) Handles btnVis_Kunder.Click
         person.Show()
     End Sub
@@ -43,8 +38,11 @@
         start.Show()
     End Sub
 
+    ''' <summary>
+    ''' Viser navnet på den ansatt som logger inn 
+    ''' </summary>
     Private Sub hoved_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Vis navnet på den ansatte som logger inn i Label1 (eksempel: Velkommen, Joel Kåberg)
+
         lblNavn.Text += start.bruker.pFnavn & " " & start.bruker.pEnavn
 
         With cbxPlassering
