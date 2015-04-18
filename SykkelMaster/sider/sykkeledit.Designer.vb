@@ -104,7 +104,7 @@ Partial Class sykkelEdit
         Me.dtpInnkjop.Location = New System.Drawing.Point(116, 205)
         Me.dtpInnkjop.Name = "dtpInnkjop"
         Me.dtpInnkjop.Size = New System.Drawing.Size(226, 26)
-        Me.dtpInnkjop.TabIndex = 5
+        Me.dtpInnkjop.TabIndex = 7
         '
         'Label16
         '
@@ -129,7 +129,7 @@ Partial Class sykkelEdit
         Me.txtInnkjopspris.Location = New System.Drawing.Point(116, 173)
         Me.txtInnkjopspris.Name = "txtInnkjopspris"
         Me.txtInnkjopspris.Size = New System.Drawing.Size(112, 26)
-        Me.txtInnkjopspris.TabIndex = 5
+        Me.txtInnkjopspris.TabIndex = 6
         '
         'Label14
         '
@@ -146,7 +146,7 @@ Partial Class sykkelEdit
         Me.btnSykkeltype.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSykkeltype.Name = "btnSykkeltype"
         Me.btnSykkeltype.Size = New System.Drawing.Size(110, 32)
-        Me.btnSykkeltype.TabIndex = 22
+        Me.btnSykkeltype.TabIndex = 5
         Me.btnSykkeltype.Text = "Legg til"
         Me.btnSykkeltype.UseVisualStyleBackColor = True
         '
@@ -156,7 +156,7 @@ Partial Class sykkelEdit
         Me.btnTom.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnTom.Name = "btnTom"
         Me.btnTom.Size = New System.Drawing.Size(333, 38)
-        Me.btnTom.TabIndex = 9
+        Me.btnTom.TabIndex = 12
         Me.btnTom.Text = "Tøm"
         Me.btnTom.UseVisualStyleBackColor = True
         '
@@ -168,7 +168,7 @@ Partial Class sykkelEdit
         Me.cbxPosisjon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbxPosisjon.Name = "cbxPosisjon"
         Me.cbxPosisjon.Size = New System.Drawing.Size(252, 28)
-        Me.cbxPosisjon.TabIndex = 2
+        Me.cbxPosisjon.TabIndex = 3
         '
         'Label10
         '
@@ -185,7 +185,7 @@ Partial Class sykkelEdit
         Me.btnSlett.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnSlett.Name = "btnSlett"
         Me.btnSlett.Size = New System.Drawing.Size(333, 38)
-        Me.btnSlett.TabIndex = 12
+        Me.btnSlett.TabIndex = 15
         Me.btnSlett.Text = "Slett"
         Me.btnSlett.UseVisualStyleBackColor = True
         '
@@ -195,7 +195,7 @@ Partial Class sykkelEdit
         Me.btnOppdater.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnOppdater.Name = "btnOppdater"
         Me.btnOppdater.Size = New System.Drawing.Size(333, 38)
-        Me.btnOppdater.TabIndex = 11
+        Me.btnOppdater.TabIndex = 14
         Me.btnOppdater.Text = "Oppdater"
         Me.btnOppdater.UseVisualStyleBackColor = True
         '
@@ -205,7 +205,7 @@ Partial Class sykkelEdit
         Me.btnLeggTil.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.btnLeggTil.Name = "btnLeggTil"
         Me.btnLeggTil.Size = New System.Drawing.Size(333, 38)
-        Me.btnLeggTil.TabIndex = 10
+        Me.btnLeggTil.TabIndex = 13
         Me.btnLeggTil.Text = "Legg til"
         Me.btnLeggTil.UseVisualStyleBackColor = True
         '
@@ -216,7 +216,7 @@ Partial Class sykkelEdit
         Me.txtAvvik.Multiline = True
         Me.txtAvvik.Name = "txtAvvik"
         Me.txtAvvik.Size = New System.Drawing.Size(252, 106)
-        Me.txtAvvik.TabIndex = 8
+        Me.txtAvvik.TabIndex = 11
         '
         'Label8
         '
@@ -236,7 +236,7 @@ Partial Class sykkelEdit
         Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxStatus.Name = "cbxStatus"
         Me.cbxStatus.Size = New System.Drawing.Size(252, 28)
-        Me.cbxStatus.TabIndex = 7
+        Me.cbxStatus.TabIndex = 10
         '
         'Label7
         '
@@ -256,7 +256,7 @@ Partial Class sykkelEdit
         Me.cbxHjul.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxHjul.Name = "cbxHjul"
         Me.cbxHjul.Size = New System.Drawing.Size(78, 28)
-        Me.cbxHjul.TabIndex = 5
+        Me.cbxHjul.TabIndex = 8
         '
         'Label5
         '
@@ -276,7 +276,7 @@ Partial Class sykkelEdit
         Me.cbxRamme.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxRamme.Name = "cbxRamme"
         Me.cbxRamme.Size = New System.Drawing.Size(78, 28)
-        Me.cbxRamme.TabIndex = 6
+        Me.cbxRamme.TabIndex = 9
         '
         'Label4
         '
@@ -294,7 +294,7 @@ Partial Class sykkelEdit
         Me.txtRammenr.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txtRammenr.Name = "txtRammenr"
         Me.txtRammenr.Size = New System.Drawing.Size(252, 26)
-        Me.txtRammenr.TabIndex = 4
+        Me.txtRammenr.TabIndex = 1
         '
         'Label3
         '
@@ -313,7 +313,7 @@ Partial Class sykkelEdit
         Me.cbxTilhorer.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxTilhorer.Name = "cbxTilhorer"
         Me.cbxTilhorer.Size = New System.Drawing.Size(252, 28)
-        Me.cbxTilhorer.TabIndex = 1
+        Me.cbxTilhorer.TabIndex = 2
         '
         'Label2
         '
@@ -332,7 +332,7 @@ Partial Class sykkelEdit
         Me.cbxType.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxType.Name = "cbxType"
         Me.cbxType.Size = New System.Drawing.Size(138, 28)
-        Me.cbxType.TabIndex = 3
+        Me.cbxType.TabIndex = 4
         '
         'Label1
         '
@@ -379,7 +379,7 @@ Partial Class sykkelEdit
         Me.cbxSokStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxSokStatus.Name = "cbxSokStatus"
         Me.cbxSokStatus.Size = New System.Drawing.Size(146, 28)
-        Me.cbxSokStatus.TabIndex = 20
+        Me.cbxSokStatus.TabIndex = 18
         '
         'txtSok
         '
@@ -387,7 +387,7 @@ Partial Class sykkelEdit
         Me.txtSok.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtSok.Name = "txtSok"
         Me.txtSok.Size = New System.Drawing.Size(148, 26)
-        Me.txtSok.TabIndex = 14
+        Me.txtSok.TabIndex = 17
         '
         'Label9
         '
@@ -406,7 +406,7 @@ Partial Class sykkelEdit
         Me.cbxLokasjon.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxLokasjon.Name = "cbxLokasjon"
         Me.cbxLokasjon.Size = New System.Drawing.Size(146, 28)
-        Me.cbxLokasjon.TabIndex = 13
+        Me.cbxLokasjon.TabIndex = 16
         '
         'SykkelGridView
         '

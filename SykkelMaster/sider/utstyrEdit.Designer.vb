@@ -105,14 +105,14 @@ Partial Class utstyrEdit
         Me.cbxStorrelse.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxStorrelse.Name = "cbxStorrelse"
         Me.cbxStorrelse.Size = New System.Drawing.Size(252, 28)
-        Me.cbxStorrelse.TabIndex = 41
+        Me.cbxStorrelse.TabIndex = 8
         '
         'dtpInnkjop
         '
         Me.dtpInnkjop.Location = New System.Drawing.Point(116, 172)
         Me.dtpInnkjop.Name = "dtpInnkjop"
         Me.dtpInnkjop.Size = New System.Drawing.Size(226, 26)
-        Me.dtpInnkjop.TabIndex = 33
+        Me.dtpInnkjop.TabIndex = 6
         '
         'Label16
         '
@@ -137,7 +137,7 @@ Partial Class utstyrEdit
         Me.txtInnkjopspris.Location = New System.Drawing.Point(116, 140)
         Me.txtInnkjopspris.Name = "txtInnkjopspris"
         Me.txtInnkjopspris.Size = New System.Drawing.Size(112, 26)
-        Me.txtInnkjopspris.TabIndex = 35
+        Me.txtInnkjopspris.TabIndex = 5
         '
         'Label14
         '
@@ -154,7 +154,7 @@ Partial Class utstyrEdit
         Me.btnSykkeltype.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSykkeltype.Name = "btnSykkeltype"
         Me.btnSykkeltype.Size = New System.Drawing.Size(110, 32)
-        Me.btnSykkeltype.TabIndex = 22
+        Me.btnSykkeltype.TabIndex = 4
         Me.btnSykkeltype.Text = "Legg til"
         Me.btnSykkeltype.UseVisualStyleBackColor = True
         '
@@ -311,7 +311,7 @@ Partial Class utstyrEdit
         Me.cbxSokStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.cbxSokStatus.Name = "cbxSokStatus"
         Me.cbxSokStatus.Size = New System.Drawing.Size(146, 28)
-        Me.cbxSokStatus.TabIndex = 20
+        Me.cbxSokStatus.TabIndex = 15
         '
         'txtSok
         '
