@@ -1,4 +1,10 @@
 ﻿Public Class hoved
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub Vis_Kunder(sender As Object, e As EventArgs) Handles btnVis_Kunder.Click
         person.Show()
     End Sub
