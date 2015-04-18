@@ -132,7 +132,6 @@
                 End Try
         End Select
     End Sub
-
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
         'Oppdater bruker
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & navn() & "?", MsgBoxStyle.YesNo)
