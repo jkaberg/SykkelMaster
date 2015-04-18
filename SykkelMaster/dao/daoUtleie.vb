@@ -9,6 +9,7 @@
 
         Return dt
     End Function
+
 #Region "sykkel"
     Public Shared Function hentSykkler() As DataTable
         sql = "SELECT sykkel.rammenr, sykkel.hjulstr, sykkel.sykkeltype, sykkel.rammestr, sykkel.innkjopspris, " &

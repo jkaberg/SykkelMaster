@@ -44,12 +44,9 @@
             .Columns("navn").HeaderText = "Navn"
         End With
     End Sub
-
     Private Sub utleie_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         tomKundevogn(stengerned:=True)
     End Sub
-
-
     Private Sub btnKunde_Click(sender As Object, e As EventArgs) Handles btnKunde.Click
         person.Show()
     End Sub
@@ -57,7 +54,6 @@
         person.Show()
         person.oppdaterGridView(id:=cbxNavn.SelectedValue)
     End Sub
-
     Private Sub txtSokKunde_TextChanged(sender As Object, e As EventArgs) Handles txtSokKunde.TextChanged
         payload = daoDelt.finnKunde(txtSokKunde.Text)
 
@@ -87,7 +83,6 @@
         tilTid.Format = DateTimePickerFormat.Short
         tilTid.ShowUpDown = False
     End Sub
-
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
         If cbxNavn.SelectedValue Then
             If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
@@ -99,7 +94,6 @@
             MsgBox("Du må velge en kunde.", MsgBoxStyle.Exclamation)
         End If
     End Sub
-
     Private Sub sykkelGrid_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles sykkelGrid.MouseDoubleClick
         If Not IsNothing(Me.sykkelGrid.CurrentRow) Then
             kundevogn_sykkler = daoUtleie.leggTilSykkelKundevogn(kundevogn_sykkler,
@@ -116,7 +110,6 @@
             MsgBox("Du må velg en gyldig rad i sykkel oversikten.", MsgBoxStyle.Exclamation)
         End If
     End Sub
-
     Private Sub FjernToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FjernToolStripMenuSykkel.Click
         If Not IsNothing(Me.vognSykkel.CurrentRow) Then
             sykkelGrid.DataSource = daoUtleie.settSykkelStatus("Tilgjengelig",
@@ -128,7 +121,6 @@
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If
     End Sub
-
     Private Function helgLeie(ByVal fra As Date, ByVal til As Date)
         If dagErHelg(fra) And dagErHelg(til) Then
             If DateDiff(DateInterval.Day, fra, til) = 1 Then
@@ -137,7 +129,6 @@
         End If
         Return False
     End Function
-
     Private Function dagErHelg(ByVal dag As Date)
         Select Case dag.DayOfWeek
             Case DayOfWeek.Saturday
@@ -148,7 +139,6 @@
                 Return False
         End Select
     End Function
-
     Private Sub utstyrGrid_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles utstyrGrid.MouseDoubleClick
         If Not IsNothing(Me.utstyrGrid.CurrentRow) Then
             kundevogn_utstyr = daoUtleie.leggTilUtstyrKundevogn(kundevogn_utstyr,
@@ -163,7 +153,6 @@
             MsgBox("Du må velg en gyldig rad i utstyr oversikten.", MsgBoxStyle.Exclamation)
         End If
     End Sub
-
     Private Sub FjernToolStripMenuUtstyr_Click(sender As Object, e As EventArgs) Handles FjernToolStripMenuUtstyr.Click
         If Not IsNothing(Me.vognStyr.CurrentRow) Then
             utstyrGrid.DataSource = daoUtleie.settUtstyrStatus("Tilgjengelig",
@@ -175,11 +164,9 @@
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If
     End Sub
-
     Private Sub btnTomKundevogn_Click(sender As Object, e As EventArgs) Handles btnTomKundevogn.Click
         tomKundevogn()
     End Sub
-
     Private Sub tomKundevogn(Optional ByVal stengerned As Boolean = False)
         For Each sykkel As DataRow In kundevogn_sykkler.Rows
             daoUtleie.settSykkelStatus("Tilgjengelig", sykkel.Item("rammenr"))
@@ -203,27 +190,22 @@
             kundevogn_utstyr = Nothing
         End If
     End Sub
-
     Private Sub vognSykkel_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vognSykkel.CellClick
         If Not IsNothing(e.RowIndex) Then
             sykkelPris.Text = finnPris(daoDelt.finnDGWVerdi(vognSykkel, "innkjopspris"), "Sykkel")
         End If
     End Sub
-
     Private Sub utstyrGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles utstyrGrid.CellClick
         If Not IsNothing(e.RowIndex) Then
             utstyrPris.Text = finnPris(daoDelt.finnDGWVerdi(utstyrGrid, "innkjopspris"), "Utstyr")
         End If
     End Sub
-
     Private Sub finnTotalPris(sender As Object, e As DataGridViewCellEventArgs) Handles sykkelGrid.CellClick,
                                                                                         utstyrGrid.CellClick,
                                                                                         vognSykkel.CellClick,
                                                                                         vognStyr.CellClick
         regnTotalPris()
     End Sub
-
-
     Private Function finnPris(ByVal pris As Integer, ByVal type As String) As String
         If rbDag.Checked Then
             Return "Pris: " & regnPris.dag(pris) & " kr/dag"
@@ -233,7 +215,6 @@
             Return "Du må velg en leie type."
         End If
     End Function
-
     Private Sub regnTotalPris()
         Dim pris As Double = 0
 
@@ -253,7 +234,7 @@
             End If
         Next rad
 
-        'pris *= cbxRabattAvtale.SelectedValue 'fungerer ikke av en eller annen grunn? sjekk at databasen returnerer rett type (double, decimal?)
+        'pris *= cbxRabattAvtale.SelectedValue 'fungerer ikke av en eller annen grunn? sjekk at DB returnerer rett type (double, decimal?)
 
         totalPris.Text = "Totalpris: " & pris & "kr"
     End Sub

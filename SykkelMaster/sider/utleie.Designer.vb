@@ -61,9 +61,9 @@ Partial Class utleie
         Me.FjernToolStripMenuUtstyr = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnTomKundevogn = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.totalPris = New System.Windows.Forms.Label()
         Me.utstyrPris = New System.Windows.Forms.Label()
         Me.sykkelPris = New System.Windows.Forms.Label()
-        Me.totalPris = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -496,11 +496,22 @@ Partial Class utleie
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Informasjon"
         '
+        'totalPris
+        '
+        Me.totalPris.AutoSize = True
+        Me.totalPris.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.totalPris.Location = New System.Drawing.Point(9, 136)
+        Me.totalPris.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.totalPris.Name = "totalPris"
+        Me.totalPris.Size = New System.Drawing.Size(112, 20)
+        Me.totalPris.TabIndex = 3
+        Me.totalPris.Text = "Totalpris: 0 kr"
+        '
         'utstyrPris
         '
         Me.utstyrPris.AutoSize = True
         Me.utstyrPris.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.utstyrPris.Location = New System.Drawing.Point(0, 108)
+        Me.utstyrPris.Location = New System.Drawing.Point(9, 108)
         Me.utstyrPris.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.utstyrPris.Name = "utstyrPris"
         Me.utstyrPris.Size = New System.Drawing.Size(162, 20)
@@ -511,23 +522,12 @@ Partial Class utleie
         '
         Me.sykkelPris.AutoSize = True
         Me.sykkelPris.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sykkelPris.Location = New System.Drawing.Point(0, 82)
+        Me.sykkelPris.Location = New System.Drawing.Point(9, 82)
         Me.sykkelPris.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.sykkelPris.Name = "sykkelPris"
         Me.sykkelPris.Size = New System.Drawing.Size(165, 20)
         Me.sykkelPris.TabIndex = 1
         Me.sykkelPris.Text = "Sykkelpris: 0 kr /time"
-        '
-        'totalPris
-        '
-        Me.totalPris.AutoSize = True
-        Me.totalPris.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.totalPris.Location = New System.Drawing.Point(0, 136)
-        Me.totalPris.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.totalPris.Name = "totalPris"
-        Me.totalPris.Size = New System.Drawing.Size(112, 20)
-        Me.totalPris.TabIndex = 3
-        Me.totalPris.Text = "Totalpris: 0 kr"
         '
         'utleie
         '
