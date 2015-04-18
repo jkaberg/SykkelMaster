@@ -23,7 +23,6 @@
             .DataSource = daoAnsatt.hentAnsatte
             'Vis ikke enkelte kolonner 
             .Columns("id").Visible = False
-            'Endre navn for å gi en bedre visuell opplevelse
             .Columns("fornavn").HeaderText = "Fornavn"
             .Columns("etternavn").HeaderText = "Etternavn"
             .Columns("telefon").HeaderText = "Telefon"
@@ -40,8 +39,11 @@
         End With
     End Sub
 
+    ''' <summary>
+    ''' Sender data fra gridview til tekstboksene når raden blir klikket på
+    ''' </summary>
     Private Sub Vis_bruker(sender As Object, e As DataGridViewCellEventArgs) Handles brukerGridView.CellClick
-        'Setter inn dataen fra Grid Viewn i Textboksene
+
         With Me.brukerGridView
             txtNavn.Text = daoDelt.finnDGWVerdi(brukerGridView, "fornavn")
             txtEtternavn.Text = daoDelt.finnDGWVerdi(brukerGridView, "etternavn")
@@ -57,6 +59,9 @@
         End With
     End Sub
 
+    ''' <summary>
+    ''' legger inn poststed etter postnummer
+    ''' </summary>
     Private Sub txtPostnr_TextChanged(sender As Object, e As EventArgs) Handles txtPostnr.TextChanged
         If txtPostnr.Text <> "" Then
             txtPostSted.Text = daoDelt.finnPostSted(txtPostnr.Text)
@@ -65,18 +70,27 @@
         End If
     End Sub
 
+    ''' <summary>
+    ''' Oppdaterer provisjon med scrollbar verdi
+    ''' </summary>
     Private Sub ProvisjoBar_Scroll(sender As Object, e As ScrollEventArgs) Handles ProvisjonBar.Scroll
-        'Oppdater provisjonslabel med scrollbar veriden
         provisjonLabel(ProvisjonBar.Value)
     End Sub
 
+    ''' <summary>
+    ''' Setter label med provisjonsverdien
+    ''' </summary>
     Private Sub provisjonLabel(ByVal p As Integer)
-        'Oppdater provisjonslabel med scrollbar veriden
         lblProvisjon.Text = p & "%"
     End Sub
 
+    ''' <summary>
+    ''' Legger til ansatt
+    ''' Gir velkomstmeldig
+    ''' Sjekker om eposten brukes fra før slik at det ikke to brukere har samme eposten
+    ''' Sender mail til brukeren med velkomstmelding og innloggingsinfo
+    ''' </summary>
     Private Sub btnLeggTilBruker(sender As Object, e As EventArgs) Handles btnLegg_til_Bruker.Click
-        'legg til ansatt
         Dim passord As String = verktoy.tilfeldigStreng()
 
         Dim body As String = "Hei " & navn() & ", og velkommen til Sykkelmaster." & vbNewLine &
@@ -114,8 +128,11 @@
         End If
     End Sub
 
+    ''' <summary>
+    ''' Sletter bruker
+    ''' </summary>
     Private Sub btnSlett_Click(sender As Object, e As EventArgs) Handles btnSlett.Click
-        'Slett bruker
+
         Select Case MsgBox("Er du sikker på at du vil fjerne " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
@@ -133,8 +150,10 @@
         End Select
     End Sub
 
+    ''' <summary>
+    ''' Oppdaterer bruker
+    ''' </summary>
     Private Sub Oppdater_Bruker(sender As Object, e As EventArgs) Handles btnOppdater_Bruker.Click
-        'Oppdater bruker
         Select Case MsgBox("Er du sikker på at du vil oppdatere " & navn() & "?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
@@ -159,10 +178,17 @@
         End Select
     End Sub
 
+    ''' <summary>
+    ''' Funksjon der navnet til brukeren kan enkelt hentes frem andre steder i koden
+    ''' </summary>
+    ''' <returns>navn på brukeren</returns>
     Private Function navn() As String
         Return txtNavn.Text & " " & txtEtternavn.Text
     End Function
 
+    ''' <summary>
+    ''' resetter alle felter
+    ''' </summary>
     Private Sub btnTom_Click(sender As Object, e As EventArgs) Handles btnTom.Click
         txtNavn.Text = ""
         txtEtternavn.Text = ""
