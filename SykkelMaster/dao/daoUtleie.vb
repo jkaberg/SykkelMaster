@@ -2,7 +2,7 @@
     Private Shared sql As String
 
     Public Shared Function hentRabattAvtaler() As DataTable
-        Return database.dt_query("SELECT id, type_rabatt FROM rabatt")
+        Return database.dt_query("SELECT type_rabatt, prosent FROM rabatt")
     End Function
     Public Shared Function fjernFraKundevogn(ByVal id As Integer, ByVal dt As DataTable) As DataTable
         dt.Rows(id).Delete()

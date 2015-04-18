@@ -6,23 +6,24 @@
     Private Sub utleie_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         With cbxRabattAvtale
             .DisplayMember = "type_rabatt"
-            .ValueMember = "id"
+            .ValueMember = "prosent"
             .DataSource = daoUtleie.hentRabattAvtaler
         End With
 
         With Me.sykkelGrid
             .DataSource = daoUtleie.hentSykkler
             .Columns("sykkeltype").Visible = False
+            .Columns("innkjopspris").Visible = False
             .Columns("rammenr").HeaderText = "Rammenr"
             .Columns("sykkelnavn").HeaderText = "Type"
             .Columns("hjulstr").HeaderText = "Hjulstr"
             .Columns("rammestr").HeaderText = "Rammestr"
-            .Columns("innkjopspris").HeaderText = "Pris"
         End With
 
         With Me.vognSykkel
             .DataSource = kundevogn_sykkler
             .Columns("sykkeltype").Visible = False
+            .Columns("innkjopspris").Visible = False
             .Columns("rammenr").HeaderText = "Rammenr"
             .Columns("sykkelnavn").HeaderText = "Type"
             .Columns("hjulstr").HeaderText = "Hjulstr"
@@ -32,15 +33,15 @@
         With Me.utstyrGrid
             .DataSource = daoUtleie.hentUtstyr
             .Columns("id").Visible = False
+            .Columns("innkjopspris").Visible = False
             .Columns("navn").HeaderText = "Navn"
-            .Columns("innkjopspris").HeaderText = "Pris"
         End With
 
         With Me.vognStyr
             .DataSource = kundevogn_utstyr
             .Columns("id").Visible = False
+            .Columns("innkjopspris").Visible = False
             .Columns("navn").HeaderText = "Navn"
-            .Columns("innkjopspris").HeaderText = "Pris"
         End With
     End Sub
 
@@ -215,6 +216,14 @@
         End If
     End Sub
 
+    Private Sub finnTotalPris(sender As Object, e As DataGridViewCellEventArgs) Handles sykkelGrid.CellClick,
+                                                                                        utstyrGrid.CellClick,
+                                                                                        vognSykkel.CellClick,
+                                                                                        vognStyr.CellClick
+        regnTotalPris()
+    End Sub
+
+
     Private Function finnPris(ByVal pris As Integer, ByVal type As String) As String
         If rbDag.Checked Then
             Return type & "pris: " & regnPris.dag(pris) & " kr/dag"
@@ -224,5 +233,29 @@
             Return "Du må velg en leie type."
         End If
     End Function
+
+    Private Sub regnTotalPris()
+        Dim pris As Double = 0
+
+        For Each rad As DataGridViewRow In vognSykkel.Rows
+            If rbDag.Checked Then
+                pris += regnPris.dag(rad.Cells(4).Value)
+            ElseIf rbTime.Checked Then
+                pris += regnPris.time(rad.Cells(4).Value)
+            End If
+        Next rad
+
+        For Each rad As DataGridViewRow In vognStyr.Rows
+            If rbDag.Checked Then
+                pris += regnPris.dag(rad.Cells(0).Value)
+            ElseIf rbTime.Checked Then
+                pris += regnPris.time(rad.Cells(0).Value)
+            End If
+        Next rad
+
+        'pris *= cbxRabattAvtale.SelectedValue 'fungerer ikke av en eller annen grunn? sjekk at databasen returnerer rett type (double, decimal?)
+
+        totalPris.Text = "Totalpris: " & pris & "kr"
+    End Sub
 
 End Class

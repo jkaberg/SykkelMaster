@@ -63,6 +63,7 @@ Partial Class utleie
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.utstyrPris = New System.Windows.Forms.Label()
         Me.sykkelPris = New System.Windows.Forms.Label()
+        Me.totalPris = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -483,6 +484,7 @@ Partial Class utleie
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.totalPris)
         Me.GroupBox6.Controls.Add(Me.utstyrPris)
         Me.GroupBox6.Controls.Add(Me.sykkelPris)
         Me.GroupBox6.Location = New System.Drawing.Point(593, 14)
@@ -498,7 +500,7 @@ Partial Class utleie
         '
         Me.utstyrPris.AutoSize = True
         Me.utstyrPris.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.utstyrPris.Location = New System.Drawing.Point(1, 141)
+        Me.utstyrPris.Location = New System.Drawing.Point(4, 116)
         Me.utstyrPris.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.utstyrPris.Name = "utstyrPris"
         Me.utstyrPris.Size = New System.Drawing.Size(162, 20)
@@ -509,12 +511,23 @@ Partial Class utleie
         '
         Me.sykkelPris.AutoSize = True
         Me.sykkelPris.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sykkelPris.Location = New System.Drawing.Point(1, 116)
+        Me.sykkelPris.Location = New System.Drawing.Point(4, 91)
         Me.sykkelPris.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.sykkelPris.Name = "sykkelPris"
         Me.sykkelPris.Size = New System.Drawing.Size(165, 20)
         Me.sykkelPris.TabIndex = 1
         Me.sykkelPris.Text = "Sykkelpris: 0 kr /time"
+        '
+        'totalPris
+        '
+        Me.totalPris.AutoSize = True
+        Me.totalPris.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.totalPris.Location = New System.Drawing.Point(4, 141)
+        Me.totalPris.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.totalPris.Name = "totalPris"
+        Me.totalPris.Size = New System.Drawing.Size(112, 20)
+        Me.totalPris.TabIndex = 3
+        Me.totalPris.Text = "Totalpris: 0 kr"
         '
         'utleie
         '
@@ -595,4 +608,5 @@ Partial Class utleie
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents sykkelPris As System.Windows.Forms.Label
     Friend WithEvents utstyrPris As System.Windows.Forms.Label
+    Friend WithEvents totalPris As System.Windows.Forms.Label
 End Class
