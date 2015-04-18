@@ -315,7 +315,7 @@ Partial Class utstyrEdit
         '
         'txtSok
         '
-        Me.txtSok.Location = New System.Drawing.Point(340, 20)
+        Me.txtSok.Location = New System.Drawing.Point(358, 19)
         Me.txtSok.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtSok.Name = "txtSok"
         Me.txtSok.Size = New System.Drawing.Size(148, 26)
@@ -324,11 +324,11 @@ Partial Class utstyrEdit
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(252, 22)
+        Me.Label9.Location = New System.Drawing.Point(259, 22)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(83, 20)
+        Me.Label9.Size = New System.Drawing.Size(93, 20)
         Me.Label9.TabIndex = 19
-        Me.Label9.Text = "Rammenr:"
+        Me.Label9.Text = "Utstyrstype:"
         '
         'cbxLokasjon
         '

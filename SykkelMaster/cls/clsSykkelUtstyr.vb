@@ -54,20 +54,29 @@
             id = value
         End Set
     End Property
-    Public Property pPosisjon() As Integer
-        Get
-            Return posisjon
-        End Get
-        Set(ByVal value As Integer)
-            posisjon = value
-        End Set
-    End Property
     Public Property pVirksomhet() As Integer
         Get
             Return virksomhet
         End Get
         Set(ByVal value As Integer)
-            virksomhet = value
+            If value <= 0 Then
+                Throw New Exception("Du må velge en posisjon som utstyret tilhører.")
+            Else
+                virksomhet = value
+            End If
+        End Set
+    End Property
+    Public Property pPosisjon() As Integer
+        Get
+            Return posisjon
+        End Get
+        Set(ByVal value As Integer)
+            If value <= 0 Then
+                Throw New Exception("Du må velge en posisjon.")
+            Else
+                posisjon = value
+            End If
+
         End Set
     End Property
     Public Property pUtstyrstype() As Integer
@@ -75,7 +84,11 @@
             Return utstyrstype
         End Get
         Set(ByVal value As Integer)
-            utstyrstype = value
+            If value <= 0 Then
+                Throw New Exception("Du må velge hva slags type utstyret er.")
+            Else
+                utstyrstype = value
+            End If
         End Set
     End Property
     Public Property pStorrelse() As String
@@ -83,7 +96,12 @@
             Return storrelse
         End Get
         Set(ByVal value As String)
-            storrelse = value
+            If value = "" Then
+                Throw New Exception("Du må velge en størrelse.")
+            Else
+                storrelse = value
+            End If
+
         End Set
     End Property
     Public Property pStatus() As String
@@ -91,7 +109,11 @@
             Return status
         End Get
         Set(ByVal value As String)
-            status = value
+            If value = "" Then
+                Throw New Exception("Du må velge en status.")
+            Else
+                status = value
+            End If
         End Set
     End Property
     Public Property pInnkjopspris() As Object

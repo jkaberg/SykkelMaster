@@ -6,8 +6,8 @@
     Sub New(ByVal rammenr As String,
             ByVal avviksmld As String,
             ByVal sykkeltype As Integer,
-            ByVal hjulstr As Integer,
-            ByVal rammestr As Integer,
+            ByVal hjulstr As Object,
+            ByVal rammestr As Object,
             ByVal status As String,
             ByVal innkjopspris As Object,
             ByVal innkjopt As Date,
@@ -56,23 +56,35 @@
             Return sykkeltype
         End Get
         Set(ByVal value As Integer)
-            sykkeltype = value
+            If value <= 0 Then
+                Throw New Exception("Du må velge hva slags sykkelsype sykkelen er.")
+            Else
+                sykkeltype = value
+            End If
         End Set
     End Property
-    Public Property pHjulstr() As Integer
+    Public Property pHjulstr() As Object
         Get
             Return hjulstr
         End Get
-        Set(ByVal value As Integer)
-            hjulstr = value
+        Set(ByVal value As Object)
+            If Not IsNumeric(value) Then
+                Throw New Exception("Du må legge inn hjulstørrelse.")
+            Else
+                hjulstr = value
+            End If
         End Set
     End Property
-    Public Property pRammestr() As Integer
+    Public Property pRammestr() As Object
         Get
             Return rammestr
         End Get
-        Set(ByVal value As Integer)
-            rammestr = value
+        Set(ByVal value As Object)
+            If Not IsNumeric(value) Then
+                Throw New Exception("Du må legge inn rammestørrelse.")
+            Else
+                rammestr = value
+            End If
         End Set
     End Property
     Public Property pStatus() As String
@@ -80,15 +92,11 @@
             Return status
         End Get
         Set(ByVal value As String)
-            status = value
-        End Set
-    End Property
-    Public Property pInnkjopt() As Date
-        Get
-            Return innkjopt
-        End Get
-        Set(ByVal value As Date)
-            innkjopt = value
+            If value = "" Then
+                Throw New Exception("Du må sette en status.")
+            Else
+                status = value
+            End If
         End Set
     End Property
     Public Property pInnkjopspris() As Object
@@ -103,12 +111,20 @@
             End If
         End Set
     End Property
+    Public Property pInnkjopt() As Date
+        Get
+            Return innkjopt
+        End Get
+        Set(ByVal value As Date)
+            innkjopt = value
+        End Set
+    End Property
     Public Property pPosisjon() As Integer
         Get
             Return posisjon
         End Get
         Set(ByVal value As Integer)
-            If IsNothing(value) Then
+            If value <= 0 Then
                 Throw New Exception("Du må angi posisjon.")
             Else
                 posisjon = value
@@ -120,7 +136,7 @@
             Return virksomhet
         End Get
         Set(ByVal value As Integer)
-            If IsNothing(value) Then
+            If value <= 0 Then
                 Throw New Exception("Du må angi virksomhet.")
             Else
                 virksomhet = value
