@@ -206,7 +206,7 @@
 
     Private Sub vognSykkel_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vognSykkel.CellClick
         If Not IsNothing(e.RowIndex) Then
-            pris.Text = finnPris(daoDelt.finnDGWVerdi(vognSykkel, "innkjopspris"), "Sykkel")
+            sykkelPris.Text = finnPris(daoDelt.finnDGWVerdi(vognSykkel, "innkjopspris"), "Sykkel")
         End If
     End Sub
 
