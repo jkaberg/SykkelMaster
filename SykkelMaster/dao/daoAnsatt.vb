@@ -1,5 +1,10 @@
 ﻿Public Class daoAnsatt
     Public Shared sql As String
+    ''' <summary>
+    ''' SQL setning som legger til ny bruker i databasen
+    ''' </summary>
+    ''' <param name="ansatt"> henter ut all info om ansatt</param>
+    ''' <returns>retunerer database spørring</returns>
     Public Shared Function leggTilAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         sql = "START TRANSACTION;" &
               "INSERT INTO person (fornavn, etternavn, telefon, mail, adresse, post_nr) " &
@@ -11,6 +16,9 @@
         Return database.query(sql)
     End Function
 
+    ''' <summary>
+    ''' SQL spørring oppdaterer bruker
+    ''' </summary>
     Public Shared Function oppdaterAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         sql = "START TRANSACTION;" &
               "UPDATE person SET fornavn = '" & ansatt.pFnavn & "', etternavn = '" & ansatt.pEnavn & "', telefon = " & ansatt.pTlfnr & ", mail = '" & ansatt.pEpost & "', adresse = '" & ansatt.pAdresse & "', post_nr = " & ansatt.pPostnr & " " &
@@ -22,10 +30,16 @@
         Return database.query(sql)
     End Function
 
+    ''' <summary>
+    ''' SQL spørring sletter ansatt
+    ''' </summary>
     Public Shared Function fjernAnsatt(ByVal ansatt As clsAnsatt) As Boolean
         Return database.query("DELETE FROM ansatt WHERE ansatt.person_id = " & ansatt.pID & ";")
     End Function
 
+    ''' <summary>
+    ''' Funksjonen henter frem SQL setning som henter frem bruker med alle opplysninger om stilling og provisjon
+    ''' </summary>
     Public Shared Function hentAnsatte() As DataTable
         sql = "SELECT " &
               "person.id, person.fornavn, person.etternavn, person.telefon, person.mail, person.adresse, person.post_nr, " &
