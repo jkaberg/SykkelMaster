@@ -1,8 +1,11 @@
 ﻿Public Class ansatte
     Private payload As New DataTable
-
+    ''' <summary>
+    ''' Laster inn data fra databasen til Gridview.
+    ''' Legger stillinger og arbeidssteder i combobox
+    ''' Endrer navn på kolonnene for brukervennlighet
+    ''' </summary>
     Private Sub bruker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Laster inn daten fra databasen til GridView
 
         With cbxStilling
             .DisplayMember = "stilling"
@@ -30,7 +33,7 @@
             .Columns("stilling").HeaderText = "Stilling"
             .Columns("post_sted").HeaderText = "Post sted"
             .Columns("provisjon").HeaderText = "Provisjon"
-            .Columns("provisjon").DefaultCellStyle.Format = "p1" ' legger til prosenttegn etter provisjon, tallet er antal desimaler
+            .Columns("provisjon").DefaultCellStyle.Format = "p1" ' legger til prosenttegn etter provisjon, tallet er antall desimaler
             .Columns("navn").HeaderText = "Arbeidsplass"
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
             .Refresh()
