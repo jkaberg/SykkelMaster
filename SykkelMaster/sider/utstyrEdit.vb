@@ -95,7 +95,6 @@
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
             utstyrGridView.DataSource = daoSykkelUtstyr.hentUtstyr
-            oppdaterTxtbox()
         End Try
 
     End Sub
