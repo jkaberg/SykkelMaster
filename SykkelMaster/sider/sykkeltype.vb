@@ -27,6 +27,7 @@
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
             sykkeltypeGrid.DataSource = daoDelt.hentSykkelType
+            sykkelEdit.cbxType.DataSource = daoDelt.hentSykkelType
         End Try
     End Sub
 
@@ -44,6 +45,7 @@
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
                     sykkeltypeGrid.DataSource = daoDelt.hentSykkelType
+                    sykkelEdit.cbxType.DataSource = daoDelt.hentSykkelType
                 End Try
         End Select
     End Sub
@@ -62,6 +64,7 @@
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
                     sykkeltypeGrid.DataSource = daoDelt.hentSykkelType
+                    sykkelEdit.cbxType.DataSource = daoDelt.hentSykkelType
                 End Try
         End Select
     End Sub
