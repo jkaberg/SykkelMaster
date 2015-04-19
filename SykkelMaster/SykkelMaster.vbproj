@@ -119,6 +119,12 @@
     <Compile Include="sider\ansatt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sider\innleveringSendMail.Designer.vb">
+      <DependentUpon>innleveringSendMail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sider\innleveringSendMail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="sider\utleieOversikt.Designer.vb">
       <DependentUpon>utleieOversikt.vb</DependentUpon>
     </Compile>
@@ -226,6 +232,9 @@
   <ItemGroup>
     <EmbeddedResource Include="sider\ansatt.resx">
       <DependentUpon>ansatt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sider\innleveringSendMail.resx">
+      <DependentUpon>innleveringSendMail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\utleieOversikt.resx">
       <DependentUpon>utleieOversikt.vb</DependentUpon>

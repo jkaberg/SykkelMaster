@@ -169,4 +169,13 @@
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
+
+    
+    
+    Private Sub SendMeldingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendMeldingToolStripMenuItem.Click
+        innleveringSendMail.mailAdresse = daoInnlevering.FinnMailOrdreNr(daoDelt.finnDGWVerdi(oversiktGrid, "ordre_nr"))
+        innleveringSendMail.Show()
+
+
+    End Sub
 End Class

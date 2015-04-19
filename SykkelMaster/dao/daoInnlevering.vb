@@ -75,4 +75,24 @@
 
         Return database.query(sql)
     End Function
+
+    Public Shared Function FinnMailOrdreNr(ByVal ordre_nr As Integer) As String
+        sql = "SELECT person.mail " &
+              "FROM salg_leie " &
+              "JOIN person ON salg_leie.person_id_kunde = person.id " &
+              "WHERE ordre_nr =" & ordre_nr & ";"
+
+        Dim payload As DataTable = database.dt_query(sql)
+
+        If payload.Rows.Count > 0 Then
+            Return payload.Rows(0).Item(0)
+        Else
+            Return vbNullChar
+        End If
+    End Function
+
+
+
+
+
 End Class
