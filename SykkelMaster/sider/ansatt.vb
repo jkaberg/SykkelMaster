@@ -164,6 +164,7 @@
                                                 tnr:=txtTelefon.Text,
                                                 adresse:=txtAdresse.Text,
                                                 epost:=txtMail.Text,
+                                                sted:=txtPostSted.Text,
                                                 stilling:=cbxStilling.SelectedValue,
                                                 provisjon:=ProvisjonBar.Value,
                                                 arbeidssted:=cbxArbedidssted.SelectedValue)

@@ -10,7 +10,7 @@
             ByVal tnr As Object,
             ByVal adresse As String,
             ByVal epost As String,
-            Optional ByVal sted As String = Nothing)
+            ByVal sted As String)
 
         Me.pID = id
         Me.pFnavn = fnavn

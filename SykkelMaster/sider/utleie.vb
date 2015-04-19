@@ -88,7 +88,7 @@
             If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
                 Try
                     utleieOversikt.Show()
-                    utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleieOversikt.hentPerson(cbxNavn.SelectedValue))
+                    utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleie.hentPerson(cbxNavn.SelectedValue))
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 End Try

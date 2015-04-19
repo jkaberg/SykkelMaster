@@ -84,7 +84,8 @@
                                                 txtPostnr.Text,
                                                 txtTelefon.Text,
                                                 txtAdresse.Text,
-                                                txtMail.Text)
+                                                txtMail.Text,
+                                                txtPoststed.Text)
 
                     daoPerson.oppdaterPerson(person)
                     MsgBox(navn() & " er oppdatert.", MsgBoxStyle.Exclamation)

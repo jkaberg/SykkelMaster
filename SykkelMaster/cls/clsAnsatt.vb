@@ -29,11 +29,12 @@
             ByVal tnr As Object,
             ByVal adresse As String,
             ByVal epost As String,
+            ByVal sted As String,
             ByVal stilling As Integer,
             ByVal provisjon As Integer,
             ByVal arbeidssted As Integer)
 
-        MyBase.New(id, fnavn, enavn, pnr, tnr, adresse, epost)
+        MyBase.New(id, fnavn, enavn, pnr, tnr, adresse, epost, sted)
         Me.pStilling = stilling
         Me.pProvisjon = provisjon
         Me.pArbeidssted = arbeidssted
