@@ -23,31 +23,45 @@ Partial Class utleieOversikt
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lbOversikt = New System.Windows.Forms.ListBox()
+        Me.btnOprettAvtale = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lbOversikt
         '
         Me.lbOversikt.FormattingEnabled = True
-        Me.lbOversikt.ItemHeight = 16
-        Me.lbOversikt.Location = New System.Drawing.Point(13, 40)
+        Me.lbOversikt.Location = New System.Drawing.Point(10, 32)
+        Me.lbOversikt.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.lbOversikt.Name = "lbOversikt"
-        Me.lbOversikt.Size = New System.Drawing.Size(702, 388)
+        Me.lbOversikt.Size = New System.Drawing.Size(369, 368)
         Me.lbOversikt.TabIndex = 0
+        '
+        'btnOprettAvtale
+        '
+        Me.btnOprettAvtale.Location = New System.Drawing.Point(291, 404)
+        Me.btnOprettAvtale.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnOprettAvtale.Name = "btnOprettAvtale"
+        Me.btnOprettAvtale.Size = New System.Drawing.Size(88, 40)
+        Me.btnOprettAvtale.TabIndex = 41
+        Me.btnOprettAvtale.Text = "Opprett avtale"
+        Me.btnOprettAvtale.UseVisualStyleBackColor = True
         '
         'utleieOversikt
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(727, 456)
+        Me.ClientSize = New System.Drawing.Size(383, 448)
+        Me.Controls.Add(Me.btnOprettAvtale)
         Me.Controls.Add(Me.lbOversikt)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "utleieOversikt"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "utleieOversikt"
+        Me.Text = "Avtale oversikt"
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents lbOversikt As System.Windows.Forms.ListBox
+    Friend WithEvents btnOprettAvtale As System.Windows.Forms.Button
 End Class

@@ -3,6 +3,11 @@
     Private kundevogn_sykkler As DataTable = daoUtleie.lagSykklerDataTable
     Private kundevogn_utstyr As DataTable = daoUtleie.lagUtstyrDataTable
 
+    Private Sub utleie_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        utleieOversikt.Close()
+        tomKundevogn(stengerned:=True)
+    End Sub
+
     Private Sub utleie_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         With cbxRabattAvtale
             .DisplayMember = "type_rabatt"
@@ -35,6 +40,7 @@
             .Columns("id").Visible = False
             .Columns("innkjopspris").Visible = False
             .Columns("navn").HeaderText = "Navn"
+            .Columns("storrelse").HeaderText = "Størrelse"
         End With
 
         With Me.vognStyr
@@ -42,10 +48,8 @@
             .Columns("id").Visible = False
             .Columns("innkjopspris").Visible = False
             .Columns("navn").HeaderText = "Navn"
+            .Columns("storrelse").HeaderText = "Størrelse"
         End With
-    End Sub
-    Private Sub utleie_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        tomKundevogn(stengerned:=True)
     End Sub
     Private Sub btnKunde_Click(sender As Object, e As EventArgs) Handles btnKunde.Click
         person.Show()
@@ -85,15 +89,19 @@
     End Sub
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
         If cbxNavn.SelectedValue Then
-            If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
-                Try
-                    utleieOversikt.Show()
-                    utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleie.hentPerson(cbxNavn.SelectedValue))
-                Catch ex As Exception
-                    MsgBox(ex.Message, MsgBoxStyle.Critical)
-                End Try
+            If sjekkLeieTid(fraTid.Value, tilTid.Value) Then
+                If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
+                    Try
+                        utleieOversikt.Show()
+                        utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleie.hentPerson(cbxNavn.SelectedValue))
+                    Catch ex As Exception
+                        MsgBox(ex.Message, MsgBoxStyle.Critical)
+                    End Try
+                Else
+                    MsgBox("Du må legg til produkter i kundevognen.", MsgBoxStyle.Exclamation)
+                End If
             Else
-                MsgBox("Du må legg til produkter i kundevognen.", MsgBoxStyle.Exclamation)
+                MsgBox("Til tid kan ikke være mindre enn fra tid", MsgBoxStyle.Exclamation)
             End If
         Else
             MsgBox("Du må velge en kunde.", MsgBoxStyle.Exclamation)
@@ -149,7 +157,8 @@
             kundevogn_utstyr = daoUtleie.leggTilUtstyrKundevogn(kundevogn_utstyr,
                                                                 daoDelt.finnDGWVerdi(utstyrGrid, "id"),
                                                                 daoDelt.finnDGWVerdi(utstyrGrid, "navn"),
-                                                                daoDelt.finnDGWVerdi(utstyrGrid, "innkjopspris"))
+                                                                daoDelt.finnDGWVerdi(utstyrGrid, "innkjopspris"),
+                                                                daoDelt.finnDGWVerdi(utstyrGrid, "storrelse"))
 
             utstyrGrid.DataSource = daoUtleie.settUtstyrStatus("Reservert",
                                                                daoDelt.finnDGWVerdi(utstyrGrid, "id"))
@@ -173,13 +182,16 @@
         tomKundevogn()
     End Sub
     Public Sub tomKundevogn(Optional ByVal stengerned As Boolean = False)
-        For Each sykkel As DataRow In kundevogn_sykkler.Rows
-            daoUtleie.settSykkelStatus("Tilgjengelig", sykkel.Item("rammenr"))
-        Next sykkel
-
-        For Each utstyr As DataRow In kundevogn_utstyr.Rows
-            daoUtleie.settUtstyrStatus("Tilgjengelig", utstyr.Item("id"))
-        Next utstyr
+        If Not IsNothing(kundevogn_sykkler.Rows) Then
+            For Each sykkel As DataRow In kundevogn_sykkler.Rows
+                daoUtleie.settSykkelStatus("Tilgjengelig", sykkel.Item("rammenr"))
+            Next sykkel
+        End If
+        If Not IsNothing(kundevogn_sykkler.Rows) Then
+            For Each utstyr As DataRow In kundevogn_utstyr.Rows
+                daoUtleie.settUtstyrStatus("Tilgjengelig", utstyr.Item("id"))
+            Next utstyr
+        End If
 
         If Not stengerned Then
             kundevogn_sykkler = daoUtleie.lagSykklerDataTable
@@ -243,4 +255,16 @@
 
         totalPris.Text = "Totalpris: " & pris & "kr"
     End Sub
+    Private Function sjekkLeieTid(ByVal fra As Date, ByVal til As Date)
+        If rbDag.Checked Then
+            If til.Date < fra.Date Then
+                Return False
+            End If
+        ElseIf rbTime.Checked Then
+            If til.Hour < fra.Hour Then
+                Return False
+            End If
+        End If
+        Return True
+    End Function
 End Class

@@ -101,7 +101,7 @@
 #End Region
 #Region "utstyr"
     Public Shared Function hentUtstyr() As DataTable
-        sql = "SELECT sykkelutstyr.id, sykkelutstyr.innkjopspris, utstyrstype.utstyrstype navn " &
+        sql = "SELECT sykkelutstyr.id, sykkelutstyr.innkjopspris, sykkelutstyr.storrelse, utstyrstype.utstyrstype navn " &
               "FROM sykkelutstyr " &
               "JOIN utstyrstype ON utstyrstype.id = sykkelutstyr.utstyrstype " &
               "WHERE sykkelutstyr.s_u_status = 'Tilgjengelig';"
@@ -117,13 +117,15 @@
     Public Shared Function leggTilUtstyrKundevogn(ByVal dt As DataTable,
                                                   ByVal id As Integer,
                                                   ByVal navn As String,
-                                                  ByVal innkjopspris As Integer)
+                                                  ByVal innkjopspris As Integer,
+                                                  ByVal storrelse As String)
 
         Dim utstyr As DataRow = dt.NewRow()
 
         utstyr.Item("id") = id
         utstyr.Item("navn") = navn
         utstyr.Item("innkjopspris") = innkjopspris
+        utstyr.Item("storrelse") = storrelse
         dt.Rows.Add(utstyr)
 
         Return dt
@@ -134,14 +136,17 @@
         Dim id As New DataColumn("id")
         Dim navn As New DataColumn("navn")
         Dim innkjopspris As New DataColumn("innkjopspris")
+        Dim storrelse As New DataColumn("storrelse")
 
         id.DataType = System.Type.GetType("System.Int32")
         navn.DataType = System.Type.GetType("System.String")
         innkjopspris.DataType = System.Type.GetType("System.Int32")
+        storrelse.DataType = System.Type.GetType("System.String")
 
         dt.Columns.Add(id)
         dt.Columns.Add(navn)
         dt.Columns.Add(innkjopspris)
+        dt.Columns.Add(storrelse)
 
         Return dt
     End Function
