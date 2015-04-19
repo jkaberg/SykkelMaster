@@ -1,6 +1,15 @@
 ﻿Public Class innleveringSendMail
     Public mailAdresse As String
-    
+
+    Private Sub innleveringSendMail_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If daoDelt.sjekkMailEksisterer(mailAdresse) Then
+            txtMottaker.Text = mailAdresse
+        Else
+            txtMottaker.Enabled = True
+        End If
+    End Sub
+
+
     Private Sub btnSendMail_Click(sender As Object, e As EventArgs) Handles btnSendMail.Click
 
         Dim emne As String = txtEmne.Text
@@ -13,9 +22,7 @@
         Else
             MsgBox("Du må fylle ut Emne & Brødtekst", MsgBoxStyle.Critical)
         End If
-
-
-
-
     End Sub
+
+    
 End Class

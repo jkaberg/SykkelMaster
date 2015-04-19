@@ -21,8 +21,10 @@
     End Function
 
     Public Shared Function hentAvtaleInnehold(Optional ByVal id As Integer = Nothing) As DataTable
+        Dim payload As DataTable
+
         If id Then
-            sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
+            sql = "SELECT person.fornavn, person.etternavn, salg_leie.ordre_nr, salg_leie.frist, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
                   "sykkeltype.sykkeltype , person.id " &
                   "FROM salg_leie " &
@@ -32,7 +34,7 @@
                   "JOIN person ON salg_leie.person_id_kunde = person.id " &
                   "WHERE salg_leie.ordre_nr = " & id
         Else
-            sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
+            sql = "SELECT person.fornavn, person.etternavn, salg_leie.ordre_nr, salg_leie.frist, " &
                   "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
                   "sykkeltype.sykkeltype, person.id " &
                   "FROM salg_leie " &
@@ -43,7 +45,10 @@
                   "WHERE s_l_status <> 'Innlevert';"
         End If
 
-        Return database.dt_query(sql)
+        payload = database.dt_query(sql)
+        payload.Columns.Add("Navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
+
+        Return payload
     End Function
 
     Public Shared Function hentLeieFrister(ByVal sok As String) As DataTable

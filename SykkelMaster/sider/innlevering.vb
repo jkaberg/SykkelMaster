@@ -120,6 +120,8 @@
 
         With Me.oversiktGrid
             .DataSource = daoInnlevering.hentAvtaleInnehold(id)
+
+            .Columns("Navn").HeaderText = "Navn"
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
             .Columns("frist").HeaderText = "Frist"
             .Columns("sykkeltype").HeaderText = "Sykkeltype"
@@ -127,6 +129,8 @@
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
             .Columns("rammestr").HeaderText = "Rammestørrelse"
             .Columns("id").Visible = False
+            .Columns("fornavn").Visible = False
+            .Columns("etternavn").Visible = False
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub
