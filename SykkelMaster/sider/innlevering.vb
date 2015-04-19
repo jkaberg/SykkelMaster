@@ -174,12 +174,12 @@
         End With
     End Sub
 
-    
-    
     Private Sub SendMeldingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendMeldingToolStripMenuItem.Click
-        innleveringSendMail.mailAdresse = daoInnlevering.FinnMailOrdreNr(daoDelt.finnDGWVerdi(oversiktGrid, "ordre_nr"))
-        innleveringSendMail.Show()
-
-
+        If Not IsNothing(oversiktGrid.CurrentRow) Then
+            innleveringSendMail.mailAdresse = daoInnlevering.FinnMailOrdreNr(daoDelt.finnDGWVerdi(oversiktGrid, "ordre_nr"))
+            innleveringSendMail.Show()
+        Else
+            MsgBox("Du må velge en rad.", MsgBoxStyle.Exclamation)
+        End If
     End Sub
 End Class

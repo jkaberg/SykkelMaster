@@ -51,11 +51,6 @@
     End Function
 
     Public Shared Function finnDGWVerdi(ByVal dgw As DataGridView, ByVal kolonne As String) As Object
-        If Not IsNothing(dgw.CurrentRow.Index) Then
-            Return dgw.Rows(dgw.CurrentRow.Index).Cells(kolonne).Value
-        Else
-            Return Nothing
-        End If
+        Return dgw.Rows(dgw.CurrentRow.Index).Cells(kolonne).Value
     End Function
-
 End Class
