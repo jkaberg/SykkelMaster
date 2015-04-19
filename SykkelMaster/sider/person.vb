@@ -2,6 +2,10 @@
     Private person As clsPerson
 
     Private Sub kunder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If start.bruker.pStilling = 1 Then
+            btnSlett.Enabled = True
+        End If
+
         'Laster inn data fra databasen til gridView
         With Me.kundeGridView
             .DataSource = daoPerson.hentPersoner

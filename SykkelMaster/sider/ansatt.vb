@@ -7,6 +7,10 @@
     ''' </summary>
     Private Sub bruker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        If start.bruker.pStilling = 1 Then
+            btnSlett.Enabled = True
+        End If
+
         With cbxStilling
             .DisplayMember = "stilling"
             .ValueMember = "id"
