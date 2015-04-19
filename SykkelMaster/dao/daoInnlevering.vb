@@ -3,9 +3,10 @@
 
     Public Shared Function hentTilbehor(ByVal ordre_nr As Integer) As DataTable
         sql = "SELECT utstyr_leid_ut.ordre_nr, " &
-              "sykkelutstyr.navn " &
+              "utstyrstype.utstyrstype, sykkelutstyr.storrelse, sykkelutstyr.id " &
               "FROM utstyr_leid_ut " &
               "JOIN sykkelutstyr ON utstyr_leid_ut.utstyr_id = sykkelutstyr.id " &
+              "JOIN utstyrstype ON sykkelutstyr.utstyrstype = utstyrstype.id " &
               "WHERE utstyr_leid_ut.ordre_nr = " & ordre_nr & ";"
 
         Return database.dt_query(sql)

@@ -24,8 +24,6 @@ Partial Class historie
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.oversiktGrid = New System.Windows.Forms.DataGridView()
-        Me.cbxStatus = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.tilbehorGrid = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
@@ -37,7 +35,7 @@ Partial Class historie
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.oversiktGrid)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 32)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 7)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -64,29 +62,10 @@ Partial Class historie
         Me.oversiktGrid.Size = New System.Drawing.Size(964, 245)
         Me.oversiktGrid.TabIndex = 0
         '
-        'cbxStatus
-        '
-        Me.cbxStatus.FormattingEnabled = True
-        Me.cbxStatus.Items.AddRange(New Object() {"Leid ut", "Innlevert"})
-        Me.cbxStatus.Location = New System.Drawing.Point(796, 7)
-        Me.cbxStatus.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.cbxStatus.Name = "cbxStatus"
-        Me.cbxStatus.Size = New System.Drawing.Size(186, 28)
-        Me.cbxStatus.TabIndex = 22
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(749, 10)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(41, 20)
-        Me.Label3.TabIndex = 23
-        Me.Label3.Text = "Søk:"
-        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.tilbehorGrid)
-        Me.GroupBox4.Location = New System.Drawing.Point(12, 319)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 294)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 5, 3, 5)
@@ -117,10 +96,8 @@ Partial Class historie
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1004, 532)
+        Me.ClientSize = New System.Drawing.Size(1004, 512)
         Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.cbxStatus)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -132,13 +109,10 @@ Partial Class historie
         Me.GroupBox4.ResumeLayout(False)
         CType(Me.tilbehorGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents oversiktGrid As System.Windows.Forms.DataGridView
-    Friend WithEvents cbxStatus As System.Windows.Forms.ComboBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents tilbehorGrid As System.Windows.Forms.DataGridView
 End Class

@@ -72,7 +72,9 @@
         With tilbehorGrid
             .DataSource = daoInnlevering.hentTilbehor(daoDelt.finnDGWVerdi(oversiktGrid, "ordre_nr"))
             .Columns("ordre_nr").HeaderText = "Ordrenummer"
-            .Columns("navn").HeaderText = "Navn"
+            .Columns("utstyrstype").HeaderText = "Type"
+            .Columns("storrelse").HeaderText = "Størrelse"
+            .Columns("id").HeaderText = "Utstyrets id"
         End With
     End Sub
     ''' <summary>
