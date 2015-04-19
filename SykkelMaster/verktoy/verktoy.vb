@@ -6,30 +6,6 @@ Public Class verktoy
         Dim ep As System.Text.RegularExpressions.Match = regx.Match(epost)
         Return ep.Success
     End Function
-
-
-    Public Shared Function validerNummer(ByVal nummer As String, ByVal lengde As Integer) As Boolean
-        If nummer.Length = lengde And IsNumeric(nummer) Then
-            Return True
-        Else
-            Return False
-        End If
-    End Function
-
-
-    Public Shared Function validerStreng(ByVal streng As String) As Boolean
-        If streng = "" Then
-            Return False
-        Else
-            For i = 0 To streng.Length - 1
-                If Not Char.IsLetter(streng.Chars(i)) Then
-                    Return False
-                End If
-            Next
-            Return True
-        End If
-    End Function
-
     Public Shared Function tilfeldigStreng() As String 'Funksjon som skal returnere et tilfeldig passord som skal brukes til "glemt passord"
         'Lager variabel random som ny random funksjon 
         Dim random As New Random
@@ -48,7 +24,6 @@ Public Class verktoy
         'Returnerer det nye genererte tilfeldige passord
         Return randString
     End Function
-
     Public Shared Function sendMail(ByVal mottaker As String, ByVal emne As String, ByVal hovedtekst As String)
         Dim epostmelding As New MailMessage()
         Try
