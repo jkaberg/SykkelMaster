@@ -92,6 +92,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dao\daoUtleieOversikt.vb" />
     <Compile Include="dao\daoUtstyrstype.vb" />
     <Compile Include="dao\daoHistorie.vb" />
     <Compile Include="dao\daoAnsatt.vb" />
@@ -116,6 +117,12 @@
       <DependentUpon>ansatt.vb</DependentUpon>
     </Compile>
     <Compile Include="sider\ansatt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sider\utleieOversikt.Designer.vb">
+      <DependentUpon>utleieOversikt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sider\utleieOversikt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sider\utstyrstype.Designer.vb">
@@ -219,6 +226,9 @@
   <ItemGroup>
     <EmbeddedResource Include="sider\ansatt.resx">
       <DependentUpon>ansatt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sider\utleieOversikt.resx">
+      <DependentUpon>utleieOversikt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sider\utstyrstype.resx">
       <DependentUpon>utstyrstype.vb</DependentUpon>
