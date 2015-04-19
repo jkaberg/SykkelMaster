@@ -139,9 +139,9 @@ Partial Class innlevering
         Me.Label7.Location = New System.Drawing.Point(4, 20)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(56, 13)
+        Me.Label7.Size = New System.Drawing.Size(44, 13)
         Me.Label7.TabIndex = 0
-        Me.Label7.Text = "Leieavtale"
+        Me.Label7.Text = "OrdreNr"
         '
         'GroupBox1
         '
@@ -178,12 +178,12 @@ Partial Class innlevering
         '
         Me.SendMeldingContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendMeldingToolStripMenuItem})
         Me.SendMeldingContext.Name = "SendMeldingContext"
-        Me.SendMeldingContext.Size = New System.Drawing.Size(153, 48)
+        Me.SendMeldingContext.Size = New System.Drawing.Size(148, 26)
         '
         'SendMeldingToolStripMenuItem
         '
         Me.SendMeldingToolStripMenuItem.Name = "SendMeldingToolStripMenuItem"
-        Me.SendMeldingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SendMeldingToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SendMeldingToolStripMenuItem.Text = "Send melding"
         '
         'GroupBox3

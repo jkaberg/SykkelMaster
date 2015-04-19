@@ -170,6 +170,9 @@
             .Columns("hjulstr").HeaderText = "Hjulstørrelse"
             .Columns("rammestr").HeaderText = "Rammestørrelse"
             .Columns("id").Visible = False
+            .Columns("Navn").HeaderText = "Navn"
+            .Columns("fornavn").Visible = False
+            .Columns("etternavn").Visible = False
             .DefaultCellStyle.WrapMode = DataGridViewTriState.True
         End With
     End Sub

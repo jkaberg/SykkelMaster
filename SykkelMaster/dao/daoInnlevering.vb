@@ -52,7 +52,8 @@
     End Function
 
     Public Shared Function hentLeieFrister(ByVal sok As String) As DataTable
-        sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
+        Dim payload As DataTable
+        sql = "SELECT person.fornavn, person.etternavn, salg_leie.ordre_nr, salg_leie.frist, " &
               "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
               "sykkeltype.sykkeltype, person.id " &
               "FROM salg_leie " &
@@ -61,8 +62,10 @@
               "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
               "JOIN person ON salg_leie.person_id_kunde = person.id " &
               "WHERE DATE(frist) " & sok & " DATE(NOW()) AND s_l_status = 'Leid ut';"
+        payload = database.dt_query(sql)
+        payload.Columns.Add("Navn", Type.GetType("System.String"), "fornavn + ' ' + etternavn")
 
-        Return database.dt_query(sql)
+        Return payload
     End Function
 
     Public Shared Function avsluttLeieAvtale(ByVal ordre_nr As Integer, ByVal lokasjon As Integer) As Boolean
@@ -95,9 +98,4 @@
             Return vbNullChar
         End If
     End Function
-
-
-
-
-
 End Class

@@ -20,9 +20,7 @@
             verktoy.sendMail(mailAdresse, txtEmne.Text, rtbBrodtekst.Text)
             MsgBox("Mailen er sendt til " & mailAdresse)
         Else
-            MsgBox("Du må fylle ut Emne & Brødtekst", MsgBoxStyle.Critical)
+            MsgBox("Du må fylle ut emne og brødtekst", MsgBoxStyle.Critical)
         End If
     End Sub
-
-    
 End Class
