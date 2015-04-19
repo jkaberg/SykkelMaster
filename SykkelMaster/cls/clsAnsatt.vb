@@ -26,7 +26,7 @@
             ByVal fnavn As String,
             ByVal enavn As String,
             ByVal pnr As Object,
-            ByVal tnr As String,
+            ByVal tnr As Object,
             ByVal adresse As String,
             ByVal epost As String,
             ByVal stilling As Integer,
