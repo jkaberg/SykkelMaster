@@ -2,14 +2,15 @@
     Private fornavn, etternavn, epost, gate, sted As String ' Ola | Nordmann | ola.nordmann@epost.com | Olav Tryggvasonsgate 10 | Trondheim
     Private id, postnr, telefonnr As Integer ' 1 | 7070 | 12345678
 
-    'oppdater
+    'oppdater / opprett kunde avtale
     Sub New(ByVal id As Integer,
             ByVal fnavn As String,
             ByVal enavn As String,
             ByVal pnr As String,
             ByVal tnr As Object,
             ByVal adresse As String,
-            ByVal epost As String)
+            ByVal epost As String,
+            Optional ByVal sted As String = Nothing)
 
         Me.pID = id
         Me.pFnavn = fnavn
@@ -18,6 +19,7 @@
         Me.pTlfnr = tnr
         Me.pAdresse = adresse
         Me.pEpost = epost
+        Me.pSted = sted
     End Sub
 
     'legg til
@@ -131,6 +133,19 @@
                 Throw New Exception("Adress må være minst 3 tegn langt.")
             Else
                 gate = value
+            End If
+        End Set
+    End Property
+
+    Public Property pSted() As String
+        Get
+            Return sted
+        End Get
+        Set(ByVal value As String)
+            If value.Length < 3 Then
+                Throw New Exception("Sted må være minst 3 tegn langt.")
+            Else
+                sted = value
             End If
         End Set
     End Property

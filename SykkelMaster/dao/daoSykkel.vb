@@ -7,7 +7,6 @@
               sykkel.pAvviksmld & "', '" & sykkel.pInnkjopspris & "', '" & Format(sykkel.pInnkjopt, "yyyy-MM-dd") & "', " & sykkel.pPosisjon & ", " & sykkel.pVirksomhet & ");"
 
         Return database.query(sql)
-        Return MsgBox(Format(sykkel.pInnkjopt, "yyyy-MM-dd"))
     End Function
 
     Public Shared Function oppdaterSykkel(ByVal sykkel As clsSykkel) As Boolean

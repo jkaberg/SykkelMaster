@@ -86,8 +86,12 @@
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
         If cbxNavn.SelectedValue Then
             If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
-                utleieOversikt.Show()
-                utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr)
+                Try
+                    utleieOversikt.Show()
+                    utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleieOversikt.hentPerson(cbxNavn.SelectedValue))
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                End Try
             Else
                 MsgBox("Du må legg til produkter i kundevognen.", MsgBoxStyle.Exclamation)
             End If

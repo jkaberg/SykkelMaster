@@ -1,23 +1,39 @@
 ﻿Public Class utleieOversikt
     Public Sub lastInn(ByVal sykkler As DataTable,
-                              ByVal utstyr As DataTable)
+                       ByVal utstyr As DataTable,
+                       ByVal kunde As clsPerson)
 
         With lbOversikt
-            .Items.Add("PERSON")
-            .Items.Add("---------------------")
-            .Items.Add("Sykler:")
-            .Items.Add("---------------------")
-            For Each rad As DataRow In sykkler.Rows
-                .Items.Add(rad.Item("rammenr") & " " &
-                           rad.Item("sykkelnavn"))
+            .Items.Add("Kunde:")
+            .Items.Add(vbTab & kunde.pFnavn & " " & kunde.pEnavn)
+            .Items.Add(vbTab & kunde.pAdresse)
+            .Items.Add(vbTab & kunde.pPostnr & ", " & kunde.pSted)
 
-            Next
+            If Not sykkler.Rows.Count = 0 Then
+                .Items.Add("Sykler:")
+                .Items.Add("---------------------")
+                For Each rad As DataRow In sykkler.Rows
+                    .Items.Add(vbTab & "Rammenr: " & rad.Item("rammenr"))
+                    .Items.Add(vbTab & "Sykeltype: " & rad.Item("sykkelnavn"))
+                    .Items.Add(vbTab & "Leiepris")
+                    .Items.Add("")
+                Next
+            End If
+
+            If Not utstyr.Rows.Count = 0 Then
+                .Items.Add("Utstyr:")
+                .Items.Add("---------------------")
+                For Each rad As DataRow In utstyr.Rows
+                    .Items.Add(vbTab & rad.Item("navn"))
+                    .Items.Add("")
+                Next
+            End If
+            .Items.Add("Leieperiode:")
             .Items.Add("---------------------")
-            .Items.Add("Utstyr:")
+            .Items.Add("Start: ")
+            .Items.Add("Stop: ")
             .Items.Add("---------------------")
-            For Each rad As DataRow In utstyr.Rows
-                .Items.Add(rad.Item("navn"))
-            Next
+            .Items.Add("Total pris: ")
         End With
     End Sub
 
