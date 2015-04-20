@@ -44,10 +44,7 @@
     ''' <summary>
     ''' SQL setning som henter ut samtlige personer i databasen
     ''' </summary>
-    ''' <param name="sok"></param>
-    ''' <param name="id"></param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
+    ''' <returns>returnerer datatable med data</returns>
     Public Shared Function hentPersoner(Optional ByVal sok As String = Nothing, Optional ByVal id As Integer = Nothing) As DataTable
         If Not id = Nothing Then
             sql = "SELECT * FROM person WHERE id = " & id & ";"
