@@ -237,7 +237,7 @@
             End If
         Next rad
 
-        'pris *= cbxRabattAvtale.SelectedValue 'fungerer ikke av en eller annen grunn? sjekk at DB returnerer rett type (double, decimal?)
+        pris *= cbxRabattAvtale.SelectedValue
 
         totalPris.Text = "Totalpris: " & pris & "kr"
     End Sub
