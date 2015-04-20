@@ -177,12 +177,25 @@
         End With
     End Sub
 
+    ''' <summary>
+    ''' Lager en meny når man høyreklikker, for å sende melding til kunder som har leid ut
+    ''' </summary>
     Private Sub SendMeldingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendMeldingToolStripMenuItem.Click
         If Not IsNothing(oversiktGrid.CurrentRow) Then
             innleveringSendMail.mailAdresse = daoInnlevering.FinnMailOrdreNr(daoDelt.finnDGWVerdi(oversiktGrid, "ordre_nr"))
             innleveringSendMail.Show()
         Else
             MsgBox("Du må velge en rad.", MsgBoxStyle.Exclamation)
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Gjør så at man kan høyreklikke på en rad i gridviewen for å velge, slik at man ikke må først venstreklikke på en rad for så å høyreklikke for å få menyen til den raden.
+    ''' </summary>
+    Private Sub oversiktgrid_CellMouseDown(sender As Object, e As Windows.Forms.DataGridViewCellMouseEventArgs) Handles oversiktGrid.CellMouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            If e.RowIndex < 0 Or e.ColumnIndex < 0 Then Exit Sub
+            oversiktGrid.CurrentCell = oversiktGrid(e.ColumnIndex, e.RowIndex)
         End If
     End Sub
 End Class
