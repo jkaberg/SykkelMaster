@@ -73,6 +73,8 @@
                 daoUtleieOversikt.leggTilOrdre(ordre)
                 Me.Close()
                 utleie.Close()
+                MsgBox("Ordren er opprettet!", MsgBoxStyle.Information)
+                hoved.Show()
         End Select
 
     End Sub
