@@ -29,7 +29,6 @@
     Public Shared Function hentUtstyrsType() As DataTable
         Return database.dt_query("SELECT * FROM utstyrstype;")
     End Function
-
     Public Shared Function finnTlfNummer(ByVal kunde_id As Integer) As String
         payload = database.dt_query("SELECT telefon FROM person WHERE id = " & kunde_id & ";")
 

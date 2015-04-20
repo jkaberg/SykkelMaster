@@ -1,6 +1,6 @@
 ﻿Public Class daoHistorie
     Public Shared sql As String
-
+ 
     Public Shared Function hentAvtaleHistorie(Optional ByVal id As Integer = Nothing, Optional ByVal sok As String = Nothing) As DataTable
         sql = "SELECT salg_leie.ordre_nr, salg_leie.frist, " &
               "sykkel.rammenr, sykkel.hjulstr, sykkel.rammestr, " &
