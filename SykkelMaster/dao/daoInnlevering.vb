@@ -79,6 +79,9 @@
               "UPDATE sykkel " &
               "JOIN sykkel_leid_ut ON sykkel.rammenr = sykkel_leid_ut.rammenr AND sykkel_leid_ut.ordre_nr = " & ordre_nr & " " &
               "SET sykkel.s_status = 'Tilgjengelig', sykkel.posisjon = " & lokasjon & ";" &
+              "UPDATE sykkelutstyr " &
+              "JOIN utstyr_leid_ut ON sykkelutstyr.id = utstyr_leid_ut.utstyr_id AND utstyr_leid_ut.ordre_nr = " & ordre_nr & " " &
+              "SET sykkelutstyr.s_u_status = 'Tilgjengelig', sykkelutstyr.posisjon = " & lokasjon & ";" &
               "COMMIT;"
 
         Return database.query(sql)

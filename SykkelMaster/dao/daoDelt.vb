@@ -1,18 +1,31 @@
 ﻿Public Class daoDelt
     Public Shared payload As DataTable
     Public Shared sql As String
+    ''' <summary>
+    ''' SQL som henter ut stillinger fra databasen til comboBox
+    ''' </summary>
+    ''' <returns>datatable med data</returns>
     Public Shared Function hentStillinger() As DataTable
         Return database.dt_query("SELECT * FROM stilling;")
     End Function
-
+    ''' <summary>
+    ''' SQL som henter ut alle virksomheter
+    ''' </summary>
+    ''' <returns></returns>
     Public Shared Function hentVirksomhet() As DataTable
         Return database.dt_query("SELECT * FROM virksomhet;")
     End Function
-
+    ''' <summary>
+    ''' SQL som henter ut alle sykkeltypene i databasen
+    ''' </summary>
+    ''' <returns>datatable med data</returns>
     Public Shared Function hentSykkelType() As DataTable
         Return database.dt_query("SELECT * FROM sykkeltype;")
     End Function
-
+    ''' <summary>
+    ''' SQL som henter ut alle utstyrstypene i databasen 
+    ''' </summary>
+    ''' <returns>datatable med data</returns>
     Public Shared Function hentUtstyrsType() As DataTable
         Return database.dt_query("SELECT * FROM utstyrstype;")
     End Function
