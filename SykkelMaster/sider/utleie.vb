@@ -89,24 +89,23 @@
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
         Dim fra As Date = fraTid.Value
         Dim til As Date = tilTid.Value
+
         If cbxNavn.SelectedValue Then
-            If sjekkLeieTid(fraTid.Value, tilTid.Value) Then
-                If rbHelg.Checked And helgLeie(fra.Date, til.Date) Then
-                    If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
-                        Try
-                            utleieOversikt.Show()
-                            utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleie.hentPerson(cbxNavn.SelectedValue))
-                        Catch ex As Exception
-                            MsgBox(ex.Message, MsgBoxStyle.Critical)
-                        End Try
-                    Else
-                        MsgBox("Du må legg til produkter i kundevognen.", MsgBoxStyle.Exclamation)
-                    End If
-                Else
-                    MsgBox("Helg leie må foregå på helg dager (Lørdag, Søndag) og kan kun være 2 dager.", MsgBoxStyle.Exclamation)
-                End If
-            Else
+            If Not sjekkLeieTid(fraTid.Value, tilTid.Value) And (rbDag.Checked Or rbTime.Checked) Then
                 MsgBox("Til tid kan ikke være mindre enn fra tid", MsgBoxStyle.Exclamation)
+            ElseIf Not helgLeie(fra.Date, til.Date) And rbHelg.Checked Then
+                MsgBox("Helg leie må foregå på helg dager (Lørdag, Søndag) og kan kun være 2 dager.", MsgBoxStyle.Exclamation)
+            Else
+                If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
+                    Try
+                        utleieOversikt.Show()
+                        utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleie.hentPerson(cbxNavn.SelectedValue))
+                    Catch ex As Exception
+                        MsgBox(ex.Message, MsgBoxStyle.Critical)
+                    End Try
+                Else
+                    MsgBox("Du må legg til produkter i kundevognen.", MsgBoxStyle.Exclamation)
+                End If
             End If
         Else
             MsgBox("Du må velge en kunde.", MsgBoxStyle.Exclamation)
