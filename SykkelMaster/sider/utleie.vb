@@ -7,7 +7,6 @@
         utleieOversikt.Close()
         tomKundevogn(stengerned:=True)
     End Sub
-
     Private Sub utleie_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         With cbxRabattAvtale
             .DisplayMember = "type_rabatt"
@@ -140,24 +139,6 @@
             MsgBox("Du må velge en gyldig rad i kundevognen.", MsgBoxStyle.Exclamation)
         End If
     End Sub
-    Private Function helgLeie(ByVal fra As Date, ByVal til As Date)
-        If dagErHelg(fra) And dagErHelg(til) Then
-            If DateDiff(DateInterval.Day, fra, til) = 1 Then
-                Return True
-            End If
-        End If
-        Return False
-    End Function
-    Private Function dagErHelg(ByVal dag As Date)
-        Select Case dag.DayOfWeek
-            Case DayOfWeek.Saturday
-                Return True
-            Case DayOfWeek.Sunday
-                Return True
-            Case Else
-                Return False
-        End Select
-    End Function
     Private Sub utstyrGrid_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles utstyrGrid.MouseDoubleClick
         If Not IsNothing(Me.utstyrGrid.CurrentRow) Then
             kundevogn_utstyr = daoUtleie.leggTilUtstyrKundevogn(kundevogn_utstyr,
@@ -187,6 +168,22 @@
     Private Sub btnTomKundevogn_Click(sender As Object, e As EventArgs) Handles btnTomKundevogn.Click
         tomKundevogn()
     End Sub
+    Private Sub vognSykkel_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vognSykkel.CellClick
+        If Not IsNothing(e.RowIndex) Then
+            sykkelPris.Text = finnPris(daoDelt.finnDGWVerdi(vognSykkel, "innkjopspris"), "Sykkel")
+        End If
+    End Sub
+    Private Sub utstyrGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles utstyrGrid.CellClick
+        If Not IsNothing(e.RowIndex) Then
+            utstyrPris.Text = finnPris(daoDelt.finnDGWVerdi(utstyrGrid, "innkjopspris"), "Utstyr")
+        End If
+    End Sub
+    Private Sub finnTotalPris(sender As Object, e As DataGridViewCellEventArgs) Handles sykkelGrid.CellClick,
+                                                                                        utstyrGrid.CellClick,
+                                                                                        vognSykkel.CellClick,
+                                                                                        vognStyr.CellClick
+        regnTotalPris()
+    End Sub
     Public Sub tomKundevogn(Optional ByVal stengerned As Boolean = False)
         If Not IsNothing(kundevogn_sykkler.Rows) Then
             For Each sykkel As DataRow In kundevogn_sykkler.Rows
@@ -212,22 +209,6 @@
             kundevogn_sykkler = Nothing
             kundevogn_utstyr = Nothing
         End If
-    End Sub
-    Private Sub vognSykkel_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vognSykkel.CellClick
-        If Not IsNothing(e.RowIndex) Then
-            sykkelPris.Text = finnPris(daoDelt.finnDGWVerdi(vognSykkel, "innkjopspris"), "Sykkel")
-        End If
-    End Sub
-    Private Sub utstyrGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles utstyrGrid.CellClick
-        If Not IsNothing(e.RowIndex) Then
-            utstyrPris.Text = finnPris(daoDelt.finnDGWVerdi(utstyrGrid, "innkjopspris"), "Utstyr")
-        End If
-    End Sub
-    Private Sub finnTotalPris(sender As Object, e As DataGridViewCellEventArgs) Handles sykkelGrid.CellClick,
-                                                                                        utstyrGrid.CellClick,
-                                                                                        vognSykkel.CellClick,
-                                                                                        vognStyr.CellClick
-        regnTotalPris()
     End Sub
     Private Function finnPris(ByVal pris As Integer, ByVal type As String) As String
         If rbDag.Checked Then
@@ -268,5 +249,23 @@
             Return False
         End If
         Return True
+    End Function
+    Private Function helgLeie(ByVal fra As Date, ByVal til As Date)
+        If dagErHelg(fra) And dagErHelg(til) Then
+            If DateDiff(DateInterval.Day, fra, til) = 1 Then
+                Return True
+            End If
+        End If
+        Return False
+    End Function
+    Private Function dagErHelg(ByVal dag As Date)
+        Select Case dag.DayOfWeek
+            Case DayOfWeek.Saturday
+                Return True
+            Case DayOfWeek.Sunday
+                Return True
+            Case Else
+                Return False
+        End Select
     End Function
 End Class

@@ -34,8 +34,6 @@
             Throw New Exception("Denne personen eksisterer ikke i databasen.")
         End If
     End Function
-
-#Region "sykkel"
     Public Shared Function hentSykkler() As DataTable
         sql = "SELECT sykkel.rammenr, sykkel.hjulstr, sykkel.sykkeltype, sykkel.rammestr, sykkel.innkjopspris, " &
               "sykkeltype.sykkeltype sykkelnavn " &
@@ -45,7 +43,6 @@
 
         Return database.dt_query(sql)
     End Function
-
     Public Shared Function settSykkelStatus(ByVal status As String,
                                             ByVal rammenr As String) As DataTable
 
@@ -97,9 +94,6 @@
 
         Return dt
     End Function
-
-#End Region
-#Region "utstyr"
     Public Shared Function hentUtstyr() As DataTable
         sql = "SELECT sykkelutstyr.id, sykkelutstyr.innkjopspris, sykkelutstyr.storrelse, utstyrstype.utstyrstype navn " &
               "FROM sykkelutstyr " &
@@ -150,6 +144,4 @@
 
         Return dt
     End Function
-
-#End Region
 End Class
