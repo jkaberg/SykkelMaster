@@ -72,10 +72,6 @@
         sql = "START TRANSACTION;" &
               "UPDATE salg_leie SET s_l_status = 'Innlevert' " &
               "WHERE ordre_nr = " & ordre_nr & ";" &
-              "UPDATE sykkel_leid_ut SET s_l_u_status = 'Levert' " &
-              "WHERE ordre_nr = " & ordre_nr & ";" &
-              "UPDATE utstyr_leid_ut SET u_l_u_status = 'Levert' " &
-              "WHERE ordre_nr = " & ordre_nr & ";" &
               "UPDATE sykkel " &
               "JOIN sykkel_leid_ut ON sykkel.rammenr = sykkel_leid_ut.rammenr AND sykkel_leid_ut.ordre_nr = " & ordre_nr & " " &
               "SET sykkel.s_status = 'Tilgjengelig', sykkel.posisjon = " & lokasjon & ";" &

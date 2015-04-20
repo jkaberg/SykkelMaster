@@ -488,9 +488,9 @@ Partial Class utleie
         Me.GroupBox6.Controls.Add(Me.utstyrPris)
         Me.GroupBox6.Controls.Add(Me.sykkelPris)
         Me.GroupBox6.Location = New System.Drawing.Point(595, 14)
-        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox6.Size = New System.Drawing.Size(261, 165)
         Me.GroupBox6.TabIndex = 42
         Me.GroupBox6.TabStop = False

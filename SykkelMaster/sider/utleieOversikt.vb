@@ -59,6 +59,8 @@
                 total_pris *= total_leie_tid
             End If
 
+            ordre.pTotalPris = total_pris
+
             .Items.Add("---------------------")
             .Items.Add("Total pris: " & total_pris & "kr")
         End With

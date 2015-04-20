@@ -102,7 +102,7 @@
                                                              tilTid.Value,
                                                              start.bruker.pID,
                                                              cbxRabattAvtale.SelectedValue,
-                                                             regnTotalPris(),
+                                                             regnTotalPris,
                                                              kundevogn_sykkler,
                                                              kundevogn_utstyr,
                                                              daoUtleie.hentPerson(cbxNavn.SelectedValue))
@@ -225,7 +225,7 @@
             Return "Du må velg en leie type."
         End If
     End Function
-    Private Function regnTotalPris()
+    Private Function regnTotalPris() As Double
         Dim pris As Double = 0
         Dim rabatt As Double = cbxRabattAvtale.SelectedValue
 
