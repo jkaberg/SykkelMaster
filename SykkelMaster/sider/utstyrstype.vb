@@ -27,6 +27,7 @@
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         Finally
             utstyrstypeGrid.DataSource = daoDelt.hentUtstyrsType
+            utstyrEdit.cbxType.DataSource = daoDelt.hentUtstyrsType
         End Try
     End Sub
 
@@ -44,6 +45,7 @@
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
                     utstyrstypeGrid.DataSource = daoDelt.hentUtstyrsType
+                    utstyrEdit.cbxType.DataSource = daoDelt.hentUtstyrsType
                 End Try
         End Select
     End Sub
@@ -62,6 +64,7 @@
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 Finally
                     utstyrstypeGrid.DataSource = daoDelt.hentUtstyrsType
+                    utstyrEdit.cbxType.DataSource = daoDelt.hentUtstyrsType
                 End Try
         End Select
     End Sub
