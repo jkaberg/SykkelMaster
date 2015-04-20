@@ -98,8 +98,14 @@
             Else
                 If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
                     Try
+                        Dim ordre As New clsUtleie(fraTid.Value,
+                                                   tilTid.Value,
+                                                   kundevogn_sykkler,
+                                                   kundevogn_utstyr,
+                                                   daoUtleie.hentPerson(cbxNavn.SelectedValue))
+
+                        utleieOversikt.lastInn(ordre)
                         utleieOversikt.Show()
-                        utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleie.hentPerson(cbxNavn.SelectedValue))
                     Catch ex As Exception
                         MsgBox(ex.Message, MsgBoxStyle.Critical)
                     End Try

@@ -9,6 +9,11 @@
             ByVal utstyr As DataTable,
             ByVal kunde As clsPerson)
 
+        Me.pFra = fra
+        Me.pTil = til
+        Me.pSykler = sykler
+        Me.pUtstyr = utstyr
+        Me.pKunde = kunde
     End Sub
     Public Property pFra() As Date
         Get

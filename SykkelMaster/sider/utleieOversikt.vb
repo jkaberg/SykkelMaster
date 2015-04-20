@@ -1,25 +1,20 @@
 ﻿Public Class utleieOversikt
     Private total_pris As Double
-    Private fra As Date = utleie.fraTid.Value
-    Private til As Date = utleie.tilTid.Value
     Private total_leie_tid As Integer
-    Public Sub lastInn(ByVal sykkler As DataTable,
-                       ByVal utstyr As DataTable,
-                       ByVal kunde As clsPerson)
+    Public Sub lastInn(ByVal ordre As clsUtleie)
         Dim pris As Double
         Dim dags_leie As Boolean = utleie.rbDag.Checked
 
-
         With lbOversikt
             .Items.Add("Kunde:")
-            .Items.Add(vbTab & kunde.pFnavn & " " & kunde.pEnavn)
-            .Items.Add(vbTab & kunde.pAdresse)
-            .Items.Add(vbTab & kunde.pPostnr & ", " & kunde.pSted)
+            .Items.Add(vbTab & ordre.pKunde.pFnavn & " " & ordre.pKunde.pEnavn)
+            .Items.Add(vbTab & ordre.pKunde.pAdresse)
+            .Items.Add(vbTab & ordre.pKunde.pPostnr & ", " & ordre.pKunde.pSted)
 
-            If Not sykkler.Rows.Count = 0 Then
+            If Not ordre.pSykler.Rows.Count = 0 Then
                 .Items.Add("Sykler:")
                 .Items.Add("---------------------")
-                For Each rad As DataRow In sykkler.Rows
+                For Each rad As DataRow In ordre.pSykler.Rows
                     'regn ut time/dag pris
                     If dags_leie Then
                         pris = regnPris.dag(rad.Item("innkjopspris"))
@@ -36,25 +31,25 @@
                 Next
             End If
 
-            If Not utstyr.Rows.Count = 0 Then
+            If Not ordre.pUtstyr.Rows.Count = 0 Then
                 .Items.Add("Utstyr:")
                 .Items.Add("---------------------")
-                For Each rad As DataRow In utstyr.Rows
+                For Each rad As DataRow In ordre.pUtstyr.Rows
                     .Items.Add(vbTab & "Navn: " & rad.Item("navn"))
                     .Items.Add(vbTab & "Størrelse: " & rad.Item("storrelse"))
                 Next
             End If
             .Items.Add("Leieperiode:")
             .Items.Add("---------------------")
-            .Items.Add("Start: " & fra)
-            .Items.Add("Stop: " & til)
+            .Items.Add("Start: " & ordre.pFra)
+            .Items.Add("Stop: " & ordre.pTil)
 
             'regn ut leie tid
             If dags_leie Then
-                total_leie_tid = DateDiff(DateInterval.Day, fra, til)
+                total_leie_tid = DateDiff(DateInterval.Day, ordre.pFra, ordre.pTil)
                 .Items.Add("Totalt dager: " & total_leie_tid)
             Else
-                total_leie_tid = DateDiff(DateInterval.Day, fra, til)
+                total_leie_tid = DateDiff(DateInterval.Day, ordre.pFra, ordre.pTil)
                 .Items.Add("Totalt timer: " & total_leie_tid)
             End If
 
