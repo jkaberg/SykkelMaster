@@ -23,7 +23,7 @@
                 sql = "SELECT sykkeltype.sykkeltype as navn, count(*) as num " &
                       "FROM sykkel " &
                       "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
-                      "WHERE sykkel.s_status = 'Reperasjon' " &
+                      "WHERE sykkel.s_status = 'Reparasjon' " &
                       "GROUP BY sykkeltype.sykkeltype;"
             Case 4 ' Hvor stort er overskuddet
                 sql = "SELECT okonomi.tall as num,inntektstype as navn " &
