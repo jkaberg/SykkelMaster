@@ -107,7 +107,7 @@
             Return stilling
         End Get
         Set(ByVal value As Integer)
-            If value = 0 Then
+            If value = -1 Then
                 Throw New Exception("Du må velg en stillings type.")
             Else
                 stilling = value

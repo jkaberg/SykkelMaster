@@ -3,7 +3,7 @@
 
     Public Shared Function hentStats(ByVal index As Integer) As DataTable
         Select Case index
-            Case 0 ' Antal sykkler per sykkeltype
+            Case 0 ' Antall sykkler per sykkeltype
                 sql = "SELECT sykkeltype.sykkeltype AS navn, count(*) AS num " &
                       "FROM sykkel " &
                       "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
