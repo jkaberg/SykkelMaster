@@ -42,7 +42,8 @@
                   "JOIN sykkel ON sykkel.rammenr = sykkel_leid_ut.rammenr " &
                   "JOIN sykkeltype ON sykkeltype.id = sykkel.sykkeltype " &
                   "JOIN person ON salg_leie.person_id_kunde = person.id " &
-                  "WHERE s_l_status <> 'Innlevert';"
+                  "WHERE s_l_status <> 'Innlevert' " &
+                  "GROUP BY ordre_nr"
         End If
 
         payload = database.dt_query(sql)
