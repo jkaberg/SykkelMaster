@@ -9,8 +9,6 @@
               "SELECT LAST_INSERT_ID();" &
               "COMMIT;"
 
-        Console.WriteLine(sql)
-
         payload = database.dt_query(sql)
 
         ordre_nr = payload.Rows(0).Item(0)
@@ -34,8 +32,6 @@
               "UPDATE sykkel SET s_status = 'Leid ut' WHERE rammenr = '" & rammenr & "';" &
               "COMMIT;"
 
-        Console.WriteLine(sql)
-
         database.query(sql)
     End Sub
     Private Shared Sub settUtstyrStatus(ByVal id As Integer, ByVal ordre_nr As Integer)
@@ -44,8 +40,6 @@
               "VALUES (" & ordre_nr & ", " & id & ");" &
               "UPDATE sykkelutstyr SET s_u_status = 'Leid ut' WHERE id = " & id & ";" &
               "COMMIT;"
-
-        Console.WriteLine(sql)
 
         database.query(sql)
     End Sub
