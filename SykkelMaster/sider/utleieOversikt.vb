@@ -1,7 +1,8 @@
 ﻿Public Class utleieOversikt
     Private total_pris As Double
     Private total_leie_tid As Integer
-    Public Sub lastInn(ByVal ordre As clsUtleie)
+    Public ordre As clsUtleie
+    Private Sub utleieOversikt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim pris As Double
         Dim dags_leie As Boolean = utleie.rbDag.Checked
 
@@ -62,12 +63,17 @@
             .Items.Add("Total pris: " & total_pris & "kr")
         End With
     End Sub
-
-    Private Sub opprettAvtale()
-
+    Private Sub utleieOversikt_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        ordre = Nothing
     End Sub
 
-    Private Sub utleieOversikt_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        utleie.tomKundevogn()
+    Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
+        Select Case MsgBox("Er du sikker på at du vil legg til ordren?", MsgBoxStyle.YesNo)
+            Case MsgBoxResult.Yes
+                daoUtleieOversikt.leggTilOrdre(ordre)
+                Me.Close()
+                utleie.Close()
+        End Select
+
     End Sub
 End Class

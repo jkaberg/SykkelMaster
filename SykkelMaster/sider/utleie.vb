@@ -98,13 +98,14 @@
             Else
                 If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
                     Try
-                        Dim ordre As New clsUtleie(fraTid.Value,
-                                                   tilTid.Value,
-                                                   kundevogn_sykkler,
-                                                   kundevogn_utstyr,
-                                                   daoUtleie.hentPerson(cbxNavn.SelectedValue))
-
-                        utleieOversikt.lastInn(ordre)
+                        utleieOversikt.ordre = New clsUtleie(fraTid.Value,
+                                                             tilTid.Value,
+                                                             start.bruker.pID,
+                                                             cbxRabattAvtale.SelectedValue,
+                                                             regnTotalPris(),
+                                                             kundevogn_sykkler,
+                                                             kundevogn_utstyr,
+                                                             daoUtleie.hentPerson(cbxNavn.SelectedValue))
                         utleieOversikt.Show()
                     Catch ex As Exception
                         MsgBox(ex.Message, MsgBoxStyle.Critical)
@@ -187,7 +188,7 @@
                                                                                         utstyrGrid.CellClick,
                                                                                         vognSykkel.CellClick,
                                                                                         vognStyr.CellClick
-        regnTotalPris()
+        totalPris.Text = "Totalpris: " & regnTotalPris() & " kr"
     End Sub
     Public Sub tomKundevogn(Optional ByVal stengerned As Boolean = False)
         If Not IsNothing(kundevogn_sykkler.Rows) Then
@@ -217,15 +218,16 @@
     End Sub
     Private Function finnPris(ByVal pris As Integer, ByVal type As String) As String
         If rbDag.Checked Then
-            Return "Pris: " & regnPris.dag(pris) & " kr/dag"
+            Return type & "pris: " & regnPris.dag(pris) & " kr/dag"
         ElseIf rbTime.Checked Then
-            Return "Pris: " & regnPris.time(pris) & " kr/dag"
+            Return type & "pris: " & regnPris.time(pris) & " kr/dag"
         Else
             Return "Du må velg en leie type."
         End If
     End Function
-    Private Sub regnTotalPris()
+    Private Function regnTotalPris()
         Dim pris As Double = 0
+        Dim rabatt As Double = cbxRabattAvtale.SelectedValue
 
         For Each rad As DataGridViewRow In vognSykkel.Rows
             If rbDag.Checked Then
@@ -243,10 +245,12 @@
             End If
         Next rad
 
-        pris *= cbxRabattAvtale.SelectedValue
-
-        totalPris.Text = "Totalpris: " & pris & "kr"
-    End Sub
+        If rabatt > 0 Then
+            Return (pris * rabatt)
+        Else
+            Return pris
+        End If
+    End Function
     Private Function sjekkLeieTid(ByVal fra As Date, ByVal til As Date) As Boolean
         If rbDag.Checked And til.Date < fra.Date Then
             Return False

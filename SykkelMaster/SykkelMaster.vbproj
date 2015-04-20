@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cls\clsUtleie.vb" />
+    <Compile Include="dao\daoUtleieOversikt.vb" />
     <Compile Include="dao\daoUtstyrstype.vb" />
     <Compile Include="dao\daoHistorie.vb" />
     <Compile Include="dao\daoAnsatt.vb" />

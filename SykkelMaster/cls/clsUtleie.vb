@@ -2,15 +2,21 @@
     Private fra, til As Date
     Private sykler, utstyr As DataTable
     Private kunde As clsPerson
+    Private selger, rabatt As Integer
+    Private total_pris As Double
 
     Sub New(ByVal fra As Date,
             ByVal til As Date,
+            ByVal selger As Integer,
+            ByVal rabatt As Integer,
+            ByVal total_pris As Double,
             ByVal sykler As DataTable,
             ByVal utstyr As DataTable,
             ByVal kunde As clsPerson)
 
         Me.pFra = fra
         Me.pTil = til
+        Me.pSelger = selger
         Me.pSykler = sykler
         Me.pUtstyr = utstyr
         Me.pKunde = kunde
@@ -29,6 +35,30 @@
         End Get
         Set(ByVal value As Date)
             til = value
+        End Set
+    End Property
+    Public Property pSelger() As Integer
+        Get
+            Return selger
+        End Get
+        Set(ByVal value As Integer)
+            selger = value
+        End Set
+    End Property
+    Public Property pRabatt() As Integer
+        Get
+            Return rabatt
+        End Get
+        Set(ByVal value As Integer)
+            rabatt = value
+        End Set
+    End Property
+    Public Property pTotalPris() As Double
+        Get
+            Return total_pris
+        End Get
+        Set(ByVal value As Double)
+            total_pris = value
         End Set
     End Property
     Public Property pSykler() As DataTable
