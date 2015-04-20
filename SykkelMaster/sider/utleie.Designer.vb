@@ -63,6 +63,7 @@ Partial Class utleie
         Me.totalPris = New System.Windows.Forms.Label()
         Me.utstyrPris = New System.Windows.Forms.Label()
         Me.sykkelPris = New System.Windows.Forms.Label()
+        Me.rbHelg = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
         CType(Me.sykkelGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -79,6 +80,7 @@ Partial Class utleie
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.rbHelg)
         Me.GroupBox1.Controls.Add(Me.tilTid)
         Me.GroupBox1.Controls.Add(Me.fraTid)
         Me.GroupBox1.Controls.Add(Me.rbDag)
@@ -516,6 +518,18 @@ Partial Class utleie
         Me.sykkelPris.TabIndex = 1
         Me.sykkelPris.Text = "Sykkelpris: 0 kr /time"
         '
+        'rbHelg
+        '
+        Me.rbHelg.AutoSize = True
+        Me.rbHelg.Location = New System.Drawing.Point(102, 16)
+        Me.rbHelg.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbHelg.Name = "rbHelg"
+        Me.rbHelg.Size = New System.Drawing.Size(47, 17)
+        Me.rbHelg.TabIndex = 19
+        Me.rbHelg.TabStop = True
+        Me.rbHelg.Text = "Helg"
+        Me.rbHelg.UseVisualStyleBackColor = True
+        '
         'utleie
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -595,4 +609,5 @@ Partial Class utleie
     Friend WithEvents sykkelPris As System.Windows.Forms.Label
     Friend WithEvents utstyrPris As System.Windows.Forms.Label
     Friend WithEvents totalPris As System.Windows.Forms.Label
+    Friend WithEvents rbHelg As System.Windows.Forms.RadioButton
 End Class

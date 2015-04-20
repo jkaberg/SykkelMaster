@@ -81,24 +81,30 @@
         tilTid.Format = DateTimePickerFormat.Time
         tilTid.ShowUpDown = True
     End Sub
-    Private Sub rbDag_CheckedChanged(sender As Object, e As EventArgs) Handles rbDag.CheckedChanged
+    Private Sub rbDag_CheckedChanged(sender As Object, e As EventArgs) Handles rbDag.CheckedChanged, rbHelg.CheckedChanged
         fraTid.Format = DateTimePickerFormat.Short
         fraTid.ShowUpDown = False
         tilTid.Format = DateTimePickerFormat.Short
         tilTid.ShowUpDown = False
     End Sub
     Private Sub btnOprettAvtale_Click(sender As Object, e As EventArgs) Handles btnOprettAvtale.Click
+        Dim fra As Date = fraTid.Value
+        Dim til As Date = tilTid.Value
         If cbxNavn.SelectedValue Then
             If sjekkLeieTid(fraTid.Value, tilTid.Value) Then
-                If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
-                    Try
-                        utleieOversikt.Show()
-                        utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleie.hentPerson(cbxNavn.SelectedValue))
-                    Catch ex As Exception
-                        MsgBox(ex.Message, MsgBoxStyle.Critical)
-                    End Try
+                If rbHelg.Checked And helgLeie(fra.Date, til.Date) Then
+                    If kundevogn_sykkler.Rows.Count > 0 Or kundevogn_utstyr.Rows.Count > 0 Then
+                        Try
+                            utleieOversikt.Show()
+                            utleieOversikt.lastInn(kundevogn_sykkler, kundevogn_utstyr, daoUtleie.hentPerson(cbxNavn.SelectedValue))
+                        Catch ex As Exception
+                            MsgBox(ex.Message, MsgBoxStyle.Critical)
+                        End Try
+                    Else
+                        MsgBox("Du må legg til produkter i kundevognen.", MsgBoxStyle.Exclamation)
+                    End If
                 Else
-                    MsgBox("Du må legg til produkter i kundevognen.", MsgBoxStyle.Exclamation)
+                    MsgBox("Helg leie må foregå på helg dager (Lørdag, Søndag) og kan kun være 2 dager.", MsgBoxStyle.Exclamation)
                 End If
             Else
                 MsgBox("Til tid kan ikke være mindre enn fra tid", MsgBoxStyle.Exclamation)
@@ -255,15 +261,11 @@
 
         totalPris.Text = "Totalpris: " & pris & "kr"
     End Sub
-    Private Function sjekkLeieTid(ByVal fra As Date, ByVal til As Date)
-        If rbDag.Checked Then
-            If til.Date < fra.Date Then
-                Return False
-            End If
-        ElseIf rbTime.Checked Then
-            If til.Hour < fra.Hour Then
-                Return False
-            End If
+    Private Function sjekkLeieTid(ByVal fra As Date, ByVal til As Date) As Boolean
+        If rbDag.Checked And til.Date < fra.Date Then
+            Return False
+        ElseIf rbTime.Checked And til.Hour < fra.Hour Then
+            Return False
         End If
         Return True
     End Function
