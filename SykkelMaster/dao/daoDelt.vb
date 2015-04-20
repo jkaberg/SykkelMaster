@@ -66,4 +66,8 @@
     Public Shared Function finnDGWVerdi(ByVal dgw As DataGridView, ByVal kolonne As String) As Object
         Return dgw.Rows(dgw.CurrentRow.Index).Cells(kolonne).Value
     End Function
+
+    Public Shared Function sjekkRammeNr(ByVal rammenr As String) As Boolean
+        Return database.query("SELECT rammenr FROM sykkel WHERE rammenr = '" & rammenr & "';")
+    End Function
 End Class

@@ -38,6 +38,8 @@
         Set(ByVal value As String)
             If value = "" Then
                 Throw New Exception("Du må angi et rammenummer.")
+            ElseIf daoDelt.sjekkRammeNr(value) Then
+                Throw New Exception("Rammenummer eksisterer")
             Else
                 rammenr = value
             End If
